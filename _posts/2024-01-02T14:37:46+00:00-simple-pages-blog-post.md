@@ -1,6 +1,6 @@
 ---
 title: "Simple Github pages blog post"
-date: 2024-01-02T14:37:46
+date: 2024-01-02 14:37:46
 ---
 ## Overview
 This post summarises a simple workflow to add new posts to an existing Github pages-based Jekyll formatted blog. For further reading on the initial setup see [Further Reading]()
@@ -59,8 +59,26 @@ wmcdonald@fedora:~/repos/github-pages$ git commit -m '- Add new blog post descri
  1 file changed, 64 insertions(+)
  create mode 100644 _posts/2024-01-02T14:37:46+00:00-simple-pages-blog-post.md
 ```
+Push to the remote to trigger a workflow:
+```
+wmcdonald@fedora:~/repos/github-pages$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
 
-Push to the remote to trigger a workflow
+nothing to commit, working tree clean
+
+wmcdonald@fedora:~/repos/github-pages$ git push
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.79 KiB | 1.79 MiB/s, done.
+Total 8 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/wmcdonald404/github-pages.git
+   7609736..5dd04aa  main -> main
+```
 
 4. Check that the new post has been generated
 
