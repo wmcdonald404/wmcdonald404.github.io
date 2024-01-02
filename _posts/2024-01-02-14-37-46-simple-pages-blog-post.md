@@ -8,12 +8,12 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 1. Create a new post file
 Create the post file with an appropriately time-stamped name. Assuming our repository is checked out at `~/repos/github-pages/`:
 ```
-$ touch ~/repos/github-pages/$(date -I)-$(date +%H-%M-%S)-simple-pages-blog-post.md
+$ touch ~/repos/github-pages/_posts/$(date -I)-$(date +%H-%M-%S)-simple-pages-blog-post.md
 ```
 2. Add the contents including any requisite [FrontMatter](https://jekyllrb.com/docs/front-matter/)
 Edit the new post:
 ```
-$ vim ~/repos/github-pages/2024-01-02-14-37-46-simple-pages-blog-post.md
+$ vim ~/repos/github-pages/_posts/2024-01-02-14-37-46-simple-pages-blog-post.md
 ```
 Add the FrontMatter, for example:
 ```
