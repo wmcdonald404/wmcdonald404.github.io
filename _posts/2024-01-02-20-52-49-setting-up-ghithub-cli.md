@@ -49,6 +49,7 @@ CORE COMMANDS
 ```
 
 3. Log in to Github using the CLI
+
 Start the Github CLI authentication process:
 ```
 wmcdonald@fedora:~$ gh auth login -h github.com -p https
@@ -86,7 +87,9 @@ Confirm the sign in was successful:
 ✓ Configured git protocol
 ✓ Logged in as wmcdonald404
 ```
+
 4. Set a `GH_REPO` environment variable
+
 ```
 wmcdonald@fedora:~$ export GH_REPO='https://github.com/wmcdonald404/github-pages' 
 ```
