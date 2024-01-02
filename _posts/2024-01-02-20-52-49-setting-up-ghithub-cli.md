@@ -33,6 +33,7 @@ Description  : A command-line interface to GitHub for use in your terminal or yo
 wmcdonald@fedora:~$ sudo dnf -y install gh
 ```
 2. Validate that the Github CLI runs
+
 ```
 wmcdonald@fedora:~$ gh --help | head
 Work seamlessly with GitHub from the command line.
@@ -46,6 +47,7 @@ CORE COMMANDS
   codespace:   Connect to and manage codespaces
   gist:        Manage gists
 ```
+
 3. Log in to Github using the CLI
 Start the Github CLI authentication process:
 ```
