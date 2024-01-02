@@ -1,5 +1,3 @@
----
-title: Static Index Title
----
+## Overview
 
 A collection of vaguely useful technical notes, aides memoire and other ramblings.
