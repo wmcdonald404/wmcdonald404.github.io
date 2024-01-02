@@ -79,6 +79,7 @@ remote: Resolving deltas: 100% (3/3), completed with 1 local object.
 To https://github.com/wmcdonald404/github-pages.git
    7609736..5dd04aa  main -> main
 ```
+
 4. Check that the new post has been generated
 Verify that the new post is visible as a **Post** on your [Github page](https://wmcdonald404.github.io/github-pages/).
 Navigate to [your new post](https://wmcdonald404.github.io/github-pages/2024/01/02/14-37-46-simple-pages-blog-post.html) to verify its publication.
