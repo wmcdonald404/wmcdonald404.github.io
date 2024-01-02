@@ -23,7 +23,6 @@ date: 2024-01-02 14:37:46
 ---
 ```
 Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-14-37-46-simple-pages-blog-post.md#further-reading).
-
 3. Verify `git status`, `git add` the new content, `git commit` the new post and `git push` to the remote repository
 
 Check the current Git source control state:
