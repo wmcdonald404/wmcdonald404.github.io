@@ -4,6 +4,10 @@ date: 2024-01-02 14:37:46
 ---
 ## Overview
 This post summarises a simple workflow to add new posts to an existing Github pages-based Jekyll formatted blog. For further reading on the initial setup see [Further Reading](#further-reading)
+
+## Background
+[Github pages](https://pages.github.com/) can provide a simple, relatively cheap way to host some simple web content. Frequently this content is auto-generated from underlying [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) in from a Git repository using [Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll).
+
 ## How-to
 1. Create a new post file
 

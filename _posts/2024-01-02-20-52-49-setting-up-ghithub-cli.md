@@ -6,6 +6,15 @@ date: 2024-01-02 20:52:49
 ## Overview
 Outline the basic steps to install and configure the Github CLI on Fedora (currently 39).
 
+## Background
+To quote chaper-and-verse from the package description:
+
+> A command-line interface to GitHub for use in your terminal or your scripts.
+>
+> gh is a tool designed to enhance your workflow when working with GitHub. It provides a seamless way to interact with GitHub repositories and perform various actions right from the command line, eliminating the need to switch between your terminal and the GitHub website.
+
+Having the CLI to-hand can streamline an engineer's workflow, reducing context switching from the development environment to the Github web UI.
+
 ## How-to
 1. Install the CLI
 
@@ -32,6 +41,7 @@ Outline the basic steps to install and configure the Github CLI on Fedora (curre
                 : provides a seamless way to interact with GitHub repositories and perform various
                 : actions right from the command line, eliminating the need to switch between your
                 : terminal and the GitHub website.
+
     wmcdonald@fedora:~$ sudo dnf -y install gh
     ```
 
@@ -51,7 +61,7 @@ Outline the basic steps to install and configure the Github CLI on Fedora (curre
       gist:        Manage gists
     ```
 
-3. Log in to Github using the CLI
+3. Authenticate to Github using the CLI
 
     Start the Github CLI authentication process:
     ```
