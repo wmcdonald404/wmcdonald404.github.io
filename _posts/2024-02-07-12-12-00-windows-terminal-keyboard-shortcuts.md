@@ -22,7 +22,7 @@ These are just a subset of the most commonly useful ones. See [further-reading](
 | `alt-up` | move focus up |
 | `alt-down` | move focus down |
 | `ctrl-shift-w` | close pane/window |
-| `win-backtick` | 🇶uake mode |
+| `win-backtick` | QUAKE mode |
 
 ## Further reading
 - https://ss64.com/nt/syntax-keyboard.html#terminal
