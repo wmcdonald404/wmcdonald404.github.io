@@ -14,7 +14,8 @@ Configuring VSCode to use a single keyboard shortcut to both start a terminal if
 
     **Note**: This is a discrete entry, "Preferences: Open **Default** Keyboard Shortcuts (JSON)" is a different configuration element. 
 
-3. Add the following entries to `keybindings.json`
+3. Add the following entries to `keybindings.json`:
+
 ```
 // Toggle between terminal and editor focus
 {

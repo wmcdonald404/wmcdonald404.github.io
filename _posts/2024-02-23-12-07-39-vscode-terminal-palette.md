@@ -10,6 +10,7 @@ When working on Windows using a combination of WSL2 in the Windows Terminal, VSC
 1. Open the command palette with `ctrl`-`shift`-`p`
 2. Type "Preferences: Open User Settings (JSON)" and `ENTER`
 3. Add the following entries to `settings.json` and _et violet!_:
+
 ```
 {
     "workbench.colorTheme": "Solarized Light"
