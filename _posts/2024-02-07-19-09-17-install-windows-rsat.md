@@ -23,7 +23,7 @@ PS> Add-WindowsCapability -Online -Name "<item_name>"
   b. Or install all available RSAT features
 ```
 PS> Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
-``` 
+```
 ### UI
 
 ### Windows 10
