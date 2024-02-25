@@ -1,5 +1,5 @@
 ---
-title: "DNF update fails GPG checks for Google Chrome"
+title: "Linux - Fedora - Google Chrome fails GPG checks for DNF update"
 date: 2024-02-18 11:41:00
 ---
 

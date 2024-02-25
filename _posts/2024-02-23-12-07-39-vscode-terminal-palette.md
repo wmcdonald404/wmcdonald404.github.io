@@ -1,5 +1,5 @@
 ---
-title: "VSCode Terminal Palette"
+title: "Microsoft - VSCode - Configure the VSCode terminal palette"
 date: 2024-02-23 12:35:00
 ---
 
