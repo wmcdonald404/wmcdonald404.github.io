@@ -9,25 +9,33 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 [Github pages](https://pages.github.com/) can provide a simple, relatively cheap way to host some simple web content. Frequently this content is auto-generated from underlying [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) in from a Git repository using [Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll).
 
 ## How-to
-1. Create a new post file
+1. Set some common variables to reuse in subsequent steps.
 
-    Create the post file with an appropriately time-stamped name. Assuming our repository is checked out at `~/repos/github-pages/`:
+    Set the current date & time, and the subject of the blog post:
     ```
-    $ touch ~/repos/github-pages/_posts/$(date -I)-$(date +%H-%M-%S)-simple-pages-blog-post.md
+    $ export BLOGDATE=$(date -I)
+    $ export BLOGTIME=$(date +%H-%M-%S)
+    $ export BLOGTITLE='Simple Github pages blog post'
     ```
+
 2. Add the contents including any requisite [FrontMatter](https://jekyllrb.com/docs/front-matter/)
 
-    Edit the new post:
+    Create the post file with an appropriately time-stamped name. Assuming our repository is checked out at `~/repos/github-pages/`, construct the FrontMatter from the environment variables:    
     ```
-    $ vim ~/repos/github-pages/_posts/2024-01-02-14-37-46-simple-pages-blog-post.md
-    ```
-    Add the FrontMatter, for example:
-    ```
+    $ cat >> ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME}-simple-pages-blog-post.md <<EOF
     ---
-    title: "Simple Github pages blog post"
-    date: 2024-01-02 14:37:46
+    title: "${BLOGTITLE}"
+    date: ${BLOGDATE} ${BLOGTIME}
     ---
+    EOF
     ```
+
+    Edit the file and add the rest of the content:
+    
+    ```
+    $ vim ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME}-simple-pages-blog-post.md
+    ```
+
     Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-14-37-46-simple-pages-blog-post.md#further-reading).
 
 3. Verify `git status`, `git add` the new content, `git commit` the new post and `git push` to the remote repository.
