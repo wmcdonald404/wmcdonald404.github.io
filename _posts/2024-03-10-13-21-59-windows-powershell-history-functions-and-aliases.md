@@ -22,7 +22,7 @@ The path can be searched using `Select-String` (or its alias `sls`) as follows:
 PS> sls <searchstring> (Get-PSReadLineOption).HistorySavePath
 ```
 ## Powershell Functions
-On Windows systems, Powershell functions can be dropped into a file called `Microsoft.PowerShell_Profile.ps` under `C:\Users\<username>\Documents\WindowsPowerShell\` where they will be sourced into the shell on startup.
+On Windows systems, Powershell functions can be dropped into a file called `Microsoft.PowerShell_Profile.ps1` under `C:\Users\<username>\Documents\WindowsPowerShell\` where they will be sourced into the shell on startup.
 
 For example:
 ```
