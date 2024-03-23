@@ -1,5 +1,5 @@
 ---
-title: "Linux - Vagrant - Setting up Vagrant on Fedora"
+title: "Linux - Vagrant - Setting up Vagrant under Libvirt on Fedora"
 date: 2024-03-20 22-44-00
 ---
 
@@ -139,3 +139,4 @@ https://github.com/hashicorp/vagrant/issues/12605
 - https://fedoramagazine.org/setting-up-a-vm-on-fedora-server-using-cloud-images-and-virt-install-version-3/
 - https://blog.while-true-do.io/cloud-init-getting-started/
 - https://opensource.com/article/21/10/vagrant-libvirt
+- https://github.com/gusztavvargadr/packer/wiki/Windows-Server
