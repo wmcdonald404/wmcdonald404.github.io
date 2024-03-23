@@ -23,7 +23,6 @@ $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ```
 
 2. Init a box and start up
-
 ```
 $ mkdir ~/working/vagrant/windows-scratch
 $ cd $_
