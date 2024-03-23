@@ -11,7 +11,7 @@ Next we would like to deploy a single Windows host which we can interact with vi
 There are a number of Windows 2022 Vagrant Box base images available in the Vagrant Box library. In order to run Windows Vagrant boxes on Fedora we need to filter on Libvirt as the virtualisation provider which leads us to https://app.vagrantup.com/jborean93/boxes/WindowsServer2022
 
 ## How-to
-1. Add a Windows vagrant box base image (https://app.vagrantup.com/jborean93/boxes/WindowsServer2022)
+1. Add a Windows vagrant box base image (https://app.vagrantup.com/jborean93/boxes/WindowsServer2022):
 ```
 $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ==> box: Loading metadata for box 'jborean93/WindowsServer2022'
@@ -126,7 +126,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-8. And reinstantiate the box
+8. And reinstantiate the box:
 ```
 $ vagrant up
 $ vagrant ssh
@@ -141,7 +141,6 @@ Number HealthStatus OperationalStatus        Size
      3 Healthy      Offline            2000000000
      4 Healthy      Offline            2000000000
      2 Healthy      Offline            2000000000
-
 ```
 
 ## Next steps
