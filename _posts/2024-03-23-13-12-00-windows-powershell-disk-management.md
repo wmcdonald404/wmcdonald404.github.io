@@ -55,7 +55,6 @@ Number HealthStatus OperationalStatus        Size
 ```
 PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size";E={$_.Size / 1024 / 1024 / 1024 }}
 ```
-
 Or alternatively:
 ```
 PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size (GB)";E={[Math]::Round($_.Size/1GB,1)}}
