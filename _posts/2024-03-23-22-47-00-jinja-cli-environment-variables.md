@@ -56,6 +56,8 @@ password: x3nom0rph
 > **Note**: For a real pipeline with a credential we'd use a masked secret to ensure it remains unlogged.
 
 ## Further reading
+- https://jinja.palletsprojects.com/en/3.1.x/
+- https://jinja.palletsprojects.com/en/3.1.x/templates/
 - https://pypi.org/project/jinja-cli/
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#about-environments
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-variables
