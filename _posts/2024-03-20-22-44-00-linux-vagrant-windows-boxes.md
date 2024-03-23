@@ -22,7 +22,7 @@ $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ==> box: Successfully added box 'jborean93/WindowsServer2022' (v1.2.0) for 'libvirt (amd64)'!
 ```
 
-2. Init a box and start up
+2. Vagrant init a new box:
 ```
 $ mkdir ~/working/vagrant/windows-scratch
 $ cd $_
@@ -33,6 +33,7 @@ the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
 ```
 
+3. Vagrant up the box:
 ```
 $ vagrant up
 Bringing machine 'default' up with 'libvirt' provider...
@@ -80,8 +81,7 @@ Bringing machine 'default' up with 'libvirt' provider...
     default: WinRM transport: ssl
 ```
 
-3. Test access to the Vagrant box:
-
+4. Test access to the Vagrant box:
 ```
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>
@@ -90,7 +90,7 @@ PS C:\Users\vagrant> $env:COMPUTERNAME
 WIN-JSJO34QHSE7
 ```
 
-4. Halt and destroy the box:
+5. Halt and destroy the box:
 ```
 PS C:\Users\vagrant> exit
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> exit
@@ -98,7 +98,7 @@ $ vagrant halt
 $ vagrant destroy
 ```
 
-5. Simplify the default Vagrant file to improve readability: 
+6. Simplify the default Vagrant file to improve readability: 
 ```
 $ grep -Ev '^.*#|^$' Vagrantfile
 Vagrant.configure("2") do |config|
@@ -113,7 +113,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-6. Add new block devices for experimentation:
+7. Add new block devices for experimentation:
 ```
 $ cat Vagrantfile
 Vagrant.configure("2") do |config|
@@ -126,7 +126,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-7. And reinstantiate the box
+8. And reinstantiate the box
 ```
 $ vagrant up
 $ vagrant ssh
