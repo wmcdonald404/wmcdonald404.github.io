@@ -24,8 +24,8 @@ PS> Add-WindowsCapability -Online -Name "<item_name>"
 ```
 PS> Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
 ```
-### UI
 
+## UI
 ### Windows 10
 1. Click Start
 2. Type "Add an optional feature"
