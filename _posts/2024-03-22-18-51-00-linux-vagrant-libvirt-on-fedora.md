@@ -20,19 +20,16 @@ This post will summarise the initial setup on Fedora using Libvirt, ultimately t
 
 ## How-to
 1. Check for/enable Intel-VT / AMD-V CPU virtualisation extensions. (Don't skip this, they're disabled by default on most laptops and will cause largely silent, annoying failures if not enabled.)
-
   ```
   $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
   ```
 
 2. Install libvirt
-
   ```
   # dnf -y install @virtualization
   ```
 
 3. Install libvirt and some dependencies required for vagrant-libvirt later.
-
   ```
   # dnf -y install gcc libvirt libvirt-devel libxml2-devel make ruby-devel libguestfs-tools
   ```
