@@ -127,21 +127,21 @@ end
 ```
 
 8. And reinstantiate the box:
-```
-$ vagrant up
-$ vagrant ssh
-vagrant@192.168.121.8's password: <default vagrant password: vagrant>
-vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> pwsh
-PS C:\Users\vagrant> get-disk | Select-Object Number, HealthStatus, OperationalStatus, Size
+  ```
+  $ vagrant up
+  $ vagrant ssh
+  vagrant@192.168.121.8's password: <default vagrant password: vagrant>
+  vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> pwsh
+  PS C:\Users\vagrant> get-disk | Select-Object Number, HealthStatus, OperationalStatus, Size
 
-Number HealthStatus OperationalStatus        Size
------- ------------ -----------------        ----
-     1 Healthy      Offline            2000000000
-     0 Healthy      Online            42949672960
-     3 Healthy      Offline            2000000000
-     4 Healthy      Offline            2000000000
-     2 Healthy      Offline            2000000000
-```
+  Number HealthStatus OperationalStatus        Size
+  ------ ------------ -----------------        ----
+      1 Healthy      Offline            2000000000
+      0 Healthy      Online            42949672960
+      3 Healthy      Offline            2000000000
+      4 Healthy      Offline            2000000000
+      2 Healthy      Offline            2000000000
+  ```
 
 ## Next steps
 
