@@ -12,6 +12,7 @@ There are a number of Windows 2022 Vagrant Box base images available in the Vagr
 
 ## How-to
 1. Add a Windows vagrant box base image (https://app.vagrantup.com/jborean93/boxes/WindowsServer2022)
+
 ```
 $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ==> box: Loading metadata for box 'jborean93/WindowsServer2022'
@@ -23,6 +24,7 @@ $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ```
 
 2. Init a box and start up
+
 ```
 $ mkdir ~/working/vagrant/windows-scratch
 $ cd $_
