@@ -57,7 +57,14 @@ PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size"
 ```
 Or alternatively:
 ```
-PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size (GB)";E={[Math]::Round($_.Size/1GB,1)}}
+PS C:\Users\vagrant> Get-Disk | Sort-Object Number | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size (GB)";E={[Math]::Round($_.Size/1GB,3)}}
+Number HealthStatus OperationalStatus Size (GB)
+------ ------------ ----------------- ---------
+     0 Healthy      Online                40.00
+     1 Healthy      Online                 1.86
+     2 Healthy      Offline                1.86
+     3 Healthy      Offline                1.86
+     4 Healthy      Offline                1.86
 ```
 
 4. Initialise a disk with a GPT partition, and format the volume:
