@@ -23,6 +23,7 @@ $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ```
 
 2. Init a box and start up
+
 ```
 $ mkdir ~/working/vagrant/windows-scratch
 $ cd $_
@@ -80,6 +81,7 @@ Bringing machine 'default' up with 'libvirt' provider...
 ```
 
 3. Test access to the Vagrant box:
+
 ```
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>
