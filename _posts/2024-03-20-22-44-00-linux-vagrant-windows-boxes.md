@@ -31,9 +31,10 @@ A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
+```
 
+```
 $ vagrant up
-
 Bringing machine 'default' up with 'libvirt' provider...
 ==> default: Checking if box 'jborean93/WindowsServer2022' version '1.2.0' is up to date...
 ==> default: Uploading base box image as volume into Libvirt storage...
