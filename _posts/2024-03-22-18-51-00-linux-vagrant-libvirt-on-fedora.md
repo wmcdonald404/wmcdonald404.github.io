@@ -21,63 +21,63 @@ This post will summarise the initial setup on Fedora using Libvirt, ultimately t
 ## How-to
 1. Check for/enable Intel-VT / AMD-V CPU virtualisation extensions. (Don't skip this, they're disabled by default on most laptops and will cause largely silent, annoying failures if not enabled.)
 
-```
-$ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
-```
+  ```
+  $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+  ```
 
 2. Install libvirt
 
-```
-# dnf -y install @virtualization
-```
+  ```
+  # dnf -y install @virtualization
+  ```
 
 3. Install libvirt and some dependencies required for vagrant-libvirt later.
 
-```
-# dnf -y install gcc libvirt libvirt-devel libxml2-devel make ruby-devel libguestfs-tools
-```
+  ```
+  # dnf -y install gcc libvirt libvirt-devel libxml2-devel make ruby-devel libguestfs-tools
+  ```
 
 (nb: find out why the requisites aren't depended on by vagrant-libvirt? Maybe some variant on https://bugzilla.redhat.com/show_bug.cgi?id=1523296 ?)
 
 4. Install vagrant & the vagrant libvirt plugin
 
-```
-# dnf install vagrant vagrant-libvirt
-```
+  ```
+  # dnf install vagrant vagrant-libvirt
+  ```
 
 5. Enable/start libvirtd.service
 
-```
-# systemctl enable libvirtd.service
-```
+  ```
+  # systemctl enable libvirtd.service
+  ```
 
 6. Setup the Vagrant libvirt plugin (May or may not be required, need to verify on a clean installation.)
 
-```
-$  vagrant plugin install vagrant-libvirt
-```
+  ```
+  $  vagrant plugin install vagrant-libvirt
+  ```
 
 7. Quick hack around https://bugzilla.redhat.com/show_bug.cgi?id=1187019
 
-```
-# usermod -G libvirt wmcdonald
-```
+  ```
+  # usermod -G libvirt wmcdonald
+  ```
 
 8. Add a fedora vagrant box base image (https://app.vagrantup.com/fedora/boxes/37-cloud-base)
 
-```
-$ vagrant box add fedora/37-cloud-base --provider libvirt
-```
+  ```
+  $ vagrant box add fedora/37-cloud-base --provider libvirt
+  ```
 
 9. Init a box and start up
 
-```
-$ mkdir working/vagrant/fedora-scratch
-$ cd $_
-$ vagrant init fedora/37-cloud-base --box-version 37.20221105.0
-$ vagrant up
-$ vagrant halt
-```
+  ```
+  $ mkdir working/vagrant/fedora-scratch
+  $ cd $_
+  $ vagrant init fedora/37-cloud-base --box-version 37.20221105.0
+  $ vagrant up
+  $ vagrant halt
+  ```
 
 ## Next steps
 Extend the setup to include multiple flavours of Vagrant box, more complex combinations of systems or whatever it is you need in order to shorted feedback loops and/or figure stuff out.
