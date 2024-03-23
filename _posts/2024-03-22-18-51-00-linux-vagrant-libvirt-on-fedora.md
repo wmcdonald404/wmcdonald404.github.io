@@ -37,28 +37,24 @@ $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
   (nb: find out why the requisites aren't depended on by vagrant-libvirt? Maybe some variant on https://bugzilla.redhat.com/show_bug.cgi?id=1523296 ?)
 
 4. Install vagrant & the vagrant libvirt plugin
-
-  ```
-  # dnf install vagrant vagrant-libvirt
-  ```
+```
+# dnf install vagrant vagrant-libvirt
+```
 
 5. Enable/start libvirtd.service
-
-  ```
-  # systemctl enable libvirtd.service
-  ```
+```
+# systemctl enable libvirtd.service
+```
 
 6. Setup the Vagrant libvirt plugin (May or may not be required, need to verify on a clean installation.)
-
-  ```
-  $  vagrant plugin install vagrant-libvirt
-  ```
+```
+$  vagrant plugin install vagrant-libvirt
+```
 
 7. Quick hack around https://bugzilla.redhat.com/show_bug.cgi?id=1187019
-
-  ```
-  # usermod -G libvirt wmcdonald
-  ```
+```
+# usermod -G libvirt wmcdonald
+```
 
 8. Add a fedora vagrant box base image (https://app.vagrantup.com/fedora/boxes/37-cloud-base)
 
