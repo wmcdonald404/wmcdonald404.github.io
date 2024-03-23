@@ -4,14 +4,14 @@ date: 2024-03-22 18-51-00
 ---
 
 ## Overview
-In [Linux - Vagrant - Setting up Vagrant on Fedora] we outlined the process to set up and test basic Vagrant functionality on Fedora using Libvirt as the virtualisation provider (other providers are available.)
+In [Linux - Vagrant - Setting up Vagrant on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html) we outlined the process to set up and test basic Vagrant functionality on Fedora using Libvirt as the virtualisation provider (other providers are available.)
 
 Next we would like to deploy a single Windows host which we can interact with via PSRemoting in order to streamline Windows automation workflows and testing.
 
-There are a number of Windows 2022 Vagrant Box base images available in the Vagrant Box library. In order to run Windows Vagrant boxes on Fedora we need to filter on Libvirt as the virtualisation provider which leads us to https://app.vagrantup.com/jborean93/boxes/WindowsServer2022
+There are a number of Windows 2022 Vagrant Box base images available in the Vagrant Box library. In order to run Windows Vagrant boxes on Fedora we need to filter on Libvirt as the virtualisation provider which leads us to [https://app.vagrantup.com/jborean93/boxes/WindowsServer2022](https://app.vagrantup.com/jborean93/boxes/WindowsServer2022)
 
 ## How-to
-1. Add a Windows vagrant box base image (https://app.vagrantup.com/jborean93/boxes/WindowsServer2022):
+1. Add a Windows vagrant box base image from [https://app.vagrantup.com/jborean93/boxes/WindowsServer2022](https://app.vagrantup.com/jborean93/boxes/WindowsServer2022):
 ```
 $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ==> box: Loading metadata for box 'jborean93/WindowsServer2022'
@@ -144,7 +144,7 @@ Number HealthStatus OperationalStatus        Size
 ```  
 
 ## Next steps
-
+- Understand the various discovery, partition, format and label options for additional block devices
 
 ## Notes
 
