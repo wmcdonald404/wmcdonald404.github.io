@@ -33,6 +33,7 @@ $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 ```
 # dnf -y install gcc libvirt libvirt-devel libxml2-devel make ruby-devel libguestfs-tools
 ```
+
 (nb: find out why the requisites aren't depended on by vagrant-libvirt? Maybe some variant on https://bugzilla.redhat.com/show_bug.cgi?id=1523296 ?)
 
 4. Install vagrant & the vagrant libvirt plugin
