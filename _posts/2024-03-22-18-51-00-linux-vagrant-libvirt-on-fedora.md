@@ -56,20 +56,18 @@ $  vagrant plugin install vagrant-libvirt
 ```
 
 8. Add a fedora vagrant box base image (https://app.vagrantup.com/fedora/boxes/37-cloud-base)
-
-  ```
-  $ vagrant box add fedora/37-cloud-base --provider libvirt
-  ```
+```
+$ vagrant box add fedora/37-cloud-base --provider libvirt
+```
 
 9. Init a box and start up
-
-  ```
-  $ mkdir working/vagrant/fedora-scratch
-  $ cd $_
-  $ vagrant init fedora/37-cloud-base --box-version 37.20221105.0
-  $ vagrant up
-  $ vagrant halt
-  ```
+```
+$ mkdir working/vagrant/fedora-scratch
+$ cd $_
+$ vagrant init fedora/37-cloud-base --box-version 37.20221105.0
+$ vagrant up
+$ vagrant halt
+```
 
 ## Next steps
 Extend the setup to include multiple flavours of Vagrant box, more complex combinations of systems or whatever it is you need in order to shorted feedback loops and/or figure stuff out.
