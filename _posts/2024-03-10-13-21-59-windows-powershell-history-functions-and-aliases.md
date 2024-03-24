@@ -98,8 +98,3 @@ As with Functions earlier, Aliases can be added to Profiles in order to ensure t
 - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_aliases?view=powershell-7.4
 - https://stackoverflow.com/questions/24914589/how-to-create-permanent-powershell-aliases
 - https://stackoverflow.com/questions/48093565/whats-the-difference-between-powershells-new-alias-and-set-alias-cmdlets
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

@@ -142,9 +142,3 @@ We now have the AWS CLI configured with two profiles, a simple environment varia
 - https://aws.amazon.com/cli/
 - https://docs.aws.amazon.com/cli/latest/reference/
 - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

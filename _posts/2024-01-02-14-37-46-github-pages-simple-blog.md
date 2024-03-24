@@ -106,9 +106,3 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 - https://github.com/skills/github-pages
 - https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html
 - https://tomcam.github.io/least-github-pages/
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

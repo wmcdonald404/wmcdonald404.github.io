@@ -157,8 +157,3 @@ Number HealthStatus OperationalStatus        Size
 
 ## Further reading
 - https://app.vagrantup.com/jborean93/boxes/WindowsServer2022
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

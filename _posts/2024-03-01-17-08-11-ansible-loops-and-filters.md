@@ -13,9 +13,3 @@ Prompted by a user question on the [`ansible-project`](https://groups.google.com
 
 ## How-to
 See the [ansible-loops](https://github.com/wmcdonald404/ansible-loops?tab=readme-ov-file#ansible-loops) repository for more details.
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

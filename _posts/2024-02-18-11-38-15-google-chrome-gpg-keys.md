@@ -50,9 +50,3 @@ root@fedora:~# dnf update -y
 
 ## Further reading
 - https://lists.fedoraproject.org/archives/list/users@lists.fedoraproject.org/thread/SHIT2FL467SJYNRBK3H7VFDFLUPNZTZN/
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

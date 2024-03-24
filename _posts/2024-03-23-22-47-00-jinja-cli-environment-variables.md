@@ -87,8 +87,3 @@ password: x3nom0rph
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#about-environments
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-variables
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

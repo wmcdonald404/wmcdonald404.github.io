@@ -38,8 +38,3 @@ Configuring VSCode to use a single keyboard shortcut to both start a terminal if
 ## Further reading
 - https://stackoverflow.com/a/43012779
 - https://stackoverflow.com/a/68730522
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

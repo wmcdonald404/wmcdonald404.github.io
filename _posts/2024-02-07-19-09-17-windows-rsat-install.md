@@ -47,9 +47,3 @@ Once installed, the additional components will be available as MMC snap-ins or P
 ## Further reading
 - https://learn.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/remote-server-administration-tools
 - https://www.pdq.com/blog/how-to-install-remote-server-administration-tools-rsat/
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

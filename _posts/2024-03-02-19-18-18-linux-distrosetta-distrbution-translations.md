@@ -15,9 +15,3 @@ While working on a project where Ubuntu was the distribution of choice, I had to
 
 ## How-to
 See the [distrosetta-stone](https://github.com/wmcdonald404/distrosetta-stone?tab=readme-ov-file#distrosetta-stone) repository for more details.
-
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

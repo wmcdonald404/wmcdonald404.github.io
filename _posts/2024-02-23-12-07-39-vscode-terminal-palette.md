@@ -45,8 +45,3 @@ When working on Windows using a combination of WSL2 in the Windows Terminal, VSC
 
 ## Further reading
 - https://glitchbone.github.io/vscode-base16-term/#/paraiso
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

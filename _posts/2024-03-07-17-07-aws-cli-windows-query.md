@@ -43,8 +43,3 @@ Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple 
 ## Further reading
 - 
 - 
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}

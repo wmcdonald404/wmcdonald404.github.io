@@ -136,8 +136,3 @@ https://github.com/hashicorp/vagrant/issues/12605
 - https://blog.while-true-do.io/cloud-init-getting-started/
 - https://opensource.com/article/21/10/vagrant-libvirt
 - https://github.com/gusztavvargadr/packer/wiki/Windows-Server
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}
