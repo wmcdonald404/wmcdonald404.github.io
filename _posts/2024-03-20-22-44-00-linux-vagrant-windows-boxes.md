@@ -1,5 +1,5 @@
 ---
-title: "Linux - Vagrant - Running Windows 2022 on Vagrant with the Libvirt Provider"
+title: "Running Windows 2022 on Vagrant with the Libvirt Provider"
 date: 2024-03-22 18-51-00
 tags:
 - linux

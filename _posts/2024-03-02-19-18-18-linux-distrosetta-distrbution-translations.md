@@ -1,5 +1,5 @@
 ---
-title: "Distrosetta - Linux Distribution translation"
+title: "Distrosetta Linux Distribution translation"
 date: 2024-03-02 19-18-18
 tags:
 - linux
