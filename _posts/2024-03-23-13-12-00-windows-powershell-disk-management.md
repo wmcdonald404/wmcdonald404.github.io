@@ -40,7 +40,7 @@ PS> Get-Disk
 
 2. Check the members in the collection:
 ```
-PS> Get-Disk
+PS> Get-Disk | Get-Member
 ```
 
 3. Filter this list to a subset of useful properties:
