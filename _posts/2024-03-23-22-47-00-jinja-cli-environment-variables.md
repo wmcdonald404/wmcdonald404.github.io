@@ -1,15 +1,10 @@
 ---
-title: "Python - Jinja - Using Jinja with shell variables from the CLI"
+title: "Using Jinja with shell variables from the CLI"
 date: 2024-03-23 22:47:00
 tags:
 - jinja
 - python
 ---
-
-## Topics
-{% for tag in page.tags %}
-    {{ tag }}
-{% endfor %}
 
 ## Overview
 To quote the [upstream documentation](https://jinja.palletsprojects.com/en/3.1.x/):
@@ -92,3 +87,8 @@ password: x3nom0rph
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#about-environments
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-variables
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

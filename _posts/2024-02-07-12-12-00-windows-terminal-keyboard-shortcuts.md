@@ -1,6 +1,10 @@
 ---
-title: "Microsoft - Windows - Useful Windows Terminal keyboard shortcuts"
+title: "Useful Windows Terminal keyboard shortcuts"
 date: 2024-02-05 11:32:00
+tags:
+- microsoft
+- windows
+- terminal
 ---
 
 ## Overview
@@ -27,3 +31,8 @@ These are just a subset of the most commonly useful ones. See [further-reading](
 ## Further reading
 - https://ss64.com/nt/syntax-keyboard.html#terminal
 - https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

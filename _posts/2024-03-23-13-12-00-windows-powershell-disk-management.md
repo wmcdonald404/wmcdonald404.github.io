@@ -1,6 +1,10 @@
 ---
-title: "Windows - Powershell - Discovering, Formatting and Attaching Disks"
+title: "Powershell - Discovering, Formatting and Attaching Disks"
 date: 2024-03-23 13:12:00
+tags:
+- windows
+- powershell
+- disk-management
 ---
 
 ## Overview
@@ -111,3 +115,8 @@ Experiment resizing disks transparently at the hypervisor layer then extending t
 - [Initialise-Disk](https://learn.microsoft.com/en-us/powershell/module/storage/initialize-disk?view=windowsserver2022-ps)
 - [Format-Volume](https://learn.microsoft.com/en-us/powershell/module/storage/format-volume?view=windowsserver2022-ps)
 - [Add-PartitionAccessPath](https://learn.microsoft.com/en-us/powershell/module/storage/add-partitionaccesspath?view=windowsserver2022-ps)
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

@@ -1,6 +1,10 @@
 ---
-title: "Linux - Fedora - Google Chrome fails GPG checks for DNF update"
+title: "Google Chrome fails GPG checks for DNF update"
 date: 2024-02-18 11:41:00
+tags:
+- linux
+- fedora
+- chrome
 ---
 
 ## Problem
@@ -46,3 +50,9 @@ root@fedora:~# dnf update -y
 
 ## Further reading
 - https://lists.fedoraproject.org/archives/list/users@lists.fedoraproject.org/thread/SHIT2FL467SJYNRBK3H7VFDFLUPNZTZN/
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

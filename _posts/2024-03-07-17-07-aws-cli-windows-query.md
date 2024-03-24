@@ -1,6 +1,13 @@
 ---
-title: "AWS - CLI - Using the AWS CLI on Windows with Powershell"
+title: "Using the AWS CLI on Windows with Powershell"
 date: 2024-03-07 17:07:07
+tags:
+- amazon
+- aws
+- awscli
+- microsoft
+- windows
+- powershell
 ---
 
 ## Overview
@@ -36,3 +43,8 @@ Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple 
 ## Further reading
 - 
 - 
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

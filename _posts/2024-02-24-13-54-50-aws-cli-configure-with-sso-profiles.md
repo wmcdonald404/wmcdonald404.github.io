@@ -1,6 +1,12 @@
 ---
-title: "AWS - Configure the AWS CLI with SSO and multiple profiles"
+title: "Configure the AWS CLI with SSO and multiple profiles"
 date: 2024-02-24 13-54-50
+tags:
+- amazon
+- aws
+- awscli
+- cli
+- sso
 ---
 
 ## Overview
@@ -136,3 +142,9 @@ We now have the AWS CLI configured with two profiles, a simple environment varia
 - https://aws.amazon.com/cli/
 - https://docs.aws.amazon.com/cli/latest/reference/
 - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

@@ -1,6 +1,9 @@
 ---
-title: "GitHub - Create a simple GitHub Pages blog post"
+title: "Create a simple GitHub Pages blog post"
 date: 2024-01-02 14:37:46
+tags:
+- github
+- github-pages
 ---
 ## Overview
 This post summarises a simple workflow to add new posts to an existing Github pages-based Jekyll formatted blog. For further reading on the initial setup see [Further Reading](#further-reading)
@@ -103,3 +106,9 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 - https://github.com/skills/github-pages
 - https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html
 - https://tomcam.github.io/least-github-pages/
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

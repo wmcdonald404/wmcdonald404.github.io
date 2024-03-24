@@ -1,6 +1,12 @@
 ---
-title: "Microsoft - Windows - Installing the Windows Remote Server Administration Tools (RSAT)"
+title: "Installing the Windows Remote Server Administration Tools (RSAT)"
 date: 2024-02-07-19 09:17:00
+tags:
+- microsoft
+- windows
+- ad
+- active directory
+- rsat
 ---
 
 ## Overview
@@ -41,3 +47,9 @@ Once installed, the additional components will be available as MMC snap-ins or P
 ## Further reading
 - https://learn.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/remote-server-administration-tools
 - https://www.pdq.com/blog/how-to-install-remote-server-administration-tools-rsat/
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

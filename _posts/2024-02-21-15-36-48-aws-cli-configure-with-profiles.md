@@ -1,6 +1,11 @@
 ---
 title: "AWS - Configure the AWS CLI with multiple profiles"
 date: 2024-02-21 15:38:00
+tags:
+- amazon
+- aws
+- awscli
+- cli
 ---
 
 ## Overview
@@ -107,3 +112,9 @@ We now have the AWS CLI configured with two profiles and a relatively simple env
 - https://docs.aws.amazon.com/cli/latest/reference/
 - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html
 - https://dev.to/andreasbergstrom/juggling-multiple-aws-cli-profiles-like-a-pro-2h88
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

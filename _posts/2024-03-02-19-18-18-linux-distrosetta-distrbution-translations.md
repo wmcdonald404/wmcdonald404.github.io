@@ -1,6 +1,13 @@
 ---
-title: "Linux - Distrosetta - Linux Distribution translation"
+title: "Distrosetta - Linux Distribution translation"
 date: 2024-03-02 19-18-18
+tags:
+- linux
+- redhat
+- fedora
+- debian
+- canonical
+- ubuntu
 ---
 
 ## Overview
@@ -8,3 +15,9 @@ While working on a project where Ubuntu was the distribution of choice, I had to
 
 ## How-to
 See the [distrosetta-stone](https://github.com/wmcdonald404/distrosetta-stone?tab=readme-ov-file#distrosetta-stone) repository for more details.
+
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}

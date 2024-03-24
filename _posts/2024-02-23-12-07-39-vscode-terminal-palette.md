@@ -1,6 +1,10 @@
 ---
-title: "Microsoft - VSCode - Configure the VSCode terminal palette"
+title: "Configure the VSCode terminal palette"
 date: 2024-02-23 12:35:00
+tags:
+- microsoft
+- vscode
+- palette
 ---
 
 ## Overview
@@ -41,3 +45,8 @@ When working on Windows using a combination of WSL2 in the Windows Terminal, VSC
 
 ## Further reading
 - https://glitchbone.github.io/vscode-base16-term/#/paraiso
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}
