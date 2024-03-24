@@ -13,9 +13,31 @@ And more verbosely:
 
 Jinja is commonly encountered in Python-based projects like Ansible, where it's frequently used to template configuration files, rendered with dynamic inputs from the Ansible inventory and/or roles and playbooks.
 
-It can also be useful to template and render files with information from environment variables using the Jinja CLI. This is a really useful pattern to build reusable CI/CD pipeline elements that behave in standard ways but source certain varying data points from the environment or an invokation of a pipeline at runtime.
+It can also be useful to template and render files with information from environment variables using the Jinja CLI. This is a really useful pattern to build reusable CI/CD pipeline elements that behave in standard ways but source certain varying data points from the environment or an invocation of a pipeline at runtime.
 
-e.g. you have Github Actions Environment Variables or Environment Secrets defined for pipeline runs. These Variables and Secrets are made available as shell variables in pipeline runs targetting a specific environment label/type (dev, test, prod). The pipeline can consume these common variables containing environment-specific values and render templates based on this for downstream processing.
+## Uses
+The ability to dynamically render templates based on data in environment variables will have a multitude of uses. Some of these might include:
+- Github actions pipelines with Github Environments (and Environment Variables and Secrets)
+
+    Github Environments provide a useful mechanism to centrally define common configuration items to each environment (or environment-type) but which may differ in value. The different configuration items are available to each actions pipeline runner based on the target environment.
+
+    Given a simple synthentic example as shown below:
+
+    ```
+    environments/
+    ├── dev
+    │   ├── web_instance_count: 2
+    │   ├── app_instance_count: 1
+    │   └── db_instance_count: 1
+    └── prod
+        ├── web_instance_count: 10
+        ├── app_instance_count: 4
+        └── database_instance_count: 4
+    ```
+
+    Pipeline runs in dev could access `WEB_INSTANCE_COUNT` from corresponding runners. Pipeline runs in prod could use the same variable but do something different based on the larger value. 
+
+
 
 ## How-to
 1. Install the Jinja CLI module from Pip, this example is from a Fedora system, adjust accordingly:
