@@ -1,10 +1,4 @@
 theme: minima
-title: Github Pages Blog
+title: Github Pages
 author: wmcdonald404  
-defaults:
-  - 
-    scope:
-      path: ""
-    values:
-      layout: default
-    
+
