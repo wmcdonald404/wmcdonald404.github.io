@@ -1,7 +1,15 @@
 ---
 title: "Python - Jinja - Using Jinja with shell variables from the CLI"
 date: 2024-03-23 22:47:00
+tags:
+- jinja
+- python
 ---
+
+## Topics
+{% for tag in page.tags %}
+    {{ tag }}
+{% endfor %}
 
 ## Overview
 To quote the [upstream documentation](https://jinja.palletsprojects.com/en/3.1.x/):
