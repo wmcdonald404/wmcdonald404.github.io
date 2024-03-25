@@ -6,7 +6,7 @@ tags:
 - github-pages
 ---
 ## Overview
-This post summarises a simple workflow to add new posts to an existing Github pages-based Jekyll formatted blog. For further reading on the initial setup see [Further Reading](#further-reading)
+This post summarises a simple workflow to add new posts to an existing Github pages-based Jekyll formatted blog. See [Further Reading](#further-reading) for more on the initial setup of Github Pages and Jekyll.
 
 ## Background
 [Github pages](https://pages.github.com/) can provide a simple, relatively cheap way to host some simple web content. Frequently this content is auto-generated from underlying [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) in from a Git repository using [Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll).
@@ -101,8 +101,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     Verify that the new post is visible as a **Post** on your [Github page](https://wmcdonald404.github.io/github-pages/).
     Navigate to [your new post](https://wmcdonald404.github.io/github-pages/2024/01/02/14-37-46-simple-pages-blog-post.html) to verify its publication.
 
-
 ## Further reading
-- https://github.com/skills/github-pages
-- https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html
-- https://tomcam.github.io/least-github-pages/
+- [Github Pages skills template course (start here)](https://github.com/skills/github-pages)
+- [Chad Baldwin's blog, a user-perspective on setting up Github pages with Jekyll](https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html)
+- [Tom Campbell's Everything Github Pages](https://tomcam.github.io/least-github-pages/)
