@@ -17,7 +17,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     Set the current date & time, and the subject of the blog post:
     ```
     $ export BLOGDATE=$(date -I)
-    $ export BLOGTIME=$(date +%H-%M-%S)
+    $ export BLOGTIME=$(date +%H:%M:%S)
     $ export BLOGTITLE='Simple Github pages blog post'
     ```
 
