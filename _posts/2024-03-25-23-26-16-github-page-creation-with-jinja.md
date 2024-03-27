@@ -42,7 +42,7 @@ Now let's walk through the slightly improved process.
     ```
     $ jinja -X 'BLOG*' ~/repos/github-pages/template.md > ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME//:/-}-${BLOGFILE}
     ```
-    **Note**: the `{BLOGTIME//:/-}` construct uses bash substring replacement to switch from colons (required for the frontmatter in the post's markdown) to a hyphen, for the file name.
+    **Note**: the `{BLOGTIME//:/-}` construct uses [bash substring replacement](https://tldp.org/LDP/abs/html/string-manipulation.html) to switch from colons (required for the frontmatter in the post's markdown) to a hyphen, for the file name.
 
 ## Summary
 We now have a simpler process to quickly boilerplate a new blog article with its frontmatter. 
