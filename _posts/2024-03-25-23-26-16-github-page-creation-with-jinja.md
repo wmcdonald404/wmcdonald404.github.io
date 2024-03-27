@@ -38,7 +38,7 @@ Now let's walk through the slightly improved process.
     $ . ~/.venv/jinjacli/bin/activate
     ```
 
-2. Populate [the template](https://github.com/wmcdonald404/github-pages/blob/main/template.yml) using Jinja:
+3. Populate [the template](https://github.com/wmcdonald404/github-pages/blob/main/template.yml) using Jinja:
     ```
     $ jinja -X 'BLOG*' ~/repos/github-pages/template.md > ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME//:/-}-${BLOGFILE}
     ```
