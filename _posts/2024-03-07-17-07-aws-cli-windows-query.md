@@ -36,10 +36,22 @@ Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple 
     i-034e459b55d574564 A0880D35011EEA187F057:bob.typeytype  stopped
     i-0af34b3e0f9fecc9e A0880D35011EEA187F057:alan.syscall   running
     ```
-5. Optionally, start the desired instance and connect via SSH or SSH over SSM:
+5. Optionally, start the desired instance:
     ```
     PS> aws ec2 start-instances --instance-ids i-034e459b55d574564 
     ```
+6. And connect via SSH or SSH over SSM:
+    ```
+    PS> aws ssm start-session --target i-034e459b55d574564 
+    ```
+## Alternative Queries
+As an alternative to Powershell, it's also straightforward to select/filter specific instance data using `jq`:
+```
+aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | "\(.InstanceId),\(.Tags[] | select(.Key == "SERVERNAME").Value),\(.Tags[] | select(.Key == "aws:cloudformation:logical-id").Value)"'
+i-034e459b55d574564,VM01,AppInstance
+i-0af34b3e0f9fecc9e,VM02,DatabaseInstance
+```
+
 ## Further reading
 - 
 - 
