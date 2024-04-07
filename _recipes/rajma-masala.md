@@ -4,6 +4,7 @@ name: "Rajama Masala"
 date: 2024-04-07 16:25:00
 tags:
 - recipe 
+- vegan
 - indian
 - northern indian
 - punjabi
