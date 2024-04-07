@@ -10,7 +10,10 @@ tags:
 ---
 
 # Description
-Outline the basic purpose of this post/page.
+This is a delicious kidney bean curry. The most unusual ingredient is the [amchur](https://en.wikipedia.org/wiki/Amchoor):
+> Amchoor or aamchur or amchur, also referred to as mango powder, is a fruity spice powder made from dried unripe green mangoes and is used as a citrusy seasoning. It is mostly produced in India, and is used to flavour foods and add the nutritional benefits of mangoes when the fresh fruit is out of season.
+
+It's not common in most supermarkets but easily found in most east Asian markets or [online](https://thespiceshop.co.uk/products/amchoor-powder-mango-powder).
 
 # Ingredients
 - 200 grams rajma/red kidney beans, soaked overnight in enough water (approximately 1 cup)
@@ -29,11 +32,13 @@ Outline the basic purpose of this post/page.
 - salt as required
 
 # Instructions
+
 ## Bean prep
 1. rinse the rajma beans for a couple of times in running water.
 1. then soak the rajma beans in enough water overnight or for 8 to 9 hours.
 1. the next day or after 8 to 9 hours, drain the soaked water.
 1. rinse the rajma beans again in fresh clean water. drain them and keep aside.
+
 ## Dish prep
 1. chop the veggies - onion, tomatoes, ginger, garlic and green chilies. keep aside.
 1. in a pressure cooker add the rajma along with the chopped onion, tomatoes, ginger, garlic and green chilies
@@ -51,8 +56,8 @@ Outline the basic purpose of this post/page.
 1. garnishing rajma masala with coriander leaves is optional. serve rajma masala with some steamed rice or with chapatis, parathas or bread.
 
 # Substitutions
-It's relatively easy to make a decent approximation with tinned kidney beans. It's not as authentic, but still delicious, much quicker and doesn't require a pressure cooker, Instant Pot or similar.
+It's relatively easy to make a decent approximation with tinned kidney beans. It's not as authentic, but still delicious, much quicker and doesn't require a pressure cooker, Instant Pot or similar. I typically sweat the vegetables first since they won't get a long cook in the pressure cooker, toast the spices then substitute two tins of kidney beans. (Either with their water cooking water, or drained, rinsed then topped off with fresh water.) 
 
 # References
-- [Rajma Recipe | Rajma Chawal (Punjabi Rajma Masala)](https://www.vegrecipesofindia.com/rajma-masala-recipe-restaurant-style/)
+- [Rajma Recipe or Rajma Chawal (Punjabi Rajma Masala)](https://www.vegrecipesofindia.com/rajma-masala-recipe-restaurant-style/)
 - [Rajma Recipe](https://greatcurryrecipes.net/2022/11/29/rajma-recipe/)
