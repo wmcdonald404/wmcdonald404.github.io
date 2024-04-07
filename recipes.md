@@ -3,7 +3,7 @@ layout: default
 title: Recipes
 ---
 
-{% for recipe in site.recipes %}
+{% for recipes in site.recipes %}
 
 <a href="{{ recipes.url | prepend: site.baseurl }}">
   <h2>{{ recipes.title }}</h2>
