@@ -5,7 +5,9 @@ title: Recipes
 
 {% for recipe in site.recipes %}
   <div class="post-link">
-    <h2><a href="{{ recipe.url }}">{{ recipe.title }}</a></h2>
+    <a href="{{ recipe.url | prepend: site.baseurl }}">
+      <h2>{{ recipe.title }}</h2>
+    </a>
   </div>
 {% endfor %}
 
@@ -17,5 +19,7 @@ title: Recipes
 </a>
 
 <p class="post-excerpt">{{ recipes.description | truncate: 160 }}</p>
+
+<h2><a href="{{ recipe.url }}">{{ recipe.title }}</a></h2>
 
 {% endfor %} -->
