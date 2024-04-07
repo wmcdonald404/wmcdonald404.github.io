@@ -1,5 +1,6 @@
 ---
-title: Rajma Chawal
+title: "Rajma Masala"
+name: "Rajama Masala"
 date: 2024-04-07 16:25:00
 tags:
 - recipe 
