@@ -4,5 +4,6 @@ author: wmcdonald404
 collections:
   recipes:
     output: true
+    permalink: /:collection/:name
     
       
