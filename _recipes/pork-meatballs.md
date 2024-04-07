@@ -1,13 +1,12 @@
 ---
 title: "Pork Meatballs"
 name: "Pork Meatballs"
-description: "Pork meatballs in tomato sauce.'
+description: "Pork meatballs in tomato sauce."
 date: 2024-04-07 18:39:00
 tags:
 - recipe 
 - pork
 - meatballs
-- 
 ---
 
 # Description

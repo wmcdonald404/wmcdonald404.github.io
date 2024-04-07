@@ -1,13 +1,12 @@
 ---
 title: "Beef Goulash"
 name: "Beef Goulash"
-description: 
+description: "Beef goulash"
 date: 2024-04-07 18:31:00
 tags:
 - recipe 
 - beef
-- goulash
-- 
+- goulash 
 ---
 
 # Description
