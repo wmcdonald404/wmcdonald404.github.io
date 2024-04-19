@@ -21,14 +21,13 @@ The `glab` CLI has proved invaluable mapping groups, repos, exporting repo, view
 
     - *Fedora:* 
         
-        `sudo dnf -y install glab`
+        `$ sudo dnf -y install glab`
     - *Amazon Linux 2023:* 
         
-        `sudo dnf -y install https://gitlab.com/gitlab-org/cli/-/releases/v1.38.0/downloads/glab_1.38.0_Linux_x86_64.rpm`
+        `$ sudo dnf -y install https://gitlab.com/gitlab-org/cli/-/releases/v1.38.0/downloads/glab_1.38.0_Linux_x86_64.rpm`
     - *Windows:* 
         
-        `PS C:\Users\vagrant> Invoke-WebRequest https://gitlab.com/gitlab-org/cli/-/releases/v1.39.0/downloads/glab.exe -OutFile C:\Windows\System32\glab.exe`
-    
+        `PS> Invoke-WebRequest https://gitlab.com/gitlab-org/cli/-/releases/v1.39.0/downloads/glab.exe -OutFile C:\Windows\System32\glab.exe`
 
 2. Login to Gitlab:
 
