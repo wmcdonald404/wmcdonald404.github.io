@@ -1,9 +1,9 @@
 theme: minima
 title: Github Pages
 author: wmcdonald404  
-collections:
-  recipes:
-    output: true
-    permalink: /:collection/:name
+# collections:
+#   recipes:
+#     output: true
+#     permalink: /:collection/:name
     
       
