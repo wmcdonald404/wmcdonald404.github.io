@@ -11,7 +11,6 @@ Many enterprises using Gitlab will end up with a deeply nested hierarchy of grou
 
 The larger the organisation, or the more convoluted and granular groups and projects are _for reasons_, this can become complex to navigate.
 
-
 ## Background
 The UI is a useful tool in terms of visualising this, identifying group branches to clone children of using either an IDE, or the Gitlab CLI (`glab`).
 
