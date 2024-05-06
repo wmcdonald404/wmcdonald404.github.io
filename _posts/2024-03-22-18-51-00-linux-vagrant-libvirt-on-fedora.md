@@ -116,7 +116,80 @@ fedora/37-cloud-base (libvirt, 37.20221105.0)
 
 If `vagrant up` fails with the following error:
 
-<<error lost to the mists of time, placeholder until reoccurence>>
+```
+wmcdonald@fedora:~/working/vagrant/fedora-scratch$ vagrant up 
+Bringing machine 'default' up with 'libvirt' provider...
+==> default: Checking if box 'fedora/37-cloud-base' version '37.20221105.0' is up to date...
+==> default: Creating image (snapshot of base box volume).
+==> default: Creating domain with the following settings...
+==> default:  -- Name:              fedora-scratch_default
+==> default:  -- Description:       Source: /home/wmcdonald/working/vagrant/fedora-scratch/Vagrantfile
+==> default:  -- Domain type:       kvm
+==> default:  -- Cpus:              1
+==> default:  -- Feature:           acpi
+==> default:  -- Feature:           apic
+==> default:  -- Feature:           pae
+==> default:  -- Clock offset:      utc
+==> default:  -- Memory:            1024M
+==> default:  -- Base box:          fedora/37-cloud-base
+==> default:  -- Storage pool:      default
+==> default:  -- Image(vda):        /home/wmcdonald/.local/share/libvirt/images/fedora-scratch_default.img, virtio, 41G
+==> default:  -- Disk driver opts:  cache='default'
+==> default:  -- Graphics Type:     vnc
+==> default:  -- Video Type:        cirrus
+==> default:  -- Video VRAM:        16384
+==> default:  -- Video 3D accel:    false
+==> default:  -- Keymap:            en-us
+==> default:  -- TPM Backend:       passthrough
+==> default:  -- INPUT:             type=mouse, bus=ps2
+==> default: Removing domain...
+==> default: Deleting the machine folder
+/usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/driver.rb:207:in `list_all_networks': Call to virConnectListAllNetworks failed: Failed to connect socket to '/var/run/libvirt/virtnetworkd-sock-ro': No such file or directory (Libvirt::RetrieveError)
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/driver.rb:207:in `list_all_networks'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/util/network_util.rb:157:in `libvirt_networks'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/create_networks.rb:38:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/create_domain.rb:452:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/resolve_disk_settings.rb:143:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/create_domain_volume.rb:97:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/handle_box_image.rb:127:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builtin/handle_box.rb:56:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/handle_storage_pool.rb:63:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/set_name_of_domain.rb:34:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builtin/provision.rb:80:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-libvirt-0.11.2/lib/vagrant-libvirt/action/cleanup_on_failure.rb:21:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:127:in `block in finalize_action'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builder.rb:180:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/runner.rb:101:in `block in run'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/util/busy.rb:19:in `busy'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/runner.rb:101:in `run'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builtin/call.rb:53:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builtin/box_check_outdated.rb:93:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builtin/config_validate.rb:25:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/warden.rb:48:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/builder.rb:180:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/runner.rb:101:in `block in run'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/util/busy.rb:19:in `busy'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/action/runner.rb:101:in `run'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/machine.rb:248:in `action_raw'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/machine.rb:217:in `block in action'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/environment.rb:631:in `lock'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/machine.rb:203:in `call'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/machine.rb:203:in `action'
+	from /usr/share/vagrant/gems/gems/vagrant-2.3.4/lib/vagrant/batch_action.rb:86:in `block (2 levels) in run'
+```
 
 Run the following as a temporary mitigation (proper root-cause required):
 ```sudo virsh net-list --all```
