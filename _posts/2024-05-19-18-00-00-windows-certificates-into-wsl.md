@@ -51,7 +51,7 @@ In your WSL2 instance:
       -out /usr/local/share/ca-certificates/proxy.crt
     ```
   
-    ***Notes:*** 
+  ***Notes:*** 
   - Change the /Users/<user.name> as needed.
   - The file placed into /usr/local/share/ca-certificates/ **MUST** have a .crt extension.
   - `sudo` escalation for root user permission is _not required_ for the OpenSSL certificate encoding conversion but is required in order to output the resultant file to the /usr/local/share/ca-certificates directory.
