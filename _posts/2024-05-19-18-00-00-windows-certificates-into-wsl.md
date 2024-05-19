@@ -54,7 +54,7 @@ In your WSL2 instance:
     ***Notes:*** 
     
     - Change the `<user.name>` in `/mnt/c/Users/<user.name>/Downloads` as needed.
-    - The file placed into /usr/local/share/ca-certificates/ **MUST** have a .crt extension.
+    - The file placed into `/usr/local/share/ca-certificates/` **MUST** have a .crt extension.
     - `sudo` escalation for root user permission is _not required_ for the OpenSSL certificate encoding conversion, but is required in order to output the resultant file to the /usr/local/share/ca-certificates directory.
 
 2. Update the root Certificate Authorities
