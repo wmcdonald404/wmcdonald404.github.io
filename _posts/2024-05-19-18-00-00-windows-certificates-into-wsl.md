@@ -22,7 +22,7 @@ This describes a simple mechanim to pull individual certificates (for example, r
 ### Windows
 On your Windows system:
 
-TODO: Step to indentify the proxy cert from properties other than its <CERT ID> 
+TODO: Step to indentify the proxy cert from properties other than its `<CERT ID>` 
 
 1. Check the path to the root CA certificate in the Windows certificate on your laptop
     ```
