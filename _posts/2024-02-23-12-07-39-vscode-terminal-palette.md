@@ -13,7 +13,7 @@ When working on Windows using a combination of WSL2 in the Windows Terminal, VSC
 
 ```
 {
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
     "workbench.colorCustomizations": {
         "terminal.background":"#2F1E2E",
         "terminal.foreground":"#A39E9B",
