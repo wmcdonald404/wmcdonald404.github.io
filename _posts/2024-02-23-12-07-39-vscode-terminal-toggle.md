@@ -1,6 +1,10 @@
 ---
-title: "Microsoft - VSCode - Configure a VSCode Terminal Toggle"
+title: "Configure a VSCode Terminal Toggle"
 date: 2024-02-23 12:10:00
+tags:
+- microsoft
+- vscode
+- terminal
 ---
 
 ## Overview

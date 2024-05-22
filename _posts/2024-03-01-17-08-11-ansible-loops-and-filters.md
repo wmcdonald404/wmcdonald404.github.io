@@ -1,6 +1,11 @@
 ---
-title: "Ansible - Ansible Loops & Filters"
+title: "Ansible Loops & Filters"
 date: 2024-03-01 17-08-11
+tags:
+- redhat
+- ansible
+- loops
+- filters
 ---
 
 ## Overview

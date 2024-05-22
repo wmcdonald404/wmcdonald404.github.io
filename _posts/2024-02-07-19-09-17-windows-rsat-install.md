@@ -1,6 +1,12 @@
 ---
-title: "Microsoft - Windows - Installing the Windows Remote Server Administration Tools (RSAT)"
+title: "Installing the Windows Remote Server Administration Tools (RSAT)"
 date: 2024-02-07-19 09:17:00
+tags:
+- microsoft
+- windows
+- ad
+- active directory
+- rsat
 ---
 
 ## Overview
@@ -24,9 +30,9 @@ PS> Add-WindowsCapability -Online -Name "<item_name>"
 ```
 PS> Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
 ```
-### UI
 
-### Windows 10
+### UI
+#### Windows 10
 1. Click Start
 2. Type "Add an optional feature"
 3. Enter
