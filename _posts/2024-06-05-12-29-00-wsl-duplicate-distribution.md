@@ -27,7 +27,6 @@ In order to do this we can follow a process similar to [Duplicate a Linux distro
 ### Windows
 On your Windows system:
 
-
 1. Verify your current installed WSL distribution(s):
     ```
     PS C:\Users\wmcdonald> wsl -l
