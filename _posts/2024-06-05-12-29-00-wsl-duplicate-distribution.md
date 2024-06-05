@@ -66,7 +66,7 @@ On your Windows system:
 
 5. Create a new Windows Terminal profile for Fedora-40.
 
-TODO: Programmatically add the distribution as a new profile in the Windows Terminal.
+    TODO: Programmatically add the distribution as a new profile in the Windows Terminal.
 
 ### WSL
 In your WSL2 instance:
