@@ -64,6 +64,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
     ```
 
 3. Create a simple Ansible playbook, `${VWD}/playbook.yml`.
+
     ```
     - name: Vagrant post-provision
       hosts: cluster_nodes
@@ -75,6 +76,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
     ```
 
 4. If the base Vagrant box isn't already set up, set it up for the appropriate hypervisor:
+    
     ```
     wmcdonald@fedora:~$ vagrant box add fedora/40-cloud-base --provider libvirt
     ==> box: Loading metadata for box 'fedora/40-cloud-base'
