@@ -137,6 +137,10 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
 
     *Note:* Observe the output of `ansible-playbook playbook.yml` among the Vagrant box configuration and provisioning.
 
+## Summary
+
+We now have a simple example of creating multiple Vagrant boxes and running Ansible playbooks against them. It would be simple to create nodes for discrete roles, build the corresponding inventory to reflect this then run more complex Ansible playbooks, roles and/or collections against this local infrastructure to emulate and test scenarios that resemble private or public clouds.
+
 ## Further reading
 
 - [Setting up Vagrant under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html)
