@@ -96,6 +96,7 @@ On your Windows system:
     ```
 
 4. Now review the list of installed distros again:
+
     ```
     PS C:\Users\wmcdonald> wsl -l -v
     NAME                   STATE           VERSION
