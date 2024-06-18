@@ -33,10 +33,10 @@ On your Windows system:
     PS C:\Users\wmcdonald> wsl -l -v
     NAME                   STATE           VERSION
     * docker-desktop-data    Stopped         2
-    Fedora-40              Stopped         2
-    Fedora-38              Stopped         2
-    Ubuntu-22.04           Running         2
-    docker-desktop         Stopped         2
+      Fedora-40              Stopped         2
+      Fedora-38              Stopped         2
+      Ubuntu-22.04           Running         2
+      docker-desktop         Stopped         2
     ```
 
 3. Check which distributions are available online from the vendor:
