@@ -1,6 +1,6 @@
 ---
 title: Update a Distribution in WSL
-date: 2024-06-19 10:24:00
+date: 2024-06-18 10:24:00
 tags:
 - windows
 - wsl
