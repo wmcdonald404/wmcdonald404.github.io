@@ -20,6 +20,7 @@ For WSL2 distributions managed by Microsoft, you can simply pull down the latest
 On your Windows system:
 
 1. Check for updates to WSL:
+
     ```
     PS C:\Users\wmcdonald> wsl --update
     Checking for updates.
@@ -27,6 +28,7 @@ On your Windows system:
     ```
 
 2. Verify your current installed WSL distribution(s):
+
     ```
     PS C:\Users\wmcdonald> wsl -l -v
     NAME                   STATE           VERSION
@@ -38,6 +40,7 @@ On your Windows system:
     ```
 
 3. Check which distributions are available online from the vendor:
+
     ```
     PS C:\Users\wmcdonald> wsl --list --online
     The following is a list of valid distributions that can be installed.
@@ -61,6 +64,7 @@ On your Windows system:
     ```
 
 3. Install the later distro:
+
     ```
     PS C:\Users\wmcdonald> wsl --install -d Ubuntu-24.04
     Installing: Ubuntu 24.04 LTS
@@ -108,7 +112,7 @@ On your Windows system:
       docker-desktop         Stopped         2
     ```
 
-    *Note:* Restart the Windows Terminal and a new profile matching the added distribution should appear.
+*Note:* Restart the Windows Terminal and a new profile matching the added distribution should appear.
 
 ## Further reading
 - [Upgrade Ubuntu in WSL2 from 20.04 to 22.04](https://askubuntu.com/questions/1428423/upgrade-ubuntu-in-wsl2-from-20-04-to-22-04)
