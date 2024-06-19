@@ -37,42 +37,42 @@ On Windows systems, you can use Git-bash to achieve the same fluidity, or you ca
 
 1. Open your [Powershell profile](https://wmcdonald404.github.io/github-pages/2024/03/10/13-21-59-windows-powershell-history-functions-and-aliases.html#powershell-profiles) to add local Powershell functions (analogous to aliases or functions in bash/zsh)
 
-```
-PS> code $PROFILE
-```
+    ```
+    PS> code $PROFILE
+    ```
 
 2. Add the following functions to the `$PROFILE`... file. 
 
-```
-# Unix-like functions (https://stackoverflow.com/a/32634452)
+    ```
+    # Unix-like functions (https://stackoverflow.com/a/32634452)
 
-# returns the file name from a full path:
-function basename {
-    Param (
-        [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        [string[]]$FilePath
-    )
-    return (Get-Item $FilePath).Name
-}
+    # returns the file name from a full path:
+    function basename {
+        Param (
+            [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+            [string[]]$FilePath
+        )
+        return (Get-Item $FilePath).Name
+    }
 
-# returns the directory path from a full path:
-function dirname {
-    Param (
-        [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        [string[]]$FilePath
-    )
-    return (Get-Item $FilePath).DirectoryName
-}
+    # returns the directory path from a full path:
+    function dirname {
+        Param (
+            [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+            [string[]]$FilePath
+        )
+        return (Get-Item $FilePath).DirectoryName
+    }
 
-# switches into directory from a full path: 
-function cdirname {
-    Param (
-        [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        [string[]]$FilePath
-    )
-    return Set-Location (Get-Item $FilePath).DirectoryName
-}
-```
+    # switches into directory from a full path: 
+    function cdirname {
+        Param (
+            [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+            [string[]]$FilePath
+        )
+        return Set-Location (Get-Item $FilePath).DirectoryName
+    }
+    ```
 
 
 ## Further reading
