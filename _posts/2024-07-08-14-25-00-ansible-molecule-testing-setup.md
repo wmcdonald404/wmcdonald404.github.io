@@ -18,6 +18,8 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 ## How-to
 
+### Prepping a Virtual Environment
+
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Ansible Dev Tools (ADT):
 
 ```
@@ -26,6 +28,92 @@ wmcdonald@fedora:~/working/ansible-molecule$ . .venv/adt/bin/activate
 (adt) wmcdonald@fedora:~/working/ansible-molecule$ pip install --upgrade pip
 (adt) wmcdonald@fedora:~/working/ansible-molecule$ pip install ansible-dev-tools
 ```
+
+### Following the Documentation
+
+Ref: [Getting Started With Molecule](https://ansible.readthedocs.io/projects/molecule/getting-started/)
+
+1. Create a collection:
+
+```
+(adt) wmcdonald@fedora:~/working/ansible-molecule$ ansible-galaxy collection init wmcdonald404.testcollection
+- Collection wmcdonald404.testcollection was created successfully
+```
+
+2. Create a role:
+
+```
+(adt) wmcdonald@fedora:~/working/ansible-molecule$ cd wmcdonald404/testcollection/roles/
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ ansible-galaxy role init testrole
+- Role testrole was created successfully
+```
+
+3. Add a task to the role:
+
+```
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ cat > ~/working/ansible-molecule/wmcdonald404/testcollection/roles/testrole/tasks/main.yml <<EOF
+---
+# tasks file for testrole
+- name: Debug placeholder task in testrole
+  ansible.builtin.debug:
+    msg: "This is a task from wmcdonald404.testcollection/testrole."
+EOF
+```
+
+4. Add a playbook at the root of the collection:
+
+```
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ cd ~/working/ansible-molecule/wmcdonald404/testcollection/
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ mkdir playbooks
+
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ cat > ~/working/ansible-molecule/wmcdonald404/testcollection/playbooks/playbook.yml <<EOF
+---
+- name: Test testrole from within this playbook
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Testing role
+      ansible.builtin.include_role:
+        name: wmcdonald404.testcollection.testrole
+        tasks_from: main.yml
+EOF
+```
+
+5. Initialise a Molecule scenario in an extensions directory at the root of the role:
+
+```
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ mkdir extensions
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ cd extensions/
+(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/extensions$ molecule init scenario
+INFO     Initializing new scenario default...
+
+PLAY [Create a new molecule scenario] ******************************************
+
+TASK [Check if destination folder exists] **************************************
+changed: [localhost]
+
+TASK [Check if destination folder is empty] ************************************
+ok: [localhost]
+
+TASK [Fail if destination folder is not empty] *********************************
+skipping: [localhost]
+
+TASK [Expand templates] ********************************************************
+changed: [localhost] => (item=molecule/default/converge.yml)
+changed: [localhost] => (item=molecule/default/create.yml)
+changed: [localhost] => (item=molecule/default/destroy.yml)
+changed: [localhost] => (item=molecule/default/molecule.yml)
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Initialized scenario in /home/wmcdonald/working/ansible-molecule/wmcdonald404/testcollection/extensions/molecule/default successfully.
+
+```
+
+
+### For a single Role
+
 
 2. Create a test role
 
