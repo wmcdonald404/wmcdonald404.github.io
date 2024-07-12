@@ -22,51 +22,51 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Ansible Dev Tools (ADT):
 
-  ```
-  wmcdonald@fedora:~$ mkdir ~/adt
-  wmcdonald@fedora:~$ cd ~/adt/
-  wmcdonald@fedora:~/adt$ python -m venv .venv/adt
-  wmcdonald@fedora:~/adt$ . ~/adt/.venv/adt/bin/activate
-  (adt) wmcdonald@fedora:~/adt$ pip install --upgrade pip
-  (adt) wmcdonald@fedora:~/adt$ pip install ansible-dev-tools
-  ```
+    ```
+    wmcdonald@fedora:~$ mkdir ~/adt
+    wmcdonald@fedora:~$ cd ~/adt/
+    wmcdonald@fedora:~/adt$ python -m venv .venv/adt
+    wmcdonald@fedora:~/adt$ . ~/adt/.venv/adt/bin/activate
+    (adt) wmcdonald@fedora:~/adt$ pip install --upgrade pip
+    (adt) wmcdonald@fedora:~/adt$ pip install ansible-dev-tools
+    ```
 
 2. Verify the version of base tooling:
 
-  ```
-  (adt) wmcdonald@fedora:~/adt$ which python && python --version
-  ~/adt/.venv/adt/bin/python
-  Python 3.12.4
+    ```
+    (adt) wmcdonald@fedora:~/adt$ which python && python --version
+    ~/adt/.venv/adt/bin/python
+    Python 3.12.4
 
-  (adt) wmcdonald@fedora:~/adt$ which pip && pip --version
-  ~/adt/.venv/adt/bin/pip
-  pip 24.1.2 from /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/pip (python 3.12)
+    (adt) wmcdonald@fedora:~/adt$ which pip && pip --version
+    ~/adt/.venv/adt/bin/pip
+    pip 24.1.2 from /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/pip (python 3.12)
 
-  (adt) wmcdonald@fedora:~/adt$ which ansible && ansible --version
-  ~/adt/.venv/adt/bin/ansible
-  ansible [core 2.17.1]
-    config file = /home/wmcdonald/.ansible.cfg
-    configured module search path = ['/home/wmcdonald/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-    ansible python module location = /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/ansible
-    ansible collection location = /home/wmcdonald/.ansible/collections:/usr/share/ansible/collections
-    executable location = /home/wmcdonald/adt/.venv/adt/bin/ansible
-    python version = 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1 20240607 (Red Hat 14.1.1-5)] (/home/wmcdonald/adt/.venv/adt/bin/python)
-    jinja version = 3.1.4
-    libyaml = True
+    (adt) wmcdonald@fedora:~/adt$ which ansible && ansible --version
+    ~/adt/.venv/adt/bin/ansible
+    ansible [core 2.17.1]
+      config file = /home/wmcdonald/.ansible.cfg
+      configured module search path = ['/home/wmcdonald/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+      ansible python module location = /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/ansible
+      ansible collection location = /home/wmcdonald/.ansible/collections:/usr/share/ansible/collections
+      executable location = /home/wmcdonald/adt/.venv/adt/bin/ansible
+      python version = 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1 20240607 (Red Hat 14.1.1-5)] (/home/wmcdonald/adt/.venv/adt/bin/python)
+      jinja version = 3.1.4
+      libyaml = True
 
-  (adt) wmcdonald@fedora:~/adt$ which molecule && molecule --version
-  ~/adt/.venv/adt/bin/molecule
-  molecule 24.7.0 using python 3.12 
-      ansible:2.17.1
-      default:24.7.0 from molecule
-  ```
+    (adt) wmcdonald@fedora:~/adt$ which molecule && molecule --version
+    ~/adt/.venv/adt/bin/molecule
+    molecule 24.7.0 using python 3.12 
+        ansible:2.17.1
+        default:24.7.0 from molecule
+    ```
 
 **Note:** Whenever you're working through any subsequent steps, if you have started a new terminal / shell session, you will need to reactivate the Python virtual environment (venv).
 
-  ```
-  wmcdonald@fedora:~$ . ~/adt/.venv/adt/bin/activate
-  (adt) wmcdonald@fedora:~$ 
-  ```
+    ```
+    wmcdonald@fedora:~$ . ~/adt/.venv/adt/bin/activate
+    (adt) wmcdonald@fedora:~$ 
+    ```
 
 ### Following the Documentation
 
