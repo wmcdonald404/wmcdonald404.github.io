@@ -14,7 +14,7 @@ The Ansible SDLC landscape has changed *significantly* over the last 8+ years wi
 
 While setting up some baseline prequisites to do some Ansible role testing using Molecule, I was working through the setup steps from [this blog post](https://www.ansible.com/blog/developing-and-testing-ansible-roles-with-molecule-and-podman-part-1/). It's from 2020 which doesn't feel like it was that long ago, and yet it's nearly 4 years at time of writing, and some of the steps no longer work. For example `molecule init role <rolename>` fails because [this functionality has been removed](https://github.com/ansible/molecule/pull/3959). 
 
-So this is an attempt to capture the process to configure a new system for Ansible development using Podman as the driver.
+So this is an attempt to capture the process to configure a new system for Ansible development using Podman as the container runtime.
 
 ## How-to
 
@@ -22,62 +22,136 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Ansible Dev Tools (ADT):
 
-```
-wmcdonald@fedora:~/working/ansible-molecule$ python -m venv .venv/adt
-wmcdonald@fedora:~/working/ansible-molecule$ . .venv/adt/bin/activate
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ pip install --upgrade pip
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ pip install ansible-dev-tools
-```
+  ```
+  wmcdonald@fedora:~$ mkdir ~/adt
+  wmcdonald@fedora:~$ cd ~/adt/
+  wmcdonald@fedora:~/adt$ python -m venv .venv/adt
+  wmcdonald@fedora:~/adt$ . ~/adt/.venv/adt/bin/activate
+  (adt) wmcdonald@fedora:~/adt$ pip install --upgrade pip
+  (adt) wmcdonald@fedora:~/adt$ pip install ansible-dev-tools
+  ```
+
+2. Verify the version of base tooling:
+
+  ```
+  (adt) wmcdonald@fedora:~/adt$ which python && python --version
+  ~/adt/.venv/adt/bin/python
+  Python 3.12.4
+
+  (adt) wmcdonald@fedora:~/adt$ which pip && pip --version
+  ~/adt/.venv/adt/bin/pip
+  pip 24.1.2 from /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/pip (python 3.12)
+
+  (adt) wmcdonald@fedora:~/adt$ which ansible && ansible --version
+  ~/adt/.venv/adt/bin/ansible
+  ansible [core 2.17.1]
+    config file = /home/wmcdonald/.ansible.cfg
+    configured module search path = ['/home/wmcdonald/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+    ansible python module location = /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/ansible
+    ansible collection location = /home/wmcdonald/.ansible/collections:/usr/share/ansible/collections
+    executable location = /home/wmcdonald/adt/.venv/adt/bin/ansible
+    python version = 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1 20240607 (Red Hat 14.1.1-5)] (/home/wmcdonald/adt/.venv/adt/bin/python)
+    jinja version = 3.1.4
+    libyaml = True
+
+  (adt) wmcdonald@fedora:~/adt$ which molecule && molecule --version
+  ~/adt/.venv/adt/bin/molecule
+  molecule 24.7.0 using python 3.12 
+      ansible:2.17.1
+      default:24.7.0 from molecule
+  ```
+
+**Note:** Whenever you're working through any subsequent steps, if you have started a new terminal / shell session, you will need to reactivate the Python virtual environment (venv).
+
+  ```
+  wmcdonald@fedora:~$ . ~/adt/.venv/adt/bin/activate
+  (adt) wmcdonald@fedora:~$ 
+  ```
 
 ### Following the Documentation
 
-Ref: [Getting Started With Molecule](https://ansible.readthedocs.io/projects/molecule/getting-started/)
+The documentation, [Getting Started With Molecule](https://ansible.readthedocs.io/projects/molecule/getting-started/), walks through the end-to-end process of setting up Molecule testing inside a collection. Ideally we want to start with something simpler/narrower, like a role, but in order to understand the moving parts following the documentation beginning to end is a reasonable place to start.
 
-1. Create a collection:
+1. Create a collection, review the created tree:
 
-```
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ ansible-galaxy collection init wmcdonald404.testcollection
-- Collection wmcdonald404.testcollection was created successfully
-```
+  ```
+  (adt) wmcdonald@fedora:~/adt$ ansible-galaxy collection init wmcdonald.testcollection
+  - Collection wmcdonald.testcollection was created successfully
+
+  (adt) wmcdonald@fedora:~/adt$ tree wmcdonald/
+  wmcdonald/
+  └── testcollection
+      ├── docs
+      ├── galaxy.yml
+      ├── meta
+      │   └── runtime.yml
+      ├── plugins
+      │   └── README.md
+      ├── README.md
+      └── roles
+
+  6 directories, 4 files
+  ```
 
 2. Create a role:
 
-```
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ cd wmcdonald404/testcollection/roles/
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ ansible-galaxy role init testrole
-- Role testrole was created successfully
-```
+  ```
+  (adt) wmcdonald@fedora:~/adt$ cd ~/adt/wmcdonald/testcollection/roles/
+  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ ansible-galaxy role init testrole
+  - Role testrole was created successfully
+  
+  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ tree testrole/
+  testrole/
+  ├── defaults
+  │   └── main.yml
+  ├── files
+  ├── handlers
+  │   └── main.yml
+  ├── meta
+  │   └── main.yml
+  ├── README.md
+  ├── tasks
+  │   └── main.yml
+  ├── templates
+  ├── tests
+  │   ├── inventory
+  │   └── test.yml
+  └── vars
+      └── main.yml
+
+  9 directories, 8 files
+  ```
 
 3. Add a task to the role:
 
-```
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ cat > ~/working/ansible-molecule/wmcdonald404/testcollection/roles/testrole/tasks/main.yml <<EOF
----
-# tasks file for testrole
-- name: Debug placeholder task in testrole
-  ansible.builtin.debug:
-    msg: "This is a task from wmcdonald404.testcollection/testrole."
-EOF
-```
+  ```
+  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ cd ~/adt/
+  (adt) wmcdonald@fedora:~/adt$ cat > ~/adt/wmcdonald/testcollection/roles/testrole/tasks/main.yml <<EOF
+  ---
+  # tasks file for testrole
+  - name: Debug placeholder task in testrole
+    ansible.builtin.debug:
+      msg: "This is a task from wmcdonald404.testcollection/testrole."
+  EOF
+  ```
 
 4. Add a playbook at the root of the collection:
 
-```
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/roles$ cd ~/working/ansible-molecule/wmcdonald404/testcollection/
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ mkdir playbooks
+  ```
+  (adt) wmcdonald@fedora:~/adt$ mkdir ~/adt/wmcdonald/testcollection/playbooks
 
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ cat > ~/working/ansible-molecule/wmcdonald404/testcollection/playbooks/playbook.yml <<EOF
----
-- name: Test testrole from within this playbook
-  hosts: localhost
-  gather_facts: false
-  tasks:
-    - name: Testing role
-      ansible.builtin.include_role:
-        name: wmcdonald404.testcollection.testrole
-        tasks_from: main.yml
-EOF
-```
+  (adt) wmcdonald@fedora:~/adt$ cat > ~/adt/wmcdonald/testcollection/playbooks/playbook.yml <<EOF
+  ---
+  - name: Test testrole from within this playbook
+    hosts: localhost
+    gather_facts: false
+    tasks:
+      - name: Testing role
+        ansible.builtin.include_role:
+          name: wmcdonald404.testcollection.testrole
+          tasks_from: main.yml
+  EOF
+  ```
 
 5. Initialise a Molecule scenario in an extensions directory at the root of the role:
 
