@@ -61,12 +61,10 @@ So this is an attempt to capture the process to configure a new system for Ansib
         default:24.7.0 from molecule
     ```
 
-**Note:** Whenever you're working through any subsequent steps, if you have started a new terminal / shell session, you will need to reactivate the Python virtual environment (venv).
+**Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
 
-    ```
     wmcdonald@fedora:~$ . ~/adt/.venv/adt/bin/activate
     (adt) wmcdonald@fedora:~$ 
-    ```
 
 ### Following the Documentation
 
