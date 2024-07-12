@@ -74,53 +74,53 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
 
 1. Create a collection, review the created tree:
 
-  ```
-  (adt) wmcdonald@fedora:~/adt$ ansible-galaxy collection init wmcdonald.testcollection
-  - Collection wmcdonald.testcollection was created successfully
+    ```
+    (adt) wmcdonald@fedora:~/adt$ ansible-galaxy collection init wmcdonald.testcollection
+    - Collection wmcdonald.testcollection was created successfully
 
-  (adt) wmcdonald@fedora:~/adt$ tree wmcdonald/
-  wmcdonald/
-  └── testcollection
-      ├── docs
-      ├── galaxy.yml
-      ├── meta
-      │   └── runtime.yml
-      ├── plugins
-      │   └── README.md
-      ├── README.md
-      └── roles
+    (adt) wmcdonald@fedora:~/adt$ tree wmcdonald/
+    wmcdonald/
+    └── testcollection
+        ├── docs
+        ├── galaxy.yml
+        ├── meta
+        │   └── runtime.yml
+        ├── plugins
+        │   └── README.md
+        ├── README.md
+        └── roles
 
-  6 directories, 4 files
-  ```
+    6 directories, 4 files
+    ```
 
 2. Create a role:
 
-  ```
-  (adt) wmcdonald@fedora:~/adt$ cd ~/adt/wmcdonald/testcollection/roles/
-  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ ansible-galaxy role init testrole
-  - Role testrole was created successfully
-  
-  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ tree testrole/
-  testrole/
-  ├── defaults
-  │   └── main.yml
-  ├── files
-  ├── handlers
-  │   └── main.yml
-  ├── meta
-  │   └── main.yml
-  ├── README.md
-  ├── tasks
-  │   └── main.yml
-  ├── templates
-  ├── tests
-  │   ├── inventory
-  │   └── test.yml
-  └── vars
-      └── main.yml
+    ```
+    (adt) wmcdonald@fedora:~/adt$ cd ~/adt/wmcdonald/testcollection/roles/
+    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ ansible-galaxy role init testrole
+    - Role testrole was created successfully
+    
+    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ tree testrole/
+    testrole/
+    ├── defaults
+    │   └── main.yml
+    ├── files
+    ├── handlers
+    │   └── main.yml
+    ├── meta
+    │   └── main.yml
+    ├── README.md
+    ├── tasks
+    │   └── main.yml
+    ├── templates
+    ├── tests
+    │   ├── inventory
+    │   └── test.yml
+    └── vars
+        └── main.yml
 
-  9 directories, 8 files
-  ```
+    9 directories, 8 files
+    ```
 
 3. Add a task to the role, so there's an action to test when running the role:
 
