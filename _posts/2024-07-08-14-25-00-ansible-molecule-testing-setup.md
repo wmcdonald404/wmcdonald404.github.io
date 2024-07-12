@@ -122,7 +122,7 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
   9 directories, 8 files
   ```
 
-3. Add a task to the role:
+3. Add a task to the role, so there's an action to test when running the role:
 
   ```
   (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ cd ~/adt/
@@ -131,7 +131,7 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
   # tasks file for testrole
   - name: Debug placeholder task in testrole
     ansible.builtin.debug:
-      msg: "This is a task from wmcdonald404.testcollection/testrole."
+      msg: "This is a task from wmcdonald.testcollection/testrole."
   EOF
   ```
 
@@ -148,7 +148,7 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
     tasks:
       - name: Testing role
         ansible.builtin.include_role:
-          name: wmcdonald404.testcollection.testrole
+          name: wmcdonald.testcollection/testrole
           tasks_from: main.yml
   EOF
   ```
@@ -156,9 +156,11 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
 5. Initialise a Molecule scenario in an extensions directory at the root of the role:
 
 ```
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ mkdir extensions
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection$ cd extensions/
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/extensions$ molecule init scenario
+(adt) wmcdonald@fedora:~/adt$ mkdir ~/adt/wmcdonald/testcollection/extensions
+
+(adt) wmcdonald@fedora:~/adt$ cd wmcdonald/testcollection/extensions/
+
+(adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule init scenario 
 INFO     Initializing new scenario default...
 
 PLAY [Create a new molecule scenario] ******************************************
@@ -181,103 +183,112 @@ changed: [localhost] => (item=molecule/default/molecule.yml)
 PLAY RECAP *********************************************************************
 localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-INFO     Initialized scenario in /home/wmcdonald/working/ansible-molecule/wmcdonald404/testcollection/extensions/molecule/default successfully.
-
+INFO     Initialized scenario in /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default successfully.
 ```
 
-6. Run a full-test cycle:
+6. Check the syntax:
 
-```
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404/testcollection/extensions$ molecule test
-INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+(adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule syntax
+INFO     default scenario test matrix: syntax
 INFO     Performing prerun with role_name_check=0...
-INFO     Running default > dependency
-WARNING  Skipping, missing the requirements file.
-WARNING  Skipping, missing the requirements file.
-INFO     Running default > cleanup
-WARNING  Skipping, cleanup playbook not configured.
-INFO     Running default > destroy
-
-PLAY [Destroy] *****************************************************************
-
-TASK [Populate instance config] ************************************************
-ok: [localhost]
-
-TASK [Dump instance config] ****************************************************
-skipping: [localhost]
-
-PLAY RECAP *********************************************************************
-localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
 INFO     Running default > syntax
 
-playbook: /home/wmcdonald/working/ansible-molecule/wmcdonald404/testcollection/extensions/molecule/default/converge.yml
-INFO     Running default > create
+playbook: /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default/converge.yml
 
-PLAY [Create] ******************************************************************
 
-TASK [Populate instance config dict] *******************************************
-skipping: [localhost]
+7. Run a full-test cycle:
 
-TASK [Convert instance config dict to a list] **********************************
-skipping: [localhost]
+  ```
+  (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule test
+  INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+  INFO     Performing prerun with role_name_check=0...
+  INFO     Running default > dependency
+  WARNING  Skipping, missing the requirements file.
+  WARNING  Skipping, missing the requirements file.
+  INFO     Running default > cleanup
+  WARNING  Skipping, cleanup playbook not configured.
+  INFO     Running default > destroy
 
-TASK [Dump instance config] ****************************************************
-skipping: [localhost]
+  PLAY [Destroy] *****************************************************************
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=0    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+  TASK [Populate instance config] ************************************************
+  ok: [localhost]
 
-INFO     Running default > prepare
-WARNING  Skipping, prepare playbook not configured.
-INFO     Running default > converge
+  TASK [Dump instance config] ****************************************************
+  skipping: [localhost]
 
-PLAY [Converge] ****************************************************************
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-TASK [Replace this task with one that validates your content] ******************
-ok: [instance] => {
-    "msg": "This is the effective test"
-}
+  INFO     Running default > syntax
 
-PLAY RECAP *********************************************************************
-instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+  playbook: /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default/converge.yml
+  INFO     Running default > create
 
-INFO     Running default > idempotence
+  PLAY [Create] ******************************************************************
 
-PLAY [Converge] ****************************************************************
+  TASK [Populate instance config dict] *******************************************
+  skipping: [localhost]
 
-TASK [Replace this task with one that validates your content] ******************
-ok: [instance] => {
-    "msg": "This is the effective test"
-}
+  TASK [Convert instance config dict to a list] **********************************
+  skipping: [localhost]
 
-PLAY RECAP *********************************************************************
-instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+  TASK [Dump instance config] ****************************************************
+  skipping: [localhost]
 
-INFO     Idempotence completed successfully.
-INFO     Running default > side_effect
-WARNING  Skipping, side effect playbook not configured.
-INFO     Running default > verify
-INFO     Running Ansible Verifier
-WARNING  Skipping, verify action has no playbook.
-INFO     Verifier completed successfully.
-INFO     Running default > cleanup
-WARNING  Skipping, cleanup playbook not configured.
-INFO     Running default > destroy
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=0    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
 
-PLAY [Destroy] *****************************************************************
+  INFO     Running default > prepare
+  WARNING  Skipping, prepare playbook not configured.
+  INFO     Running default > converge
 
-TASK [Populate instance config] ************************************************
-ok: [localhost]
+  PLAY [Converge] ****************************************************************
 
-TASK [Dump instance config] ****************************************************
-skipping: [localhost]
+  TASK [Replace this task with one that validates your content] ******************
+  ok: [instance] => {
+      "msg": "This is the effective test"
+  }
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+  PLAY RECAP *********************************************************************
+  instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
-INFO     Pruning extra files from scenario ephemeral directory
-```
+  INFO     Running default > idempotence
+
+  PLAY [Converge] ****************************************************************
+
+  TASK [Replace this task with one that validates your content] ******************
+  ok: [instance] => {
+      "msg": "This is the effective test"
+  }
+
+  PLAY RECAP *********************************************************************
+  instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+  INFO     Idempotence completed successfully.
+  INFO     Running default > side_effect
+  WARNING  Skipping, side effect playbook not configured.
+  INFO     Running default > verify
+  INFO     Running Ansible Verifier
+  WARNING  Skipping, verify action has no playbook.
+  INFO     Verifier completed successfully.
+  INFO     Running default > cleanup
+  WARNING  Skipping, cleanup playbook not configured.
+  INFO     Running default > destroy
+
+  PLAY [Destroy] *****************************************************************
+
+  TASK [Populate instance config] ************************************************
+  ok: [localhost]
+
+  TASK [Dump instance config] ****************************************************
+  skipping: [localhost]
+
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+  INFO     Pruning extra files from scenario ephemeral directory
+  ```
 
 ### For a single Role
 
