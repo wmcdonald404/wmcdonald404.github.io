@@ -291,39 +291,32 @@ The documentation, [Getting Started With Molecule](https://ansible.readthedocs.i
 
 ### For a single Role
 
+1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Molecule and the Podman driver:
+
+```
+wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
+wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
+(molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+(molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
+```
+
+**Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
+
+    wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
+    (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+
 
 2. Create a test role
 
 ```
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ ansible-galaxy role init wmcdonald404.testrole
-- Role wmcdonald404.testrole was created successfully
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ tree wmcdonald404.testrole/
-wmcdonald404.testrole/
-├── defaults
-│   └── main.yml
-├── files
-├── handlers
-│   └── main.yml
-├── meta
-│   └── main.yml
-├── README.md
-├── tasks
-│   └── main.yml
-├── templates
-├── tests
-│   ├── inventory
-│   └── test.yml
-└── vars
-    └── main.yml
-
-9 directories, 8 files
+(molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
+- Role testrole was created successfully
 ```
 
 3. Add a molecule scenario 
 
 ```
-(adt) wmcdonald@fedora:~/working/ansible-molecule$ cd wmcdonald404.testrole/
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404.testrole$ molecule init scenario 
+(molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
 INFO     Initializing new scenario default...
 
 PLAY [Create a new molecule scenario] ******************************************
@@ -346,33 +339,145 @@ changed: [localhost] => (item=molecule/default/molecule.yml)
 PLAY RECAP *********************************************************************
 localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-INFO     Initialized scenario in /home/wmcdonald/working/ansible-molecule/wmcdonald404.testrole/molecule/default successfully.
-(adt) wmcdonald@fedora:~/working/ansible-molecule/wmcdonald404.testrole$ tree .
-.
-├── defaults
-│   └── main.yml
-├── files
-├── handlers
-│   └── main.yml
-├── meta
-│   └── main.yml
-├── molecule
-│   └── default
-│       ├── converge.yml
-│       ├── create.yml
-│       ├── destroy.yml
-│       └── molecule.yml
-├── README.md
-├── tasks
-│   └── main.yml
-├── templates
-├── tests
-│   ├── inventory
-│   └── test.yml
-└── vars
-    └── main.yml
+INFO     Initialized scenario in /home/wmcdonald/testrole/molecule/default successfully.
 
-11 directories, 12 files
+```
+
+4. Configure the Molecule YAML:
+
+```
+(molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/molecule.yml 
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+    image: docker.io/centos:8
+    privileged: true
+    command: /usr/sbin/init
+provisioner:
+  name: ansible
+role_name_check: 1
+verifier:
+  name: ansible
+```
+
+5. Configure the converge stage:
+
+```
+(molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: testrole
+
+```
+
+6. Add the verify tests:
+
+```
+(molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/verify.yml
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Check if httpd is installed
+      command: rpm -q httpd
+      register: result
+      failed_when: result.rc != 0
+      changed_when: false
+```
+
+7. Run the test scenario@
+
+```
+(molecule.role) wmcdonald@fedora:~/testrole$ molecule test
+WARNING  Driver podman does not provide a schema.
+INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun with role_name_check=1...
+WARNING  Computed fully qualified role name of testrole does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Running default > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'podman'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Populate instance config] ************************************************
+ok: [localhost]
+
+TASK [Dump instance config] ****************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+
+playbook: /home/wmcdonald/testrole/molecule/default/converge.yml
+INFO     Running default > create
+
+PLAY [Create] ******************************************************************
+
+TASK [Populate instance config dict] *******************************************
+skipping: [localhost]
+
+TASK [Convert instance config dict to a list] **********************************
+skipping: [localhost]
+
+TASK [Dump instance config] ****************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=0    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+
+INFO     Running default > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Running default > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+fatal: [instance]: UNREACHABLE! => {"changed": false, "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo ~/.ansible/tmp `\"&& mkdir \"` echo ~/.ansible/tmp/ansible-tmp-1721482015.978296-9663-236119934532429 `\" && echo ansible-tmp-1721482015.978296-9663-236119934532429=\"` echo ~/.ansible/tmp/ansible-tmp-1721482015.978296-9663-236119934532429 `\" ), exited with result 125", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+instance                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+CRITICAL Ansible return code was 4, command was: ansible-playbook --inventory /home/wmcdonald/.cache/molecule/testrole/default/inventory --skip-tags molecule-notest,notest /home/wmcdonald/testrole/molecule/default/converge.yml
+WARNING  An error occurred during the test sequence action: 'converge'. Cleaning up.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Populate instance config] ************************************************
+ok: [localhost]
+
+TASK [Dump instance config] ****************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
 ```
 
 
