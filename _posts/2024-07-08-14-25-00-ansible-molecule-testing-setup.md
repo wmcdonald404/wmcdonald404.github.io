@@ -18,287 +18,17 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 ## How-to
 
-### Prepping a Virtual Environment
-
-1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Ansible Dev Tools (ADT):
-
-    ```
-    wmcdonald@fedora:~$ mkdir ~/adt
-    wmcdonald@fedora:~$ cd ~/adt/
-    wmcdonald@fedora:~/adt$ python -m venv .venv/adt
-    wmcdonald@fedora:~/adt$ . ~/adt/.venv/adt/bin/activate
-    (adt) wmcdonald@fedora:~/adt$ pip install --upgrade pip
-    (adt) wmcdonald@fedora:~/adt$ pip install ansible-dev-tools
-    ```
-
-2. Verify the version of base tooling:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt$ which python && python --version
-    ~/adt/.venv/adt/bin/python
-    Python 3.12.4
-
-    (adt) wmcdonald@fedora:~/adt$ which pip && pip --version
-    ~/adt/.venv/adt/bin/pip
-    pip 24.1.2 from /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/pip (python 3.12)
-
-    (adt) wmcdonald@fedora:~/adt$ which ansible && ansible --version
-    ~/adt/.venv/adt/bin/ansible
-    ansible [core 2.17.1]
-      config file = /home/wmcdonald/.ansible.cfg
-      configured module search path = ['/home/wmcdonald/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-      ansible python module location = /home/wmcdonald/adt/.venv/adt/lib64/python3.12/site-packages/ansible
-      ansible collection location = /home/wmcdonald/.ansible/collections:/usr/share/ansible/collections
-      executable location = /home/wmcdonald/adt/.venv/adt/bin/ansible
-      python version = 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1 20240607 (Red Hat 14.1.1-5)] (/home/wmcdonald/adt/.venv/adt/bin/python)
-      jinja version = 3.1.4
-      libyaml = True
-
-    (adt) wmcdonald@fedora:~/adt$ which molecule && molecule --version
-    ~/adt/.venv/adt/bin/molecule
-    molecule 24.7.0 using python 3.12 
-        ansible:2.17.1
-        default:24.7.0 from molecule
-    ```
-
-**Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
-
-    wmcdonald@fedora:~$ . ~/adt/.venv/adt/bin/activate
-    (adt) wmcdonald@fedora:~$ 
-
-### Following the Documentation
-
-The documentation, [Getting Started With Molecule](https://ansible.readthedocs.io/projects/molecule/getting-started/), walks through the end-to-end process of setting up Molecule testing inside a collection. Ideally we want to start with something simpler/narrower, like a role, but in order to understand the moving parts following the documentation beginning to end is a reasonable place to start.
-
-1. Create a collection, review the created tree:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt$ ansible-galaxy collection init wmcdonald.testcollection
-    - Collection wmcdonald.testcollection was created successfully
-
-    (adt) wmcdonald@fedora:~/adt$ tree wmcdonald/
-    wmcdonald/
-    └── testcollection
-        ├── docs
-        ├── galaxy.yml
-        ├── meta
-        │   └── runtime.yml
-        ├── plugins
-        │   └── README.md
-        ├── README.md
-        └── roles
-
-    6 directories, 4 files
-    ```
-
-2. Create a role:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt$ cd ~/adt/wmcdonald/testcollection/roles/
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ ansible-galaxy role init testrole
-    - Role testrole was created successfully
-    
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ tree testrole/
-    testrole/
-    ├── defaults
-    │   └── main.yml
-    ├── files
-    ├── handlers
-    │   └── main.yml
-    ├── meta
-    │   └── main.yml
-    ├── README.md
-    ├── tasks
-    │   └── main.yml
-    ├── templates
-    ├── tests
-    │   ├── inventory
-    │   └── test.yml
-    └── vars
-        └── main.yml
-
-    9 directories, 8 files
-    ```
-
-3. Add a task to the role, so there's an action to test when running the role:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/roles$ cd ~/adt/
-    (adt) wmcdonald@fedora:~/adt$ cat > ~/adt/wmcdonald/testcollection/roles/testrole/tasks/main.yml <<EOF
-    ---
-    # tasks file for testrole
-    - name: Debug placeholder task in testrole
-      ansible.builtin.debug:
-        msg: "This is a task from wmcdonald.testcollection/testrole."
-    EOF
-    ```
-
-4. Add a playbook at the root of the collection:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt$ mkdir ~/adt/wmcdonald/testcollection/playbooks
-
-    (adt) wmcdonald@fedora:~/adt$ cat > ~/adt/wmcdonald/testcollection/playbooks/playbook.yml <<EOF
-    ---
-    - name: Test testrole from within this playbook
-      hosts: localhost
-      gather_facts: false
-      tasks:
-        - name: Testing role
-          ansible.builtin.include_role:
-            name: wmcdonald.testcollection/testrole
-            tasks_from: main.yml
-    EOF
-    ```
-
-5. Initialise a Molecule scenario in an extensions directory at the root of the role:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt$ mkdir ~/adt/wmcdonald/testcollection/extensions
-
-    (adt) wmcdonald@fedora:~/adt$ cd wmcdonald/testcollection/extensions/
-
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule init scenario 
-    INFO     Initializing new scenario default...
-
-    PLAY [Create a new molecule scenario] ******************************************
-
-    TASK [Check if destination folder exists] **************************************
-    changed: [localhost]
-
-    TASK [Check if destination folder is empty] ************************************
-    ok: [localhost]
-
-    TASK [Fail if destination folder is not empty] *********************************
-    skipping: [localhost]
-
-    TASK [Expand templates] ********************************************************
-    changed: [localhost] => (item=molecule/default/converge.yml)
-    changed: [localhost] => (item=molecule/default/create.yml)
-    changed: [localhost] => (item=molecule/default/destroy.yml)
-    changed: [localhost] => (item=molecule/default/molecule.yml)
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-    INFO     Initialized scenario in /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default successfully.
-    ```
-
-6. Check the syntax:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule syntax
-    INFO     default scenario test matrix: syntax
-    INFO     Performing prerun with role_name_check=0...
-    INFO     Running default > syntax
-
-    playbook: /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default/converge.yml
-    ```
-
-7. Run a full-test cycle:
-
-    ```
-    (adt) wmcdonald@fedora:~/adt/wmcdonald/testcollection/extensions$ molecule test
-    INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
-    INFO     Performing prerun with role_name_check=0...
-    INFO     Running default > dependency
-    WARNING  Skipping, missing the requirements file.
-    WARNING  Skipping, missing the requirements file.
-    INFO     Running default > cleanup
-    WARNING  Skipping, cleanup playbook not configured.
-    INFO     Running default > destroy
-
-    PLAY [Destroy] *****************************************************************
-
-    TASK [Populate instance config] ************************************************
-    ok: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-    INFO     Running default > syntax
-
-    playbook: /home/wmcdonald/adt/wmcdonald/testcollection/extensions/molecule/default/converge.yml
-    INFO     Running default > create
-
-    PLAY [Create] ******************************************************************
-
-    TASK [Populate instance config dict] *******************************************
-    skipping: [localhost]
-
-    TASK [Convert instance config dict to a list] **********************************
-    skipping: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=0    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
-
-    INFO     Running default > prepare
-    WARNING  Skipping, prepare playbook not configured.
-    INFO     Running default > converge
-
-    PLAY [Converge] ****************************************************************
-
-    TASK [Replace this task with one that validates your content] ******************
-    ok: [instance] => {
-        "msg": "This is the effective test"
-    }
-
-    PLAY RECAP *********************************************************************
-    instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-    INFO     Running default > idempotence
-
-    PLAY [Converge] ****************************************************************
-
-    TASK [Replace this task with one that validates your content] ******************
-    ok: [instance] => {
-        "msg": "This is the effective test"
-    }
-
-    PLAY RECAP *********************************************************************
-    instance                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-    INFO     Idempotence completed successfully.
-    INFO     Running default > side_effect
-    WARNING  Skipping, side effect playbook not configured.
-    INFO     Running default > verify
-    INFO     Running Ansible Verifier
-    WARNING  Skipping, verify action has no playbook.
-    INFO     Verifier completed successfully.
-    INFO     Running default > cleanup
-    WARNING  Skipping, cleanup playbook not configured.
-    INFO     Running default > destroy
-
-    PLAY [Destroy] *****************************************************************
-
-    TASK [Populate instance config] ************************************************
-    ok: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-    INFO     Pruning extra files from scenario ephemeral directory
-    ```
 
 ### For a single Role
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Molecule and the Podman driver:
 
-```
-wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
-wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
-(molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
-(molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
-```
+  ```
+  wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
+  wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
+  (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+  (molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
+  ```
 
 **Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
 
@@ -308,73 +38,357 @@ wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
 
 2. Create a test role
 
-```
-(molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
-- Role testrole was created successfully
-```
+  ```
+  (molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
+  - Role testrole was created successfully
+  ```
 
 3. Add a molecule scenario 
 
-```
-(molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
-INFO     Initializing new scenario default...
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
+  INFO     Initializing new scenario default...
 
-PLAY [Create a new molecule scenario] ******************************************
+  PLAY [Create a new molecule scenario] ******************************************
 
-TASK [Check if destination folder exists] **************************************
-changed: [localhost]
+  TASK [Check if destination folder exists] **************************************
+  changed: [localhost]
 
-TASK [Check if destination folder is empty] ************************************
-ok: [localhost]
+  TASK [Check if destination folder is empty] ************************************
+  ok: [localhost]
 
-TASK [Fail if destination folder is not empty] *********************************
-skipping: [localhost]
+  TASK [Fail if destination folder is not empty] *********************************
+  skipping: [localhost]
 
-TASK [Expand templates] ********************************************************
-changed: [localhost] => (item=molecule/default/converge.yml)
-changed: [localhost] => (item=molecule/default/create.yml)
-changed: [localhost] => (item=molecule/default/destroy.yml)
-changed: [localhost] => (item=molecule/default/molecule.yml)
+  TASK [Expand templates] ********************************************************
+  changed: [localhost] => (item=molecule/default/converge.yml)
+  changed: [localhost] => (item=molecule/default/create.yml)
+  changed: [localhost] => (item=molecule/default/destroy.yml)
+  changed: [localhost] => (item=molecule/default/molecule.yml)
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-INFO     Initialized scenario in /home/wmcdonald/testrole/molecule/default successfully.
+  INFO     Initialized scenario in /home/wmcdonald/testrole/molecule/default successfully.
+  ```
 
-```
+4. Configure Molecule's baseline setup in `molecule.yml`:
 
-4. Configure the Molecule YAML:
+  ```
+  (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/molecule.yml 
+  ---
+  dependency:
+    name: galaxy
+    options:
+      requirements-file: requirements.yml
+  driver:
+    name: podman
+    options:
+      managed: false
+      login_cmd_template: "podman exec -it {instance} bash"
+      ansible_connection_options:
+        ansible_connection: podman
+  platforms:
+    - name: centos8
+      image: docker.io/centos:8
+      privileged: true
+      command: /usr/sbin/init
+  provisioner:
+    name: ansible
+  role_name_check: 1
+  verifier:
+    name: ansible
+  ```
 
-```
-(molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/molecule.yml 
----
-dependency:
-  name: galaxy
-driver:
-  name: podman
-platforms:
-  - name: instance
-    image: docker.io/centos:8
-    privileged: true
-    command: /usr/sbin/init
-provisioner:
-  name: ansible
-role_name_check: 1
-verifier:
-  name: ansible
-```
+5. Define the runtime requirements in `requirements.yml`:
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/requirements.yml 
+  collections:
+    - containers.podman
+  ```
+
+> With just the base molecule configuration and its requirements we can now `create`, `list` and `destroy` the scenario.
+
+6. First, `molecule list` to inspect the current status:
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
+  WARNING  Driver podman does not provide a schema.
+  INFO     Running default > list
+                  ╷             ╷                  ╷               ╷         ╷            
+    Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
+  ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+    ubi9          │ podman      │ ansible          │ default       │ false   │ false      
+                  ╵             ╵                  ╵               ╵         ╵            
+  ```
+
+7. Next, `molecule create`, to set up the instance(s):
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule create
+  WARNING  Driver podman does not provide a schema.
+  INFO     default scenario test matrix: dependency, create, prepare
+  INFO     Performing prerun with role_name_check=1...
+  WARNING  Computed fully qualified role name of testrole does not follow current galaxy requirements.
+  Please edit meta/main.yml and assure we can correctly determine full role name:
+
+  galaxy_info:
+  role_name: my_name  # if absent directory name hosting role is used instead
+  namespace: my_galaxy_namespace  # if absent, author is used instead
+
+  Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+  Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+  As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+  INFO     Running default > dependency
+  Starting galaxy collection install process
+  Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+  INFO     Dependency completed successfully.
+  WARNING  Skipping, missing the requirements file.
+  INFO     Running default > create
+  INFO     Sanity checks: 'podman'
+
+  PLAY [Create] ******************************************************************
+
+  TASK [get podman executable path] **********************************************
+  ok: [localhost]
+
+  TASK [save path to executable as fact] *****************************************
+  ok: [localhost]
+
+  TASK [Set async_dir for HOME env] **********************************************
+  ok: [localhost]
+
+  TASK [Log into a container registry] *******************************************
+  skipping: [localhost] => (item="ubi9 registry username: None specified") 
+  skipping: [localhost]
+
+  TASK [Check presence of custom Dockerfiles] ************************************
+  ok: [localhost] => (item=Dockerfile: None specified)
+
+  TASK [Create Dockerfiles from image names] *************************************
+  changed: [localhost] => (item="Dockerfile: None specified; Image: registry.access.redhat.com/ubi9/ubi-init")
+
+  TASK [Discover local Podman images] ********************************************
+  ok: [localhost] => (item=ubi9)
+
+  TASK [Build an Ansible compatible image] ***************************************
+  changed: [localhost] => (item=registry.access.redhat.com/ubi9/ubi-init)
+
+  TASK [Determine the CMD directives] ********************************************
+  ok: [localhost] => (item="ubi9 command: None specified")
+
+  TASK [Remove possible pre-existing containers] *********************************
+  changed: [localhost]
+
+  TASK [Discover local podman networks] ******************************************
+  skipping: [localhost] => (item=ubi9: None specified) 
+  skipping: [localhost]
+
+  TASK [Create podman network dedicated to this scenario] ************************
+  skipping: [localhost]
+
+  TASK [Create molecule instance(s)] *********************************************
+  changed: [localhost] => (item=ubi9)
+
+  TASK [Wait for instance(s) creation to complete] *******************************
+  changed: [localhost] => (item=ubi9)
+
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=11   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+
+  INFO     Running default > prepare
+  WARNING  Skipping, prepare playbook not configured.
+  ```
+  
+8. Now `molecule list` again, to reflect the created instance(s):
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
+  WARNING  Driver podman does not provide a schema.
+  INFO     Running default > list
+                  ╷             ╷                  ╷               ╷         ╷            
+    Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
+  ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+    ubi9          │ podman      │ ansible          │ default       │ true    │ false      
+                  ╵             ╵                  ╵               ╵         ╵            
+  ```
+
+9. Verify we can `molecule login` to the instance, and check something that would appear distinct from the host we're running on currently (e.g. this be being run on Fedora where `/etc/redhat-release` would differ significantly):
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule login
+  WARNING  Driver podman does not provide a schema.
+  INFO     Running default > login
+  [root@ubi9 /]# cat /etc/redhat-release 
+  Red Hat Enterprise Linux release 9.4 (Plow)
+  [root@ubi9 /]# ps -ef
+  UID          PID    PPID  C STIME TTY          TIME CMD
+  root           1       0  0 21:46 ?        00:00:00 bash -c while true; do sleep 10000; done
+  root           2       1  0 21:46 ?        00:00:00 /usr/bin/coreutils --coreutils-prog-shebang=sleep /usr/bin/sleep 10000
+  root          14       0  0 21:49 pts/0    00:00:00 bash
+  root          26      14  0 21:49 pts/0    00:00:00 ps -ef
+  ```
+
+10. Finally, destroy the instance to clean up after ourselves:
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
+  WARNING  Driver podman does not provide a schema.
+  INFO     default scenario test matrix: dependency, cleanup, destroy
+  INFO     Performing prerun with role_name_check=1...
+  WARNING  Computed fully qualified role name of testrole does not follow current galaxy requirements.
+  Please edit meta/main.yml and assure we can correctly determine full role name:
+
+  galaxy_info:
+  role_name: my_name  # if absent directory name hosting role is used instead
+  namespace: my_galaxy_namespace  # if absent, author is used instead
+
+  Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+  Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+  As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+  INFO     Running default > dependency
+  Starting galaxy collection install process
+  Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+  INFO     Dependency completed successfully.
+  WARNING  Skipping, missing the requirements file.
+  INFO     Running default > cleanup
+  WARNING  Skipping, cleanup playbook not configured.
+  INFO     Running default > destroy
+  INFO     Sanity checks: 'podman'
+
+  PLAY [Destroy] *****************************************************************
+
+  TASK [Set async_dir for HOME env] **********************************************
+  ok: [localhost]
+
+  TASK [Destroy molecule instance(s)] ********************************************
+  changed: [localhost] => (item={'image': 'registry.access.redhat.com/ubi9/ubi-init', 'name': 'ubi9', 'privileged': True})
+
+  TASK [Wait for instance(s) deletion to complete] *******************************
+  FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+  FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (299 retries left).
+  changed: [localhost] => (item={'failed': 0, 'started': 1, 'finished': 0, 'ansible_job_id': 'j85882995859.23279', 'results_file': '/home/wmcdonald/.ansible_async/j85882995859.23279', 'changed': True, 'item': {'image': 'registry.access.redhat.com/ubi9/ubi-init', 'name': 'ubi9', 'privileged': True}, 'ansible_loop_var': 'item'})
+
+  PLAY RECAP *********************************************************************
+  localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+  INFO     Pruning extra files from scenario ephemeral directory
+
+  ```
+
+# Refining creation and testing:
+
+5. Configure specifc steps for the create setup in `create.yml`:
+
+  ```
+  (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/create.yml 
+  - name: Create
+    hosts: localhost
+    gather_facts: false
+    vars:
+      molecule_inventory:
+        all:
+          hosts: {}
+          children:
+            molecule:
+              hosts: {}
+
+    tasks:
+      - name: Create a container
+        containers.podman.podman_container:
+          name: "{{ item.name }}"
+          image: "{{ item.image }}"
+          privileged: "{{ item.privileged | default(omit) }}"
+          volumes: "{{ item.volumes | default(omit) }}"
+          capabilities: "{{ item.capabilities | default(omit) }}"
+          systemd: "{{ item.systemd | default(omit) }}"
+          state: started
+          command: "{{ item.command | default('sleep 1d') }}"
+          # bash -c "while true; do sleep 10000; done"
+          log_driver: json-file
+        register: result
+        loop: "{{ molecule_yml.platforms }}"
+
+      - name: Print some info
+        ansible.builtin.debug:
+          msg: "{{ result.results }}"
+
+      - name: Fail if container is not running
+        when: >
+          item.container.State.ExitCode != 0 or
+          not item.container.State.Running
+        ansible.builtin.include_tasks:
+          file: tasks/create-fail.yml
+        loop: "{{ result.results }}"
+        loop_control:
+          label: "{{ item.container.Name }}"
+
+      - name: Add container to molecule_inventory
+        vars:
+          inventory_partial_yaml: |
+            all:
+              children:
+                molecule:
+                  hosts:
+                    "{{ item.name }}":
+                      ansible_connection: containers.podman.podman
+        ansible.builtin.set_fact:
+          molecule_inventory: >
+            {{ molecule_inventory | combine(inventory_partial_yaml | from_yaml, recursive=true) }}
+        loop: "{{ molecule_yml.platforms }}"
+        loop_control:
+          label: "{{ item.name }}"
+
+      - name: Dump molecule_inventory
+        ansible.builtin.copy:
+          content: |
+            {{ molecule_inventory | to_yaml }}
+          dest: "{{ molecule_ephemeral_directory }}/inventory/molecule_inventory.yml"
+          mode: "0600"
+
+      - name: Force inventory refresh
+        ansible.builtin.meta: refresh_inventory
+
+      - name: Fail if molecule group is missing
+        ansible.builtin.assert:
+          that: "'molecule' in groups"
+          fail_msg: |
+            molecule group was not found inside inventory groups: {{ groups }}
+        run_once: true # noqa: run-once[task]
+
+  # we want to avoid errors like "Failed to create temporary directory"
+  - name: Validate that inventory was refreshed
+    hosts: molecule
+    gather_facts: false
+    tasks:
+      - name: Check uname
+        ansible.builtin.raw: uname -a
+        register: result
+        changed_when: false
+
+      - name: Display uname info
+        ansible.builtin.debug:
+          msg: "{{ result.stdout }}"
+  ```
 
 5. Configure the converge stage:
 
+  ```
+  (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
+  ---
+  - name: Converge
+    hosts: all
+    roles:
+      - role: testrole
 ```
-(molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
----
-- name: Converge
-  hosts: all
-  roles:
-    - role: testrole
 
-```
+
+
 
 6. Add the verify tests:
 
@@ -390,6 +404,16 @@ verifier:
       failed_when: result.rc != 0
       changed_when: false
 ```
+
+7. Add a default task to the role's main.yml:
+
+```
+---
+- name: Molecule Hello World!
+  ansible.builtin.debug:
+    msg: Hello, World!
+```
+
 
 7. Run the test scenario@
 
