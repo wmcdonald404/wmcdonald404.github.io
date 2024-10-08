@@ -317,7 +317,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
         - name: Print some info
           ansible.builtin.debug:
-            msg: "{{ result.results }}"
+            msg: {% raw %}"{{ result.results }}"{% endraw %}
 
         - name: Fail if container is not running
           when: >
@@ -325,9 +325,9 @@ So this is an attempt to capture the process to configure a new system for Ansib
             not item.container.State.Running
           ansible.builtin.include_tasks:
             file: tasks/create-fail.yml
-          loop: "{{ result.results }}"
+          loop: {% raw %}"{{ result.results }}"{% endraw %}
           loop_control:
-            label: "{{ item.container.Name }}"
+            label: {% raw %}"{{ item.container.Name }}"{% endraw %}
 
         - name: Add container to molecule_inventory
           vars:
@@ -336,20 +336,20 @@ So this is an attempt to capture the process to configure a new system for Ansib
               children:
               molecule:
                 hosts:
-                  "{{ item.name }}":
+                  {% raw %}"{{ item.name }}"{% endraw %}:
                       ansible_connection: containers.podman.podman
           ansible.builtin.set_fact:
             molecule_inventory: >
-              {{ molecule_inventory | combine(inventory_partial_yaml | from_yaml, recursive=true) }}
-          loop: "{{ molecule_yml.platforms }}"
+              {% raw %}{{ molecule_inventory | combine(inventory_partial_yaml | from_yaml, recursive=true) }}{% endraw %}
+          loop: {% raw %}"{{ molecule_yml.platforms }}"{% endraw %}
           loop_control:
-            label: "{{ item.name }}"
+            label: {% raw %}"{{ item.name }}"{% endraw %}
 
         - name: Dump molecule_inventory
           ansible.builtin.copy:
             content: |
-              {{ molecule_inventory | to_yaml }}
-            dest: "{{ molecule_ephemeral_directory }}/inventory/molecule_inventory.yml"
+              {% raw %}{{ molecule_inventory | to_yaml }}{% endraw %}
+            dest: {% raw %}"{{ molecule_ephemeral_directory }}{% endraw %}/inventory/molecule_inventory.yml"
             mode: "0600"
 
         - name: Force inventory refresh
@@ -359,7 +359,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
           ansible.builtin.assert:
             that: "'molecule' in groups"
             fail_msg: |
-              molecule group was not found inside inventory groups: {{ groups }}
+              molecule group was not found inside inventory groups: {% raw %}{{ groups }}{% endraw %}
           run_once: true # noqa: run-once[task]
 
     # we want to avoid errors like "Failed to create temporary directory"
@@ -374,7 +374,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
         - name: Display uname info
           ansible.builtin.debug:
-            msg: "{{ result.stdout }}"
+            msg: {% raw %}"{{ result.stdout }}"{% endraw %}
     ```
 
 2. Configure the converge stage:
@@ -411,7 +411,6 @@ So this is an attempt to capture the process to configure a new system for Ansib
       ansible.builtin.debug:
         msg: Hello, World!
     ```
-
 
 5. Run the test scenario@
 
