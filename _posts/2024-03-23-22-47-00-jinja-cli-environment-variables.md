@@ -55,11 +55,13 @@ $ pip install jinja-cli
 
 2. Create an example template file:
 ```
+{% raw %}
 $ cat > /tmp/credential.yml <<EOF
 ---
 username: {{ APP_USER_NAME }}
 password: {{ APP_SECRET_PASSWORD }}
 EOF
+{% endraw %}
 ```
 
 3. Set some environment variables:
