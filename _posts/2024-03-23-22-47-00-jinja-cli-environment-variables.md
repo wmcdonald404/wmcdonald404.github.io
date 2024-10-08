@@ -54,15 +54,15 @@ $ pip install jinja-cli
 > **Note**: There is an RPM-packaged Jinja CLI for Fedora but it doesn't parse environment variables as usefully.
 
 2. Create an example template file:
-```
 {% raw %}
+```handlebars
 $ cat > /tmp/credential.yml <<EOF
 ---
 username: {{ APP_USER_NAME }}
 password: {{ APP_SECRET_PASSWORD }}
 EOF
-{% endraw %}
 ```
+{% endraw %}
 
 3. Set some environment variables:
 ```
