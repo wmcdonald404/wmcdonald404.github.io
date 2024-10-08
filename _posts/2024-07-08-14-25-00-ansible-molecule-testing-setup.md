@@ -23,56 +23,56 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Molecule and the Podman driver:
 
-  ```
-  wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
-  wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
-  (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
-  (molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
-  ```
+    ```
+    wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
+    wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
+    (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+    (molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
+    ```
 
-  **Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
+    **Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
 
-  ```
-  wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
-  (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
-  ```
+    ```
+    wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
+    (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+    ```
 
 
 2. Create a test role
 
-  ```
-  (molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
-  - Role testrole was created successfully
-  ```
+    ```
+    (molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
+    - Role testrole was created successfully
+    ```
 
 3. Add a molecule scenario 
 
-  ```
-  (molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
-  INFO     Initializing new scenario default...
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
+    INFO     Initializing new scenario default...
 
-  PLAY [Create a new molecule scenario] ******************************************
+    PLAY [Create a new molecule scenario] ******************************************
 
-  TASK [Check if destination folder exists] **************************************
-  changed: [localhost]
+    TASK [Check if destination folder exists] **************************************
+    changed: [localhost]
 
-  TASK [Check if destination folder is empty] ************************************
-  ok: [localhost]
+    TASK [Check if destination folder is empty] ************************************
+    ok: [localhost]
 
-  TASK [Fail if destination folder is not empty] *********************************
-  skipping: [localhost]
+    TASK [Fail if destination folder is not empty] *********************************
+    skipping: [localhost]
 
-  TASK [Expand templates] ********************************************************
-  changed: [localhost] => (item=molecule/default/converge.yml)
-  changed: [localhost] => (item=molecule/default/create.yml)
-  changed: [localhost] => (item=molecule/default/destroy.yml)
-  changed: [localhost] => (item=molecule/default/molecule.yml)
+    TASK [Expand templates] ********************************************************
+    changed: [localhost] => (item=molecule/default/converge.yml)
+    changed: [localhost] => (item=molecule/default/create.yml)
+    changed: [localhost] => (item=molecule/default/destroy.yml)
+    changed: [localhost] => (item=molecule/default/molecule.yml)
 
-  PLAY RECAP *********************************************************************
-  localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+    PLAY RECAP *********************************************************************
+    localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-  INFO     Initialized scenario in /home/wmcdonald/testrole/molecule/default successfully.
-  ```
+    INFO     Initialized scenario in /home/wmcdonald/testrole/molecule/default successfully.
+    ```
 
 4. Configure Molecule's baseline setup in `molecule.yml`:
 
