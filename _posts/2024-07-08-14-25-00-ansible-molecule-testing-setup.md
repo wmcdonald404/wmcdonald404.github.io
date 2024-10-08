@@ -205,7 +205,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     WARNING  Skipping, prepare playbook not configured.
     ```
 
-    8. Now `molecule list` again, to reflect the created instance(s):
+8. Now `molecule list` again, to reflect the created instance(s):
 
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
@@ -284,7 +284,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 # Refining creation and testing:
 
-5. Configure specifc steps for the create setup in `create.yml`:
+1. Configure specifc steps for the create setup in `create.yml`:
 
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/create.yml 
@@ -377,7 +377,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
             msg: "{{ result.stdout }}"
     ```
 
-5. Configure the converge stage:
+2. Configure the converge stage:
 
     ```
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
@@ -388,7 +388,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
         - role: testrole
     ```
 
-6. Add the verify tests:
+3. Add the verify tests:
 
     ```
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/verify.yml
@@ -403,7 +403,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
         changed_when: false
     ```
 
-7. Add a default task to the role's main.yml:
+4. Add a default task to the role's main.yml:
 
     ```
     ---
@@ -413,7 +413,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     ```
 
 
-7. Run the test scenario@
+5. Run the test scenario@
 
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule test
@@ -501,6 +501,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
     INFO     Pruning extra files from scenario ephemeral directory
     ```
+
 ## References
 - [Introducing Ansible Molecule with Ansible Automation Platform](https://developers.redhat.com/articles/2023/09/13/introducing-ansible-molecule-ansible-automation-platform#getting_started_with_molecule_developer_preview)
 - [Developing and Testing Ansible Roles with Molecule and Podman - Part 1](https://www.ansible.com/blog/developing-and-testing-ansible-roles-with-molecule-and-podman-part-1/)
