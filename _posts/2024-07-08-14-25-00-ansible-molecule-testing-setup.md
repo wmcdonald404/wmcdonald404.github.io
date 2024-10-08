@@ -302,7 +302,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
       tasks:
         - name: Create a container
           containers.podman.podman_container:
-            name: { "{{ item.name }}" }
+            name: "{{ {{ item.name }} }}" 
             image: "{{ item.image }}"
             privileged: "{{ item.privileged | default(omit) }}"
             volumes: "{{ item.volumes | default(omit) }}"
