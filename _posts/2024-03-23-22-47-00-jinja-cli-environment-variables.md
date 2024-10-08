@@ -44,54 +44,48 @@ The ability to dynamically render templates based on data in environment variabl
 
 ## How-to
 1. Install the Jinja CLI module from Pip, this example is from a Fedora system, adjust accordingly:
-```
-$ mkdir -p .venv/jinjacli/
-$ python -m venv .venv/jinjacli/
-$ . ~/.venv/jinjacli/bin/activate
-$ python -m pip install --upgrade pip
-$ pip install jinja-cli
-```
-> **Note**: There is an RPM-packaged Jinja CLI for Fedora but it doesn't parse environment variables as usefully.
 
-2. Create an example template file:
-{% raw %}
-```handlebars
-$ cat > /tmp/credential.yml <<EOF
----
-username: {{ APP_USER_NAME }}
-password: {{ APP_SECRET_PASSWORD }}
-EOF
-```
-{% endraw %}
+    ```
+    $ mkdir -p .venv/jinjacli/
+    $ python -m venv .venv/jinjacli/
+    $ . ~/.venv/jinjacli/bin/activate
+    $ python -m pip install --upgrade pip
+    $ pip install jinja-cli
+    ```
+
+    > **Note**: There is an RPM-packaged Jinja CLI for Fedora but it doesn't parse environment variables as usefully.
 
 2. Create an example template file:
 
-```
-$ cat > /tmp/credential.yml <<EOF
----
-username: {% raw %}{{ APP_USER_NAME }}{% endraw %}
-password: {% raw %}{{ APP_SECRET_PASSWORD }}{% endraw %}
-EOF
-```
+    ```
+    $ cat > /tmp/credential.yml <<EOF
+    ---
+    username: {% raw %}{{ APP_USER_NAME }}{% endraw %}
+    password: {% raw %}{{ APP_SECRET_PASSWORD }}{% endraw %}
+    EOF
+    ```
 
 
 3. Set some environment variables:
-```
-$ export APP_USER_NAME='sulaco'
-$ export APP_SECRET_PASSWORD='x3nom0rph'
-$ set | grep APP_
-APP_SECRET_PASSWORD=x3nom0rph
-APP_USER_NAME=sulaco
-```
+
+    ```
+    $ export APP_USER_NAME='sulaco'
+    $ export APP_SECRET_PASSWORD='x3nom0rph'
+    $ set | grep APP_
+    APP_SECRET_PASSWORD=x3nom0rph
+    APP_USER_NAME=sulaco
+    ```
 
 4. Test render the example template with the example environment variables:
-```
-$ jinja -X 'APP_*' /tmp/credential.yml 
----
-username: sulaco
-password: x3nom0rph
-```
-> **Note**: For a real pipeline with a credential we'd use a masked secret to ensure it remains unlogged.
+
+    ```
+    $ jinja -X 'APP_*' /tmp/credential.yml 
+    ---
+    username: sulaco
+    password: x3nom0rph
+    ```
+
+    > **Note**: For a real pipeline with a credential we'd use a masked secret to ensure it remains unlogged.
 
 ## Further reading
 - https://jinja.palletsprojects.com/en/3.1.x/
@@ -100,3 +94,5 @@ password: x3nom0rph
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#about-environments
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-variables
 - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets
+- [Escaping double curly braces inside a markdown code block in Jekyll](https://stackoverflow.com/questions/24102498/escaping-double-curly-braces-inside-a-markdown-code-block-in-jekyll)
+- [Writing the endraw tag in Jekyll code blocks](https://blog.slaks.net/2013-06-10/jekyll-endraw-in-code/)
