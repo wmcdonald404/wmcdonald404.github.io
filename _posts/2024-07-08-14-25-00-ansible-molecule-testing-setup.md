@@ -302,18 +302,18 @@ So this is an attempt to capture the process to configure a new system for Ansib
       tasks:
         - name: Create a container
           containers.podman.podman_container:
-            name: "{{ {{ item.name }} }}" 
-            image: "{{ item.image }}"
-            privileged: "{{ item.privileged | default(omit) }}"
-            volumes: "{{ item.volumes | default(omit) }}"
-            capabilities: "{{ item.capabilities | default(omit) }}"
-            systemd: "{{ item.systemd | default(omit) }}"
+            name: {% raw %}"{{ item.name }}"{% endraw %} 
+            image: {% raw %}"{{ item.image }}"{% endraw %} 
+            privileged: {% raw %}"{{ item.privileged | default(omit) }}"{% endraw %} 
+            volumes: {% raw %}"{{ item.volumes | default(omit) }}"{% endraw %} 
+            capabilities: {% raw %}"{{ item.capabilities | default(omit) }}"{% endraw %} 
+            systemd: {% raw %}"{{ item.systemd | default(omit) }}"{% endraw %} 
             state: started
-            command: "{{ item.command | default('sleep 1d') }}"
+            command: {% raw %}"{{ item.command | default('sleep 1d') }}"{% endraw %} 
             # bash -c "while true; do sleep 10000; done"
             log_driver: json-file
           register: result
-          loop: "{{ molecule_yml.platforms }}"
+          loop: {% raw %}"{{ molecule_yml.platforms }}"{% endraw %} 
 
         - name: Print some info
           ansible.builtin.debug:
