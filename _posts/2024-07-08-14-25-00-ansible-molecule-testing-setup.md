@@ -30,7 +30,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
   (molecule.role) wmcdonald@fedora:~$ pip install molecule-podman
   ```
 
-**Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
+  **Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
 
   ```
   wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
