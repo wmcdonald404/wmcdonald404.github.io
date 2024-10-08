@@ -118,11 +118,11 @@ So this is an attempt to capture the process to configure a new system for Ansib
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
-                    ╷             ╷                  ╷               ╷         ╷            
+                  ╷             ╷                  ╷               ╷         ╷            
     Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
-    ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+    ╶─────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
     ubi9          │ podman      │ ansible          │ default       │ false   │ false      
-                    ╵             ╵                  ╵               ╵         ╵            
+                  ╵             ╵                  ╵               ╵         ╵            
     ```
 
 7. Next, `molecule create`, to set up the instance(s):
@@ -211,11 +211,11 @@ So this is an attempt to capture the process to configure a new system for Ansib
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
-                    ╷             ╷                  ╷               ╷         ╷            
+                  ╷             ╷                  ╷               ╷         ╷            
     Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
-    ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+    ╶─────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
     ubi9          │ podman      │ ansible          │ default       │ true    │ false      
-                    ╵             ╵                  ╵               ╵         ╵            
+                  ╵             ╵                  ╵               ╵         ╵            
     ```
 
 9. Verify we can `molecule login` to the instance, and check something that would appear distinct from the host we're running on currently (e.g. this be being run on Fedora where `/etc/redhat-release` would differ significantly):
