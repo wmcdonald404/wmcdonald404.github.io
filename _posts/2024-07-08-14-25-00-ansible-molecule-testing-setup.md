@@ -289,19 +289,19 @@ So this is an attempt to capture the process to configure a new system for Ansib
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/create.yml 
     - name: Create
-    hosts: localhost
-    gather_facts: false
-    vars:
+      hosts: localhost
+      gather_facts: false
+      vars:
         molecule_inventory:
-        all:
+          all:
             hosts: {}
             children:
-            molecule:
+              molecule:
                 hosts: {}
 
-    tasks:
+      tasks:
         - name: Create a container
-        containers.podman.podman_container:
+          containers.podman.podman_container:
             name: "{{ item.name }}"
             image: "{{ item.image }}"
             privileged: "{{ item.privileged | default(omit) }}"
@@ -312,68 +312,68 @@ So this is an attempt to capture the process to configure a new system for Ansib
             command: "{{ item.command | default('sleep 1d') }}"
             # bash -c "while true; do sleep 10000; done"
             log_driver: json-file
-        register: result
-        loop: "{{ molecule_yml.platforms }}"
+          register: result
+          loop: "{{ molecule_yml.platforms }}"
 
         - name: Print some info
-        ansible.builtin.debug:
+          ansible.builtin.debug:
             msg: "{{ result.results }}"
 
         - name: Fail if container is not running
-        when: >
+          when: >
             item.container.State.ExitCode != 0 or
             not item.container.State.Running
-        ansible.builtin.include_tasks:
+          ansible.builtin.include_tasks:
             file: tasks/create-fail.yml
-        loop: "{{ result.results }}"
-        loop_control:
+          loop: "{{ result.results }}"
+          loop_control:
             label: "{{ item.container.Name }}"
 
         - name: Add container to molecule_inventory
-        vars:
+          vars:
             inventory_partial_yaml: |
             all:
-                children:
-                molecule:
-                    hosts:
-                    "{{ item.name }}":
-                        ansible_connection: containers.podman.podman
-        ansible.builtin.set_fact:
+              children:
+              molecule:
+                hosts:
+                  "{{ item.name }}":
+                      ansible_connection: containers.podman.podman
+          ansible.builtin.set_fact:
             molecule_inventory: >
-            {{ molecule_inventory | combine(inventory_partial_yaml | from_yaml, recursive=true) }}
-        loop: "{{ molecule_yml.platforms }}"
-        loop_control:
+              {{ molecule_inventory | combine(inventory_partial_yaml | from_yaml, recursive=true) }}
+          loop: "{{ molecule_yml.platforms }}"
+          loop_control:
             label: "{{ item.name }}"
 
         - name: Dump molecule_inventory
-        ansible.builtin.copy:
+          ansible.builtin.copy:
             content: |
-            {{ molecule_inventory | to_yaml }}
+              {{ molecule_inventory | to_yaml }}
             dest: "{{ molecule_ephemeral_directory }}/inventory/molecule_inventory.yml"
             mode: "0600"
 
         - name: Force inventory refresh
-        ansible.builtin.meta: refresh_inventory
+          ansible.builtin.meta: refresh_inventory
 
         - name: Fail if molecule group is missing
-        ansible.builtin.assert:
+          ansible.builtin.assert:
             that: "'molecule' in groups"
             fail_msg: |
-            molecule group was not found inside inventory groups: {{ groups }}
-        run_once: true # noqa: run-once[task]
+              molecule group was not found inside inventory groups: {{ groups }}
+          run_once: true # noqa: run-once[task]
 
     # we want to avoid errors like "Failed to create temporary directory"
     - name: Validate that inventory was refreshed
-    hosts: molecule
-    gather_facts: false
-    tasks:
+      hosts: molecule
+      gather_facts: false
+      tasks:
         - name: Check uname
-        ansible.builtin.raw: uname -a
-        register: result
-        changed_when: false
+          ansible.builtin.raw: uname -a
+          register: result
+          changed_when: false
 
         - name: Display uname info
-        ansible.builtin.debug:
+          ansible.builtin.debug:
             msg: "{{ result.stdout }}"
     ```
 
@@ -383,8 +383,8 @@ So this is an attempt to capture the process to configure a new system for Ansib
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
     ---
     - name: Converge
-    hosts: all
-    roles:
+      hosts: all
+      roles:
         - role: testrole
     ```
 
@@ -394,13 +394,13 @@ So this is an attempt to capture the process to configure a new system for Ansib
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/verify.yml
     ---
     - name: Verify
-    hosts: all
-    tasks:
+      hosts: all
+      tasks:
         - name: Check if httpd is installed
-        command: rpm -q httpd
-        register: result
-        failed_when: result.rc != 0
-        changed_when: false
+          command: rpm -q httpd
+          register: result
+          failed_when: result.rc != 0
+          changed_when: false
     ```
 
 4. Add a default task to the role's main.yml:
@@ -408,7 +408,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     ```
     ---
     - name: Molecule Hello World!
-    ansible.builtin.debug:
+      ansible.builtin.debug:
         msg: Hello, World!
     ```
 
