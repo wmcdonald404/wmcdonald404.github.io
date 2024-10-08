@@ -64,6 +64,17 @@ EOF
 ```
 {% endraw %}
 
+2. Create an example template file:
+
+```
+$ cat > /tmp/credential.yml <<EOF
+---
+username: {% raw %}{{ APP_USER_NAME }}{% endraw %}
+password: {% raw %}{{ APP_SECRET_PASSWORD }}{% endraw %}
+EOF
+```
+
+
 3. Set some environment variables:
 ```
 $ export APP_USER_NAME='sulaco'
