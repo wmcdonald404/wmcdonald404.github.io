@@ -34,7 +34,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
     ```
     wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
-    (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
+    (molecule.role) wmcdonald@fedora:~$ 
     ```
 
 
