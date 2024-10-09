@@ -80,26 +80,26 @@ So this is an attempt to capture the process to configure a new system for Ansib
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/molecule.yml 
     ---
     dependency:
-    name: galaxy
-    options:
+      name: galaxy
+      options:
         requirements-file: requirements.yml
     driver:
-    name: podman
-    options:
+      name: podman
+      options:
         managed: false
         login_cmd_template: "podman exec -it {instance} bash"
         ansible_connection_options:
-        ansible_connection: podman
+          ansible_connection: podman
     platforms:
-    - name: centos8
-        image: docker.io/centos:8
+      - name: ubi9
+        image: registry.access.redhat.com/ubi9/ubi-init
         privileged: true
         command: /usr/sbin/init
     provisioner:
-    name: ansible
+      name: ansible
     role_name_check: 1
     verifier:
-    name: ansible
+      name: ansible
     ```
 
 5. Define the runtime requirements in `requirements.yml`:
@@ -107,7 +107,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/requirements.yml 
     collections:
-    - containers.podman
+      - containers.podman
     ```
 
     > With just the base molecule configuration and its requirements we can now `create`, `list` and `destroy` the scenario.
