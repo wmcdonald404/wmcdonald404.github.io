@@ -412,94 +412,45 @@ So this is an attempt to capture the process to configure a new system for Ansib
         msg: Hello, World!
     ```
 
-5. Run the test scenario@
+5. Run the test scenario, note the test failure:
 
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule test
-    WARNING  Driver podman does not provide a schema.
-    INFO     default scenario test matrix: dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
-    INFO     Performing prerun with role_name_check=1...
-    WARNING  Computed fully qualified role name of testrole does not follow current galaxy requirements.
-    Please edit meta/main.yml and assure we can correctly determine full role name:
+    <output truncated>
 
-    galaxy_info:
-    role_name: my_name  # if absent directory name hosting role is used instead
-    namespace: my_galaxy_namespace  # if absent, author is used instead
-
-    Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
-    Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
-
-    As an alternative, you can add 'role-name' to either skip_list or warn_list.
-
-    INFO     Running default > dependency
-    WARNING  Skipping, missing the requirements file.
-    WARNING  Skipping, missing the requirements file.
-    INFO     Running default > cleanup
-    WARNING  Skipping, cleanup playbook not configured.
-    INFO     Running default > destroy
-    INFO     Sanity checks: 'podman'
-
-    PLAY [Destroy] *****************************************************************
-
-    TASK [Populate instance config] ************************************************
-    ok: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
+    TASK [Check if httpd is installed] *********************************************
+    fatal: [ubi9]: FAILED! => {"changed": false, "cmd": ["rpm", "-q", "httpd"], "delta": "0:00:00.010675", "end": "2024-10-09 10:35:17.430486", "failed_when_result": true, "msg": "non-zero return code", "rc": 1, "start": "2024-10-09 10:35:17.419811", "stderr": "", "stderr_lines": [], "stdout": "package httpd is not installed", "stdout_lines": ["package httpd is not installed"]}
 
     PLAY RECAP *********************************************************************
-    localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-    INFO     Running default > syntax
-
-    playbook: /home/wmcdonald/testrole/molecule/default/converge.yml
-    INFO     Running default > create
-
-    PLAY [Create] ******************************************************************
-
-    TASK [Populate instance config dict] *******************************************
-    skipping: [localhost]
-
-    TASK [Convert instance config dict to a list] **********************************
-    skipping: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=0    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
-
-    INFO     Running default > prepare
-    WARNING  Skipping, prepare playbook not configured.
-    INFO     Running default > converge
-
-    PLAY [Converge] ****************************************************************
-
-    TASK [Gathering Facts] *********************************************************
-    fatal: [instance]: UNREACHABLE! => {"changed": false, "msg": "Failed to create temporary directory. In some cases, you may have been able to authenticate and did not have permissions on the target directory. Consider changing the remote tmp path in ansible.cfg to a path rooted in \"/tmp\", for more error information use -vvv. Failed command was: ( umask 77 && mkdir -p \"` echo ~/.ansible/tmp `\"&& mkdir \"` echo ~/.ansible/tmp/ansible-tmp-1721482015.978296-9663-236119934532429 `\" && echo ansible-tmp-1721482015.978296-9663-236119934532429=\"` echo ~/.ansible/tmp/ansible-tmp-1721482015.978296-9663-236119934532429 `\" ), exited with result 125", "unreachable": true}
-
-    PLAY RECAP *********************************************************************
-    instance                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
-
-    CRITICAL Ansible return code was 4, command was: ansible-playbook --inventory /home/wmcdonald/.cache/molecule/testrole/default/inventory --skip-tags molecule-notest,notest /home/wmcdonald/testrole/molecule/default/converge.yml
-    WARNING  An error occurred during the test sequence action: 'converge'. Cleaning up.
-    INFO     Running default > cleanup
-    WARNING  Skipping, cleanup playbook not configured.
-    INFO     Running default > destroy
-
-    PLAY [Destroy] *****************************************************************
-
-    TASK [Populate instance config] ************************************************
-    ok: [localhost]
-
-    TASK [Dump instance config] ****************************************************
-    skipping: [localhost]
-
-    PLAY RECAP *********************************************************************
-    localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-
-    INFO     Pruning extra files from scenario ephemeral directory
+    ubi9                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
     ```
+
+6. Update the role's main.yml to include something more useful and testable:
+
+    ```
+    ---
+    - name: Molecule Hello World!
+      ansible.builtin.debug:
+        msg: Hello, World!
+
+    - name: Install HTTP Server
+      ansible.builtin.package:
+        name: httpd
+    ```
+
+7. Run the test scenario again, note the test passes:
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule test
+    <output truncated>
+
+    TASK [Check if httpd is installed] *********************************************
+    ok: [ubi9]
+
+    PLAY RECAP *********************************************************************
+    ubi9                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
 
 ## References
 - [Introducing Ansible Molecule with Ansible Automation Platform](https://developers.redhat.com/articles/2023/09/13/introducing-ansible-molecule-ansible-automation-platform#getting_started_with_molecule_developer_preview)
