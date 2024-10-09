@@ -282,7 +282,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     INFO     Pruning extra files from scenario ephemeral directory
     ```
 
-# Refining creation and testing:
+### Refining creation and testing:
 
 1. Configure specifc steps for the create setup in `create.yml`:
 
@@ -450,6 +450,132 @@ So this is an attempt to capture the process to configure a new system for Ansib
     PLAY RECAP *********************************************************************
     ubi9                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
+
+### Running individual stages:
+
+We can now run individual steps, giving fine-grained control over execution and the ability to shorten feedback loops during testing cycles.
+
+1. Review the output from `molecule --help` note the steps that run end-to-end during `molecule test`:
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule --help
+    Usage: molecule [OPTIONS] COMMAND [ARGS]...
+
+    Molecule aids in the development and testing of Ansible roles.
+
+    To enable autocomplete for a supported shell execute command below after replacing SHELL with either bash, zsh, or fish:
+
+        eval "$(_MOLECULE_COMPLETE=SHELL_source molecule)"
+
+    Options:
+    --debug / --no-debug    Enable or disable debug mode. Default is disabled.
+    -v, --verbose           Increase Ansible verbosity level. Default is 0.
+    -c, --base-config TEXT  Path to a base config (can be specified multiple times). If provided, Molecule will first load and deep merge the configurations
+                            in the specified order, and deep merge each scenario's molecule.yml on top. By default Molecule is looking for
+                            '.config/molecule/config.yml' in current VCS repository and if not found it will look in user home. (None).
+    -e, --env-file TEXT     The file to read variables from when rendering molecule.yml. (.env.yml)
+    --version
+    --help                  Show this message and exit.
+
+    Commands:
+    check        Use the provisioner to perform a Dry-Run (destroy, dependency, create, prepare, converge).
+    cleanup      Use the provisioner to cleanup any changes.
+    converge     Use the provisioner to configure instances (dependency, create, prepare converge).
+    create       Use the provisioner to start the instances.
+    dependency   Manage the role's dependencies.
+    destroy      Use the provisioner to destroy the instances.
+    drivers      List drivers.
+    idempotence  Use the provisioner to configure the instances.
+    init         Initialize a new scenario.
+    list         List status of instances.
+    login        Log in to one instance.
+    matrix       List matrix of steps used to test instances.
+    prepare      Use the provisioner to prepare the instances into a particular starting state.
+    reset        Reset molecule temporary folders.
+    side-effect  Use the provisioner to perform side-effects to the instances.
+    syntax       Use the provisioner to syntax check the role.
+    test         Test (dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy).
+    verify       Run automated tests against instances.
+    ```
+
+    > **Note:** `molecule test` runs the full suite of `dependency, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy`
+
+2. Start from a clean state
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
+    ```
+
+3. Review the status
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
+    WARNING  Driver podman does not provide a schema.
+    INFO     Running default > list
+                    ╷             ╷                  ╷               ╷         ╷            
+      Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
+    ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+      ubi9          │ podman      │ ansible          │ default       │ false   │ false      
+                    ╵             ╵                  ╵               ╵         ╵            
+    ```
+
+4. Create the target testing environment
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule create
+    ```
+
+5. Review the status
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
+    WARNING  Driver podman does not provide a schema.
+    INFO     Running default > list
+                    ╷             ╷                  ╷               ╷         ╷            
+      Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
+    ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+      ubi9          │ podman      │ ansible          │ default       │ true    │ false      
+                    ╵             ╵                  ╵               ╵         ╵            
+    ```
+
+6. 'Converge' the testing environment by applying the role
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule converge
+    ```
+
+7. Review the status
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
+    WARNING  Driver podman does not provide a schema.
+    INFO     Running default > list
+                    ╷             ╷                  ╷               ╷         ╷            
+      Instance Name │ Driver Name │ Provisioner Name │ Scenario Name │ Created │ Converged  
+    ╶───────────────┼─────────────┼──────────────────┼───────────────┼─────────┼───────────╴
+      ubi9          │ podman      │ ansible          │ default       │ true    │ true       
+                    ╵             ╵                  ╵               ╵         ╵            
+    ```
+
+8. 'Verify' to run the tests against the prepared environment
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule verify
+
+    TASK [Check if httpd is installed] *********************************************
+    ok: [ubi9]
+
+    PLAY RECAP *********************************************************************
+    ubi9                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+    ```
+
+9. Clean up:
+
+    ```
+    (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
+    ```
+
 
 
 ## References
