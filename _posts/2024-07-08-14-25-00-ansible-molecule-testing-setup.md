@@ -234,7 +234,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     root          26      14  0 21:49 pts/0    00:00:00 ps -ef
     ```
 
-10. Finally, destroy the instance to clean up after ourselves:
+10. Finally, `molecule destroy` to tear down the instance and clean up:
 
     ```
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
