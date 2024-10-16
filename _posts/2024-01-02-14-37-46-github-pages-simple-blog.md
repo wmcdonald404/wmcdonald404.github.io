@@ -39,7 +39,9 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     $ vim ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME}-simple-pages-blog-post.md
     ```
 
-    Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-14-37-46-simple-pages-blog-post.md#further-reading).
+    Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-14-37-46-github-pages-simple-blog.md?plain=1) or [here in raw format](https://raw.githubusercontent.com/wmcdonald404/github-pages/refs/heads/main/_posts/2024-01-02-14-37-46-github-pages-simple-blog.md).
+
+    
 
 3. Verify `git status`, `git add` the new content, `git commit` the new post and `git push` to the remote repository.
     
