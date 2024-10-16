@@ -101,6 +101,9 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
 4. Check that the new post has been generated
     Verify that the new post is visible as a **Post** on your [Github page](https://wmcdonald404.github.io/github-pages/).
+
+    You can have a look at the [Github Actions](https://github.com/wmcdonald404/github-pages/actions) pipeline run which, if the build ran successfully, will have auto-generated your new page update.
+
     Navigate to [your new post](https://wmcdonald404.github.io/github-pages/2024/01/02/14-37-46-simple-pages-blog-post.html) to verify its publication.
 
 ## Further reading
