@@ -122,6 +122,9 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	root ➜ /workspaces/github-pages (main) $ cat /tmp/jk/.gitignore >> /workspaces/github-pages/.gitignore
 	```
 
+
+> **Note:** You may need to add `layout: default` to the front-matter of each page for them to correctly render when served locally.
+
 ## References
 
 - [VSCode, Docker, and Github Pages](https://www.allisonthackston.com/articles/vscode-docker-github-pages.html)
