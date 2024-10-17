@@ -1,6 +1,7 @@
 ---
 title: "Ansible Loops & Filters"
 date: 2024-03-01 17-08-11
+layout: default
 tags:
 - redhat
 - ansible

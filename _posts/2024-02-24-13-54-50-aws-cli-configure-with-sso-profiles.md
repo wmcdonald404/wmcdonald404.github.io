@@ -1,6 +1,7 @@
 ---
 title: "Configure the AWS CLI with SSO and multiple profiles"
 date: 2024-02-24 13-54-50
+layout: default
 tags:
 - amazon
 - aws

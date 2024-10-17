@@ -1,6 +1,7 @@
 ---
 title: "Running Windows 2022 on Vagrant with the Libvirt Provider"
 date: 2024-03-22 18:51:00
+layout: default
 tags:
 - linux
 - fedora

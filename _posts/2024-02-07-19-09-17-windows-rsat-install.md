@@ -1,6 +1,7 @@
 ---
 title: "Installing the Windows Remote Server Administration Tools (RSAT)"
 date: 2024-02-07-19 09:17:00
+layout: default
 tags:
 - microsoft
 - windows

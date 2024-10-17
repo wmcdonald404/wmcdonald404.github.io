@@ -1,6 +1,7 @@
 ---
 title: "Configure the OpenSSH Agent on Windows"
 date: 2024-02-05 11:32:00
+layout: default
 tags:
 - microsoft
 - windows

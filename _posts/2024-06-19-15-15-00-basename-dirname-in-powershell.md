@@ -1,6 +1,7 @@
 ---
 title: "Powershell `basename` and `dirname`"
 date: 2024-06-19 15:15:00
+layout: default
 tags:
 - microsoft
 - vscode

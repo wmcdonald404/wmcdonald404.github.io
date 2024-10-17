@@ -1,6 +1,7 @@
 ---
 title: "Running Multiple Vagrant Boxes and the Ansible Provisioner"
 date: 2024-06-09 16:15:00
+layout: default
 tags:
 - linux
 - fedora
