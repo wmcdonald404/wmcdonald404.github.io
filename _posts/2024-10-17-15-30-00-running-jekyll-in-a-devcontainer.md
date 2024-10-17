@@ -108,6 +108,9 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	New jekyll site installed in /tmp/jk. 
 	```
 
+	> **NOTE:** You may need to add `layout: default` to the front-matter of each page for them to correctly render when served locally.
+
+
 4. Restart the Jekyll server and retest your content.
 
 5. As good practice, also append these additional items to `.gitignore`:
@@ -121,9 +124,6 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	vendor
 	root ➜ /workspaces/github-pages (main) $ cat /tmp/jk/.gitignore >> /workspaces/github-pages/.gitignore
 	```
-
-
-> **Note:** You may need to add `layout: default` to the front-matter of each page for them to correctly render when served locally.
 
 ## References
 
