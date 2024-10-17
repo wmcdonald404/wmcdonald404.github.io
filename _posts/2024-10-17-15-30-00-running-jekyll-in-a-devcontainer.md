@@ -31,27 +31,16 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 	```
 	{
-		"name": "Jekyll",
-		"image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
-		"runArgs": [
-			"--cap-add=CAP_MKNOD",
-			"--cap-add=NET_ADMIN",
-			"--cap-add=SYS_ADMIN",
-			"--cap-add=SYS_RESOURCE",
-			"--device",
-			"/dev/fuse",
-			"--security-opt",
-			"seccomp=unconfined",
-			"--security-opt",
-			"label=disable",
-			"--security-opt",
-			"apparmor=unconfined",
-			"--security-opt",
-			"unmask=/sys/fs/cgroup",
-			"--userns=host",
-			"--hostname=jekyll-dev-container"
-		],
-		"remoteUser": "root"
+        "name": "Jekyll",
+        "image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
+        "runArgs": [
+                "--security-opt", "label=disable",
+                "--userns=host",
+                "--hostname=ansible-dev-container"
+          ],
+        "remoteUser": "root"
+        // "onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
+        // "updateContentCommand": ".devcontainer/bin/updateContentCommand.sh",
 	}
 	```
 
