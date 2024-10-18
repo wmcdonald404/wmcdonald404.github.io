@@ -1,7 +1,6 @@
 ---
 title: "Using Jinja with shell variables from the CLI"
 date: 2024-03-23 22:47:00
-layout: default
 tags:
 - jinja
 - python

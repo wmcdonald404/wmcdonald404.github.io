@@ -1,7 +1,6 @@
 ---
 title: "Using the AWS CLI on Windows with Powershell"
 date: 2024-03-07 17:07:07
-layout: default
 tags:
 - amazon
 - aws

@@ -1,7 +1,6 @@
 ---
 title: "Ansible Molecule Setup"
 date: 2024-07-08 14-25-00
-layout: default
 tags:
 - redhat
 - ubuntu

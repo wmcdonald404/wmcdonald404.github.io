@@ -1,7 +1,6 @@
 ---
 title: "Powershell History, Functions and Aliases"
 date: 2024-03-10 13-21-59
-layout: default
 tags:
 - microsoft
 - powershell

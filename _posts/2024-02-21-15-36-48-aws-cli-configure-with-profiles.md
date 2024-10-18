@@ -1,7 +1,6 @@
 ---
 title: "Configure the AWS CLI with multiple profiles"
 date: 2024-02-21 15:38:00
-layout: default
 tags:
 - amazon
 - aws

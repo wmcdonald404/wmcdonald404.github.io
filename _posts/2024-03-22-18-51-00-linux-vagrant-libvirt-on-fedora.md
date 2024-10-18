@@ -1,7 +1,6 @@
 ---
 title: "Setting up Vagrant under Libvirt on Fedora"
 date: 2024-03-20 22:44:00
-layout: default
 tags:
 - linux
 - fedora

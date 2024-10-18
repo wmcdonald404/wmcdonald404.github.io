@@ -1,7 +1,6 @@
 ---
 title: "Create a simple GitHub Pages blog post"
 date: 2024-01-02 14:37:46
-layout: default
 tags:
 - github
 - github-pages
