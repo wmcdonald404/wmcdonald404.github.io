@@ -1,6 +1,15 @@
 theme: minima
 title: Github Pages
 author: wmcdonald404  
+defaults:
+  -
+    scope:
+      type: posts
+      path: _posts
+    values:
+      isPost: true
+      layout: post
+
 # collections:
 #   recipes:
 #     output: true
