@@ -1,6 +1,5 @@
 ---
 title: "Install and configure the GitHub CLI"
-date: 2024-01-02 20:52:49
 tags:
 - github
 - gh

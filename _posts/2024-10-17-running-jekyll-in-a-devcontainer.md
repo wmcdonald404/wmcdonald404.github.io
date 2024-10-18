@@ -1,6 +1,5 @@
 ---
 title: "Running Jekyll/Github Pages in a Devcontainer"
-# date: 2024-10-17 15-30-00
 tags:
 - github
 - github-pages

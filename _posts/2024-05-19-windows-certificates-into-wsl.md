@@ -1,6 +1,5 @@
 ---
 title: Exporting Windows Certificates into WSL
-date: 2024-05-19 17:00:00
 tags:
 - windows
 - certificates

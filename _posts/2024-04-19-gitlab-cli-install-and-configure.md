@@ -1,6 +1,5 @@
 ---
 title: Gitlab CLI Installation, Setup and Use
-date: 2024-04-19 18:27:07
 tags:
 - gitlab 
 ---

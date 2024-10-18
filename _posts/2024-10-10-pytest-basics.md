@@ -1,6 +1,5 @@
 ---
 title: "Pytest Basics"
-date: 2024-10-10 10-35-00
 tags:
 - python
 - testing

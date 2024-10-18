@@ -1,6 +1,5 @@
 ---
 title: "Streamline Github Page Creation with Jinja"
-date: 2024-03-25 23:26:16
 tags:
 - github
 - jinja

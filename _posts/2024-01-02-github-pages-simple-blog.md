@@ -1,6 +1,5 @@
 ---
 title: "Create a simple GitHub Pages blog post"
-date: 2024-01-02 14:37:46
 tags:
 - github
 - github-pages
@@ -17,7 +16,6 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     Set the current date & time, and the subject of the blog post:
     ```
     $ export BLOGDATE=$(date -I)
-    $ export BLOGTIME=$(date +%H:%M:%S)
     $ export BLOGTITLE='Simple Github pages blog post'
     ```
 
@@ -25,10 +23,9 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
     Create the post file with an appropriately time-stamped name. Assuming our repository is checked out at `~/repos/github-pages/`, construct the FrontMatter from the environment variables:    
     ```
-    $ cat >> ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME}-simple-pages-blog-post.md <<EOF
+    $ cat >> ~/repos/github-pages/_posts/${BLOGDATE}-simple-pages-blog-post.md <<EOF
     ---
     title: "${BLOGTITLE}"
-    date: ${BLOGDATE} ${BLOGTIME}
     ---
     EOF
     ```
@@ -36,10 +33,10 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     Edit the file and add the rest of the content:
     
     ```
-    $ vim ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME}-simple-pages-blog-post.md
+    $ vim ~/repos/github-pages/_posts/${BLOGDATE}-simple-pages-blog-post.md
     ```
 
-    Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-14-37-46-github-pages-simple-blog.md?plain=1) or [here in raw format](https://raw.githubusercontent.com/wmcdonald404/github-pages/refs/heads/main/_posts/2024-01-02-14-37-46-github-pages-simple-blog.md).
+    Add the rest of the blog post after the FrontMatter using standard [Github markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax). For example, [this blog post's markdown can be viewed here](https://github.com/wmcdonald404/github-pages/blob/main/_posts/2024-01-02-github-pages-simple-blog.md?plain=1) or [here in raw format](https://raw.githubusercontent.com/wmcdonald404/github-pages/refs/heads/main/_posts/2024-01-02-github-pages-simple-blog.md).
 
     
 
@@ -53,7 +50,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
     Untracked files:
       (use "git add <file>..." to include in what will be committed)
-            _posts/2024-01-02-14-37-46-simple-pages-blog-post.md
+            _posts/2024-01-02-simple-pages-blog-post.md
 
     no changes added to commit (use "git add" and/or "git commit -a")
     ```
@@ -69,14 +66,14 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
     Changes to be committed:
       (use "git restore --staged <file>..." to unstage)
-            new file:   _posts/2024-01-02-14-37-46-simple-pages-blog-post.md
+            new file:   _posts/2024-01-02-simple-pages-blog-post.md
     ```
     Commit the new content:
     ```
     wmcdonald@fedora:~/repos/github-pages$ git commit -m '- Add new blog post describing simple workflow to add new post.'
     [main 0126586] - Add new blog post describing simple workflow to add new post.
     1 file changed, 64 insertions(+)
-    create mode 100644 _posts/2024-01-02-14-37-46-simple-pages-blog-post.md
+    create mode 100644 _posts/2024-01-02-simple-pages-blog-post.md
     ```
     Push to the remote to trigger a workflow:
     ```
@@ -104,7 +101,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
     You can have a look at the [Github Actions](https://github.com/wmcdonald404/github-pages/actions) pipeline run which, if the build ran successfully, will have auto-generated your new page update.
 
-    Navigate to [your new post](https://wmcdonald404.github.io/github-pages/2024/01/02/14-37-46-simple-pages-blog-post.html) to verify its publication.
+    Navigate to [your new post](https://wmcdonald404.github.io/github-pages/2024/01/02/simple-pages-blog-post.html) to verify its publication.
 
 ## Further reading
 - [Github Pages skills template course (start here)](https://github.com/skills/github-pages)

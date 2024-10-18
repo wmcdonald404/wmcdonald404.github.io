@@ -1,6 +1,5 @@
 ---
 title: "Useful Windows Terminal keyboard shortcuts"
-date: 2024-02-05 11:32:00
 tags:
 - microsoft
 - windows

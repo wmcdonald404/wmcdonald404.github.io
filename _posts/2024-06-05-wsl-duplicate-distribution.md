@@ -1,6 +1,5 @@
 ---
 title: Duplicate a Distribution in WSL
-date: 2024-06-05 12:29:00
 tags:
 - windows
 - wsl

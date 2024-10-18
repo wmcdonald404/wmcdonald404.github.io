@@ -1,6 +1,5 @@
 ---
 title: "Discovering, Formatting and Attaching Disks with Powershell"
-date: 2024-03-23 13:12:00
 tags:
 - windows
 - powershell

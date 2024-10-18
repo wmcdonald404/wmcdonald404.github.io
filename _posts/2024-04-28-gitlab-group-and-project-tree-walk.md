@@ -1,6 +1,5 @@
 ---
 title: Gitlab Group and Project Tree Walk
-date: 2024-04-28 12:15:00
 tags:
 - gitlab 
 - api
