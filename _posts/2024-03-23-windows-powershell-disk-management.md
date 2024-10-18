@@ -11,8 +11,8 @@ When automating provisioning of Windows systems, it might be useful to be able t
 
 ## Preparation
 Now we have:
-1. [Vagrant set up to run under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html)
-2. [A Windows Vagrant box ready to run](https://wmcdonald404.github.io/github-pages/2024/03/22/22-44-00-linux-vagrant-windows-boxes.html)
+1. [Vagrant set up to run under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-libvirt-on-fedora.html)
+2. [A Windows Vagrant box ready to run](https://wmcdonald404.github.io/github-pages/2024/03/22/linux-vagrant-windows-boxes.html)
 
 We can get ready to discover disks, format, attach, label etc.
 

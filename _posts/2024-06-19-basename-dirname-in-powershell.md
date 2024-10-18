@@ -14,17 +14,17 @@ When working in VSCode across multiple repositories, there's no obvious way to s
 
 ## Background
 
-VSCode provide keyboard shortcuts to copy the relative or absolute path of the current focused file which can then be pasted into the integrated terminal. However, this copies the **full file path**, for example `'d:\repositories\personal\github-pages\_posts\2024-01-02-14-37-46-github-pages-simple-blog.md'`. 
+VSCode provide keyboard shortcuts to copy the relative or absolute path of the current focused file which can then be pasted into the integrated terminal. However, this copies the **full file path**, for example `'d:\repositories\personal\github-pages\_posts\2024-01-02-github-pages-simple-blog.md'`. 
 
 On Unix/Linux systems, it's trivial to `dirname` that full path into something `cd`-able:
 
-* CTRL-ALT-C or CTRL-K P will copy the full path, for example `/home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-10-24-00-wsl-update-bundled-distribution.md`
+* CTRL-ALT-C or CTRL-K P will copy the full path, for example `/home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-wsl-update-bundled-distribution.md`
 
 ```
-wmcdonald@fedora:~$ dirname /home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-10-24-00-wsl-update-bundled-distribution.md
+wmcdonald@fedora:~$ dirname /home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-wsl-update-bundled-distribution.md
 /home/wmcdonald/repos/personal/github-pages/_posts
 
-wmcdonald@fedora:~$ cd $(dirname /home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-10-24-00-wsl-update-bundled-distribution.md)
+wmcdonald@fedora:~$ cd $(dirname /home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-wsl-update-bundled-distribution.md)
 
 wmcdonald@fedora:~/repos/personal/github-pages/_posts$ pwd
 /home/wmcdonald/repos/personal/github-pages/_posts
@@ -34,7 +34,7 @@ On Windows systems, you can use Git-bash to achieve the same fluidity, or you ca
 
 ## How-to
 
-1. Open your [Powershell profile](https://wmcdonald404.github.io/github-pages/2024/03/10/13-21-59-windows-powershell-history-functions-and-aliases.html#powershell-profiles) to add local Powershell functions (analogous to aliases or functions in bash/zsh)
+1. Open your [Powershell profile](https://wmcdonald404.github.io/github-pages/2024/03/10/windows-powershell-history-functions-and-aliases.html#powershell-profiles) to add local Powershell functions (analogous to aliases or functions in bash/zsh)
 
     ```
     PS> code $PROFILE
@@ -75,5 +75,5 @@ On Windows systems, you can use Git-bash to achieve the same fluidity, or you ca
 
 
 ## Further reading
-- [Powershell History, Functions and Aliases (and Profiles)](https://wmcdonald404.github.io/github-pages/2024/03/10/13-21-59-windows-powershell-history-functions-and-aliases.html#powershell-profiles)
+- [Powershell History, Functions and Aliases (and Profiles)](https://wmcdonald404.github.io/github-pages/2024/03/10/windows-powershell-history-functions-and-aliases.html#powershell-profiles)
 - [Stackoverflow - Removing path and extension from filename in PowerShell](https://stackoverflow.com/a/32634452)

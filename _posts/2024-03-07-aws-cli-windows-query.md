@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Overview
-Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple profiles](https://wmcdonald404.github.io/github-pages/2024/02/24/13-54-50-aws-cli-configure-with-sso-profiles.html), we can perform similar queries from a Windows machine with the AWS CLI using Powershell to extract similar instance metadata.
+Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple profiles](https://wmcdonald404.github.io/github-pages/2024/02/24/aws-cli-configure-with-sso-profiles.html), we can perform similar queries from a Windows machine with the AWS CLI using Powershell to extract similar instance metadata.
 
 ## How-to
 1. Set the Windows Powershell environment variable for the profile we wish to use:

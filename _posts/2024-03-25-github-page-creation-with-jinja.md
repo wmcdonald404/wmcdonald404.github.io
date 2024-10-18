@@ -6,7 +6,7 @@ tags:
 ---
 
 ## Overview
-Building on the initial steps to create [Create a simple GitHub Pages blog post](https://wmcdonald404.github.io/github-pages/2024/01/02/14-37-46-github-pages-simple-blog.html) and [Using Jinja with shell variables from the CLI](https://wmcdonald404.github.io/github-pages/2024/03/23/22-47-00-jinja-cli-environment-variables.html) we can combine Jinja with a template and some environment variables to streamline initial page creation.
+Building on the initial steps to create [Create a simple GitHub Pages blog post](https://wmcdonald404.github.io/github-pages/2024/01/02/github-pages-simple-blog.html) and [Using Jinja with shell variables from the CLI](https://wmcdonald404.github.io/github-pages/2024/03/23/jinja-cli-environment-variables.html) we can combine Jinja with a template and some environment variables to streamline initial page creation.
 
 ## Background
 The initial set up of each page and its frontmatter for each post was simple but fiddly as first documented. We had already simplified the process with environment variables, now we attempt to streamline the process further using Jinja, and a template. The simplification over the previous [HEREDOC](https://tldp.org/LDP/abs/html/here-docs.html) is nominal but should ultimately be easier. 
@@ -19,14 +19,13 @@ Now let's walk through the slightly improved process.
     Set the current date & time, and the subject of the blog post:
     ```
     export BLOGDATE=$(date -I)
-    export BLOGTIME=$(date +%H:%M:%S)
     export BLOGTITLE='Updated Github pages post'
     export BLOGFILE=blog-title.md
     echo $BLOGDATE $BLOGTIME $BLOGTITLE $BLOGFILE
     ```
     Or, in a slightly more compressed form:
     ```
-    export BLOGDATE=$(date -I) BLOGTIME=$(date +%H:%M:%S) 
+    export BLOGDATE=$(date -I)
     export BLOGTITLE='Updated Github pages post'
     export BLOGFILE=blog-title.md
     echo $BLOGDATE $BLOGTIME $BLOGTITLE $BLOGFILE

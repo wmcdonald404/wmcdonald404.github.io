@@ -8,7 +8,7 @@ tags:
 ---
 
 ## Overview
-Building on what we learned in [Setting up Vagrant under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html), Vagrant can provision [multiple boxes](https://developer.hashicorp.com/vagrant/docs/multi-machine) to help produce (or reproduce) more complex, interconnected [n-tier](https://en.wikipedia.org/wiki/Multitier_architecture) architectures locally. 
+Building on what we learned in [Setting up Vagrant under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-libvirt-on-fedora.html), Vagrant can provision [multiple boxes](https://developer.hashicorp.com/vagrant/docs/multi-machine) to help produce (or reproduce) more complex, interconnected [n-tier](https://en.wikipedia.org/wiki/Multitier_architecture) architectures locally. 
 
 For example, this could prove useful if you wanted to mock or test against a simple application server/database server duo.
 
@@ -148,7 +148,7 @@ We now have a simple example of creating multiple Vagrant boxes and running Ansi
 
 ## Further reading
 
-- [Setting up Vagrant under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html)
+- [Setting up Vagrant under Libvirt on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-libvirt-on-fedora.html)
 - [Vagrant Multi-Machine](https://developer.hashicorp.com/vagrant/docs/multi-machine) 
 - [Wikipedia Multitier architecture](https://en.wikipedia.org/wiki/Multitier_architecture)
 - [Vagrant provisioning/provisioners](https://developer.hashicorp.com/vagrant/docs/provisioning) 

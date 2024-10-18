@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Overview
-In [Linux - Vagrant - Setting up Vagrant on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/18-51-00-linux-vagrant-libvirt-on-fedora.html) we outlined the process to set up and test basic Vagrant functionality on Fedora using Libvirt as the virtualisation provider (other providers are available.)
+In [Linux - Vagrant - Setting up Vagrant on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-libvirt-on-fedora.html) we outlined the process to set up and test basic Vagrant functionality on Fedora using Libvirt as the virtualisation provider (other providers are available.)
 
 Next we would like to deploy a single Windows host which we can interact with via PSRemoting in order to streamline Windows automation workflows and testing.
 
