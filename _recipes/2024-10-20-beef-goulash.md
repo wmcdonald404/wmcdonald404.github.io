@@ -68,6 +68,5 @@ It freezes well but the potatoes will often come out a little chalky-textured, t
 
 If I was trying to make this vegetarian or vegan then a fuck load of well cooked mushrooms, with a little porcini powder and maybe some Henderson's Relish/Worcestershire Sauce. and/or MSG or some other umami boosting ingredients would help bulk it out (although TBF it would still be bulky enough as-is.)  
 
-
 ## References
 - [All for one... - Rosie Sykes](https://www.theguardian.com/lifeandstyle/2003/jan/25/foodanddrink.shopping)
