@@ -10,9 +10,6 @@ defaults:
       isPost: true
       layout: post
 
-# collections:
-#   recipes:
-#     output: true
-#     permalink: /:collection/:name
-    
-      
+collections:
+  recipes:
+    output: true      
