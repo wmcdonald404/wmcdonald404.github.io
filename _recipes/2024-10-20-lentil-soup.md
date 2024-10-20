@@ -1,5 +1,5 @@
 ---
-title: "Tom Kerridge's Lentil Soup"
+title: "Lentil Soup (Tom Kerridge)"
 tags:
 - recipes
 - lentils
