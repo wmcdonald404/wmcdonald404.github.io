@@ -1,5 +1,5 @@
 ---
-title: "The perfect soda bread (Felicitly Cloake)"
+title: "The perfect soda bread (Felicity Cloake)"
 tags:
 - recipes
 - bread
@@ -7,7 +7,7 @@ categories: recipe
 ---
 
 ## Overview
-Another Felicitly Cloake ["the Perfect..."](https://www.theguardian.com/food/series/how-to-cook-the-perfect----) recipe. The easiest of all breads, incredibly quick to make and tasty, although it won't keep as well as something like a milk bread that's probably not going to be an issue.
+Another Felicity Cloake ["the Perfect..."](https://www.theguardian.com/food/series/how-to-cook-the-perfect----) recipe. The easiest of all breads, incredibly quick to make and tasty, although it won't keep as well as something like a milk bread that's probably not going to be an issue.
 
 ## Ingredients
 > (Makes 1 loaf)
