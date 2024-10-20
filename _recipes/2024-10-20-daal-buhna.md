@@ -1,5 +1,5 @@
 ---
-title: "Daal Bhuna"
+title: "Daal Bhuna (Latif's Inspired)"
 tags:
 - recipes
 - daal
