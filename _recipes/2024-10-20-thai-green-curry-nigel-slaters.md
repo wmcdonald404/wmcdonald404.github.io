@@ -10,7 +10,7 @@ categories: recipe
 ---
 
 ## Overview
-There are a ton of different green curry recipes, this is one of the first I made and while it might not be the ultimate in authenticity, it's a strong start.
+There are a ton of different green curry recipes. Nigel Slater's is one of the first I made and while it might not be the ultimate in authenticity, it's a strong start.
 
 ## Ingredients
 
@@ -52,7 +52,7 @@ There are a ton of different green curry recipes, this is one of the first I mad
 6. Return the chicken to the casserole with a further tablespoon of the paste and simmer for five to six minutes, or until the chicken is cooked through. Stir in the last of the herbs and serve.
 
 ## Notes
-Chicken thigh is tastier than breast, and more resistant to overcooking. Buy bone-in thighs, bone them yourself and chuck the bones into a freezer bag for stock.
+Chicken thigh is tastier than breast, and more resistant to overcooking. Buy bone-in thighs, [bone them yourself](https://www.kochkochin.com/products/victorinox-semi-flexible-boning-knife-yellow) and chuck the bones into a freezer bag for stock.
 
 Serve with sticky jasmine rice. Or coconut jasmine rice.
 

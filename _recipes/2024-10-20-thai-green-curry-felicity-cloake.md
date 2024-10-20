@@ -49,7 +49,7 @@ This green curry recipe is much punchier in terms of chili than the [previous Ni
 3. Add the fish sauce and sugar to taste, pour in the stock and bring back to the boil, then put in the meat or tofu, and the aubergines. Simmer until cooked through, then stir in the lime leaves, red chilli and basil leaves. Stir in a little more coconut cream if it's too spicy, and serve with jasmine rice.
 
 ## Notes
-Chicken thigh is tastier than breast, and more resistant to overcooking. Buy bone-in thighs, bone them yourself and chuck the bones into a freezer bag for stock.
+Chicken thigh is tastier than breast, and more resistant to overcooking. Buy bone-in thighs, [bone them yourself](https://www.kochkochin.com/products/victorinox-semi-flexible-boning-knife-yellow) and chuck the bones into a freezer bag for stock.
 
 Serve with sticky jasmine rice. Or coconut jasmine rice.
 
