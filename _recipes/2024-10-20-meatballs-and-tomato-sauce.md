@@ -11,9 +11,10 @@ categories: recipe
 ## Overview
 This is a simple recipe from the Independent many years ago, unfortunately its attribution is lost and neither the Wayback machine nor the Independent appear to list it. 
 
-See [References](#references) for the sources.
 
 > This sauce can be used to braise chicken, veal or pork dishes. Kids will love it dished up with pasta or rice. The meatballs will keep well in the freezer in the sauce, or freeze them raw, separately from the sauce, for a rainy day. Instead of pork you could use a mixture of beef and veal.
+
+See [References](#references) for the sources.
 
 ## Ingredients
 ### Meatballs
