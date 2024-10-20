@@ -1,5 +1,5 @@
 ---
-title: "Beef Goulash"
+title: "Beef Goulash (Rosie Sykes)"
 tags:
 - recipes
 - beef
