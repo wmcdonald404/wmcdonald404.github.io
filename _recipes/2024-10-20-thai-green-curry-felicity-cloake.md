@@ -26,6 +26,8 @@ This green curry recipe is much punchier in terms of chili than the [previous Ni
 - 2 tbsp chopped garlic
 - 1 tsp shrimp paste
 - Ground white pepper and salt
+
+
 > (Or alternatively use 4 tbsp of good quality bought paste see [Notes](#notes) for additional paste recommendations.)
 
 ### For the curry:
