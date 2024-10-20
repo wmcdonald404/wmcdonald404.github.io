@@ -26,14 +26,14 @@ This is **not** a dish for [FODMAP](https://en.wikipedia.org/wiki/FODMAP)-intole
 - 2 tablespoons unsalted butter (about 30 grams)
 - 115 grams pancetta, chopped
 - 2 medium leeks, well rinsed and whites only finely chopped (about 150 grams)
-- 1 cup chopped yellow onions (about 160 grams)
+- 1 cup chopped white/yellow onions (about 160 grams)
 - 1/2 teaspoon salt (about 3 grams)
 - 1/4 teaspoon freshly ground white pepper (about 0.5 grams)
 - 1 teaspoon chopped fresh thyme (about 1 gram)
 - 1/2 cup roasted garlic (about 120 ml)
 - 1/4 cup dry white wine (about 60 ml)
 - 3 1/2 cups chicken or vegetable stock (about 830 ml)
-- 1/2 cup heavy cream (about 120 ml)
+- 1/2 cup double cream (about 120 ml)
 - 2 tablespoons chopped fresh parsley (about 8 grams)
 - 1 tablespoon fresh lemon juice (about 15 ml)
 
@@ -88,8 +88,6 @@ Return to the oven and bake until the cheese is melted, about 5 minutes.
 Ladle the soup into bowls and top each serving with 2 cheese croutons. Garnish with chopped chives and serve hot.
 
 ## Notes
-
-
 
 
 ## References
