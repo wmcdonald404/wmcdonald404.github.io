@@ -55,6 +55,12 @@ For the sauce, again an option would be the [Marcella Hazan tomato sauce](https:
 
 Any pasta works, I like papardelle, tagliatelle or bucatini.
 
+Basil stalks tied in a bouquet garni and dropped into the sauce as it bubbles are a solid addition. The leaves can either be finely chiffonaded (?) or torn into the meatball mix or torn and sprinkled over the sauce to finish.
+
+I like to chuck a big tablespoon of oregano in to either the sauce or the meatball mixture too. Likewise sage (used lightly) can be delicious.
+
+Cheese. Everything's better with cheese, so parmesan, pecorino, or a local alternative are always a beneficial addition. Again, either finely microplanned and added to the meatball mixture, or finely grated and sprinkled over the dish at serving time. Or both.
+
 ## References
 - [Meatballs in Tomato Sauce](https://www.independent.co.uk/life-style/food-and-drink/recipes/meatballs-in-tomato-sauce-5360863.html)
 - [Meatballs in Tomato Sauce - Wayback Machine](https://web.archive.org/web/20020817210336/http://enjoyment.independent.co.uk/food_and_drink/recipes/story.jsp?story=312363)
