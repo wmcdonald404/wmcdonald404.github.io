@@ -31,6 +31,7 @@ See [References](#references) for the sources.
 - 4 tbsp vegetable oil
 - 2-3 green chilis
 - 2-3 kashmiri dried chilis
+- 2 tsp cumin seeds
 - 2-3 garlic cloves
 - 2 bay leaves
 
