@@ -1,5 +1,5 @@
 ---
-title: "Baked Sausages, Squash and Red Onion"
+title: "Baked Sausages, Squash and Red Onion (Jill Dupleix)"
 tags:
 - recipes
 - sausages
