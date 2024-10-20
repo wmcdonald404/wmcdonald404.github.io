@@ -38,6 +38,11 @@ See [References](#references) for the sources.
 - 400g canned chopped tomatoes or the equivalent fresh, skinned, seeded and chopped
 - 500ml beef or chicken stock (a good quality cube will do) 
 
+### Optional
+- Cheese: parmesan/pecorino/mozarella/scamorza/whatevs
+- Herbs: basil/oregano/sage
+- Carbs: pasta/bread/dealer's choice
+
 ## Method
 Gently cook the onions, garlic and thyme in a little of the vegetable oil until soft. Put to one side and cool down. Mix the minced pork, breadcrumbs and cooked onions together with the cumin then season well with salt and pepper. Test the seasoning by rolling a little flat cake of the mixture and gently frying it in oil for a minute or so on each side, cool down, taste and season more if necessary. Roll the mixture into squash-ball sized pieces and refrigerate for 30-40 minutes to set.
 
