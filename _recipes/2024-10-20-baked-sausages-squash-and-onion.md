@@ -28,6 +28,7 @@ It's also one of the few times sweet potatoes really shine.
 - Sea salt and pepper
 - A few sprigs of thyme
 - A few sprigs of rosemary
+
 ### Tomato Sauce
 - 400g tinned chopped tomatoes
 - 1tbsp olive oil
