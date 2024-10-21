@@ -4,10 +4,10 @@
 	"runArgs": [
 		"--security-opt", "label=disable",
 		"--userns=host",
-		"--hostname=ansible-dev-container"
+		"--hostname=jekyll-dev-container"
 	  ],
 	"remoteUser": "root"
 	
-	// "onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
+	"onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
 	// "updateContentCommand": ".devcontainer/bin/updateContentCommand.sh",
 }

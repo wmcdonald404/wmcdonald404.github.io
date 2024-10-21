@@ -35,7 +35,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
         "runArgs": [
                 "--security-opt", "label=disable",
                 "--userns=host",
-                "--hostname=ansible-dev-container"
+                "--hostname=jekyll-dev-container"
           ],
         "remoteUser": "root"
         // "onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
@@ -43,9 +43,8 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	}
 	```
 
-
 	> **Note:** The `runArgs` used here are the minimum required to run the Devcontainer on Podman. Docker may run with fewer explicit options.
-	
+
 3. Open the Devcontainer:
 
 	In VSCode, `CTRL`-`SHIFT`-`p`, then select `Dev Containers: Rebuild and Reopen in Container`
