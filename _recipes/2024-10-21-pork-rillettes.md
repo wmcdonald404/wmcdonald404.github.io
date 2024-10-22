@@ -6,6 +6,7 @@ tags:
 - preserve
 - rillettes
 - pâté
+- fodmap
 categories: recipe
 ---
 
@@ -48,7 +49,14 @@ Rillettes are very coarse pâté, richy, fatty porky preserve, absolutely delici
 12. After a week, scrape off the fat to reveal the meat. Eat with short lengths of split baguette - toasted or grilled - and with a pot of crisp cornichons close at hand.
 
 ## Notes
+
+### Storage
 Worth doubling up batches if you have enough Kilner/Mason jars. They should keep well for more than a few weeks if the jars are well sterilized, well packed and covered with a layer of fat. 
+
+### FODMAP adjustment
+If you were trying to make this FODMAP-friendly, leave out the garlic, or cook a batch with and a batch without.
+
+You can still eat with cornichons but serve on something like lettuce or chicory leaves instead of bread.
 
 ## References
 - [Pork Rillettes](https://web.archive.org/web/20210506102726/http://www.simonhopkinson.tv/recipe/33/pork-rillettes.aspx)

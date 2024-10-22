@@ -6,6 +6,7 @@ tags:
 - meatballs
 - lettuce
 - mayonnaise
+- fodmap
 categories: recipe
 ---
 
@@ -35,11 +36,15 @@ These chicken meatballs are great wrapped in leaves. Fairly quick, light, health
 3. Remove the cakes from the pan and place on large, crisp lettuce leaves, add a dollop of mayonnaise and wrap the cakes in the leaves.
 
 ## Notes
-You can leave the bread out of this recipe and the mixture should still hold together, you may want to make the meatballs a little smaller.
 
+### Chicken
 Again, I like to buy whole, skin-on, bone-in thighs for this and debone. You can blitz the chopped meat in a food processor which can help to emulsify and bind the mixture. Leaving some of the skin in the mixture adds fat and helps bind further. You can also use the skin by rendering out its fat and cooking the patties in that fat for extra chicken-y goodness.
 
+### Spicing
 Citrus-y spices like sumac would work well in these too.
+
+### FODMAP adjustment
+If you were trying to make this FODMAP-friendly, you can leave the bread out of this recipe and the mixture should still hold together, you may want to make the meatballs a little smaller.
 
 ## References
 - [Chicken meatballs](https://www.bbc.co.uk/food/recipes/hotchickencakeswithh_92226)
