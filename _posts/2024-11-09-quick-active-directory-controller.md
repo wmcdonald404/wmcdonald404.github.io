@@ -71,13 +71,12 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     > **Note:** for a pure Powershell equivalent:
 
     ```
-    Push-Location
     Set-Location HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers
     Set-ItemProperty . 0 "ca.pool.ntp.org"
     Set-ItemProperty . "(Default)" "0"
     Set-Location HKLM:\SYSTEM\CurrentControlSet\services\W32Time\Parameters
     Set-ItemProperty . NtpServer "ca.pool.ntp.org"
-    Pop-Location
+    Set-Location 
     Stop-Service w32time
     Start-Service w32time
     ```
@@ -103,6 +102,67 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     -Force:$true
     ```
 
+7. Add a suitably complex password (`vagrant` will not cut the mustard):
+    ```
+    WARNING: A script or application on the remote computer LOCALHOST is sending a prompt request. When you are prompted, enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the application or script that is requesting the data.
+    SafeModeAdministratorPassword: *********************
+    WARNING: A script or application on the remote computer LOCALHOST is sending a prompt request. When you are prompted, enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the application or script that is requesting the data.
+    Confirm SafeModeAdministratorPassword: *********************
+    ```
+
+8. Wait for the system to reboot, then reconnect
+    ```
+    [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
+    vagrant@192.168.121.218's password: 
+
+    Microsoft Windows [Version 10.0.20348.2031]
+    (c) Microsoft Corporation. All rights reserved.
+
+    home\vagrant@AD01 C:\Users\vagrant>pwsh      
+    PowerShell 7.3.8
+
+    A new PowerShell stable release is available: v7.4.6 
+    Upgrade now, or check out the release page at:       
+        https://aka.ms/PowerShell-Release?tag=v7.4.6       
+
+    PS C:\Users\vagrant> 
+    ```
+
+9. Validate running services
+    ```
+    PS C:\Users\vagrant> Get-Service adws,kdc,netlogon,dns
+
+    Status   Name               DisplayName
+    ------   ----               -----------
+    Running  adws               Active Directory Web Services
+    Running  dns                DNS Server
+    Running  kdc                Kerberos Key Distribution Center
+    Running  Netlogon           netlogon
+    ```
+
+10. Validate DNS (note we're still on a DHCP IP address at this stage where previously we'd have switched to a fixed assigned address):
+    ```
+    PS C:\Users\vagrant> Get-NetIPAddress -AddressFamily IPv4 | Select-Object InterfaceIndex, InterfaceAlias,  IPAddress
+
+    InterfaceIndex InterfaceAlias              IPAddress
+    -------------- --------------              ---------
+                4 Ethernet Instance 0         192.168.121.218
+                1 Loopback Pseudo-Interface 1 127.0.0.1
+
+    PS C:\Users\vagrant> Resolve-DnsName ad01
+
+    Name                                           Type   TTL   Section    IPAddress
+    ----                                           ----   ---   -------    ---------
+    ad01.home.arpa                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.home.arpa                                 A      1200  Question   192.168.121.218
+
+    PS C:\Users\vagrant> Resolve-DnsName ad01.home.arpa
+
+    Name                                           Type   TTL   Section    IPAddress
+    ----                                           ----   ---   -------    ---------
+    ad01.home.arpa                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.home.arpa                                 A      1200  Question   192.168.121.218
+    ```
 
 
 # Configure
