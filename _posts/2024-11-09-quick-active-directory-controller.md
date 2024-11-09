@@ -114,3 +114,6 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 - [How to choose a sensible local domain name for a home network?](https://superuser.com/a/1502560)
 - [Always choose the right DNS / Active Directory domain name for your 2024 home lab](https://medium.com/@naglafarn/always-choose-the-right-dns-active-directory-domain-name-for-your-2024-home-lab-1d22311ff674)
 - [What domain name to use for your home network](https://www.ctrl.blog/entry/homenet-domain-name.html)
+- [ DEF CON 32 - Winning the Game of Active Directory - Brandon Colley ](https://www.youtube.com/watch?v=M-2d3sM3I2o)
+- [ Game Of Active Directory ](https://orange-cyberdefense.github.io/GOAD/#)
+- [Orange-Cyberdefense/GOAD](https://github.com/Orange-Cyberdefense/GOAD)
