@@ -68,68 +68,68 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 #### Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
-```
-[wmcdonald@fedora ~ ]$ tree $OSH_CUSTOM 
-/home/wmcdonald/.oh-my-bash/custom
-├── aliases
-│   └── example.aliases.sh
-├── completions
-│   └── example.completion.sh
-├── example.sh
-├── plugins
-│   └── example
-│       └── example.plugin.sh
-└── themes
-    └── example
-        └── example.theme.sh
-```
+    ```
+    [wmcdonald@fedora ~ ]$ tree $OSH_CUSTOM 
+    /home/wmcdonald/.oh-my-bash/custom
+    ├── aliases
+    │   └── example.aliases.sh
+    ├── completions
+    │   └── example.completion.sh
+    ├── example.sh
+    ├── plugins
+    │   └── example
+    │       └── example.plugin.sh
+    └── themes
+        └── example
+            └── example.theme.sh
+    ```
 
 2. Create your custom alias file
-```
-[wmcdonald@fedora ~ ]$ cat $OSH_CUSTOM/aliases/custom.aliases.sh
-alias simple='source ${OSH}/themes/morris/morris.theme.sh'
-alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
-```
+    ```
+    [wmcdonald@fedora ~ ]$ cat $OSH_CUSTOM/aliases/custom.aliases.sh
+    alias simple='source ${OSH}/themes/morris/morris.theme.sh'
+    alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
+    ```
 
 3. Include your custom alias in the `alias()` array 
 
-Edit the `~/.bashrc`:
-```
-[wmcdonald@fedora ~ ]$ vim +'set nu' +99 ~/.bashrc
-```
+    Edit the `~/.bashrc`:
+    ```
+    [wmcdonald@fedora ~ ]$ vim +'set nu' +99 ~/.bashrc
+    ```
 
-Add `custom` to the `aliases()` array (line numbers shown for context):
-```
-99:aliases=(
-100-  general
-101-  custom
-102-)
-```
+    Add `custom` to the `aliases()` array (line numbers shown for context):
+    ```
+    99:aliases=(
+    100-  general
+    101-  custom
+    102-)
+    ```
 
 4. Test
 
-Run the `src` alias to re-source the default `~/.bashrc`:
-```
-[wmcdonald@fedora ~ ]$ alias | grep src
-alias src='source ~/.bashrc'
-[wmcdonald@fedora ~ ]$ src
-```
+    Run the `src` alias to re-source the default `~/.bashrc`:
+    ```
+    [wmcdonald@fedora ~ ]$ alias | grep src
+    alias src='source ~/.bashrc'
+    [wmcdonald@fedora ~ ]$ src
+    ```
 
-Check the aliases exist:
-```
-wmcdonald > ~ > alias | grep -E 'simple|fancy'
-alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
-alias simple='source ${OSH}/themes/morris/morris.theme.sh'
-```
+    Check the aliases exist:
+    ```
+    wmcdonald > ~ > alias | grep -E 'simple|fancy'
+    alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
+    alias simple='source ${OSH}/themes/morris/morris.theme.sh'
+    ```
 
-Call each alias in turn:
-```
-wmcdonald > ~ > simple
-[wmcdonald@fedora ~ ]$ fancy
-wmcdonald > ~ > 
-```
+    Call each alias in turn:
+    ```
+    wmcdonald > ~ > simple
+    [wmcdonald@fedora ~ ]$ fancy
+    wmcdonald > ~ > 
+    ```
 
-**Note:** the effect is far more obvious and pronounced when you see this in-the-shell. cf: [`powerline-light`](https://github.com/ohmybash/oh-my-bash/wiki/Themes#powerline-light) vs. [`morris`](https://github.com/ohmybash/oh-my-bash/wiki/Themes#morris)
+    **Note:** the effect is far more obvious and pronounced when you see this in-the-shell. cf: [`powerline-light`](https://github.com/ohmybash/oh-my-bash/wiki/Themes#powerline-light) vs. [`morris`](https://github.com/ohmybash/oh-my-bash/wiki/Themes#morris)
 
 5. ...
 
