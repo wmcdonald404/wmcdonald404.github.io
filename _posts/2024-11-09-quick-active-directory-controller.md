@@ -273,6 +273,19 @@ This is an optional step. If we were delegating a subdomain of the DNS hierarchy
     PS> Add-DnsServerZoneDelegation -Name "nostromo.com" -ChildZoneName "idm" -NameServer "idm01.idm.nostromo.com" -IPAddress 192.168.0.22 -PassThru -Verbose
     ```
 
+## Cross-forest Trust
+Again, optional but if we wanted to establish a Trust from one AD domain to another:
+
+```
+$localforest = [System.DirectoryServices.ActiveDirectory.Forest]::getCurrentForest()
+$strRemoteForest = ‘example.cloud’
+$strRemoteUser = ‘administrator’
+$strRemotePassword = Read-Host -Prompt “Enter $strRemoteUser password for $strRemoteForest”
+$remoteContext = New-Object System.DirectoryServices.ActiveDirectory.DirectoryContext(‘Forest’, $strRemoteForest,$strRemoteUser,$strRemotePassword)
+$remoteForest = [System.DirectoryServices.ActiveDirectory.Forest]::getForest($remoteContext)
+$localForest.CreateTrustRelationship($remoteForest,’Bidirectional’)
+```
+
 # Persist
 Right now our configuration is limited to a single Vagrant Box. This will persist across reboot of the Vagrant Box until we `vagrant destroy` but a better mechanism may be to externalise the configuration and apply via a provisioner. This will have the added advantage of allowing multiple controllers for different domains to be spun up, allowing us to test cross-domain and cross-forest trusts.
 
