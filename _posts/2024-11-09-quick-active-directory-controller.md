@@ -17,7 +17,8 @@ This post will cover the basic steps to provision an Active Direcory Domain Cont
 
 We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-windows-boxes.html) as our starting point to update the end-to-end process. (Last time I built this was on Windows Server 2016 on VMware.)
 
-# Provision Virtual Machine / Vagrant Box 
+# Steps
+## Provision Virtual Machine / Vagrant Box 
 
 1. Start a Windows 2022 Vagrant Box
     ```
@@ -83,14 +84,14 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     Start-Service w32time
     ```
 
-# Configure Active Directory Domain
+## Configure Active Directory Domain
 
 6. Create the domain controller
     ```
     # Set our domain/subdomain
-    # $Domain.Split('.')[0].ToUpper() will return 'DEMO01' for the NetBIOS domain name
+    # $Domain.Split('.')[0].ToUpper() will return 'NOSTROMO' for the NetBIOS domain name
     
-    $Domain = 'demo01.wmcdonald.co.uk'
+    $Domain = 'nostromo.com'
     
     # Windows PowerShell script for AD DS Deployment
     
@@ -161,15 +162,115 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 
     Name                                           Type   TTL   Section    IPAddress
     ----                                           ----   ---   -------    ---------
-    ad01.demo01.wmcdonald.co.uk                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
-    ad01.demo01.wmcdonald.co.uk                                 A      1200  Question   192.168.121.218
+    ad01.nostromo.com                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.nostromo.com                                 A      1200  Question   192.168.121.218
 
-    PS C:\Users\vagrant> Resolve-DnsName ad01.demo01.wmcdonald.co.uk
+    PS C:\Users\vagrant> Resolve-DnsName ad01.nostromo.com
 
     Name                                           Type   TTL   Section    IPAddress
     ----                                           ----   ---   -------    ---------
-    ad01.demo01.wmcdonald.co.uk                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
-    ad01.demo01.wmcdonald.co.uk                                 A      1200  Question   192.168.121.218
+    ad01.nostromo.com                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.nostromo.com                                 A      1200  Question   192.168.121.218
+    ```
+
+## Configure Users and Security Groups
+Active Directory Security Groups can be used to group domain users with similar roles, departments, organisational responsibilities or to reflect other organisational concerns. Permissions can then be assigned at the group level, reducing the management overhead as users join, change role or department, or leave.
+
+Create domain security groups, domain users and assign those users to the groups. 
+
+1. Create Security Groups
+
+    - Officers
+        ```
+        PS> New-ADGroup -Name "Officers" -SamAccountName Officers -GroupCategory Security -GroupScope Global -DisplayName "Bridge Officers" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Bridge Officers"
+        ```
+
+    - Engineering
+        ```
+        PS> New-ADGroup -Name "Engineers" -SamAccountName Engineers -GroupCategory Security -GroupScope Global -DisplayName "Engineering Crew" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Engineering Crew"
+        ```
+
+    - Pest Control
+        ```
+        PS> New-ADGroup -Name "Cats" -SamAccountName Cats -GroupCategory Security -GroupScope Global -DisplayName "Pest Control" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Pest Control Crew"
+        ```
+
+2. Create Users
+
+    - Dallas, Officers
+        ```
+        PS> $Attributes = @{
+            Enabled = $true
+            ChangePasswordAtLogon = $false
+            UserPrincipalName = "dallas@nostromo.com"
+            Name = "dallas"
+            GivenName = "Captain"
+            Surname = "Dallas"
+            DisplayName = "Captain Dallas"
+            Office = "Bridge"
+            AccountPassword = "Thatfigures." | ConvertTo-SecureString -AsPlainText -Force
+        }
+        PS> New-ADUser @Attributes
+        ```
+    - Kane & Parker, engineering crew
+        ```
+        PS> $Attributes = @{
+            Enabled = $true
+            ChangePasswordAtLogon = $false
+            UserPrincipalName = "kane@nostromo.com"
+            Name = "kane"
+            GivenName = "XO"
+            Surname = "Kane"
+            DisplayName = "XO Kane"
+            Office = "Bridge"
+            AccountPassword = "Sillyquestion?" | ConvertTo-SecureString -AsPlainText -Force
+        }
+        PS> New-ADUser @Attributes
+        
+        PS> $Attributes = @{
+            Enabled = $true
+            ChangePasswordAtLogon = $false
+            UserPrincipalName = "parker@nostromo.com"
+            Name = "parker"
+            GivenName = "Chief"
+            Surname = "Parker"
+            DisplayName = "Chief Parker"
+            Office = "Engineering"
+            AccountPassword = "Howyadoin?" | ConvertTo-SecureString -AsPlainText -Force
+        }
+        PS> New-ADUser @Attributes
+        ```
+
+    - Jones, Pest Control crew
+
+        ```
+        PS> $Attributes = @{
+            Enabled = $true
+            ChangePasswordAtLogon = $false
+            UserPrincipalName = "jones@nostromo.com"
+            Name = "jones"
+            GivenName = "Jones"
+            Surname = "the Cat"
+            DisplayName = "Jones the Cat"
+            Office = "Everywhere"
+            AccountPassword = "Tunaplz?" | ConvertTo-SecureString -AsPlainText -Force
+        }
+        PS> New-ADUser @Attributes
+        ```
+
+3. Add Users to Security Groups
+    ```
+    PS> Add-ADGroupMember -Identity Officers -Members dallas, kane
+    PS> Add-ADGroupMember -Identity Engineers -Members parker
+    PS> Add-ADGroupMember -Identity Cats -Members jones
+    ```
+
+## Add DNS Records
+This is an optional step. If we were delegating a subdomain of the DNS hierarchy to another subsystem. For example these steps would originally have delegated a leaf of the DNS hierarch to Red Hat's Identity Management infrastructure.
+
+1. Add delegation for idm.nostromo.com
+    ```
+    PS> Add-DnsServerZoneDelegation -Name "nostromo.com" -ChildZoneName "idm" -NameServer "idm01.idm.nostromo.com" -IPAddress 192.168.0.22 -PassThru -Verbose
     ```
 
 # Persist
