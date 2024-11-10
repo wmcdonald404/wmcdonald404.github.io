@@ -1,8 +1,10 @@
 ---
-title: "Quick Active Directory Controller - (WIP)"
+title: "Quick Active Directory Controller"
 tags:
 - windows
 - active-directory
+- dns
+- kerberos
 - powershell
 - vagrant
 ---
@@ -15,7 +17,7 @@ This post will cover the basic steps to provision an Active Direcory Domain Cont
 
 We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-windows-boxes.html) as our starting point to update the end-to-end process. (Last time I built this was on Windows Server 2016 on VMware.)
 
-# Provision 
+# Provision Virtual Machine / Vagrant Box 
 
 1. Start a Windows 2022 Vagrant Box
     ```
@@ -81,19 +83,25 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     Start-Service w32time
     ```
 
+# Configure Active Directory Domain
+
 6. Create the domain controller
     ```
-    #
+    # Set our domain/subdomain
+    # $Domain.Split('.')[0].ToUpper() will return 'DEMO01' for the NetBIOS domain name
+    
+    $Domain = 'demo01.wmcdonald.co.uk'
+    
     # Windows PowerShell script for AD DS Deployment
-    #
+    
     Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
     Import-Module ADDSDeployment
     Install-ADDSForest `
     -CreateDnsDelegation:$false `
     -DatabasePath "C:\Windows\NTDS" `
     -DomainMode "WinThreshold" `
-    -DomainName "home.arpa" `
-    -DomainNetbiosName "HOME" `
+    -DomainName $Domain `
+    -DomainNetbiosName $Domain.Split('.')[0].ToUpper() `
     -ForestMode "WinThreshold" `
     -InstallDns:$true `
     -LogPath "C:\Windows\NTDS" `
@@ -153,21 +161,20 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 
     Name                                           Type   TTL   Section    IPAddress
     ----                                           ----   ---   -------    ---------
-    ad01.home.arpa                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
-    ad01.home.arpa                                 A      1200  Question   192.168.121.218
+    ad01.demo01.wmcdonald.co.uk                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.demo01.wmcdonald.co.uk                                 A      1200  Question   192.168.121.218
 
-    PS C:\Users\vagrant> Resolve-DnsName ad01.home.arpa
+    PS C:\Users\vagrant> Resolve-DnsName ad01.demo01.wmcdonald.co.uk
 
     Name                                           Type   TTL   Section    IPAddress
     ----                                           ----   ---   -------    ---------
-    ad01.home.arpa                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
-    ad01.home.arpa                                 A      1200  Question   192.168.121.218
+    ad01.demo01.wmcdonald.co.uk                                 AAAA   1200  Question   fe80::d38b:106c:c73a:21b3
+    ad01.demo01.wmcdonald.co.uk                                 A      1200  Question   192.168.121.218
     ```
 
-
-# Configure
-
 # Persist
+Right now our configuration is limited to a single Vagrant Box. This will persist across reboot of the Vagrant Box until we `vagrant destroy` but a better mechanism may be to externalise the configuration and apply via a provisioner. This will have the added advantage of allowing multiple controllers for different domains to be spun up, allowing us to test cross-domain and cross-forest trusts.
+
 
 # References
 - [setting NTP server on Windows machine using PowerShell](https://stackoverflow.com/questions/17507339/setting-ntp-server-on-windows-machine-using-powershell)
@@ -177,3 +184,4 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 - [ DEF CON 32 - Winning the Game of Active Directory - Brandon Colley ](https://www.youtube.com/watch?v=M-2d3sM3I2o)
 - [ Game Of Active Directory ](https://orange-cyberdefense.github.io/GOAD/#)
 - [Orange-Cyberdefense/GOAD](https://github.com/Orange-Cyberdefense/GOAD)
+- [Naming conventions in Active Directory for computers, domains, sites, and OUs - Table of reserved words](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou#table-of-reserved-words)
