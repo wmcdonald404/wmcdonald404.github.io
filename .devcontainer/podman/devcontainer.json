@@ -6,8 +6,8 @@
 		"--userns=host",
 		"--hostname=jekyll-dev-container"
 	  ],
-	"remoteUser": "root"
+	"remoteUser": "root",
 	
-	"onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
+	"onCreateCommand": ".devcontainer/bin/onCreateCommand.sh"
 	// "updateContentCommand": ".devcontainer/bin/updateContentCommand.sh",
 }
