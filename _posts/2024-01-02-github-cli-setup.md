@@ -6,10 +6,10 @@ tags:
 - cli
 ---
 
-## Overview
+# Overview
 Outline the basic steps to install and configure the Github CLI on Fedora (currently 39).
 
-## Background
+# Background
 To quote chaper-and-verse from the package description:
 
 > A command-line interface to GitHub for use in your terminal or your scripts.
@@ -18,7 +18,7 @@ To quote chaper-and-verse from the package description:
 
 Having the CLI to-hand can streamline an engineer's workflow, reducing context switching from the development environment to the Github web UI.
 
-## How-to
+# How-to
 1. Install the CLI
 
     There are a [number of installation options available](https://github.com/cli/cli#installation), however when using a distribution with a mature but up-to-date package ecosystem, it can be as simple as installing from the package manager.
@@ -110,7 +110,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
     wmcdonald@fedora:~$ export GH_REPO='https://github.com/wmcdonald404/github-pages' 
     ```
 
-## Summary
+# Summary
 With the Github CLI installed, and the [`GH_REPO`](https://cli.github.com/manual/gh_help_environment) set appropriately, the CLI can be used to query the state of the repo, review PRs, trigger Github actions workflows, review runs and many other activities.
 
 For example:
@@ -124,8 +124,16 @@ STATUS  TITLE                       WORKFLOW                BRANCH  EVENT    ID 
 ✓       pages build and deployment  pages-build-deployment  main    dynamic  7432457879  43s      about 3 hours ago
 ✓       pages build and deployment  pages-build-deployment  main    dynamic  7432432790  46s      about 3 hours ago
 ✓       pages build and deployment  pages-build-deployment  main    dynamic  7390698149  45s      about 3 days ago
+```
+# Notes
+By default the Github CLI will use the system `${PAGER}` for its output. This is a personal preference but I like to choose when to use the `PAGER`. You can disable default pager use just for `gh` by setting `GH_PAGER` to a null value in your shell initialisation.
 
 ```
-## Further reading
+[wmcdonald@fedora ~ ]$ grep PAGER ~/.bash_profile 
+export GH_PAGER=""
+export AWS_PAGER=""
+```
+
+# Further reading
 - https://github.com/cli/cli
 - https://cli.github.com/manual/
