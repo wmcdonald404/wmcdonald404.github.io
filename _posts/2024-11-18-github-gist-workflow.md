@@ -43,6 +43,7 @@ d9df4492d4a102e4a8f49c9aaa05e93e  Python - Python Packaging Managers/Tools      
 ```
 
 2. Clone a Gist:
+
 ```
 [wmcdonald@fedora gists ]$ gh gist clone 146b2f19bf4d28252e12c6da168bf956
 Cloning into '146b2f19bf4d28252e12c6da168bf956'...
@@ -53,6 +54,7 @@ Resolving deltas: 100% (4/4), done.
 ```
 
 3. List the Gist file contents and update the cloned repository directory name:
+
 ```
 [wmcdonald@fedora gists ]$ ll
 total 0
