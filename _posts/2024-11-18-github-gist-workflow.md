@@ -83,6 +83,7 @@ Most people will start with Gists in the UI, but having a handy CLI mechanism to
     ```
 
 # Summary
+That's it, we can now manage our Gists from the terminal.
 
 # Notes
 You can also perform in-place edits to Gists using `gh gist edit <gistid>`.
