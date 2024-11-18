@@ -68,13 +68,10 @@ To quote the [Masterclass article](https://www.theguardian.com/food/2024/oct/30/
 
     Divide between bowls, then top each serving with a tablespoon of creme fraiche, if using. Finely chop the chives, then scatter over the top. To make the soup more substantial, you could also stir in some flaked smoked fish (trout or mackerel, for example), fried bacon lardons, cooked mussels, hard-boiled eggs or crisp shallots. I like my soup with brown bread and butter.
 
-
 ## Notes
-
 Hevva! [Cornish mussels in 'nduja](https://www.thetinnedfishmarket.com/products/cornish-mussels-in-nduja) might go well, warmed through in this.
 
 Bread-wise, well all bread rules but at either end of the spectrum [Parker House Rolls](https://www.kingarthurbaking.com/recipes/parker-house-rolls-recipe) or [Felicity Cloake's The perfect soda bread](https://wmcdonald404.co.uk/recipes/2024-10-20-soda-bread-perfect.html) would be excellent.
 
 ## References
 - [How to make leek and potato soup – recipe](https://www.theguardian.com/food/2024/oct/30/how-to-make-leek-potato-soup-recipe-felicity-cloake)
-
