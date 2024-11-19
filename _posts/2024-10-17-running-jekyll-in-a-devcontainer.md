@@ -28,9 +28,10 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	wmcdonald@fedora:~/workspace/github-pages$ mkdir -p ~/workspace/github-pages/.devcontainer/podman
 	```
 
-2. Add the Devcontainer config:
+2. Add the Devcontainer config in `devcontainer.json`:
 
 	```
+	wmcdonald@fedora:~/workspace/github-pages$ cat ~/workspace/github-pages/.devcontainer/podman/devcontainer.json
 	{
         "name": "Jekyll",
         "image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
@@ -45,7 +46,9 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 	}
 	```
 
-	> **Note:** The `runArgs` used here are the minimum required to run the Devcontainer on Podman. Docker may run with fewer explicit options.
+	> **Note #1:** The `runArgs` used here are the minimum required to run the Devcontainer on Podman. Docker may run with fewer explicit options.
+
+	> **Note #2:** We're using Podman so we can drop a Podman-specific devcontainer configuration into `.devcontainer/podman/devcontainer.json`, we can also have a Docker-specific devcontainer configuration in `.devcontainer/docker/devcontainer.json`. The plugin should in theory chose the correct config for the runtime in use.
 
 3. Open the Devcontainer:
 
