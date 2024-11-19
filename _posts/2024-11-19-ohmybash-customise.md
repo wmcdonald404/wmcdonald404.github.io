@@ -10,10 +10,9 @@ tags:
 # Overview
 These are some of the post-install customisation steps I've taken to further tailor Oh My Bash to my local liking. 
 
-# Customising Oh My Bash
-## Custom Aliases
+# Custom Aliases
 
-### Motivation
+## Motivation
 Adding your own custom aliases to Oh My Bash (OMB) is relatively simple but requires a few things to be set Just So.
 
 In this quick example, I wanted to be able to switch the OMB prompt on-the-fly relatively dynamically between fancy and simpler text-based themes.
@@ -26,7 +25,7 @@ This makes it less than ideal when writing documentation or examples.
 
 The obvious solution is a quick alias to switch themes on-the-fly, which in turn leads to OMB's [custom alias definition](https://github.com/ohmybash/oh-my-bash/blob/5ce9fadcde08c5751c6da008ae3a1d4053516caf/templates/bashrc.osh-template#L137-L140) (although it could just as easily be dropped into the end of `~/.bashrc`.
 
-### Steps
+## Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
     ```
@@ -96,16 +95,16 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 
 6. Profit!
 
-## Custom Themes
+# Custom Themes
 
-### Motivation
+## Motivation
 As noted in [Custom Aliases](#custom-aliases), I like to have a fancy them for day-to-day Doing Stuff. Another simpler theme that's more readable in documentation where I'm capturing something for others.
 
 [`morris`](https://github.com/ohmybash/oh-my-bash/wiki/Themes#morris) works well for this but does not include some niceties like Python Venv status. This is how we can add that...
 
 This is essentially the verbatim example given in the upstream documentation: [Customization of Plugins and Themes](https://github.com/ohmybash/oh-my-bash?tab=readme-ov-file#customization-of--plugins-and-themes)
 
-### Steps
+## Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
     ```
@@ -158,15 +157,15 @@ This is essentially the verbatim example given in the upstream documentation: [C
 
 4. In my case, because I'm using these themes on-the-fly, I will **also** need to update the aliases defined in the next section on [Custom Function](#custom-functions) to reflect the new path. If I was simply defining my default theme this would not be required.
 
-## Custom Functions
+# Custom Functions
 
-### Motivation
+## Motivation
 
 In this instance, I wanted VSCode to automatically open a remote connection to a devcontainer from the command line. This is emminently achievable but does require some minor contortions converting sections of the path into hex.
 
 It requires manipulation of some shell parameters so a simple alias won't suffice. However we can create a function and drop that into the OMB custom aliases to be sourced.
 
-### Steps
+## Steps
 
 1. Convert the shell script from Stackoverflow to a simple bash function.
 
@@ -223,9 +222,9 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
     > **Note:** If you have the `devcontainer.json` under `.devcontainer/podman/devcontainer.json` you may need to symlink it to `.devcontainer/devcontainer.json`
 
 
-## References
+# References
 - [Customization of Plugins and Themes](https://github.com/ohmybash/oh-my-bash?tab=readme-ov-file#customization-of--plugins-and-themes)
 
-## TODO
+# TODO
 - Update https://github.com/ohmybash/oh-my-bash/wiki/Articles ?
 - Split out the install / initial configure from the alias and function customisation, or structure more consistently/readably? 
