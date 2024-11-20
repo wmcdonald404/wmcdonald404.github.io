@@ -9,6 +9,9 @@ tags:
 - podman
 ---
 
+* TOC
+{:toc}
+
 # Overview
 I've written a [few times](https://wmcdonald404.co.uk/2024/01/02/github-pages-simple-blog.html) in [the past](https://wmcdonald404.co.uk/2024/03/25/github-page-creation-with-jinja.html) about setting up Github Pages. 
 

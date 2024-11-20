@@ -7,6 +7,9 @@ tags:
 - ohmybash
 ---
 
+* TOC
+{:toc}
+
 # Overview
 These are some of the post-install customisation steps I've taken to further tailor Oh My Bash to my local liking. 
 

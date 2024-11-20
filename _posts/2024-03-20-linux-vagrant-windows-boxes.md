@@ -9,6 +9,9 @@ tags:
 - windows
 ---
 
+* TOC
+{:toc}
+
 ## Overview
 In [Linux - Vagrant - Setting up Vagrant on Fedora](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-libvirt-on-fedora.html) we outlined the process to set up and test basic Vagrant functionality on Fedora using Libvirt as the virtualisation provider (other providers are available.)
 

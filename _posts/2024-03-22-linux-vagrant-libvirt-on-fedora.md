@@ -7,6 +7,9 @@ tags:
 - vagrant
 ---
 
+* TOC
+{:toc}
+
 ## Overview
 Vagrant can be a useful abstraction layer to streamline provisioning of local, virtualised test environments. Typically it would be used in order to experiment and learn before industrialising, automating and subsequently deploying systems, applications or stacks to on-prem environments or public clouds. Or to shorten feedback loops where further downstream provisioning processes are complex, slow or process-bound.
 

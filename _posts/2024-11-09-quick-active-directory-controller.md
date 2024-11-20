@@ -9,6 +9,9 @@ tags:
 - vagrant
 ---
 
+* TOC
+{:toc}
+
 # Overview
 
 Years ago I had to build some quick-and-dirty Active Directory (AD) infrastructure in a virtualised lab in order to reproduce some cross-domain trusts and Red Hat Identity Manager integration.

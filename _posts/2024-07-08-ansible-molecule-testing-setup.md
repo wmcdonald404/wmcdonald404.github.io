@@ -8,17 +8,20 @@ tags:
 - testing
 ---
 
-## Overview
+* TOC
+{:toc}
+
+# Overview
 The Ansible SDLC landscape has changed *significantly* over the last 8+ years with the addition of Ansible Development Tools (ADT), Execution Environments, Ansible Navigator, Ansible Creator, Devcontainers etc. As a result, setting up an environment for playbook, role or collection testing can be a rapidly moving target.
 
 While setting up some baseline prequisites to do some Ansible role testing using Molecule, I was working through the setup steps from [this blog post](https://www.ansible.com/blog/developing-and-testing-ansible-roles-with-molecule-and-podman-part-1/). It's from 2020 which doesn't feel like it was that long ago, and yet it's nearly 4 years at time of writing, and some of the steps no longer work. For example `molecule init role <rolename>` fails because [this functionality has been removed](https://github.com/ansible/molecule/pull/3959). 
 
 So this is an attempt to capture the process to configure a new system for Ansible development using Podman as the container runtime.
 
-## How-to
+# How-to
 
 
-### For a single Role
+## For a single Role
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Molecule and the Podman driver:
 
@@ -281,7 +284,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     INFO     Pruning extra files from scenario ephemeral directory
     ```
 
-### Refining creation and testing:
+## Refining creation and testing:
 
 1. Configure specifc steps for the create setup in `create.yml`:
 
@@ -450,7 +453,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
     ubi9                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
 
-### Running individual stages:
+## Running individual stages:
 
 We can now run individual steps, giving fine-grained control over execution and the ability to shorten feedback loops during testing cycles.
 
@@ -577,7 +580,7 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 
 
-## References
+# References
 - [Introducing Ansible Molecule with Ansible Automation Platform](https://developers.redhat.com/articles/2023/09/13/introducing-ansible-molecule-ansible-automation-platform#getting_started_with_molecule_developer_preview)
 - [Developing and Testing Ansible Roles with Molecule and Podman - Part 1](https://www.ansible.com/blog/developing-and-testing-ansible-roles-with-molecule-and-podman-part-1/)
 - [Testing Ansible Automation with Molecule Pt. 1](https://medium.com/contino-engineering/testing-ansible-automation-with-molecule-pt-1-66ab3ea7a58a)
