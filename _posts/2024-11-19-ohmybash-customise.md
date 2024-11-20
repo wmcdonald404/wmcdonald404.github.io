@@ -134,25 +134,23 @@ This is essentially the verbatim example given in the upstream documentation: [C
     Here I'm selectively using elements of syntax from another theme that **IS** Python Venv aware but you can do as little or as much as you like to your customised copy of the theme.
 
     ```
-    [wmcdonald@fedora ~ ]$ diff ${OSH}/themes/morris/morris.theme.sh ${OSH_CUSTOM}/themes/morris/morris.theme.sh
-    19c19,22
+    [wmcdonald@fedora ~ ]$ diff ${OSH}/themes/morris/morris.themdiff ${OSH}/themes/morris/morris.theme.sh ${OSH_CUSTOM}/themes/morris/morris.theme.sh
+    19c19,21
     < 	PS1="${TITLEBAR}[\u@\h \W $(scm_prompt_info)]\$ "
     ---
+    > 	OMB_PROMPT_VIRTUALENV_FORMAT='(%s)'
     > 	local python_venv; _omb_prompt_get_python_venv
-    >     	python_venv=$python_venv
-    > 
-    > 	PS1="${TITLEBAR}$python_venv[\u@\h \W $(scm_prompt_info)]\$ "
+    > 	PS1="${TITLEBAR}${_omb_prompt_teal}${python_venv}${_omb_prompt_reset_color}[\u@\h \W $(scm_prompt_info)]\$ "
     ```
     
-    Or, possibly more clearly, I've added lines 19,20 and ammended the `$python_venv` to `PS1` on line 22:
+    Or, possibly more clearly, I've added lines 19,20 and ammended the `$python_venv` to `PS1` on line 21:
 
     ```
-        18	function _omb_theme_PROMPT_COMMAND() {
-    19		local python_venv; _omb_prompt_get_python_venv
-    20	    	python_venv=$python_venv
-    21	
-    22		PS1="${TITLEBAR}$python_venv[\u@\h \W $(scm_prompt_info)]\$ "
-    23	}
+    18	function _omb_theme_PROMPT_COMMAND() {
+    19		OMB_PROMPT_VIRTUALENV_FORMAT='(%s)'
+    20		local python_venv; _omb_prompt_get_python_venv
+    21		PS1="${TITLEBAR}${_omb_prompt_teal}${python_venv}${_omb_prompt_reset_color}[\u@\h \W $(scm_prompt_info)]\$ "
+    22	}
     ```
 
 4. In my case, because I'm using these themes on-the-fly, I will **also** need to update the aliases defined in the next section on [Custom Function](#custom-functions) to reflect the new path. If I was simply defining my default theme this would not be required.
