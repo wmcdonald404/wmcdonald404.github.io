@@ -9,6 +9,18 @@ minima:
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/willmcd" }
     - { platform: bluesky,  user_url: "https://bsky.app/profile/wmcdonald404.bsky.social" }
 
+# Minima: custom header links
+header_pages:
+  - _pages/recipes.md
+  - _pages/about.md
+  - _pages/cv.md
+
+  # - _pages/archive.md
+  # - _pages/frontpage.md
+
+include:
+    - _pages
+
 defaults:
   -
     scope:
