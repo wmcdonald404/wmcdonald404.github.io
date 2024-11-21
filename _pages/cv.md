@@ -26,35 +26,76 @@ title: CV
 | Aug 1997 - Dec 1997 | Customer Engineering Ltd | Technical Support Administrator | 
 
 # Technology
-Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively and extensively than would reasonably fit on a CV.
+Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively and extensively than might reasonably fit on a CV.
+
+## Image Build Systems
+- [Azure VM Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell)
+- [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html)
+- [Packer](https://www.packer.io/)
+- [Red Hat Image Builder](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/composer-description_composing-a-customized-rhel-system-image)
+
+## Provisioning Systems
+- [Ansible](https://ansible.readthedocs.io/)
+- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
+- [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)
+- [Cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [Cobbler](https://cobbler.github.io/)
+- [Jumpstart](https://www.oracle.com/technical-resources/articles/solaris10/jumpstart-x86-x64-jsp.html)
+- [Preboot Execution Environment (PXE)](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)
+- [Red Hat Satellite](https://www.redhat.com/en/technologies/management/satellite)
+- [Terraform](https://www.terraform.io/)
+
 
 ## Operating Systems
-
-- Microsoft
-    - [MS-DOS](https://en.wikipedia.org/wiki/MS-DOS): 4.x, 5.x, 6.x
-    - [Windows Desktop](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions#Personal_computer_versions): 
-        - Windows 3.11
-        - Windows 9x: 95, 98, ME 
-        - Windows NT Home: 2000, XP, Vista, 7, 8, 10, 11.
-    - [Windows Server](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions#Server_versions):
-        - Windows NT: 3.5, 4.0
-        - Windows Server: 2003 & 2003 R2, 2008 & 2008 R2, 2012, 2012 R2, 2016, 2019, 2022
-- Linux
-    - [Canonical Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions): 18.04, 20.04, 22.04, 24.04  
-    - [CentOS](https://en.wikipedia.org/wiki/CentOS#CentOS_releases): 4, 5, 6, 7.
-    - [Debian](https://en.wikipedia.org/wiki/Debian_version_history): 8, 9, 10, 11, 12
-    - Fedora: 
-    - [Red Hat Linux](https://en.wikipedia.org/wiki/Red_Hat_Linux#Version_history): 5.1, 6.0, 6.1, 6.2, 7.2
-    - [Red Hat Advanced Server](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#RHEL_2.1): 2.1
-    - [Red Hat Enterprise Linux](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#Version_history_and_timeline[37]): 4, 5, 6, 7, 8, 9
-    - [Slackware](https://en.wikipedia.org/wiki/Slackware#Releases): 3.9
-    - [Whitebox Linux](https://www.whiteboxlinux.org/): 4
 - BSD
-    - [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD_version_history#Version_history): 4
-    - [OpenBSD](https://en.wikipedia.org/wiki/OpenBSD#Releases): 3
-
+    - [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD_version_history#Version_history)
+    - [OpenBSD](https://en.wikipedia.org/wiki/OpenBSD#Releases)
+- Linux
+    - [Canonical Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions)  
+    - [CentOS](https://en.wikipedia.org/wiki/CentOS#CentOS_releases)
+    - [Debian](https://en.wikipedia.org/wiki/Debian_version_history)
+    - [Fedora](https://en.wikipedia.org/wiki/Fedora_Linux_release_history)
+    - [Red Hat Advanced Server](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#RHEL_2.1)
+    - [Red Hat Enterprise Linux](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux#Version_history_and_timeline[37])
+    - [Red Hat Linux](https://en.wikipedia.org/wiki/Red_Hat_Linux#Version_history)
+    - [Slackware](https://en.wikipedia.org/wiki/Slackware#Releases)
+    - [Whitebox Linux](https://www.whiteboxlinux.org/)
+- Microsoft
+    - [MS-DOS](https://en.wikipedia.org/wiki/MS-DOS)
+    - [Windows Desktop](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions#Personal_computer_versions): 
+    - [Windows Server](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions#Server_versions):
 - Unix
+  - [Sun Solaris](https://en.wikipedia.org/wiki/Oracle_Solaris#Version_history)
+  - [HP-UX](https://en.wikipedia.org/wiki/HP-UX#Release_history)
+  - [IBM AIX](https://en.wikipedia.org/wiki/IBM_AIX#Versions)
 
-  - Solaris 2.5.1 to Solaris 11. 
-  - HP-UX. 
-  - AIX. 
+## Core Infrastructure Services
+### Name Servers
+- [Amazon Route 53](https://docs.aws.amazon.com/route53/)
+- [Azure DNS](https://learn.microsoft.com/en-us/azure/dns/)
+- [DJB DNS](https://cr.yp.to/djbdns.html)
+- [ISC Bind](https://www.isc.org/bind/)
+- [Windows Active Directory DNS](https://learn.microsoft.com/en-us/windows-server/networking/dns/dns-top)
+
+### Web Servers
+- [Apache HTTP Server](https://httpd.apache.org/)
+- [IBM HTTP Server](https://www.ibm.com/docs/en/ibm-http-server/8.5.5?topic=SSEQTJ_8.5.5/com.ibm.websphere.ihs.doc/ihs/welcome_ihs.html)
+- [Nginx](https://nginx.org/en/)
+
+### Mail Servers
+- [Mailscanner](https://www.mailscanner.info/)
+- [Postfix](http://www.postfix.org/)
+- [Qmail](https://cr.yp.to/qmail.html)
+- [Qmailrocks](http://qmailrocks.thibs.com/)
+- [Qmailtoaster](http://www.qmailtoaster.net/)
+- [Sendmail](https://www.sendmail.org/~ca/email/doc8.12/cf/m4/index.html)
+
+### Directory Servers
+- [Active Directory Application Mode (ADAM)](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831593(v=ws.11))
+- [Active Directory Domain Services (AD DS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+- [Active Directory Lightweight Directory Services (AD LDS)](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831593(v=ws.11))
+- [Apache Directory ApacheDS](https://directory.apache.org/apacheds/)
+- [IBM Tivoli Identity Manager](https://www.ibm.com/docs/en/tfim)
+- [Oracle Internet Directory](https://www.oracle.com/middleware/technologies/internet-directory.html)
+- [Weblogic Embedded LDAP](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/secmg/ldap.html)
