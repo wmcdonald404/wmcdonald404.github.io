@@ -65,6 +65,7 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Apache HTTP Server](https://httpd.apache.org/)
 - [IBM HTTP Server](https://www.ibm.com/docs/en/ibm-http-server/8.5.5?topic=SSEQTJ_8.5.5/com.ibm.websphere.ihs.doc/ihs/welcome_ihs.html)
 - [Nginx](https://nginx.org/en/)
+- [Oracle HTTP Server](https://docs.oracle.com/middleware/12213/webtier/administer-ohs/intro_ohs.htm#HSADM101)
 
 ### Mail Servers
 - [Mailscanner](https://www.mailscanner.info/)
@@ -82,6 +83,37 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [IBM Tivoli Identity Manager](https://www.ibm.com/docs/en/tfim)
 - [Oracle Internet Directory](https://www.oracle.com/middleware/technologies/internet-directory.html)
 - [Weblogic Embedded LDAP](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/secmg/ldap.html)
+
+## Layered Infrastructure Services
+### Middleware Servers
+- [Oracle/BEA Weblogic Application Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/)
+- [Oracle Application Server](https://docs.oracle.com/cd/B14098_01/index.htm)
+- [IBM WebSphere](https://www.ibm.com/docs/en/was/9.0.5)
+- [IBM WebSphere Liberty](https://www.ibm.com/docs/en/was-liberty/base)
+- [Red Hat Jboss EAP](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0)
+
+### Messaging Servers
+- [IBM MQ](https://www.ibm.com/docs/en/ibm-mq)
+- [Oracle/BEA Tuxedo](https://www.oracle.com/middleware/technologies/tuxedo.html)
+
+### Databases
+- Relational Database Systems
+  - [Oracle Database](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)
+    - [Automatic Database Diagnostic Monitor (ADDM)](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgdba/addm-tab.html)
+    - [Automatic Workload Repository (AWR)](https://docs.oracle.com/en/database/oracle//oracle-database/23/tgdba/awr-report-ui.html)
+    - [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/23/sbydb/oracle-data-guard-concepts.html)
+    - [Oracle Real Application Clusters (RAC)](https://docs.oracle.com/en/database/oracle/oracle-database/23/haovw/overview-oracle-rac-and-clusterware-best-practices.html)
+    - [SQL Tuning Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgsql/sql-tuning-advisor.html)
+  - [MySQL](https://dev.mysql.com/doc/refman/8.4/en/)
+  - [MariaDB](https://mariadb.org/documentation/)
+  - [PostgreSQL](https://www.postgresql.org/docs/)
+  - [Actian Ingres](https://docs.actian.com/ingres/11.0/index.html)
+- NoSQL Database Systems
+  - [MongoDB](https://www.mongodb.com/docs/)
+- Other Database Systems
+  - [EventstoreDB](https://developers.eventstore.com/server/v24.10/quick-start/)
+  - [Elasticsearch](https://www.elastic.co/docs)
+  - [Apache SOLR](https://solr.apache.org/resources.html#documentation)
 
 ## Infrastructure Automation
 ### Image Build Systems
