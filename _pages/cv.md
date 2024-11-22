@@ -1,7 +1,7 @@
 ---
-permalink: /cv
 layout: page
-title: Curriculum Vitae
+title: CV
+permalink: /cv
 ---
 * TOC
 {:toc}
@@ -28,7 +28,7 @@ title: Curriculum Vitae
 | Aug 1997 - Dec 1997 | Customer Engineering Ltd | Technical Support Administrator | 
 
 # Technologies
-Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively and extensively than might reasonably fit on a CV.
+Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively than would reasonably fit on a CV.
 
 ## Operating Systems
 - BSD
@@ -127,7 +127,7 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 ### Monitoring, Alerting, Observability
 - [Azure Monitor Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
 - [Cactai](https://docs.cacti.net/)
-- [collectd]https://www.collectd.org/documentation/
+- [collectd](https://www.collectd.org/documentation/)
 - [Datadog](https://docs.datadoghq.com/)
 - [Elasticsearch](https://www.elastic.co/docs)
 - [Fluentd](https://docs.fluentd.org/quickstart)
