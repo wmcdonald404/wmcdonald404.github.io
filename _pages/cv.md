@@ -1,8 +1,10 @@
 ---
 permalink: /cv
 layout: page
-title: CV
+title: Curriculum Vitae
 ---
+* TOC
+{:toc}
 
 # Employment History
 
@@ -25,7 +27,7 @@ title: CV
 | Dec 1997 - Jan 2000 | Orchid Telematics | Senior Technical Support Administrator | 
 | Aug 1997 - Dec 1997 | Customer Engineering Ltd | Technical Support Administrator | 
 
-# Technology
+# Technologies
 Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively and extensively than might reasonably fit on a CV.
 
 ## Operating Systems
@@ -120,6 +122,12 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Github](https://docs.github.com/en)
 - [Gitlab](https://about.gitlab.com/)
 
+### Pipelines
+- [Azure DevOps Services]() 
+- [Github Actions]()
+- [Gitlab Pipelines]()
+- Jenkins
+
 ### Software Build
 - [Apache Ant](https://ant.apache.org/)
 - [Apache Maven](https://maven.apache.org/)
@@ -149,45 +157,44 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Vim](https://www.vim.org/docs.php)
 - [Visual Studio Code (VSCode)](https://code.visualstudio.com/docs)
 
-## Cloud
+## Public Cloud
 
-# Clouds
-  - Public 
-    - AWS
-      - VPC
-      - EC2
-      - S3
-      - EBS
-      - RDS
-      - AWS AD
-      - AWS Secrets Manager.
-      - AWS Certificate Management (ACM)
-      - AWS Private Certificate Authority (PCA)
-      - Cloudformation
-      - Transit Gateway
-      - Security Groups (SGs)
-      - Network Access Control Lists (NACLs)
-      - Elastic Load Balancing
-      - Application Load Balancer
-    - Azure
-      - Entra
-      - Landing Zones / Tenancy
-      - VM
-      - DNS
-      - Storage (LRS, ZRS, GRS)
-      - Files
-      - Key Vaults
-      - Microsoft Defender for Endpoints
-      - OMA Azure Monitor Agent (AMA)
-      - Microsoft Monitor Agent (MMA)
-      - Operations Management Suite (OMS)
-      - Log Analytics Workspace
-      - Application Service
-      - Application Gateway
-      - Private Endpoints
-      - Web Application Firewall
-      - Bastion
-
-
+### Amazon Web Services
 - [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
+
+- VPC
+- EC2
+- S3
+- EBS
+- RDS
+- AWS AD
+- AWS Secrets Manager.
+- AWS Certificate Management (ACM)
+- AWS Private Certificate Authority (PCA)
+- Cloudformation
+- Transit Gateway
+- Security Groups (SGs)
+- Network Access Control Lists (NACLs)
+- Elastic Load Balancing
+- Application Load Balancer
+
+### Azure
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
+
+- Entra
+- Landing Zones / Tenancy
+- VM
+- DNS
+- Storage (LRS, ZRS, GRS)
+- Files
+- Key Vaults
+- Microsoft Defender for Endpoints
+- OMA Azure Monitor Agent (AMA)
+- Microsoft Monitor Agent (MMA)
+- Operations Management Suite (OMS)
+- Log Analytics Workspace
+- Application Service
+- Application Gateway
+- Private Endpoints
+- Web Application Firewall
+- Bastion
