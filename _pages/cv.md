@@ -28,25 +28,6 @@ title: CV
 # Technology
 Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively and extensively than might reasonably fit on a CV.
 
-## Image Build Systems
-- [Azure VM Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell)
-- [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html)
-- [Packer](https://www.packer.io/)
-- [Red Hat Image Builder](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/composer-description_composing-a-customized-rhel-system-image)
-
-## Provisioning Systems
-- [Ansible](https://ansible.readthedocs.io/)
-- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
-- [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)
-- [Cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
-- [Cobbler](https://cobbler.github.io/)
-- [Jumpstart](https://www.oracle.com/technical-resources/articles/solaris10/jumpstart-x86-x64-jsp.html)
-- [Preboot Execution Environment (PXE)](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)
-- [Red Hat Satellite](https://www.redhat.com/en/technologies/management/satellite)
-- [Terraform](https://www.terraform.io/)
-
-
 ## Operating Systems
 - BSD
     - [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD_version_history#Version_history)
@@ -99,3 +80,26 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [IBM Tivoli Identity Manager](https://www.ibm.com/docs/en/tfim)
 - [Oracle Internet Directory](https://www.oracle.com/middleware/technologies/internet-directory.html)
 - [Weblogic Embedded LDAP](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/secmg/ldap.html)
+
+## Infrastructure Automation
+### Image Build Systems
+- [Azure VM Image Builder](https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview?tabs=azure-powershell)
+- [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html)
+- [Packer](https://www.packer.io/)
+- [Red Hat Image Builder](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/composer-description_composing-a-customized-rhel-system-image)
+
+### Provisioning Systems
+- [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)
+- [Cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [Cobbler](https://cobbler.github.io/)
+- [Jumpstart](https://www.oracle.com/technical-resources/articles/solaris10/jumpstart-x86-x64-jsp.html)
+- [Preboot Execution Environment (PXE)](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)
+- [Red Hat Satellite](https://www.redhat.com/en/technologies/management/satellite)
+
+### Automation, Orchestration, Configuration Management
+- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
+- [Ansible](https://ansible.readthedocs.io/)
+- [Puppet](https://www.puppet.com/community/open-source)
+- [Terraform](https://www.terraform.io/)
+
