@@ -159,6 +159,10 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Visual Studio Code (VSCode)](https://code.visualstudio.com/docs)
 
 ## Public Cloud
+- [AWS Well-architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+- [Cloud Native Transformation Patterns](https://www.cnpatterns.org/)
+- [Microsoft Cloud Adoption Framework for Azure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/)
+- [Red Hat Application Modernisation](https://cloud.redhat.com/learning/learn:application-modernization-explained/resource/resources:what-application-modernization)
 
 ### Amazon Web Services
 - [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
@@ -182,24 +186,23 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
     - [Network Load Balancers (NLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
 - [Service control policies (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
 
-### Azure
+### Microsoft Azure
+- [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview)
+- [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview)
+- [Azure Bastion](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
+- [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview)
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
-
-- Entra
-- Landing Zones / Tenancy
-- VM
-- DNS
-- Storage (LRS, ZRS, GRS)
-- Files
-- Key Vaults
-- Microsoft Defender for Endpoints
-- OMA Azure Monitor Agent (AMA)
-- Microsoft Monitor Agent (MMA)
-- Operations Management Suite (OMS)
-- Log Analytics Workspace
-- Application Service
-- Application Gateway
-- Private Endpoints
-- Web Application Firewall
-- Bastion
-- VNet
+- [Azure Container Storage (ACS)](https://learn.microsoft.com/en-us/azure/storage/container-storage/container-storage-introduction)
+- [Azure DNS](https://learn.microsoft.com/en-us/azure/dns/dns-overview)
+- [Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
+- [Azure Managed Disks (LRS, ZRS)](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Azure Monitor Agent (AMA)](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview)
+- [Azure Monitor Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
+- [Azure Virtual Machines (VMs)](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
+- [Azure Virtual Network (VNet)](https://learn.microsoft.com/en-us/azure/virtual-network/)
+- [Azure Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview)
+- [Microsoft Defender for Endpoints](https://learn.microsoft.com/en-us/azure/defender-for-cloud/integration-defender-for-endpoint)
+- [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/)
+- [Microsoft Monitor Agent (MMA) (retired)](https://learn.microsoft.com/en-us/services-hub/unified/health/mma-setup)
+- [Private Endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
