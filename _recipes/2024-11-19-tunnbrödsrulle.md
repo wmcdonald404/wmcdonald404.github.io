@@ -13,9 +13,9 @@ categories: recipe
 ---
 
 # Overview
-Back around 2010 / 2011 I did a few projects in Stockholm with Telia Sonera and Telenor and some adjacent companies.
+Back around 2010 / 2011 I did a few projects in Stockholm with Telia Sonera, Telenor and some adjacent companies.
 
-I was aware of Tunnbrödsrulle, possibly from local recommendation, before it was [popularised more widely outside of Sweden by Bourdain](https://www.youtube.com/watch?v=fPCytfxNU7Y). They are fantastic street snacks, just the right ratio of risk/reward in terms of mess.
+I was aware of Tunnbrödsrulle, possibly from local recommendation, before it was [popularised more widely outside of Sweden by Bourdain](https://www.youtube.com/watch?v=fPCytfxNU7Y). They are fantastic street snacks, just the right ratio of risk/reward in terms of drunkely dropping your dinner all down your shirt.
 
 Hotdog, mashed potato, shrimp salad, some crispy onion, ketchup & mustard, in a wrap. What's not to love.
 
