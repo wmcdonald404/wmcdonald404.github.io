@@ -86,34 +86,66 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 
 ## Layered Infrastructure Services
 ### Middleware Servers
-- [Oracle/BEA Weblogic Application Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/)
-- [Oracle Application Server](https://docs.oracle.com/cd/B14098_01/index.htm)
-- [IBM WebSphere](https://www.ibm.com/docs/en/was/9.0.5)
 - [IBM WebSphere Liberty](https://www.ibm.com/docs/en/was-liberty/base)
+- [IBM WebSphere](https://www.ibm.com/docs/en/was/9.0.5)
+- [Oracle Application Server](https://docs.oracle.com/cd/B14098_01/index.htm)
+- [Oracle/BEA Weblogic Application Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/)
 - [Red Hat Jboss EAP](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0)
 
 ### Messaging Servers
 - [IBM MQ](https://www.ibm.com/docs/en/ibm-mq)
 - [Oracle/BEA Tuxedo](https://www.oracle.com/middleware/technologies/tuxedo.html)
 
-### Databases
+### Database Servers
 - Relational Database Systems
-  - [Oracle Database](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)
-    - [Automatic Database Diagnostic Monitor (ADDM)](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgdba/addm-tab.html)
-    - [Automatic Workload Repository (AWR)](https://docs.oracle.com/en/database/oracle//oracle-database/23/tgdba/awr-report-ui.html)
-    - [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/23/sbydb/oracle-data-guard-concepts.html)
-    - [Oracle Real Application Clusters (RAC)](https://docs.oracle.com/en/database/oracle/oracle-database/23/haovw/overview-oracle-rac-and-clusterware-best-practices.html)
-    - [SQL Tuning Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgsql/sql-tuning-advisor.html)
-  - [MySQL](https://dev.mysql.com/doc/refman/8.4/en/)
-  - [MariaDB](https://mariadb.org/documentation/)
-  - [PostgreSQL](https://www.postgresql.org/docs/)
-  - [Actian Ingres](https://docs.actian.com/ingres/11.0/index.html)
+    - [Actian Ingres](https://docs.actian.com/ingres/11.0/index.html)
+    - [MariaDB](https://mariadb.org/documentation/)
+    - [Microsoft SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16)
+    - [MySQL](https://dev.mysql.com/doc/refman/8.4/en/)
+    - [Oracle Database](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)
+        - [Automatic Database Diagnostic Monitor (ADDM)](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgdba/addm-tab.html)
+        - [Automatic Workload Repository (AWR)](https://docs.oracle.com/en/database/oracle//oracle-database/23/tgdba/awr-report-ui.html)
+        - [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/23/sbydb/oracle-data-guard-concepts.html)
+        - [Oracle Real Application Clusters (RAC)](https://docs.oracle.com/en/database/oracle/oracle-database/23/haovw/overview-oracle-rac-and-clusterware-best-practices.html)
+        - [SQL Tuning Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/23/tgsql/sql-tuning-advisor.html)
+    - [PostgreSQL](https://www.postgresql.org/docs/)
 - NoSQL Database Systems
-  - [MongoDB](https://www.mongodb.com/docs/)
+    - [MongoDB](https://www.mongodb.com/docs/)
 - Other Database Systems
-  - [EventstoreDB](https://developers.eventstore.com/server/v24.10/quick-start/)
-  - [Elasticsearch](https://www.elastic.co/docs)
-  - [Apache SOLR](https://solr.apache.org/resources.html#documentation)
+    - [Apache SOLR](https://solr.apache.org/resources.html#documentation)
+    - [Elasticsearch](https://www.elastic.co/docs)
+    - [EventstoreDB](https://developers.eventstore.com/server/v24.10/quick-start/)
+
+### High Availability
+- [DRBD](https://linbit.com/drbd-user-guide/users-guide-drbd-8-4/)
+- [HAProxy](https://docs.haproxy.org/2.4/configuration.html)
+- [Keepalived](https://keepalived.readthedocs.io/en/latest/)
+- [LVS](http://www.linuxvirtualserver.org/Documents.html)
+- [Nginx](https://nginx.org/en/docs/http/load_balancing.html)
+- [Red Hat Cluster Suite](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html-single/configuring_and_managing_high_availability_clusters/index)
+
+### Monitoring, Alerting, Observability
+- [Azure Monitor Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
+- [Cactai](https://docs.cacti.net/)
+- [collectd]https://www.collectd.org/documentation/
+- [Datadog](https://docs.datadoghq.com/)
+- [Elasticsearch](https://www.elastic.co/docs)
+- [Fluentd](https://docs.fluentd.org/quickstart)
+- [Grafana](https://grafana.com/docs/)
+- [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html)
+- [Logstash](https://www.elastic.co/guide/en/logstash/current/index.html)
+- [Munin](http://munin-monitoring.org/)
+- [Nagios](https://www.nagios.org/documentation/)
+- [Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/)
+- [PRTG](https://www.paessler.com/manuals/prtg)
+- [Rsyslog](https://www.rsyslog.com/doc/index.html), [Syslog-NG](https://syslog-ng.github.io/)
+- [Splunk](https://docs.splunk.com/Documentation)
+
+### Performance Analysis Testing
+- [AppDynamics APM](https://docs.appdynamics.com/appd/21.x/21.7/en)
+- [CA Wily Introscope](https://techdocs.broadcom.com/us/en/ca-miscellaneous/legacy_bookshelves_and_pdfs/bookshelves_and_pdfs/bookshelves/ca-wily-introscope.html)
+- [Apache JMeter](https://jmeter.apache.org/usermanual/index.html)
+- [Native JMX-based tools](https://docs.oracle.com/en/java/javase/23/jmx/introduction-jmx-technology.html)
 
 ## Infrastructure Automation
 ### Image Build Systems
@@ -161,6 +193,10 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Gitlab CI/CD pipelines ](https://docs.gitlab.com/ee/topics/build_your_application.html)
 - [Jenkins](https://www.jenkins.io/doc/book/)
 
+### SAST
+- Checkov
+- Mend
+
 ### Software Build
 - [Apache Ant](https://ant.apache.org/)
 - [Apache Maven](https://maven.apache.org/)
@@ -197,11 +233,13 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Red Hat Application Modernisation](https://cloud.redhat.com/learning/learn:application-modernization-explained/resource/resources:what-application-modernization)
 
 ### Amazon Web Services
+- [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/)
 - [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
 - [Amazon Elastic Compute Cloud (EC2)](https://docs.aws.amazon.com/ec2/)
 - [Amazon Relational Database Service (RDS)](https://docs.aws.amazon.com/rds/)
 - [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
 - [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/)
+    - [Amazon VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
     - [Amazon VPC Transit Gateways (TGW)](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
     - [Network Access Control Lists (ACL / NACL)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
     - [Security Groups (SG / NSG)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
@@ -238,3 +276,77 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/)
 - [Microsoft Monitor Agent (MMA) (retired)](https://learn.microsoft.com/en-us/services-hub/unified/health/mma-setup)
 - [Private Endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
+
+## Miscellaneous
+
+### Containers
+  - Container Runtimes
+    - Docker
+    - Podman
+    - Solaris Containers/Zones
+  - Container Platforms
+    - Red Hat Openshift
+
+### Hypervisors
+- Desktop
+  - HyperV
+  - Virtualbox
+  - Vmware Player
+  - Vmware Workstation
+  - WSL
+- Server:
+  - Red Hat Enterprise Virtualisation
+  - VMware vCenter
+  - VMware ESX
+
+### Hardware Paritioning 
+- vPAR / LPAR
+- Solaris Dynamic System Domains
+
+### Project Tools
+- Confluence
+- JIRA
+- Trello
+- Azure Boards
+
+### Security, Inventory & Management Tooling
+- RSA SecureID Server 
+- Qualys
+- Snow Inventory
+- BMC Patrol
+
+### COTS Products
+- Microsoft HPC Pack 2019
+- Quantitative Risk Management (QRM)
+- Guidewire 
+    - Policy Center
+    - Billing Center
+- Amdocs/Cramer OSS Suite
+
+# Storage (Block/File/Object)
+- Azure Storage (LRS, ZRS)
+- DRBD
+- EBS
+- Fibre Channel
+- iSCSI
+- LVM
+- NFS
+- RAID
+- Red Hat Ceph
+- Red Hat Gluster
+- s3
+- SATA
+- SCSI
+
+# Networking
+- Barron McCann OSLAN gateway
+- Checkpoint Firewall-1 & Firewall-1 NG
+- Cisco IOS
+- Cisco Local Director
+- Cisco Pix
+- Citrix Netscaler
+- F5 GTM & LTM
+- ISC DHCP & Kea DHCP
+- Palo Alto NGFW
+- Radware GSLB
+- Zscaler ZPA
