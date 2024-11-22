@@ -97,9 +97,97 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Red Hat Satellite](https://www.redhat.com/en/technologies/management/satellite)
 
 ### Automation, Orchestration, Configuration Management
-- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
 - [Ansible](https://ansible.readthedocs.io/)
 - [Puppet](https://www.puppet.com/community/open-source)
+- [Rundeck](https://docs.rundeck.com/docs/about/introduction.html)
 - [Terraform](https://www.terraform.io/)
 
+### Infrastructure Testing
+- BATS
+- Inspec
+- Serverspec
+- Ansible Molecule
+
+## Development Tools
+### Version Control
+- [Apache Subversion (SVN)](https://subversion.apache.org/)
+- [Concurrent Versions System (CVS)](https://cvs.nongnu.org/)
+- [Git](https://git-scm.com/downloads)
+- [Revision Control System (RCS)](https://www.gnu.org/software/rcs/)
+
+### Developer Platforms
+- [Azure DevOps Services](https://azure.microsoft.com/en-us/products/devops/) 
+- [Github](https://docs.github.com/en)
+- [Gitlab](https://about.gitlab.com/)
+
+### Software Build
+- [Apache Ant](https://ant.apache.org/)
+- [Apache Maven](https://maven.apache.org/)
+- [GNU Make](https://www.gnu.org/software/make/manual/make.html)
+- [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
+- [Ruby Make (Rake)](https://ruby.github.io/rake/)
+
+### Software Package Management
+- [DNF](https://dnf.readthedocs.io/en/stable/)
+- [gem](https://guides.rubygems.org/rubygems-basics/)
+- [Koji](https://docs.fedoraproject.org/en-US/package-maintainers/Using_the_Koji_Build_System/)
+- [npm](https://docs.npmjs.com/about-npm)
+- [pip](https://pypi.org/project/pip/)
+- [Poetry](https://python-poetry.org/docs/)
+- [RPM Package Manager (RPM)](https://rpm.org/)
+- [tox](https://tox.wiki/en/4.23.2/)
+- [uv](https://docs.astral.sh/uv/)
+
+### Software Repositories
+- [JFrog Artifactory](https://jfrog.com/help/p/devops-home)
+- [Sonatype Nexus](https://help.sonatype.com/en/sonatype-nexus-repository.html)
+
+### Development Environments
+- [Devcontainers](https://containers.dev/)
+- [Eclipse IDE](https://help.eclipse.org/latest/index.jsp)
+- [IntelliJ IDEA](https://www.jetbrains.com/help/idea/getting-started.html)
+- [Vim](https://www.vim.org/docs.php)
+- [Visual Studio Code (VSCode)](https://code.visualstudio.com/docs)
+
+## Cloud
+
+# Clouds
+  - Public 
+    - AWS
+      - VPC
+      - EC2
+      - S3
+      - EBS
+      - RDS
+      - AWS AD
+      - AWS Secrets Manager.
+      - AWS Certificate Management (ACM)
+      - AWS Private Certificate Authority (PCA)
+      - Cloudformation
+      - Transit Gateway
+      - Security Groups (SGs)
+      - Network Access Control Lists (NACLs)
+      - Elastic Load Balancing
+      - Application Load Balancer
+    - Azure
+      - Entra
+      - Landing Zones / Tenancy
+      - VM
+      - DNS
+      - Storage (LRS, ZRS, GRS)
+      - Files
+      - Key Vaults
+      - Microsoft Defender for Endpoints
+      - OMA Azure Monitor Agent (AMA)
+      - Microsoft Monitor Agent (MMA)
+      - Operations Management Suite (OMS)
+      - Log Analytics Workspace
+      - Application Service
+      - Application Gateway
+      - Private Endpoints
+      - Web Application Firewall
+      - Bastion
+
+
+- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
