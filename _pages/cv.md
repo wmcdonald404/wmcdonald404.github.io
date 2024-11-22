@@ -105,10 +105,11 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Terraform](https://www.terraform.io/)
 
 ### Infrastructure Testing
-- BATS
-- Inspec
-- Serverspec
-- Ansible Molecule
+- [Ansible Molecule](https://ansible.readthedocs.io/projects/molecule/)
+- [Bash Automated Testing System (BATS)](https://bats-core.readthedocs.io/en/stable/)
+- [Chef Inspec](https://docs.chef.io/inspec/)
+- [pytest](https://docs.pytest.org/en/stable/)
+- [Serverspec](https://serverspec.org/)
 
 ## Development Tools
 ### Version Control
@@ -123,10 +124,10 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Gitlab](https://about.gitlab.com/)
 
 ### Pipelines
-- [Azure DevOps Services]() 
-- [Github Actions]()
-- [Gitlab Pipelines]()
-- Jenkins
+- [Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) 
+- [Github Actions](https://docs.github.com/en/actions)
+- [Gitlab CI/CD pipelines ](https://docs.gitlab.com/ee/topics/build_your_application.html)
+- [Jenkins](https://www.jenkins.io/doc/book/)
 
 ### Software Build
 - [Apache Ant](https://ant.apache.org/)
@@ -160,23 +161,26 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 ## Public Cloud
 
 ### Amazon Web Services
-- [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html)
-
-- VPC
-- EC2
-- S3
-- EBS
-- RDS
-- AWS AD
-- AWS Secrets Manager.
-- AWS Certificate Management (ACM)
-- AWS Private Certificate Authority (PCA)
-- Cloudformation
-- Transit Gateway
-- Security Groups (SGs)
-- Network Access Control Lists (NACLs)
-- Elastic Load Balancing
-- Application Load Balancer
+- [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
+- [Amazon Elastic Compute Cloud (EC2)](https://docs.aws.amazon.com/ec2/)
+- [Amazon Relational Database Service (RDS)](https://docs.aws.amazon.com/rds/)
+- [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
+- [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/)
+    - [Amazon VPC Transit Gateways (TGW)](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
+    - [Network Access Control Lists (ACL / NACL)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
+    - [Security Groups (SG / NSG)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
+- [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/)
+- [AWS CloudFormation](https://docs.aws.amazon.com/cloudformation/)
+- [AWS Command Line Interface (AWS CLI)](https://docs.aws.amazon.com/cli/)
+- [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/iam/)
+- [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directory-service/)
+- [AWS Private CA (PCA)](https://docs.aws.amazon.com/privateca/)
+- [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)
+- [Elastic Load Balancing (ELB)](https://docs.aws.amazon.com/elasticloadbalancing/)
+    - [Application Load Balancer (ALB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+    - [Gateway Load Balancer (GLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html)
+    - [Network Load Balancers (NLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
+- [Service control policies (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
 
 ### Azure
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-3?tabs=bash)
@@ -198,3 +202,4 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - Private Endpoints
 - Web Application Firewall
 - Bastion
+- VNet
