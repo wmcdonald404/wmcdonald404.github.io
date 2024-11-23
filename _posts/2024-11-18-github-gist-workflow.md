@@ -90,4 +90,6 @@ That's it, we can now manage our Gists from the terminal.
 # Notes
 You can also perform in-place edits to Gists using `gh gist edit <gistid>`.
 
+You can skip a step when cloning the gist using `gh gist clone <gistid> ./repo-path/` to clone to a specific path, removing the need for the rename/move step.
+
 # Further reading
