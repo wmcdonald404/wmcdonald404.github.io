@@ -24,19 +24,19 @@ On your Windows system:
 TODO: Step to indentify the proxy cert from properties other than its `<CERT ID>` 
 
 1. Check the path to the root CA certificate in the Windows certificate on your laptop
-    ```
+    ```Powershell
     PS C:\Users\Will> Get-ChildItem -Path Cert:\LocalMachine\Root\<CERT ID> | Select-Object -Property *
     ```
 2. Verify the Issuer and Subject.
 
 3. Set the location of the existing proxy root CA certificate in the Windows certificate store
-    ```
+    ```Powershell
     PS C:\Users\Will> $proxycert = Get-ChildItem -Path Cert:\LocalMachine\Root\<CERT ID>
     ```
 4. Export the certificate as [type CERT](https://learn.microsoft.com/en-us/powershell/module/pki/export-certificate?view=windowsserver2022-ps#-type):
 
     > `CERT`: A `.cer` file format which contains a single DER-encoded certificate. This is the default value for one certificate.
-    ```
+    ```Powershell
     PS C:\Users\Will> Export-Certificate -Cert $proxycert -FilePath $Env:USERPROFILE\Downloads\proxy.der -Type CERT
     ```
 

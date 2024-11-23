@@ -27,7 +27,7 @@ In order to do this we can follow a process similar to [Duplicate a Linux distro
 On your Windows system:
 
 1. Verify your current installed WSL distribution(s):
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl -l
     Windows Subsystem for Linux Distributions:
     docker-desktop-data (Default)
@@ -38,18 +38,18 @@ On your Windows system:
     *Note*: You can identify the underlying disk location of your WSL distributions by running `Get-ChildItem "HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss" -Recurse`
 
 2. Create a directory to hold our intermediate distribution image(s):
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> New-Item -Type Directory d:\wsl\distros\
     ```
 
 3. Export a tar archive/image of the target distribution:
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl --export Fedora-38 D:\wsl\distros\Fedora-38.tar
     The operation completed successfully.
     ```
 
 4. Import the distro as a new distribution/profile:
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl --import Fedora-40 C:\Users\wmcdonald\wsl\Fedora-40 D:\wsl\distros\Fedora-38.tar
     Import in progress, this may take a few minutes.
     The operation completed successfully.
@@ -57,7 +57,7 @@ On your Windows system:
     *Note*: We could just as easily have a single 'Fedora' or 'Fedora-Latest' distro profile which we constantly upgrade in-place if we don't care about the availability of previous releases.
 
 4. We can now start the new distribution:
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl -d Fedora-40 -u wmcdonald
     [wmcdonald@DESKTOP-9HGJE25 wmcdonald]$
     ```

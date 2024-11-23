@@ -17,13 +17,13 @@ Now we have:
 We can get ready to discover disks, format, attach, label etc.
 
 1. Vagrant up the box:
-```
+```Powershell
 $ cd ~/working/vagrant/windows-scratch
 $ vagrant up
 ```
 
 2. Connect to the instance, invoke Powershell:
-```
+```Powershell
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> pwsh
@@ -33,17 +33,17 @@ PS C:\Users\vagrant>
 ## How-to
 
 1. First, list all the attached block devices:
-```
+```Powershell
 PS> Get-Disk
 ```
 
 2. Check the members in the collection:
-```
+```Powershell
 PS> Get-Disk | Get-Member
 ```
 
 3. Filter this list to a subset of useful properties:
-```
+```Powershell
 PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, Size
 Number HealthStatus OperationalStatus        Size
 ------ ------------ -----------------        ----
@@ -55,11 +55,11 @@ Number HealthStatus OperationalStatus        Size
 ```
 
 3. Return the same output with better formatting on the Size column:
-```
+```Powershell
 PS> Get-Disk | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size";E={$_.Size / 1024 / 1024 / 1024 }}
 ```
 Or alternatively:
-```
+```Powershell
 PS C:\Users\vagrant> Get-Disk | Sort-Object Number | Select-Object Number, HealthStatus, OperationalStatus, @{N="Size (GB)";E={[Math]::Round($_.Size/1GB,3)}}
 Number HealthStatus OperationalStatus Size (GB)
 ------ ------------ ----------------- ---------
@@ -71,21 +71,21 @@ Number HealthStatus OperationalStatus Size (GB)
 ```
 
 4. Initialise a disk with a GPT partition, and format the volume:
-```
+```Powershell
 PS> Initialize-Disk -Number 1 -PartitionStyle GPT
 PS> New-Volume -DiskNumber 1 -FriendlyName DATA1 -FileSystem NTFS
 PS> Add-PartitionAccessPath -DiskNumber 1 -PartitionNumber 2 -AccessPath D:
 ```
 
 5. We could achieve a similar result in a single pass with:
-```
+```Powershell
 Get-Disk | Where-Object OperationalStatus -eq 'Offline'|
     Initialize-Disk -PartitionStyle GPT -PassThru |
     New-Volume -FileSystem NTFS -DriveLetter F -FriendlyName 'New-Volume'
 ```
 
 6. And we can examine the resulting disk layout with:
-```
+```Powershell
 PS C:\Users\vagrant> Get-Partition | Select-Object DiskNumber, PartitionNumber,  DriveLetter, GptType, @{N="Size (GB)";E={[Math]::Round($_.Size/1GB,1)}} | Format-Table         
 DiskNumber PartitionNumber DriveLetter GptType                                Size (GB)
 ---------- --------------- ----------- -------                                ---------
@@ -98,7 +98,7 @@ DiskNumber PartitionNumber DriveLetter GptType                                Si
 ## Shutdown
 Once familiar with disk discovery, formatting we can exit and shutdown:
 
-```
+```Powershell
 PS C:\Users\vagrant> exit
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> exit
 $ vagrant halt

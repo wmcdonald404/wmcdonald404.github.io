@@ -20,7 +20,7 @@ On your Windows system:
 
 1. Check for updates to WSL:
 
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl --update
     Checking for updates.
     The most recent version of Windows Subsystem for Linux is already installed.
@@ -28,7 +28,7 @@ On your Windows system:
 
 2. Verify your current installed WSL distribution(s):
 
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl -l -v
     NAME                   STATE           VERSION
     * docker-desktop-data    Stopped         2
@@ -40,7 +40,7 @@ On your Windows system:
 
 3. Check which distributions are available online from the vendor:
 
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl --list --online
     The following is a list of valid distributions that can be installed.
     Install using 'wsl.exe --install <Distro>'.
@@ -64,7 +64,7 @@ On your Windows system:
 
 3. Install the later distro:
 
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl --install -d Ubuntu-24.04
     Installing: Ubuntu 24.04 LTS
     Ubuntu 24.04 LTS has been installed.
@@ -100,7 +100,7 @@ On your Windows system:
 
 4. Now review the list of installed distros again:
 
-    ```
+    ```Powershell
     PS C:\Users\wmcdonald> wsl -l -v
     NAME                   STATE           VERSION
     * docker-desktop-data    Stopped         2

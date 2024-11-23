@@ -17,16 +17,16 @@ To quote the Microsoft documentation on Remote Server Administration Tools...¬
 ### Powershell
 
 1. Check which RSAT components, if any, are installed on the target system:
-```
+```Powershell
 PS> Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, Name, State
 ```
 2. Either
   a. Install individual components as required
-```
+```Powershell
 PS> Add-WindowsCapability -Online -Name "<item_name>"
 ```
   b. Or install all available RSAT features
-```
+```Powershell
 PS> Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
 ```
 

@@ -14,33 +14,33 @@ Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple 
 
 ## How-to
 1. Set the Windows Powershell environment variable for the profile we wish to use:
-    ```
+    ```Powershell
     $Env:AWS_PROFILE="dev-account.developer"
     ```
 2. Test that the SSO profile has works as expected:
-    ```
+    ```Powershell
     PS> aws ec2 describe-instances
     ```
 3. Filter the output of `aws ec2 describe-instances`:
-    ```
+    ```Powershell
     PS> aws ec2 describe-instances | ConvertFrom-Json | `
     Select-Object -ExpandProperty Reservations | ForEach-Object { $_.Instances | `
     ForEach-Object { $tag = ($_.Tags | Where-Object { $_.Key -eq 'aws:cloud9:owner' }); `
     if ($tag) { [PSCustomObject]@{ "Instance ID" = $_.InstanceId; "Tag aws:cloud9:owner" = $tag.Value; "Instance State" = $_.State.Name } } } }
     ```
 4. Review the output:
-    ```
+    ```Powershell
     Instance ID         Tag aws:cloud9:owner                 Instance State
     -----------         --------------------                 --------------
     i-034e459b55d574564 A0880D35011EEA187F057:bob.typeytype  stopped
     i-0af34b3e0f9fecc9e A0880D35011EEA187F057:alan.syscall   running
     ```
 5. Optionally, start the desired instance:
-    ```
+    ```Powershell
     PS> aws ec2 start-instances --instance-ids i-034e459b55d574564 
     ```
 6. And connect via SSH or SSH over SSM:
-    ```
+    ```Powershell
     PS> aws ssm start-session --target i-034e459b55d574564 
     ```
 ## Alternative Queries

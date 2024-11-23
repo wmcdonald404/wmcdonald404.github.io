@@ -36,13 +36,13 @@ On Windows systems, you can use Git-bash to achieve the same fluidity, or you ca
 
 1. Open your [Powershell profile](https://wmcdonald404.github.io/github-pages/2024/03/10/windows-powershell-history-functions-and-aliases.html#powershell-profiles) to add local Powershell functions (analogous to aliases or functions in bash/zsh)
 
-    ```
+    ```Powershell
     PS> code $PROFILE
     ```
 
 2. Add the following functions to the `$PROFILE`... file. 
 
-    ```
+    ```Powershell
     # Unix-like functions (https://stackoverflow.com/a/32634452)
 
     # returns the file name from a full path:

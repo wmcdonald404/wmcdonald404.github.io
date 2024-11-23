@@ -18,12 +18,12 @@ The Powershell `history` command (also aliased to `h`) is an alias to the `Get-H
 
 To retreive history across all Powershell sessions `(Get-PSReadLineOption).HistorySavePath` will return the path to the history file commonly used access multiple sessions:
 
-```
+```Powershell
 PS> (Get-PSReadLineOption).HistorySavePath
 /home/wmcdonald/.local/share/powershell/PSReadLine/ConsoleHost_history.txt
 ```
 The path can be searched using `Select-String` (or its alias `sls`) as follows:
-```
+```Powershell
 PS> sls <searchstring> (Get-PSReadLineOption).HistorySavePath
 ```
 ## Powershell Profiles
@@ -35,7 +35,7 @@ The Linux equivalent value for `$PROFILE.CurrentUserCurrentHost` would be `/home
 
 `$PROFILE` is an automatic variable which includes the paths to profiles for the various levels of granularity. It can be explored by enumeration as shown:
 
-```
+```Powershell
 PS> $PROFILE | Get-Member -Type All
 
    TypeName: System.String
@@ -48,7 +48,7 @@ CompareTo              Method                int CompareTo(System.Object value),
 ```
 
 Examine the specific granular properties on the object:
-```
+```Powershell
 PS /home/wmcdonald> $PROFILE | Get-Member -Type NoteProperty
 
    TypeName: System.String
@@ -64,7 +64,7 @@ CurrentUserCurrentHost NoteProperty string CurrentUserCurrentHost=/home/wmcdonal
 With this information, functions (or aliases) can be dropped into a file at `$PROFILE.CurrentUserCurrentHost` and would be available in the shell at startup:
 
 For example:
-```
+```Powershell
 function vpnstate {
     Get-Process -name vpnui 
     &"C:\Program Files(x64)\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe" state
