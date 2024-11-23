@@ -17,13 +17,13 @@ Now we have:
 We can get ready to discover disks, format, attach, label etc.
 
 1. Vagrant up the box:
-```Powershell
+```Shell
 $ cd ~/working/vagrant/windows-scratch
 $ vagrant up
 ```
 
 2. Connect to the instance, invoke Powershell:
-```Powershell
+```Shell
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> pwsh

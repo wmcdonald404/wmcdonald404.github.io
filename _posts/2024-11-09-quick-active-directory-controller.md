@@ -24,12 +24,12 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 ## Provision Virtual Machine / Vagrant Box 
 
 1. Start a Windows 2022 Vagrant Box
-    ```
+    ```Shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant up
     ```
 
 2. Connect to the Vagrant Box and start Powershell
-    ```
+    ```Shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@WIN-Q5TRJJGJS2J C:\Users\vagrant>pwsh
     PS C:\Users\vagrant> 
@@ -49,7 +49,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 4. Reconnect, invoke Powershell, verify the hostname change:
-    ```
+    ```Shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@WIN-Q5TRJJGJS2J C:\Users\vagrant>pwsh
     PS C:\Users\vagrant> $Env:COMPUTERNAME
@@ -123,7 +123,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 8. Wait for the system to reboot, then reconnect
-    ```
+    ```Shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@192.168.121.218's password: 
 

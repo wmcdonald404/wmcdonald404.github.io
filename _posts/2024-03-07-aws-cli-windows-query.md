@@ -45,7 +45,7 @@ Building on the lessons from [AWS - Configure the AWS CLI with SSO and multiple 
     ```
 ## Alternative Queries
 As an alternative to Powershell, it's also straightforward to select/filter specific instance data using `jq`:
-```
+```Shell
 aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | "\(.InstanceId),\(.Tags[] | select(.Key == "SERVERNAME").Value),\(.Tags[] | select(.Key == "aws:cloudformation:logical-id").Value)"'
 i-034e459b55d574564,VM01,AppInstance
 i-0af34b3e0f9fecc9e,VM02,DatabaseInstance

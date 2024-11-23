@@ -44,7 +44,7 @@ TODO: Step to indentify the proxy cert from properties other than its `<CERT ID>
 In your WSL2 instance:
 
 1. Convert the DER-encoded certificate to a PEM and place into the local root CA trust staging directory
-    ```
+    ```Shell
     will@ubuntu:~$ sudo openssl x509 -inform der \
       -in /mnt/c/Users/<user.name>/Downloads/proxy.der \
       -out /usr/local/share/ca-certificates/proxy.crt
@@ -57,7 +57,7 @@ In your WSL2 instance:
     - `sudo` escalation for root user permission is _not required_ for the OpenSSL certificate encoding conversion, but is required in order to output the resultant file to the /usr/local/share/ca-certificates directory.
 
 2. Update the root Certificate Authorities
-    ```
+    ```Shell
     will@ubuntu:~$ sudo update-ca-certificates
     Updating certificates in /etc/ssl/certs...
     rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
@@ -67,7 +67,7 @@ In your WSL2 instance:
     ```
 
 3. Check that the certificate’s been linked in /etc/ssl/certs
-    ```
+    ```Shell
     will@ubuntu:~$ ll /etc/ssl/certs/proxy.pem
     lrwxrwxrwx 1 root root 44 May 15 10:46 /etc/ssl/certs/proxy.pem -> /usr/local/share/ca-certificates/proxy.crt
     ```

@@ -23,7 +23,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     Start by creating an initial SSO configuration:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws configure sso
     SSO session name (Recommended): my-org-sso
     SSO start URL [None]: https://my-org-sso.awsapps.com/start
@@ -33,7 +33,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     At this stage, the AWS CLI will open the default brower, to establish trust:
     
-    ```
+    ```Shell
     Attempting to automatically open the SSO authorization page in your default browser.
     If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
 
@@ -46,7 +46,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
     
     Next if multiple accounts are available for the identity, select a sensible base account (we can add additional accounts easily in subsequent steps):
     
-    ```
+    ```Shell
     There are [N] AWS accounts available to you.
     <<select an account>>
     Using the account ID 123412341234
@@ -61,7 +61,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     **Note**: these configuration stanzas have been reordered for clarity
 
-    ```
+    ```INI
     [sso-session my-org-sso]
     sso_start_url = https://my-org-sso.awsapps.com/start
     sso_region = eu-west-1
@@ -77,20 +77,20 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
 4. Review the AWS CLI environment variables set:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ set | grep AWS
     AWS_PROFILE=dev-account.developer
     ```
     
     **Note**: if `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` are set this will override `AWS_PROFILE` leading to unexpected results. If set they can be unset:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
     ```
 
 5. Verify that the account defined in `AWS_PROFILE` can be queried successfully with the SSO session:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws ec2 describe-instances | jq '.[][].Instances[].InstanceId'
     "i-034e459b55d574564"
     "i-0af34b3e0f9fecc9e"
@@ -99,7 +99,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
 6. To extract data from some deeper keys from the JSON returned by `aws ec2 describe-instances`, for example if you have Cloud9 instances and wanted to filter these by instance ID:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws ec2 describe-instances | jq -c '.Reservations[].Instances[] | {InstanceID: .InstanceId, InstanceType: .InstanceType, Cloud9Owner: .Tags[] | select(.Key == "aws:cloud9:owner").Value}'
     {"InstanceID":"i-034e459b55d574564","InstanceType":"t3.small","Cloud9Owner":"A0880D35011EEA187F057:bob.typeytype"}
     {"InstanceID":"i-0af34b3e0f9fecc9e","InstanceType":"m5.large","Cloud9Owner":"A0880D35011EEA187F057:alan.syscall"}
@@ -107,7 +107,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
 7. To extend the configuration to include additional accounts or roles this can be achieved as shown:
 
-    ```
+    ```INI
     [sso-session my-org-sso]
     sso_start_url = https://my-org-sso.awsapps.com/start
     sso_region = eu-west-1

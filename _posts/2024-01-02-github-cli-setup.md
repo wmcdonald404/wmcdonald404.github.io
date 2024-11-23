@@ -23,7 +23,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
     There are a [number of installation options available](https://github.com/cli/cli#installation), however when using a distribution with a mature but up-to-date package ecosystem, it can be as simple as installing from the package manager.
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ sudo dnf info gh
     Last metadata expiration check: 0:00:46 ago on Tue 02 Jan 2024 21:03:23 GMT.
     Installed Packages
@@ -50,7 +50,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 2. Validate that the Github CLI runs
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ gh --help | head
     Work seamlessly with GitHub from the command line.
 
@@ -67,37 +67,37 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 3. Authenticate to Github using the CLI
 
     Start the Github CLI authentication process:
-    ```
+    ```Shell
     wmcdonald@fedora:~$ gh auth login -h github.com -p https
     ```
     Select 'Authenticate with credentials': **(Y)**:
-    ```
+    ```Shell
     ? Authenticate Git with your GitHub credentials? (Y/n) 
     ```
     Select 'Login with browser':
-    ```
+    ```Shell
     ? How would you like to authenticate GitHub CLI? Login with a web browser
     ```
     Select one-time code and copy the resulting code:
-    ```
+    ```Shell
     ! First copy your one-time code: WXYZ-ABCD
     ```
     Open a browser when prompted:
-    ```
+    ```Shell
     Press Enter to open github.com in your browser... 
     ```
     Enter the one-time code in the launched browser session:
-    ```
+    ```Shell
     WXYZ-ABCD
     ```
     Authorize Github in the launched browser session:
-    ```
+    ```Shell
     Authorize Github
     ```
     Confirm with a OTP authentication code from a trusted device providing OTP tokens.
 
     Confirm the sign in was successful:
-    ```
+    ```Shell
     ✓ Authentication complete.
     - gh config set -h github.com git_protocol https
     ✓ Configured git protocol
@@ -106,7 +106,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 4. Set a [`GH_REPO`](https://cli.github.com/manual/gh_help_environment) environment variable
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ export GH_REPO='https://github.com/wmcdonald404/github-pages' 
     ```
 
@@ -115,7 +115,7 @@ With the Github CLI installed, and the [`GH_REPO`](https://cli.github.com/manual
 
 For example:
 
-```
+```Shell
 wmcdonald@fedora:~$ gh workflow list
 NAME                    STATE   ID      
 pages-build-deployment  active  80950398
@@ -128,7 +128,7 @@ STATUS  TITLE                       WORKFLOW                BRANCH  EVENT    ID 
 # Notes
 By default the Github CLI will use the system `${PAGER}` for its output. This is a personal preference but I like to choose when to use the `PAGER`. You can disable default pager use just for `gh` by setting `GH_PAGER` to a null value in your shell initialisation.
 
-```
+```Shell
 [wmcdonald@fedora ~ ]$ grep PAGER ~/.bash_profile 
 export GH_PAGER=""
 export AWS_PAGER=""

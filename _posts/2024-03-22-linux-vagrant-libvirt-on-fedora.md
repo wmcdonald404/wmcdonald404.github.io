@@ -27,49 +27,49 @@ This post will summarise the initial setup on Fedora using Libvirt, ultimately t
 
 ## How-to
 1. Check for/enable Intel-VT / AMD-V CPU virtualisation extensions. (Don't skip this, they're disabled by default on most laptops and will cause largely silent, annoying failures if not enabled.)
-```
+```Shell
 $ egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 ```
 
 2. Install libvirt
-```
+```Shell
 # dnf -y install @virtualization
 ```
 
 3. Install libvirt and some dependencies required for vagrant-libvirt later.
-```
+```Shell
 # dnf -y install gcc libvirt libvirt-devel libxml2-devel make ruby-devel libguestfs-tools
 ```
 
 (nb: find out why the requisites aren't depended on by vagrant-libvirt? Maybe some variant on https://bugzilla.redhat.com/show_bug.cgi?id=1523296 ?)
 
 4. Install vagrant & the vagrant libvirt plugin
-```
+```Shell
 # dnf install vagrant vagrant-libvirt
 ```
 
 5. Enable/start libvirtd.service
-```
+```Shell
 # systemctl enable libvirtd.service
 ```
 
 6. Setup the Vagrant libvirt plugin (May or may not be required, need to verify on a clean installation.)
-```
+```Shell
 $  vagrant plugin install vagrant-libvirt
 ```
 
 7. Quick hack around https://bugzilla.redhat.com/show_bug.cgi?id=1187019
-```
+```Shell
 # usermod -G libvirt wmcdonald
 ```
 
 8. Add a fedora vagrant box base image (https://app.vagrantup.com/fedora/boxes/37-cloud-base)
-```
+```Shell
 $ vagrant box add fedora/37-cloud-base --provider libvirt
 ```
 
 9. Init a box and start up
-```
+```Shell
 $ mkdir working/vagrant/fedora-scratch
 $ cd $_
 $ vagrant init fedora/37-cloud-base --box-version 37.20221105.0
@@ -86,7 +86,7 @@ Extend the setup to include multiple flavours of Vagrant box, more complex combi
 
 ## Notes
 If returning to this after a few months or a year or two, if you've been performing in-place upgrades of Fedora you may encounter plugin version mismatches, for example:
-```
+```Shell
 wmcdonald@fedora:~$ vagrant box list
 Vagrant failed to initialize at a very early stage:
 
@@ -110,7 +110,7 @@ versions:
 Error message given during initialization: Unable to resolve dependency: user requested 'vagrant-libvirt (= 0.11.2)'
 ```
 This can be relatively simply resolved by:
-```
+```Shell
 wmcdonald@fedora:~$ vagrant plugin update
 wmcdonald@fedora:~$ vagrant box list
 fedora/37-cloud-base (libvirt, 37.20221105.0)
@@ -118,7 +118,7 @@ fedora/37-cloud-base (libvirt, 37.20221105.0)
 
 If `vagrant up` fails with the following error:
 
-```
+```Shell
 wmcdonald@fedora:~/working/vagrant/fedora-scratch$ vagrant up 
 Bringing machine 'default' up with 'libvirt' provider...
 ==> default: Checking if box 'fedora/37-cloud-base' version '37.20221105.0' is up to date...
@@ -194,7 +194,9 @@ Bringing machine 'default' up with 'libvirt' provider...
 ```
 
 Run the following as a temporary mitigation (proper root-cause required):
-```sudo virsh net-list --all```
+```Shell 
+sudo virsh net-list --all
+```
 
 https://github.com/hashicorp/vagrant/issues/12605
 

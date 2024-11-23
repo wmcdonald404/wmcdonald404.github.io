@@ -30,20 +30,20 @@ The `glab` CLI has proved invaluable mapping groups, repos, exporting repo, view
 
 2. Login to Gitlab:
 
-    ```
+    ```Shell
     $ glab auth login --hostname gitlab.com
     $ glab auth status
     ```
 
 3. Stop the CLI notifying about newer releases (optional):
 
-    ```
+    ```Shell
     $ glab config set check_update false --global
     ```
 
 4. Now we can list groups, repositories, pipelines, call the API directly etc.
 
-    ```
+    ```Shell
     $ glab repo list
     $ cd ~/repos/org/group/repo
     $ glab ci list
@@ -51,7 +51,7 @@ The `glab` CLI has proved invaluable mapping groups, repos, exporting repo, view
     ```
 
 5. Watch a pipeline during execution
-    ```
+    ```Shell
     $ cd ~/repos/org/group/repo
     $ git add .
     $ git commit -m 'Bish bash bosh'

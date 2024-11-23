@@ -17,14 +17,14 @@ Now let's walk through the slightly improved process.
 1. Set some common variables to reuse in subsequent steps.
 
     Set the current date & time, and the subject of the blog post:
-    ```
+    ```Shell
     export BLOGDATE=$(date -I)
     export BLOGTITLE='Updated Github pages post'
     export BLOGFILE=blog-title.md
     echo $BLOGDATE $BLOGTIME $BLOGTITLE $BLOGFILE
     ```
     Or, in a slightly more compressed form:
-    ```
+    ```Shell
     export BLOGDATE=$(date -I)
     export BLOGTITLE='Updated Github pages post'
     export BLOGFILE=blog-title.md
@@ -32,12 +32,12 @@ Now let's walk through the slightly improved process.
     ```
 
 2. Activate the Python virtual environment (venv) containing the Jinja CLI:
-    ```
+    ```Shell
     $ . ~/.venv/jinjacli/bin/activate
     ```
 
 3. Populate [the template](https://github.com/wmcdonald404/github-pages/blob/main/template.yml) using Jinja:
-    ```
+    ```Shell
     $ jinja -X 'BLOG*' ~/repos/github-pages/_templates/post_template.md > ~/repos/github-pages/_posts/${BLOGDATE}-${BLOGTIME//:/-}-${BLOGFILE}
     ```
     **Note**: the `{BLOGTIME//:/-}` construct uses [bash substring replacement](https://tldp.org/LDP/abs/html/string-manipulation.html) to switch from colons (required for the frontmatter in the post's markdown) to a hyphen, for the file name.

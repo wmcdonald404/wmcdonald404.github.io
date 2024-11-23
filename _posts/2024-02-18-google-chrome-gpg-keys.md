@@ -10,7 +10,7 @@ tags:
 DNF upgrades fail because Chrome package GPG key validation fails.
 
 When doing a `dnf update` you see a failure similar to:
-```
+```Shell
 google-chrome                      74 kB/s |  16 kB     00:00    
 GPG key at https://dl.google.com/linux/linux_signing_key.pub (0x7FAC5991) is already installed
 GPG key at https://dl.google.com/linux/linux_signing_key.pub (0xD38B4796) is already installed
@@ -24,7 +24,7 @@ Error: GPG check FAILED
 
 ## Cause
 The Google Chrome package drops a cron config stub into `/etc/cron.daily/google-chrome`, this stub runs once per-day to update the Google GPG keys. You can see this relationship with:
-```
+```Shell
 root@fedora:~# rpm -ql google-chrome-stable | grep cron
 /etc/cron.daily/google-chrome
 
@@ -36,7 +36,7 @@ If newer packages are signed and published upstream in the window before the cro
 
 ## Solution
 Simply run the cron config stub from `/etc/cron.daily/google-chrome` then re-run the `dnf update`:
-```
+```Shell
 root@fedora:~#  /etc/cron.daily/google-chrome 
 warning: Certificate A040830F7FAC5991:
   Policy rejects subkey 4F30B6B4C07CB649: Policy rejected asymmetric algorithm

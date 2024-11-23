@@ -21,12 +21,12 @@ The [documentation](https://github.com/ohmybash/oh-my-bash?tab=readme-ov-file#ba
 > **Note:** If you're working in a regulated environment, obviously do your due dilligence, don't just blithely run random stuff from the internet. Review [the install script](https://github.com/ohmybash/oh-my-bash/blob/master/tools/install.sh), maybe move it and a mirror of the upstream repo into an artefact repo that provides a degree of governance and surety.
 
 - Interactive:
-```
+```Shell
 $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 ```
 
 - [Unattended](https://github.com/ohmybash/oh-my-bash?tab=readme-ov-file#unattended-install):
-```
+```Shell
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
 ```
 
@@ -36,11 +36,11 @@ The primary thing you'll want to configure is the prompt theme. This, in additio
 
 - Update `~/.bashrc` with your prefered theme:
 
-```
+```Shell
 [wmcdonald@fedora ~ ]$ vi +12 ~/.bashrc
 ```
 
-```
+```Shell
  10 # Set name of the theme to load. Optionally, if you set this to "random"
  11 # it'll load a random theme each time that oh-my-bash is loaded.
  12 OSH_THEME="powerline-light"
@@ -67,7 +67,7 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 ### Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
-    ```
+    ```Shell
     [wmcdonald@fedora ~ ]$ tree $OSH_CUSTOM
     /home/wmcdonald/.oh-my-bash/custom
     ├── aliases
@@ -84,7 +84,7 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
     ```
 
 2. Create your custom alias file
-    ```
+    ```Shell
     [wmcdonald@fedora ~ ]$ cat $OSH_CUSTOM/aliases/custom.aliases.sh
     alias simple='source ${OSH}/themes/morris/morris.theme.sh'
     alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
@@ -93,12 +93,12 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 3. Include your custom alias in the `alias()` array
 
     Edit the `~/.bashrc`:
-    ```
+    ```Shell
     [wmcdonald@fedora ~ ]$ vim +'set nu' +99 ~/.bashrc
     ```
 
     Add `custom` to the `aliases()` array (line numbers shown for context):
-    ```
+    ```Shell
     99:aliases=(
     100-  general
     101-  custom
@@ -108,21 +108,21 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 4. Test
 
     Run the `src` alias to re-source the default `~/.bashrc`:
-    ```
+    ```Shell
     [wmcdonald@fedora ~ ]$ alias | grep src
     alias src='source ~/.bashrc'
     [wmcdonald@fedora ~ ]$ src
     ```
 
     Check the aliases exist:
-    ```
+    ```Shell
     wmcdonald > ~ > alias | grep -E 'simple|fancy'
     alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
     alias simple='source ${OSH}/themes/morris/morris.theme.sh'
     ```
 
     Call each alias in turn:
-    ```
+    ```Shell
     wmcdonald > ~ > simple
     [wmcdonald@fedora ~ ]$ fancy
     wmcdonald > ~ >

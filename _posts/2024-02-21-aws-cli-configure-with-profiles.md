@@ -22,7 +22,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
     There are a [number of installation options available](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), however when using a distribution with a mature but up-to-date package ecosystem, it can be as simple as installing from the package manager.
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ sudo dnf info awscli2
     Last metadata expiration check: 0:00:23 ago on Wed 21 Feb 2024 15:44:01 GMT.
     Installed Packages
@@ -45,7 +45,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 2. Validate that the AWS CLI is installed and runs
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws
     
     usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
@@ -60,7 +60,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 3. Configure a personal 'home' profile in the AWS CLI:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws configure --profile home
     AWS Access Key ID [None]: <<accesskey>>
     AWS Secret Access Key [None]: <<secretkey>>
@@ -70,14 +70,14 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 4. Verify that the CLI and profile can retreive data from AWS:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws ec2 describe-instances --profile home | jq '.[][].Instances[].InstanceId'
     "i-06170215c6344402c"
     ```
 
 5. Set the current profile in the `AWS_PROFILE` environment variable and re-verify:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ export AWS_PROFILE=home
     wmcdonald@fedora:~$ aws ec2 describe-instances
     {
@@ -95,7 +95,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
 6. Rinse and repeat the profile setup for a 'work' profile in the AWS CLI:
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ aws configure --profile work
     AWS Access Key ID [None]: <<workaccesskey>>
     AWS Secret Access Key [None]: <<worksecretkey>>

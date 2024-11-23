@@ -70,7 +70,7 @@ On your Windows system:
 In your WSL2 instance:
 
 1. Now in-place upgrade the distribution from Fedora-38 -> Fedora-40
-    ```
+    ```Shell
     [wmcdonald@DESKTOP-9HGJE25 ~]$ sudo su -
     [root@DESKTOP-9HGJE25 ~]# dnf upgrade -y --refresh
     [root@DESKTOP-9HGJE25 ~]# dnf install dnf-plugin-system-upgrade

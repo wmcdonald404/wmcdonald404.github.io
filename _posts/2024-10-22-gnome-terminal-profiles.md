@@ -15,7 +15,7 @@ It's easy enough to enumerate profiles but it's only really possible to change t
 
 1. We can list all extant terminal profiles by `dconf dump`-ing `/org/gnome/terminal/legacy/profiles`:
 
-	```
+	```Shell
 	wmcdonald@fedora:~$ dconf dump /org/gnome/terminal/legacy/profiles:/
 	[/]
 	list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '7455b36d-c1a6-4be7-ba5e-c9337fe6b1a1', '7e895d7e-17b8-45f5-8dc2-0719fa1b90e7']
@@ -47,7 +47,7 @@ It's easy enough to enumerate profiles but it's only really possible to change t
 
 2. We can list individual profiles
 
-	```
+	```Shell
 	wmcdonald@fedora:~$ dconf dump /org/gnome/terminal/legacy/profiles:/:7e895d7e-17b8-45f5-8dc2-0719fa1b90e7/
 	[/]
 	background-color='rgb(47,30,46)'

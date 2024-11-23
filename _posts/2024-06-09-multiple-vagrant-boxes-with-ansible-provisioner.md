@@ -20,7 +20,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
 
 ## How-to
 1. Set a working directory for our Vagrant configuration and export an environment variable to use as shorthand for the location:
-    ```
+    ```Shell
     wmcdonald@fedora:~$ mkdir -p ~/working/vagrant/fedora/multi-box-ansible
     wmcdonald@fedora:~$ export VWD=$_
     wmcdonald@fedora:~$ echo $VWD
@@ -28,7 +28,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
     ```
 
 2. Create a Vagrantfile `${VWD}/Vagrantfile` to provision 2 new nodes. Note the `node.vm.provision "ansible"` looping construct which will run the Ansible provisioner for each node.
-    ```
+    ```Ruby
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
 
@@ -67,7 +67,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
 
 3. Create a simple Ansible playbook, `${VWD}/playbook.yml`.
 
-    ```
+    ```YAML
     - name: Vagrant post-provision
       hosts: cluster_nodes
 
@@ -79,7 +79,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
 
 4. If the base Vagrant box isn't already set up, set it up for the appropriate hypervisor:
     
-    ```
+    ```Shell
     wmcdonald@fedora:~$ vagrant box add fedora/40-cloud-base --provider libvirt
     ==> box: Loading metadata for box 'fedora/40-cloud-base'
         box: URL: https://vagrantcloud.com/api/v2/vagrant/fedora/40-cloud-base
@@ -95,12 +95,12 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
     *Note:* if you receive the error: 
     > The provider 'libvirt' could not be found, but was requested to back the machine 'node0'. Please use a provider that exists.
 
-    ```
+    ```Shell
     wmcdonald@fedora:~$ vagrant plugin install vagrant-libvirt
     ```
 
 6. Now we can `vagrant up` the boxes
-    ```
+    ```Shell
     wmcdonald@fedora:~/working/vagrant/fedora/multi-box-ansible$ vagrant up 
     Bringing machine 'node0' up with 'libvirt' provider...
     Bringing machine 'node1' up with 'libvirt' provider...
@@ -140,7 +140,7 @@ Vagrant also has the concept of [provisioning/provisioners](https://developer.ha
     *Note:* Observe the output of `ansible-playbook playbook.yml` among the Vagrant box configuration and provisioning.
 
 6. Now clean-up the boxes
-    ```
+    ```Shell
     wmcdonald@fedora$ cd $VWD
     wmcdonald@fedora$ vagrant destroy -f 
     ```

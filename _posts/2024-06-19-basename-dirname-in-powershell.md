@@ -20,7 +20,7 @@ On Unix/Linux systems, it's trivial to `dirname` that full path into something `
 
 * CTRL-ALT-C or CTRL-K P will copy the full path, for example `/home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-wsl-update-bundled-distribution.md`
 
-```
+```Shell
 wmcdonald@fedora:~$ dirname /home/wmcdonald/repos/personal/github-pages/_posts/2024-06-18-wsl-update-bundled-distribution.md
 /home/wmcdonald/repos/personal/github-pages/_posts
 
