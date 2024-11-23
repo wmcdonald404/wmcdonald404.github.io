@@ -1,7 +1,7 @@
 ---
-layout: default
-title: "Recipes"
-permalink: "/recipes/"
+layout: page
+title: recipes
+permalink: /recipes
 ---
 
 ## Recipes

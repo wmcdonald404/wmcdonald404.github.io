@@ -28,7 +28,11 @@ permalink: /cv
 | Aug 1997 - Dec 1997 | Customer Engineering Ltd | Technical Support Administrator | 
 
 # Technologies
-Over the years, I've researched, deployed, configured and operated hundreds of different pieces of technology. This is an attempt to capture this more comprehensively than would reasonably fit on a CV.
+Over the years, I've used hundreds (maybe thousands, if we include major releases :-)) of different pieces of open-source and commercial technology. 
+
+Whether that's configuring, deploying, testing, and operating in a hands-on capacity. Or designing solutions gluing together and integrating multiple components. Or assessing organisational impact of a new technology across a team or a business.
+
+ This is an attempt to capture this more comprehensively than would reasonably fit on a CV.
 
 ## Operating Systems
 - BSD
@@ -194,8 +198,8 @@ Over the years, I've researched, deployed, configured and operated hundreds of d
 - [Jenkins](https://www.jenkins.io/doc/book/)
 
 ### SAST
-- Checkov
-- Mend
+- [Checkov](https://www.checkov.io/1.Welcome/What%20is%20Checkov.html)
+- [Mend](https://docs.mend.io/)
 
 ### Software Build
 - [Apache Ant](https://ant.apache.org/)

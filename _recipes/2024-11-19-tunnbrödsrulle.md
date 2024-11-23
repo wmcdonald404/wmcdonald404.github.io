@@ -22,7 +22,7 @@ Hotdog, mashed potato, shrimp salad, some crispy onion, ketchup & mustard, in a 
 # Ingredients
 - 1 tbsp (15g) butter
 - 1 onion (or [Ikea ROSTAD LÖK](https://www.ikea.com/gb/en/p/rostad-loek-fried-onion-30237176/) or just normally crispy hotdog onions.)
-- 4 hotdogs (I like Wikinger)
+- 4 hotdogs
 - 2 [lomper](https://scandinaviancookbook.com/traditional-norwegian-lomper-potato-flatbread/) or tunnbröd (or wheat tortilla)
 - 180g mashed potatoes, or 1 portion of Smash, take 30g add 150ml (approx. 1/4 pint) of boiling water, mix with a fork.
 - 2 tbsp (8g) parsley
@@ -36,6 +36,12 @@ Hotdog, mashed potato, shrimp salad, some crispy onion, ketchup & mustard, in a 
 - Add two hotdogs on top of the mashed potatoes on each lompe.
 - Add 3 tbsp of Skagenröra per plate on top of the hotdogs.
 - Top with fried onions, ketchup, and/or mustard. Roll up the lomper and enjoy! 
+
+## Notes
+- Mash: Smash/instant mash is very in keeping here. 
+- Hotdogs: 
+    - At the slightly more 'mechanically recovered pink goo' end of the spectrum, I like [Wikinger](https://wikingerhotdogs.com/our-range/)
+    - If you wanted to go classier, and they're in stock, [Helen Browning's Organic Hot Dogs](https://helenbrowningsorganic.co.uk/shop/product/hot-dogs/)
 
 # References
 - [Tunnbrödsrulle - The best street food in Sweden](https://byfoodandtravel.com/tunnbrodsrulle-the-best-street-food-in-sweden/)
