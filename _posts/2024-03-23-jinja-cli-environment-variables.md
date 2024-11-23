@@ -25,7 +25,7 @@ The ability to dynamically render templates based on data in environment variabl
 
     Given a simple synthentic example as shown below:
 
-    ```Shell
+    ```shell
     environments/
     ├── dev
     │   ├── web_instance_count: 2
@@ -44,7 +44,7 @@ The ability to dynamically render templates based on data in environment variabl
 ## How-to
 1. Install the Jinja CLI module from Pip, this example is from a Fedora system, adjust accordingly:
 
-    ```Shell
+    ```shell
     $ mkdir -p .venv/jinjacli/
     $ python -m venv .venv/jinjacli/
     $ . ~/.venv/jinjacli/bin/activate
@@ -56,7 +56,7 @@ The ability to dynamically render templates based on data in environment variabl
 
 2. Create an example template file:
 
-    ```Shell
+    ```shell
     $ cat > /tmp/credential.yml <<EOF
     ---
     username: {% raw %}{{ APP_USER_NAME }}{% endraw %}
@@ -67,7 +67,7 @@ The ability to dynamically render templates based on data in environment variabl
 
 3. Set some environment variables:
 
-    ```Shell
+    ```shell
     $ export APP_USER_NAME='sulaco'
     $ export APP_SECRET_PASSWORD='x3nom0rph'
     $ set | grep APP_
@@ -77,7 +77,7 @@ The ability to dynamically render templates based on data in environment variabl
 
 4. Test render the example template with the example environment variables:
 
-    ```Shell
+    ```shell
     $ jinja -X 'APP_*' /tmp/credential.yml 
     ---
     username: sulaco

@@ -14,7 +14,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 1. Set some common variables to reuse in subsequent steps.
 
     Set the current date & time, and the subject of the blog post:
-    ```Shell
+    ```shell
     $ export BLOGDATE=$(date -I)
     $ export BLOGTITLE='Simple Github pages blog post'
     ```
@@ -22,7 +22,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 2. Add the contents including any requisite [FrontMatter](https://jekyllrb.com/docs/front-matter/)
 
     Create the post file with an appropriately time-stamped name. Assuming our repository is checked out at `~/repos/github-pages/`, construct the FrontMatter from the environment variables:    
-    ```Shell
+    ```shell
     $ cat >> ~/repos/github-pages/_posts/${BLOGDATE}-simple-pages-blog-post.md <<EOF
     ---
     title: "${BLOGTITLE}"
@@ -32,7 +32,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 
     Edit the file and add the rest of the content:
     
-    ```Shell
+    ```shell
     $ vim ~/repos/github-pages/_posts/${BLOGDATE}-simple-pages-blog-post.md
     ```
 
@@ -43,7 +43,7 @@ This post summarises a simple workflow to add new posts to an existing Github pa
 3. Verify `git status`, `git add` the new content, `git commit` the new post and `git push` to the remote repository.
     
     Check the current Git source control state:
-    ```Shell
+    ```shell
     wmcdonald@fedora:~/repos/github-pages$ git status
     On branch main
     Your branch is up to date with 'origin/main'.
@@ -55,11 +55,11 @@ This post summarises a simple workflow to add new posts to an existing Github pa
     no changes added to commit (use "git add" and/or "git commit -a")
     ```
     Add the new content in order to stage the new changes:
-    ```Shell
+    ```shell
     wmcdonald@fedora:~/repos/github-pages$ git add _posts/
     ```
     Validate the new Git state:
-    ```Shell
+    ```shell
     wmcdonald@fedora:~/repos/github-pages$ git status
     On branch main
     Your branch is up to date with 'origin/main'.
@@ -69,14 +69,14 @@ This post summarises a simple workflow to add new posts to an existing Github pa
             new file:   _posts/2024-01-02-simple-pages-blog-post.md
     ```
     Commit the new content:
-    ```Shell
+    ```shell
     wmcdonald@fedora:~/repos/github-pages$ git commit -m '- Add new blog post describing simple workflow to add new post.'
     [main 0126586] - Add new blog post describing simple workflow to add new post.
     1 file changed, 64 insertions(+)
     create mode 100644 _posts/2024-01-02-simple-pages-blog-post.md
     ```
     Push to the remote to trigger a workflow:
-    ```Shell
+    ```shell
     wmcdonald@fedora:~/repos/github-pages$ git status
     On branch main
     Your branch is ahead of 'origin/main' by 2 commits.

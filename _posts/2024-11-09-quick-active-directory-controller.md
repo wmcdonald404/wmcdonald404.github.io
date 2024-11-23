@@ -24,12 +24,12 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 ## Provision Virtual Machine / Vagrant Box 
 
 1. Start a Windows 2022 Vagrant Box
-    ```Shell
+    ```shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant up
     ```
 
 2. Connect to the Vagrant Box and start Powershell
-    ```Shell
+    ```shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@WIN-Q5TRJJGJS2J C:\Users\vagrant>pwsh
     PS C:\Users\vagrant> 
@@ -40,7 +40,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     > **Note #2:** This step will be required after any restarts or reconnection.
 
 3. Rename the VM
-    ```Powershell
+    ```powershell
     PS C:\Users\vagrant> Rename-Computer -NewName ad01
     WARNING: The changes will take effect after you restart the computer WIN-Q5TRJJGJS2J.
     PS C:\Users\vagrant> Restart-Computer
@@ -49,7 +49,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 4. Reconnect, invoke Powershell, verify the hostname change:
-    ```Shell
+    ```shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@WIN-Q5TRJJGJS2J C:\Users\vagrant>pwsh
     PS C:\Users\vagrant> $Env:COMPUTERNAME
@@ -57,7 +57,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 5. Configure time sync:
-    ```Powershell
+    ```powershell
     PS C:\Users\vagrant> w32tm /config /manualpeerlist:pool.ntp.org /syncfromflags:MANUAL
     The command completed successfully.
     PS C:\Users\vagrant> Stop-Service w32time
@@ -76,7 +76,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 
     > **Note:** for a pure Powershell equivalent:
 
-    ```Powershell
+    ```powershell
     Set-Location HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers
     Set-ItemProperty . 0 "ca.pool.ntp.org"
     Set-ItemProperty . "(Default)" "0"
@@ -90,7 +90,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
 ## Configure Active Directory Domain
 
 6. Create the domain controller
-    ```Powershell
+    ```powershell
     # Set our domain/subdomain
     # $Domain.Split('.')[0].ToUpper() will return 'NOSTROMO' for the NetBIOS domain name
     
@@ -115,7 +115,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 7. Add a suitably complex password (`vagrant` will not cut the mustard):
-    ```Powershell
+    ```powershell
     WARNING: A script or application on the remote computer LOCALHOST is sending a prompt request. When you are prompted, enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the application or script that is requesting the data.
     SafeModeAdministratorPassword: *********************
     WARNING: A script or application on the remote computer LOCALHOST is sending a prompt request. When you are prompted, enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the application or script that is requesting the data.
@@ -123,7 +123,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 8. Wait for the system to reboot, then reconnect
-    ```Shell
+    ```shell
     [wmcdonald@fedora windows2022 (main ✓)]$ vagrant ssh
     vagrant@192.168.121.218's password: 
 
@@ -141,7 +141,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 9. Validate running services
-    ```Powershell
+    ```powershell
     PS C:\Users\vagrant> Get-Service adws,kdc,netlogon,dns
 
     Status   Name               DisplayName
@@ -153,7 +153,7 @@ We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald4
     ```
 
 10. Validate DNS (note we're still on a DHCP IP address at this stage where previously we'd have switched to a fixed assigned address):
-    ```Powershell
+    ```powershell
     PS C:\Users\vagrant> Get-NetIPAddress -AddressFamily IPv4 | Select-Object InterfaceIndex, InterfaceAlias,  IPAddress
 
     InterfaceIndex InterfaceAlias              IPAddress
@@ -184,24 +184,24 @@ Create domain security groups, domain users and assign those users to the groups
 1. Create Security Groups
 
     - Officers
-        ```Powershell
+        ```powershell
         PS> New-ADGroup -Name "Officers" -SamAccountName Officers -GroupCategory Security -GroupScope Global -DisplayName "Bridge Officers" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Bridge Officers"
         ```
 
     - Engineering
-        ```Powershell
+        ```powershell
         PS> New-ADGroup -Name "Engineers" -SamAccountName Engineers -GroupCategory Security -GroupScope Global -DisplayName "Engineering Crew" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Engineering Crew"
         ```
 
     - Pest Control
-        ```Powershell
+        ```powershell
         PS> New-ADGroup -Name "Cats" -SamAccountName Cats -GroupCategory Security -GroupScope Global -DisplayName "Pest Control" -Path "CN=Users,DC=Nostromo,DC=Com" -Description "Members of Pest Control Crew"
         ```
 
 2. Create Users
 
     - Dallas, Officers
-        ```Powershell
+        ```powershell
         PS> $Attributes = @{
             Enabled = $true
             ChangePasswordAtLogon = $false
@@ -216,7 +216,7 @@ Create domain security groups, domain users and assign those users to the groups
         PS> New-ADUser @Attributes
         ```
     - Kane & Parker, engineering crew
-        ```Powershell
+        ```powershell
         PS> $Attributes = @{
             Enabled = $true
             ChangePasswordAtLogon = $false
@@ -246,7 +246,7 @@ Create domain security groups, domain users and assign those users to the groups
 
     - Jones, Pest Control crew
 
-        ```Powershell
+        ```powershell
         PS> $Attributes = @{
             Enabled = $true
             ChangePasswordAtLogon = $false
@@ -262,7 +262,7 @@ Create domain security groups, domain users and assign those users to the groups
         ```
 
 3. Add Users to Security Groups
-    ```Powershell
+    ```powershell
     PS> Add-ADGroupMember -Identity Officers -Members dallas, kane
     PS> Add-ADGroupMember -Identity Engineers -Members parker
     PS> Add-ADGroupMember -Identity Cats -Members jones
@@ -272,14 +272,14 @@ Create domain security groups, domain users and assign those users to the groups
 This is an optional step. If we were delegating a subdomain of the DNS hierarchy to another subsystem. For example these steps would originally have delegated a leaf of the DNS hierarch to Red Hat's Identity Management infrastructure.
 
 1. Add delegation for idm.nostromo.com
-    ```Powershell
+    ```powershell
     PS> Add-DnsServerZoneDelegation -Name "nostromo.com" -ChildZoneName "idm" -NameServer "idm01.idm.nostromo.com" -IPAddress 192.168.0.22 -PassThru -Verbose
     ```
 
 ## Cross-forest Trust
 Again, optional but if we wanted to establish a Trust from one AD domain to another:
 
-```Powershell
+```powershell
 $localforest = [System.DirectoryServices.ActiveDirectory.Forest]::getCurrentForest()
 $strRemoteForest = ‘example.cloud’
 $strRemoteUser = ‘administrator’

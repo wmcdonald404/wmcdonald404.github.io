@@ -27,13 +27,13 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 1. Create the Devcontainer folder:
 
-	```Shell
+	```shell
 	wmcdonald@fedora:~/workspace/github-pages$ mkdir -p ~/workspace/github-pages/.devcontainer/podman
 	```
 
 2. Add the Devcontainer config in `devcontainer.json`:
 
-	```JSON
+	```json
 	wmcdonald@fedora:~/workspace/github-pages$ cat ~/workspace/github-pages/.devcontainer/podman/devcontainer.json
 	{
         "name": "Jekyll",
@@ -61,7 +61,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 1. In the Devcontainer, start Jekyll by running `jekyll serve`:
 
-	```Shell
+	```shell
 	root ➜ /workspaces/github-pages (main) $ jekyll serve
 	Configuration file: /workspaces/github-pages/_config.yml
 				Source: /workspaces/github-pages
@@ -84,7 +84,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 	If you only see a bare HTML index, we will need to add a `layout` to the `index.md`.
 	
-	```Shell
+	```shell
 	root ➜ /workspaces/github-pages (main) $ cat index.md
 	---
 	# Feel free to add content and custom Front Matter to this file.
@@ -100,7 +100,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 5. As good practice, also append these additional items to `.gitignore`:
 
-	```Shell
+	```shell
 	root ➜ /workspaces/github-pages (main) $ cat /tmp/jk/.gitignore 
 	_site
 	.sass-cache
@@ -112,7 +112,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 6. If you still have CSS rendering issues with individual posts, you can include the following in `_config.yml`:
 
-	```YAML
+	```yaml
 	defaults:
 	-
 		scope:
@@ -129,7 +129,7 @@ First, set up the Devcontainer. I'm  running Podman which requires a few additio
 
 You can see more about the devcontainer you're using by running `devcontainer-info`:
 
-```Shell
+```shell
 07:50:29 root@jekyll-dev-container wmcdpages ±|main|→ devcontainer-info 
 
 Development container image information
@@ -160,7 +160,7 @@ As a result, [`post-create.sh`](https://github.com/devcontainers/images/blob/mai
 If you need a quick Jekyll dummy site to expirment, test theming or generally fuck around and find out, you can create an entirely new throwaway site and serve it as follows:
 
 
-```Shell
+```shell
 root ➜ /workspaces/github-pages (main) $ mkdir /tmp/jk
 root ➜ /workspaces/github-pages (main) $ jekyll new /tmp/jk/
 Running bundle install in /tmp/jk... 

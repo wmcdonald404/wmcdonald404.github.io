@@ -25,7 +25,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 1. Create a Python virtual environment (venv). Activate the venv. Upgrade pip inside the venv. Install Molecule and the Podman driver:
 
-    ```Shell
+    ```shell
     wmcdonald@fedora:~$ python -m venv ~/.venv/molecule.role
     wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
     (molecule.role) wmcdonald@fedora:~$ pip install --upgrade pip
@@ -34,7 +34,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
     **Note:** The virtual environment (venv) will need to be reactivated whenever a terminal/shell session is restarted.
 
-    ```Shell
+    ```shell
     wmcdonald@fedora:~$ . ~/.venv/molecule.role/bin/activate
     (molecule.role) wmcdonald@fedora:~$ 
     ```
@@ -42,14 +42,14 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 2. Create a test role
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~$ ansible-galaxy role init testrole
     - Role testrole was created successfully
     ```
 
 3. Add a molecule scenario 
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule init scenario
     INFO     Initializing new scenario default...
 
@@ -78,7 +78,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 4. Configure Molecule's baseline setup in `molecule.yml`:
 
-    ```YAML
+    ```yaml
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/molecule.yml 
     ---
     dependency:
@@ -106,7 +106,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 5. Define the runtime requirements in `requirements.yml`:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/requirements.yml 
     collections:
       - containers.podman
@@ -116,7 +116,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 6. First, `molecule list` to inspect the current status:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
@@ -129,7 +129,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 7. Next, `molecule create`, to set up the instance(s):
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule create
     WARNING  Driver podman does not provide a schema.
     INFO     default scenario test matrix: dependency, create, prepare
@@ -209,7 +209,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 8. Now `molecule list` again, to reflect the created instance(s):
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
@@ -222,7 +222,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 9. Verify we can `molecule login` to the instance, and check something that would appear distinct from the host we're running on currently (e.g. this be being run on Fedora where `/etc/redhat-release` would differ significantly):
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule login
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > login
@@ -238,7 +238,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 10. Finally, `molecule destroy` to tear down the instance and clean up:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
     WARNING  Driver podman does not provide a schema.
     INFO     default scenario test matrix: dependency, cleanup, destroy
@@ -288,7 +288,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 1. Configure specifc steps for the create setup in `create.yml`:
 
-    ```YAML
+    ```yaml
     (molecule.role) wmcdonald@fedora:~/testrole$ cat molecule/default/create.yml 
     - name: Create
       hosts: localhost
@@ -381,7 +381,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 2. Configure the converge stage:
 
-    ```YAML
+    ```yaml
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/converge.yml 
     ---
     - name: Converge
@@ -392,7 +392,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 3. Add the verify tests:
 
-    ```YAML
+    ```yaml
     (molecule.role) wmcdonald@fedora:~$ cat ~/testrole/molecule/default/verify.yml
     ---
     - name: Verify
@@ -407,7 +407,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 4. Add a default task to the role's main.yml:
 
-    ```YAML
+    ```yaml
     ---
     - name: Molecule Hello World!
       ansible.builtin.debug:
@@ -416,7 +416,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 5. Run the test scenario, note the test failure:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule test
     <output truncated>
 
@@ -429,7 +429,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 6. Update the role's main.yml to include something more useful and testable:
 
-    ```YAML
+    ```yaml
     ---
     - name: Molecule Hello World!
       ansible.builtin.debug:
@@ -442,7 +442,7 @@ So this is an attempt to capture the process to configure a new system for Ansib
 
 7. Run the test scenario again, note the test passes:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule test
     <output truncated>
 
@@ -504,13 +504,13 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 2. Start from a clean state
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
     ```
 
 3. Review the status
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
@@ -523,13 +523,13 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 4. Create the target testing environment
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule create
     ```
 
 5. Review the status
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
@@ -542,13 +542,13 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 6. 'Converge' the testing environment by applying the role
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule converge
     ```
 
 7. Review the status
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule list
     WARNING  Driver podman does not provide a schema.
     INFO     Running default > list
@@ -561,7 +561,7 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 8. 'Verify' to run the tests against the prepared environment
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule verify
 
     TASK [Check if httpd is installed] *********************************************
@@ -574,7 +574,7 @@ We can now run individual steps, giving fine-grained control over execution and 
 
 9. Clean up:
 
-    ```Shell
+    ```shell
     (molecule.role) wmcdonald@fedora:~/testrole$ molecule destroy
     ```
 

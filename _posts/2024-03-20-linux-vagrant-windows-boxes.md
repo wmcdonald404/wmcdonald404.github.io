@@ -21,7 +21,7 @@ There are a number of Windows 2022 Vagrant Box base images available in the Vagr
 
 ## How-to
 1. Add a Windows vagrant box base image from [https://app.vagrantup.com/jborean93/boxes/WindowsServer2022](https://app.vagrantup.com/jborean93/boxes/WindowsServer2022):
-```Shell
+```shell
 $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ==> box: Loading metadata for box 'jborean93/WindowsServer2022'
     box: URL: https://vagrantcloud.com/api/v2/vagrant/jborean93/WindowsServer2022
@@ -32,7 +32,7 @@ $ vagrant box add jborean93/WindowsServer2022 --provider libvirt
 ```
 
 2. Vagrant init a new box:
-```Shell
+```shell
 $ mkdir ~/working/vagrant/windows-scratch
 $ cd $_
 $ vagrant init jborean93/WindowsServer2022 
@@ -43,7 +43,7 @@ the comments in the Vagrantfile as well as documentation on
 ```
 
 3. Vagrant up the box:
-```Shell
+```shell
 $ vagrant up
 Bringing machine 'default' up with 'libvirt' provider...
 ==> default: Checking if box 'jborean93/WindowsServer2022' version '1.2.0' is up to date...
@@ -91,7 +91,7 @@ Bringing machine 'default' up with 'libvirt' provider...
 ```
 
 4. Test access to the Vagrant box:
-```Shell
+```shell
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> pwsh
@@ -100,7 +100,7 @@ WIN-JSJO34QHSE7
 ```
 
 5. Halt and destroy the box:
-```Shell
+```shell
 PS C:\Users\vagrant> exit
 vagrant@WIN-JSJO34QHSE7 C:\Users\vagrant> exit
 $ vagrant halt
@@ -108,7 +108,7 @@ $ vagrant destroy
 ```
 
 6. Simplify the default Vagrant file to improve readability: 
-```Shell
+```shell
 $ grep -Ev '^.*#|^$' Vagrantfile
 Vagrant.configure("2") do |config|
   config.vm.box = "jborean93/WindowsServer2022"
@@ -123,7 +123,7 @@ end
 ```
 
 7. Add new block devices for experimentation:
-```Shell
+```shell
 $ cat Vagrantfile
 Vagrant.configure("2") do |config|
   config.vm.box = "jborean93/WindowsServer2022"
@@ -136,7 +136,7 @@ end
 ```
 
 8. And reinstantiate the box:
-```Shell
+```shell
 $ vagrant up
 $ vagrant ssh
 vagrant@192.168.121.8's password: <default vagrant password: vagrant>

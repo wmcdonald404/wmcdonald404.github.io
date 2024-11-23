@@ -31,7 +31,7 @@ The script is shared at:
 
 2. Grab the `glgtree` script and make it executable:
 
-    ```Shell
+    ```shell
     $ mkdir ~/.local/bin/
     $ curl -s https://raw.githubusercontent.com/wmcdonald404/wmcdonald404-scripts/master/python/gitlab-tree/glgtree -o ~/.local/bin/glgtree
     $ chmod u+x $_
@@ -39,14 +39,14 @@ The script is shared at:
 
 3. Set your [Gitlab Personal Access Token (PAT)](https://gitlab.com/-/user_settings/personal_access_tokens):
 
-    ```Shell
+    ```shell
     $ export GITLAB_TOKEN=glpat-<PATID>
     ```
     *Note:* replace <PATID> with your own token name
 
 4. Now we can list groups and repositories
 
-    ```Shell
+    ```shell
     wmcdonald@fedora:~$ glgtree -g 86427305
     📁 demo-topgroup (86427305)
     ├── 📁 demo-subgroup1 (86427310)

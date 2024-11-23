@@ -31,7 +31,7 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 ## Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ tree $OSH_CUSTOM
     /home/wmcdonald/.oh-my-bash/custom
     ├── aliases
@@ -48,7 +48,7 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
     ```
 
 2. Create your custom alias file
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ cat $OSH_CUSTOM/aliases/custom.aliases.sh
     alias simple='source ${OSH}/themes/morris/morris.theme.sh'
     alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
@@ -57,12 +57,12 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 3. Include your custom alias in the `alias()` array
 
     Edit the `~/.bashrc`:
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ vim +'set nu' +99 ~/.bashrc
     ```
 
     Add `custom` to the `aliases()` array (line numbers shown for context):
-    ```Shell
+    ```shell
     99:aliases=(
     100-  general
     101-  custom
@@ -72,21 +72,21 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 4. Test
 
     Run the `src` alias to re-source the default `~/.bashrc`:
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ alias | grep src
     alias src='source ~/.bashrc'
     [wmcdonald@fedora ~ ]$ src
     ```
 
     Check the aliases exist:
-    ```Shell
+    ```shell
     wmcdonald > ~ > alias | grep -E 'simple|fancy'
     alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
     alias simple='source ${OSH}/themes/morris/morris.theme.sh'
     ```
 
     Call each alias in turn:
-    ```Shell
+    ```shell
     wmcdonald > ~ > simple
     [wmcdonald@fedora ~ ]$ fancy
     wmcdonald > ~ >
@@ -110,7 +110,7 @@ This is essentially the verbatim example given in the upstream documentation: [C
 ## Steps
 
 1. Review the structure of `$OSH_CUSTOM`:
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ tree $OSH_CUSTOM
     /home/wmcdonald/.oh-my-bash/custom
     ├── aliases
@@ -128,7 +128,7 @@ This is essentially the verbatim example given in the upstream documentation: [C
 
 2. Copy our *to-be-fucked-with* theme over before customisation:
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ cp -a ${OSH}/themes/morris/ ${OSH_CUSTOM}/themes/morris/
     ```
 
@@ -136,7 +136,7 @@ This is essentially the verbatim example given in the upstream documentation: [C
 
     Here I'm selectively using elements of syntax from another theme that **IS** Python Venv aware but you can do as little or as much as you like to your customised copy of the theme.
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ diff ${OSH}/themes/morris/morris.themdiff ${OSH}/themes/morris/morris.theme.sh ${OSH_CUSTOM}/themes/morris/morris.theme.sh
     19c19,21
     < 	PS1="${TITLEBAR}[\u@\h \W $(scm_prompt_info)]\$ "
@@ -148,7 +148,7 @@ This is essentially the verbatim example given in the upstream documentation: [C
     
     Or, possibly more clearly, I've added lines 19,20 and ammended the `$python_venv` to `PS1` on line 21:
 
-    ```Shell
+    ```shell
     18	function _omb_theme_PROMPT_COMMAND() {
     19		OMB_PROMPT_VIRTUALENV_FORMAT='(%s)'
     20		local python_venv; _omb_prompt_get_python_venv
@@ -170,7 +170,7 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
 
 1. Convert the shell script from Stackoverflow to a simple bash function.
 
-    ```Shell
+    ```shell
     remotecode() {
         dir=`echo $(cd $1 && pwd)`;
         hex=`printf ${dir} | od -A n -t x1 | tr -d '[\n\t ]'`;
@@ -181,7 +181,7 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
 
 2. Add to the custom aliases:
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ cat .oh-my-bash/custom/aliases/custom.aliases.sh
     alias simple='source ${OSH}/themes/morris/morris.theme.sh'
     alias fancy='source ${OSH}/themes/powerline-light/powerline-light.theme.sh'
@@ -196,13 +196,13 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
 
 3. Once again, source the new config:
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ src
     ```
 
 4. Check the function has been sourced:
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ type remotecode
     remotecode is a function
     remotecode ()
@@ -216,7 +216,7 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
 
 5. Test the new function:
 
-    ```Shell
+    ```shell
     [wmcdonald@fedora ~ ]$ remotecode ~/workspaces/pages/
     ```
 

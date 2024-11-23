@@ -19,7 +19,7 @@ Configuring VSCode to use a single keyboard shortcut to both start a terminal if
 
 3. Add the following entries to `keybindings.json`:
 
-```JSON
+```json
 // Toggle between terminal and editor focus
 {
     "key":     "ctrl+`",
