@@ -26,7 +26,7 @@ Most people will start with Gists in the UI, but having a handy CLI mechanism to
 
 1. List your existing Gists using the `gh` CLI:
 
-    ```
+    ```Shell
     [wmcdonald@fedora ~ ]$ cd ~/repos/wmcdonald404/gists/
     [wmcdonald@fedora gists ]$ gh gist list --public
     ID                                DESCRIPTION                                                                  FILES   VISIBILITY  UPDATED            
@@ -43,10 +43,10 @@ Most people will start with Gists in the UI, but having a handy CLI mechanism to
     ```
 
     > **Note:** `gh gist list` limits/paginates its output to 10 entries. Use `gh gist list -L 50` to see up to 50 Gists.
-    
+
 2. Clone a Gist:
 
-    ```
+    ```Shell
     [wmcdonald@fedora gists ]$ gh gist clone 146b2f19bf4d28252e12c6da168bf956
     Cloning into '146b2f19bf4d28252e12c6da168bf956'...
     remote: Enumerating objects: 13, done.
@@ -73,7 +73,7 @@ Most people will start with Gists in the UI, but having a handy CLI mechanism to
 
 4. Now you can use your usual update/stage/commit/push Git workflow.
 
-    ```
+    ```Shell
     [wmcdonald@fedora gists ]$ cd fedora-container-man-pages/
     /home/wmcdonald/repos/wmcdonald404/gists/fedora-container-man-pages
     [wmcdonald@fedora fedora-container-man-pages (main ✓)]$ git status
