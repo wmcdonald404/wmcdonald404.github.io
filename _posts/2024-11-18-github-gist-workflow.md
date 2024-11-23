@@ -42,6 +42,8 @@ Most people will start with Gists in the UI, but having a handy CLI mechanism to
     146b2f19bf4d28252e12c6da168bf956  Fedora - Installing man pages in a Fedora container                          1 file  public      about 9 minutes ago
     ```
 
+    > **Note:** `gh gist list` limits/paginates its output to 10 entries. Use `gh gist list -L 50` to see up to 50 Gists.
+    
 2. Clone a Gist:
 
     ```
