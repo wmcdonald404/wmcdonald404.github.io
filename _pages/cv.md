@@ -285,64 +285,74 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 
 ### Containers
   - Container Runtimes
-    - Docker
-    - Podman
-    - Solaris Containers/Zones
+    - [Docker](https://docs.docker.com/)
+    - [Podman](https://podman.io/docs)
+    - [Solaris Containers/Zones](https://docs.oracle.com/cd/E19044-01/sol.containers/817-1592/zones.intro-1/index.html)
   - Container Platforms
-    - Red Hat Openshift
+    - [Red Hat Openshift](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17)
+    - [Kubernetes](https://kubernetes.io/docs/home/)
 
 ### Hypervisors
 - Desktop
-  - HyperV
-  - Virtualbox
-  - Vmware Player
-  - Vmware Workstation
-  - WSL
+  - [HyperV](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/)
+  - [Virtualbox](https://www.virtualbox.org/wiki/Documentation)
+  - [Vmware Player (discontinued)](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
+  - [Vmware Workstation](https://docs.vmware.com/en/VMware-Workstation-Pro/index.html)
+  - [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/)
 - Server:
-  - Red Hat Enterprise Virtualisation
-  - VMware vCenter
-  - VMware ESX
+    - [Hyperv Server](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-overview)
+    - [Red Hat Enterprise Virtualisation (doscontinued)](https://access.redhat.com/products/red-hat-virtualization)
+    - [VMware vSphere (ESX & vCenter)](https://docs.vmware.com/en/VMware-vSphere/index.html)
 
 ### Hardware Paritioning 
-- vPAR / LPAR
-- Solaris Dynamic System Domains
+- [IBM POWER LPAR](https://www.ibm.com/support/pages/ibm-power-virtualization-best-practices-guide)
+- [Oracle/Sun Solaris Dynamic System Domains](https://docs.oracle.com/cd/E19065-01/servers.12k/806-3509-13/2__Domains.html)
 
 ### Project Tools
-- Confluence
-- JIRA
-- Trello
-- Azure Boards
+- [Azure Boards](https://learn.microsoft.com/en-us/azure/devops/boards/?view=azure-devops)
+- [Confluence](https://support.atlassian.com/confluence-cloud/resources/)
+- [JIRA](https://support.atlassian.com/jira-software-cloud/resources/)
+- [Trello](https://support.atlassian.com/trello/)
 
 ### Security, Inventory & Management Tooling
-- RSA SecureID Server 
-- Qualys
-- Snow Inventory
-- BMC Patrol
+- [RSA SecureID Server](https://community.rsa.com/s/rsa-securid-documentation) 
+- [Qualys](https://www.qualys.com/documentation/)
+- [Snow Inventory](https://docs.snowsoftware.io/other-snow-products/snow-inventory-agents-and-oracle-scanners/)
 
 ### COTS Products
-- Microsoft HPC Pack 2019
-- Quantitative Risk Management (QRM)
-- Guidewire 
-    - Policy Center
-    - Billing Center
-- Amdocs/Cramer OSS Suite
+- [Microsoft HPC Pack 2019](https://learn.microsoft.com/en-us/powershell/high-performance-computing/overview?view=hpc19-ps)
+- [Quantitative Risk Management (QRM)](https://www.qrm.com/)
+- Guidewire
+    - [Policy Center](https://www.guidewire.com/products/core-products/insurancesuite/policycenter-insurance-policy-administration)
+    - [Billing Center](https://www.guidewire.com/products/core-products/insurancesuite/billingcenter-insurance-billing-software)
+- [Amdocs/Cramer OSS Suite](https://www.amdocs.com/products-services/network-management-services)
+    - Resource Manager
+    - Task Engine
+    - Sync Engine
+    - Discovery Engine
+    - Route Finder
+    - Delivery Engine
+    - Activation Engine
+    - OSS Installer
 
-# Storage (Block/File/Object)
-- Azure Storage (LRS, ZRS)
-- DRBD
-- EBS
-- Fibre Channel
-- iSCSI
-- LVM
-- NFS
-- RAID
-- Red Hat Ceph
-- Red Hat Gluster
-- s3
-- SATA
-- SCSI
+## Storage (Block/File/Object)
+- [Azure Managed Disks (LRS, ZRS)](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Linbit DRBD](https://linbit.com/drbd/)
+- [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
+- [Fibre Channel](https://en.wikipedia.org/wiki/Fibre_Channel)
+- [iSCSI](https://en.wikipedia.org/wiki/ISCSI)
+- [Linux Logical Volume Manager (LVM)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/index)
+- [Network File System (NFS)](https://linux-nfs.org/wiki/index.php/Main_Page)
+- [RAID](https://en.wikipedia.org/wiki/RAID)
+- [Red Hat Ceph](https://docs.redhat.com/en/documentation/red_hat_ceph_storage/7)
+- [Red Hat Gluster](https://docs.redhat.com/en/documentation/red_hat_gluster_storage/3.5)
+- [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
+- [Parallel ATA (PATA)/Integrated Drive Electronics (IDE)](https://en.wikipedia.org/wiki/Parallel_ATA)
+- [Serial Attached SCSI (SAS)](https://en.wikipedia.org/wiki/Serial_Attached_SCSI)
+- [Serial AT Attachment (SATA)](https://en.wikipedia.org/wiki/SATA)
+- [Small Computer System Interface (SCSI)](https://en.wikipedia.org/wiki/SCSI)
 
-# Networking
+## Networking
 - Barron McCann OSLAN gateway
 - Checkpoint Firewall-1 & Firewall-1 NG
 - Cisco IOS
