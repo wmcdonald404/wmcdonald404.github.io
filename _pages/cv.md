@@ -3,8 +3,10 @@ layout: page
 title: CV
 permalink: /cv
 ---
-* TOC
-{:toc}
+
+[LinkedIn](https://www.linkedin.com/in/willmcd/) is probably a better view of my work background and what my roles have involved. 
+
+This is more of a historical list of all the technolgies I've worked with, there are a lot of them. Far too many to list on a CV.
 
 # Employment History
 
@@ -26,6 +28,9 @@ permalink: /cv
 | Jan 2000 - Jul 2004 | Orchid Telematics | Unix Systems Administrator | 
 | Dec 1997 - Jan 2000 | Orchid Telematics | Senior Technical Support Administrator | 
 | Aug 1997 - Dec 1997 | Customer Engineering Ltd | Technical Support Administrator | 
+
+* TOC
+{:toc}
 
 # Technologies
 Over the years, I've used hundreds (maybe thousands, if we include major releases :-)) of different pieces of open-source and commercial technology. 
