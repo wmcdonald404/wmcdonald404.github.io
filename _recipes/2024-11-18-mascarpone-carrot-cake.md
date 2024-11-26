@@ -1,5 +1,5 @@
 ---
-title: "The Ultimate Carrot Cake with Mascarpone, Fromage Frais and Cinnamon Icing (Delia Smith)"
+title: "Carrot Cake with Mascarpone, Fromage Frais and Cinnamon Icing (Delia Smith)"
 tags:
 - carrot
 - cake
@@ -10,7 +10,8 @@ categories: recipe
 ---
 
 # Overview
-I don't have a particularly sweet tooth, as a result I don't really cook that many cakes or desserts. I'm far more about the cheese course at the end of a meal but I can appreciate a good cake every now and then.
+
+"The Ultimate Carrot Cake with Mascarpone, Fromage Frais and Cinnamon Icing." I don't have a particularly sweet tooth, as a result I don't really cook that many cakes or desserts. I'm far more about the cheese course at the end of a meal but I can appreciate a good cake every now and then.
 
 That said, much like the first recipe entry here [Rosie Sykes' Beef Goulash](https://wmcdonald404.co.uk/recipes/2024-10-19-beef-goulash.html) being the first savoury thing I made when I started cooking,  this cake was probably the first sweet thing I made when I started cooking for myself rather than living like a student.
 
