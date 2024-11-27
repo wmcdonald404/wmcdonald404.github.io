@@ -138,9 +138,6 @@ The obvious solution is a quick alias to switch themes on-the-fly, which in turn
 ## References
 - [Oh My Bash](https://ohmybash.nntoan.com/)
 - [Oh My Zsh](https://ohmyz.sh/)
-- [https://stackoverflow.com/questions/60379221/how-to-attach-a-remote-container-using-vscode-command-line](https://stackoverflow.com/questions/60379221/how-to-attach-a-remote-container-using-vscode-command-line)
-- [https://stackoverflow.com/questions/60861873/is-there-a-way-to-open-a-folder-in-a-container-from-the-vscode-command-line-usin](https://stackoverflow.com/questions/60861873/is-there-a-way-to-open-a-folder-in-a-container-from-the-vscode-command-line-usin)
-
 
 ## TODO
 - Update https://github.com/ohmybash/oh-my-bash/wiki/Articles ?

@@ -225,6 +225,8 @@ It requires manipulation of some shell parameters so a simple alias won't suffic
 
 # References
 - [Customization of Plugins and Themes](https://github.com/ohmybash/oh-my-bash?tab=readme-ov-file#customization-of--plugins-and-themes)
+- [https://stackoverflow.com/questions/60379221/how-to-attach-a-remote-container-using-vscode-command-line](https://stackoverflow.com/questions/60379221/how-to-attach-a-remote-container-using-vscode-command-line)
+- [https://stackoverflow.com/questions/60861873/is-there-a-way-to-open-a-folder-in-a-container-from-the-vscode-command-line-usin](https://stackoverflow.com/questions/60861873/is-there-a-way-to-open-a-folder-in-a-container-from-the-vscode-command-line-usin)
 
 # TODO
 - Update https://github.com/ohmybash/oh-my-bash/wiki/Articles ?
