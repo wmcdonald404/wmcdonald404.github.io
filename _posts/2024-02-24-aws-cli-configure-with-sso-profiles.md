@@ -128,6 +128,16 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
     output = json
     ```
 
+8. You can list configured profiles using `aws configure list-profiles`:
+
+    ```shell
+    [wmcdonald@fedora ~ ]$ aws configure list-profiles 
+    dev-account.developer
+    test-account.tester
+    default
+    ```
+
+
 ## Summary
 We now have the AWS CLI configured with two profiles, a simple environment variable that can be set to switch between profiles and SSO identity to permit access to cloud resources.
 
