@@ -10,7 +10,7 @@ categories: recipe
 ---
 
 ## Overview
-I was reminded in a recent Bluesky thread about the existence of Clamato Juice which sounds both revulsive and delicous in equal measure. That got me thinking about the Dishoom Bloody Mary which is a great prep-ahead drink for kids of all ages.
+I was reminded in a [recent Bluesky thread](https://bsky.app/profile/dempster2000.bsky.social/post/3lbv2zlxypk22) about the existence of [Clamato](https://www.clamato.com/en) [Juice](https://www.sainsburys.co.uk/gol-ui/Product/clamato-tomato-cocktail-946ml) which sounds both revulsive and delicous in equal measure. That got me thinking about the Dishoom Bloody Mary which is a great prep-ahead drink for kids of all ages.
 
 > For best results, make the Bloody Mary mix up in advance and give the flavours a few hours to mingle though the longer you leave it, the more peppery it will get. Those with foresight might decide to prepare it the night before the morning after.
 
@@ -18,7 +18,7 @@ I was reminded in a recent Bluesky thread about the existence of Clamato Juice w
 
 > The tomato purée helps the juice along a little, so there is no need to buy an expensive tomato juice. We use a smoke powder, but at home you can use smoked paprika, or replace the Tabasco with the smoked version.
 
-I'm reproducing this from the Dishoom cookbook. Go buy a copy, it's a great cookbook and their [Daal Makhni](https://duckduckgo.com/?t=ffab&q=dishoom+dal+makhani&atb=v443-1&ia=web) OMFG.
+I'm reproducing this from the [Dishoom cookbook]9(https://www.hive.co.uk/Product/23539713). Go buy a copy, it's a great cookbook and their [Daal Makhni](https://duckduckgo.com/?t=ffab&q=dishoom+dal+makhani&atb=v443-1&ia=web) OMFG.
 
 ## Ingredients
 SERVES 4 (or 1)
