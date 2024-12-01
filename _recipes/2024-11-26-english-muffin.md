@@ -45,5 +45,7 @@ Split with a fork and toast.
 
 Dirty american cheese is required.
 
+Perfect [round eggs](https://www.dunelm.com/product/handy-kitchen-pack-of-4-silicone-egg-poaching-rings-1000242193) are also recommended.
+
 # References
 - [English muffins (Paul Hollywood)](https://www.bbc.co.uk/food/recipes/english_muffins_56640)
