@@ -1,10 +1,10 @@
 {
-	"name": "Jekyll",
+	"name": "Devcontainer / Jekyll / wmcdonald404.co.uk",
 	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
 	"runArgs": [
 		"--security-opt", "label=disable",
 		"--userns=host",
-		"--hostname=jekyll-dev-container"
+		"--hostname=devcontainer.wmcdonald404.co.uk"
 	  ],
 	"remoteUser": "root",
 	

@@ -357,6 +357,13 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - [Serial AT Attachment (SATA)](https://en.wikipedia.org/wiki/SATA)
 - [Small Computer System Interface (SCSI)](https://en.wikipedia.org/wiki/SCSI)
 
+## Out-of-band Management
+- HP iLO
+- Dell DRAC
+- IBM FMC/HMC
+- IMPI
+- Sun LOM/ILOM
+
 ## Networking
 - Barron McCann OSLAN gateway
 - Checkpoint Firewall-1 & Firewall-1 NG
