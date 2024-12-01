@@ -13,7 +13,7 @@ categories: recipe
 ---
 
 ## Overview
-I haven't made this yet but did make something similar to use up some stale bread and ~3 days~ close to out-of-date ham.
+I haven't made this yet but did make something similar to use up some stale bread and some ~~3 days past~~ close to out-of-date ham.
 
 > This is a savoury take on a classic bread and butter pudding with sausages, bacon and mushrooms for a full English breakfast cooked in one dish.
 
