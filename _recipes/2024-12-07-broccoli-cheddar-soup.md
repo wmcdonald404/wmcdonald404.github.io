@@ -52,7 +52,7 @@ The blurb straight from Bon Appetite states:
 10. Cut cheese toasts (if using) into 1" (spoon-sized!) pieces. Divide soup among bowls. Top with cheddar croutons or reserved cheese.
 
 ## Notes
-I would consider adding a punnet of chestnut mushrooms. wWiped clean, quartered and sweated in butter, in batches, until golden nutty brown. Either instead of or in addition to the cruton. 
+I would consider adding a punnet of chestnut mushrooms. Wiped clean, quartered and sweated in butter in batches until golden nutty brown. Wnstead of, or in addition to,  the cruton. 
 
 
 ## References
