@@ -1,5 +1,5 @@
 ---
-title: "Tufted duck and chicken liver parfait"
+title: "Tufted duck and chicken liver parfait (Madalene Bonvini-Hamel)"
 tags:
 - liver
 - duck
