@@ -3,12 +3,12 @@ title: "Perfect gougères (Felicity Cloake)"
 tags:
 - cheese
 - choux
-- gougères 
+- gougères
 categories: recipe
 ---
 
 ## Overview
-**Another** Felicity Cloake recipe. I haven't tried this one yet but I fucking LOVE a gougères. I like profiterole but I have less of a sweet-tooth
+**Another** Felicity Cloake recipe. I haven't tried this one yet but I fucking LOVE a gougères. I enjoy a profiterole, but I veer far more savoury than sweet. Yasss gougères.
 
 - Prep 20 min
 - Cook 25 min
