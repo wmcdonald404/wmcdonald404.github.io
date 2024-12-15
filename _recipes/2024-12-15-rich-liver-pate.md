@@ -1,5 +1,5 @@
 ---
-title: "Rich live pâté (Hugh Fearnley-Whittingstall)"
+title: "Rich liver pâté (Hugh Fearnley-Whittingstall)"
 tags:
 - liver
 - pâté
