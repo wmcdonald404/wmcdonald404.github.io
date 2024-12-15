@@ -18,7 +18,7 @@ I was reminded in a [recent Bluesky thread](https://bsky.app/profile/dempster200
 
 > The tomato purée helps the juice along a little, so there is no need to buy an expensive tomato juice. We use a smoke powder, but at home you can use smoked paprika, or replace the Tabasco with the smoked version.
 
-I'm reproducing this from the [Dishoom cookbook]9(https://www.hive.co.uk/Product/23539713). Go buy a copy, it's a great cookbook and their [Daal Makhni](https://duckduckgo.com/?t=ffab&q=dishoom+dal+makhani&atb=v443-1&ia=web) OMFG.
+I'm reproducing this from the [Dishoom cookbook](https://www.hive.co.uk/Product/23539713). Go buy a copy, it's a great cookbook and their [Daal Makhni](https://duckduckgo.com/?t=ffab&q=dishoom+dal+makhani&atb=v443-1&ia=web) OMFG.
 
 ## Ingredients
 SERVES 4 (or 1)
