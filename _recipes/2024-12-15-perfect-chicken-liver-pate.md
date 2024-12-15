@@ -10,8 +10,6 @@ categories: recipe
 ## Overview
 Another Felicity Cloake entry. Go read the full entry in [#references] for the rundown on how the recipe was developed. I've made it once and it was excellent. Simpler than many more fancypants recipes but really, really good.
 
-- Prep 15 min
-- Cook 90 min
 - Serves 4
 
 
