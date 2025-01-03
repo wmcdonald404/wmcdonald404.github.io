@@ -19,7 +19,7 @@ Behind the scenes Github Pages uses Jekyll as its templating mechanism, allowing
 
 On occasion, it's useful to be able to validate Jekyll-templated content locally, prior to publication/pushing to Github. For example the Markdown rendering in Jekyll is slightly different to the Markdown Preview in VSCode (VSCode keyboard shortcut: `CTRL`-`SHIFT`-`v`).
 
-In order to serve Jekyll locally we can set up a Devcontainer using the existing [Devcontainer template definition](https://github.com/devcontainers/templates/tree/main/src/jekyll) and, with a few additional steps, serve content locally.
+In order to serve Jekyll locally we can set up a [Devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) using the existing [Devcontainer template definition](https://github.com/devcontainers/templates/tree/main/src/jekyll) and, with a few additional steps, serve content locally.
 
 # Set up the Devcontainer
 
@@ -185,6 +185,7 @@ root ➜ /workspaces/github-pages (main) $ jekyll serve
 
 # References
 
+- [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
 - [VSCode, Docker, and Github Pages](https://www.allisonthackston.com/articles/vscode-docker-github-pages.html)
 - [GitHub Pages in Dev Containers and Codespaces](https://blog.robsewell.com/blog/github-pages-in-dev-containers-and-codespaces/)
 - [images / src / jekyll / .devcontainer/](https://github.com/devcontainers/images/tree/main/src/jekyll/.devcontainer)
