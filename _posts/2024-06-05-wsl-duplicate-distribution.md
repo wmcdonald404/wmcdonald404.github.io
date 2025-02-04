@@ -77,6 +77,7 @@ In your WSL2 instance:
     [root@DESKTOP-9HGJE25 ~]# dnf system-upgrade download --releasever=40
     [root@DESKTOP-9HGJE25 ~]# export DNF_SYSTEM_UPGRADE_NO_REBOOT=1
     [root@DESKTOP-9HGJE25 ~]# dnf system-upgrade reboot
+    [root@DESKTOP-9HGJE25 ~]# dnf system-upgrade upgrade
     [root@DESKTOP-9HGJE25 ~]# dnf upgrade --refresh
     ```
 
