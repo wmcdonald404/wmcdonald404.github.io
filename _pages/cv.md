@@ -376,3 +376,8 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - Palo Alto NGFW
 - Radware GSLB
 - Zscaler ZPA
+
+## Uhhh...
+- [HylaFAX](https://www.hylafax.org/)
+- [Ghostscript](https://www.ghostscript.com/)
+- [Random glue scripts](https://www.screwfix.com/c/sealants-adhesives/duct-tape/cat850126)
