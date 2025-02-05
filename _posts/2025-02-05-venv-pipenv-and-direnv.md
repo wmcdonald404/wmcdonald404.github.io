@@ -214,7 +214,18 @@ Now we can `deactivate` the active `venv` using an alias which is created in the
 ```
 
 ### pipenv
+[`pipenv`...](https://pypi.org/project/pipenv/)
+
+> is a Python virtualenv management tool that supports a multitude of systems and nicely bridges the gaps between pip, python (using system python, pyenv or asdf) and virtualenv. 
+
+`pipenv` smushes together `pip` and `venv` so you have a single thing that will manage the creation/enablement of `venv`s with the resolution and installation of dependencies.
+
 ### direnv
+[`direnv`...](https://direnv.net/)
+
+> is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+
+`direnv` can be used to trigger specific behaviours when you switch into a specific directory. For example, if you switch into a directory that has a `venv` you could automatically `activate` the `venv` on entry, and `deactivate` if you switch out.
 
 ### Other tools
 Tox
