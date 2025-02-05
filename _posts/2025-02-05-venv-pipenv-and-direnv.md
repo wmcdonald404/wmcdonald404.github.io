@@ -1,5 +1,5 @@
 ---
-title: "`venv`, `pipenv` & `direnv`"
+title: "venv, pipenv & direnv"
 tags:
 - python
 - venv
