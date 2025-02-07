@@ -240,7 +240,7 @@ Once installed, create a project directory:
 drwxr-xr-x. 1 vagrant vagrant 0 Feb  7 16:33 project-a
 ```
 
-Verify that the pip-install-test module is not present in the default system Python:
+Verify that the `pip-install-test` module is not present in the default system Python:
 ```shell
 [vagrant@localhost ~]$ python -c 'import pip_install_test'
 Traceback (most recent call last):
@@ -267,7 +267,7 @@ To activate this project's virtualenv, run pipenv shell.
 Alternatively, run a command inside the virtualenv with pipenv run.
 ```
 
-Revalidate that the pip-install-test module is NOT available:
+Revalidate that the `pip-install-test` module is NOT available:
 ```shell
 [vagrant@localhost project-a]$ python -c 'import pip_install_test'
 Traceback (most recent call last):
@@ -312,15 +312,32 @@ Removing virtualenv (/home/vagrant/.local/share/virtualenvs/project-a-vnYESTNH).
 
 > is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
 
-`direnv` can be used to trigger specific behaviours when you switch into a specific directory. For example, if you switch into a directory that has a `venv` you could automatically `activate` the `venv` on entry, and `deactivate` if you switch out.
+Once [installed](https://direnv.net/#getting-started), and [hooked into your shell](https://direnv.net/docs/hook.html) `direnv` can be used to trigger specific behaviours when you switch into a specific directory. For example, if you switch into a directory that has a `venv` you could automatically `activate` the `venv` on entry, and `deactivate` if you switch out.
+
+See the `direnv` [quick demo](https://direnv.net/#quick-demo) for a... quick demo.
+
+```
+[vagrant@localhost project-a]$ pipenv install pip-install-test 
+[vagrant@localhost project-a]$  echo 'layout python3' > .envrc
+
+
+```
+
+```
+[vagrant@localhost project-a]$ direnv allow
+```
+
+Bug in-progress: https://bugzilla.redhat.com/show_bug.cgi?id=2344401
 
 ### Other tools
 Tox
 uv
-
 
 ## How-to
 
 ## Further reading
 - [python & pipenv & direnv](https://kylerconway.com/2020/11/25/python-pipenv-direnv/) 
 - [Using Python virtual environments with direnv](https://mtudor.xyz/technology/2020/11/1/using-python-virtual-environments-with-direnv)
+- https://kellner.io/direnv.html
+- https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko
+- https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
