@@ -12,6 +12,8 @@ I was chatting with someone earlier in the week who thought that managing Python
 
 I've never found venvs that much of a hassle but thinking about his point of view made me think: "I bet you could make venvs fairly seamless with direnv...". Then I figured: "Others are *bound* to have already done this..." And they have. cf: [Further reading](#further-reading)
 
+Before jumping straight to `pipenv` & `direnv` some context and examples around the tools...
+
 ## Background
 Some basic definitions on the building blocks:
 
@@ -36,7 +38,7 @@ Running `pip` directly as a root user (without an additional wrapper or safety n
 Using `pip` as a normal, non-root user will typically install packages into `~/.local/`. This can be *moderately safe* but if you have multiple Python projects with differing version requirements, this can still cause breakage at the user's Python level. (The system Python should be safe so long as you do not `pip install` as root/via sudo.)
 
 This illustrates what `pip install`-ing would look like if run as a normal user. `--dry-run` is used to model the 'what if' scenario without actually changing the target system.
-```
+```shell
 [wmcdonald@fedora ~ ]$ pip install --dry-run boto
 Defaulting to user installation because normal site-packages is not writeable
 Collecting boto
@@ -46,7 +48,7 @@ Would install boto-2.49.0
 ```
 
 This illustrates what `pip install`-ing would look like if run for a package that is already installed, in this case by the system Python pre-packaged by the distribution vendor, Fedora.
-```
+```shell
 [wmcdonald@fedora ~ ]$ pip install --dry-run boto3
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: boto3 in /usr/lib/python3.13/site-packages (1.36.7)
@@ -84,6 +86,15 @@ Python, which allows Python developers to write software that makes use of
 services like Amazon S3 and Amazon EC2.
 ```
 
+Beyond `pip install`, there are also:
+- `download` - download packages.
+- `uninstall` - uninstall packages.
+- `freeze` - output installed packages in requirements format.
+- `inspect` - inspect the python environment.
+- `list` - list installed packages.
+- `show` - show information about installed packages.
+
+
 ### venv
 [`venv`...](https://docs.python.org/3/library/venv.html)
 
@@ -92,13 +103,13 @@ services like Amazon S3 and Amazon EC2.
 Using the `venv` module, we can create a wrapper, something akin to a chroot or a container, into which we can safely `pip install` dependencies. The `venv` is typically activated / deactivated manually when required. 
 
 For example, first create a directory and switch into it:
-```
+```shell
 [wmcdonald@fedora ~ ]$ mkdir pipdemo && cd $_
 /home/wmcdonald/pipdemo
 ```
 
 Run a `pip install --dry-run` as we illustrated previously to see that a package/module conflict exists with the system Python and its Boto3 module:
-```
+```shell
 [wmcdonald@fedora pipdemo ]$ pip install --dry-run boto3
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: boto3 in /usr/lib/python3.13/site-packages (1.36.7)
@@ -106,7 +117,7 @@ Requirement already satisfied: boto3 in /usr/lib/python3.13/site-packages (1.36.
 ```
 
 Check the packaged Boto3 version in the RPM package database. Run the default system Python, import the boto3 module and enumerate its current version:
-```
+```shell
 [wmcdonald@fedora ~ ]$ rpm -qf /usr/lib/python3.13/site-packages/boto3/
 python3-boto3-1.36.7-1.fc41.noarch
 
@@ -119,12 +130,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Now, create a Python venv, `python -m venv` invokes the `venv` module, `.venv` is the name of the directory to store the virtual environment and is arbitrary, it's common to use a 'dotfile' to hide this, and the directory name can reflect the purpose of the `venv`, or just be generic. 
-```
+```shell
 [wmcdonald@fedora pipdemo ]$ python -m venv .venv
 ```
 
 And inspect its contents, note the `activate` script(s) in the bin directory:
-```
+```shell
 [wmcdonald@fedora pipdemo ]$ tree -L 3 .venv/
 .venv/
 ├── bin
@@ -150,13 +161,13 @@ And inspect its contents, note the `activate` script(s) in the bin directory:
 `source` (or `. `) the activate script to invoke  or 'enter' the virtual environment: 
 
 **Note:** *the prompt will change and prepend the venv name, to indicate the presence of an* active *venv.*
-```
+```shell
 [wmcdonald@fedora pipdemo ]$ . .venv/bin/activate
 (.venv)[wmcdonald@fedora pipdemo ]$ 
 ```
 
 Now again, run Python and attempt to import Boto3:
-```
+```shell
 (.venv)[wmcdonald@fedora pipdemo ]$ python
 Python 3.13.1 (main, Dec  9 2024, 00:00:00) [GCC 14.2.1 20240912 (Red Hat 14.2.1-3)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -170,7 +181,7 @@ ModuleNotFoundError: No module named 'boto3'
 We've confirmed that Boto3 "doesn't exist" from the point-of-view of an active `venv`. Now `--dry-run` install Boto3 with `pip`. 
 
 **Note:** *there are no package/module conflicts despite the system Boto3 still being installed/present, this is because it's not present from the point-of-view of the active venv.*
-```
+```shell
 (.venv)[wmcdonald@fedora pipdemo ]$ pip install --dry-run boto3
 Collecting boto3
   Downloading boto3-1.36.13-py3-none-any.whl.metadata (6.7 kB)
@@ -179,7 +190,7 @@ Collecting boto3
 ```
 
 Now, let's install Boto3 and its dependencies inside the active `venv`:
-```
+```shell
 (.venv)[wmcdonald@fedora pipdemo ]$ pip install boto3
 Collecting boto3
   Using cached boto3-1.36.13-py3-none-any.whl.metadata (6.7 kB)
@@ -193,7 +204,7 @@ Start the Python interpreter, import the boto3 module (which is the verion we've
 **Note #1:** *it's a later version of Boto3 than the packaged.
 
 **Note #2:** *it's the locally installed Boto3 from the venv.
-```
+```shell
 (.venv)[wmcdonald@fedora pipdemo ]$ python
 Python 3.13.1 (main, Dec  9 2024, 00:00:00) [GCC 14.2.1 20240912 (Red Hat 14.2.1-3)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -207,7 +218,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Now we can `deactivate` the active `venv` using an alias which is created in the shell environment during the `activate` of the `venv`. And clean up our test directory:
-```
+```shell
 (.venv)[wmcdonald@fedora pipdemo ]$ deactivate 
 [wmcdonald@fedora pipdemo ]$ cd ..
 [wmcdonald@fedora ~ ]$ rm -rf pipdemo/
@@ -218,7 +229,83 @@ Now we can `deactivate` the active `venv` using an alias which is created in the
 
 > is a Python virtualenv management tool that supports a multitude of systems and nicely bridges the gaps between pip, python (using system python, pyenv or asdf) and virtualenv. 
 
-`pipenv` smushes together `pip` and `venv` so you have a single thing that will manage the creation/enablement of `venv`s with the resolution and installation of dependencies.
+`pipenv` smushes together `pip` and `venv` so you have a single tool that will manage the creation/enablement of `venv`s with the resolution and installation of dependencies.
+
+`pipenv` recommend a [`--user` installation](https://pipenv.pypa.io/en/latest/installation.html) and for Fedora, this is the simplest, safest route. `pipenv` is available pre-packaged as a DEB on both Debian and Ubuntu.
+
+Once installed, create a project directory:
+```shell
+[vagrant@localhost ~]$ mkdir project-
+[vagrant@localhost ~]$ ls -ld project-*
+drwxr-xr-x. 1 vagrant vagrant 0 Feb  7 16:33 project-a
+```
+
+Verify that the pip-install-test module is not present in the default system Python:
+```shell
+[vagrant@localhost ~]$ python -c 'import pip_install_test'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pip_install_test
+ModuleNotFoundError: No module named 'pip_install_test'
+```
+
+Switch into the test project directory:
+```shell
+[vagrant@localhost ~]$ cd project-a/
+[vagrant@localhost project-a]$ 
+```
+
+Install a sample package into the first project directory (output truncated for legibility):
+```shell
+[vagrant@localhost project-a]$ pipenv install pip-install-test 
+Creating a virtualenv for this project
+Creating a Pipfile for this project...
+Building requirements...
+Resolving dependencies...
+✔ Success!
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+```
+
+Revalidate that the pip-install-test module is NOT available:
+```shell
+[vagrant@localhost project-a]$ python -c 'import pip_install_test'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pip_install_test
+ModuleNotFoundError: No module named 'pip_install_test'
+```
+
+Now a) run with `pipenv run` and b) run through `pipenv shell`:
+```shell
+[vagrant@localhost project-a]$ pipenv run python -c 'import pip_install_test'
+Good job!  You installed a pip module.
+
+Now get back to work!
+
+[vagrant@localhost project-a]$ pipenv shell
+Launching subshell in virtual environment...
+[vagrant@localhost project-a]$  source /home/vagrant/.local/share/virtualenvs/project-a-vnYESTNH/bin/activate
+(project-a) [vagrant@localhost project-a]$ python -c 'import pip_install_test'
+Good job!  You installed a pip module.
+
+Now get back to work!
+(project-a) [vagrant@localhost project-a]$ 
+```
+
+Exit the subshell:
+```shell
+(project-a) [vagrant@localhost project-a]$ exit
+exit
+[vagrant@localhost project-a]$ 
+```
+
+And now clean up the `pipenv`-created `venv` and the Pipfile and its lockfile.
+```shell
+[vagrant@localhost project-a]$ pipenv --rm && rm Pipfile*
+Removing virtualenv (/home/vagrant/.local/share/virtualenvs/project-a-vnYESTNH)...
+[vagrant@localhost project-a]$ 
+```
 
 ### direnv
 [`direnv`...](https://direnv.net/)
