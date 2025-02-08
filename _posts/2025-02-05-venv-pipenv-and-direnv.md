@@ -7,6 +7,9 @@ tags:
 - direnv
 ---
 
+* TOC
+{:toc}
+
 ## Overview
 I was chatting with someone earlier in the week who thought that managing Python virtual environments (`venvs`) manually would be onerous. I don't do much Python development but it is something I reach for when shell or existing automation tools aren't sufficient. 
 
