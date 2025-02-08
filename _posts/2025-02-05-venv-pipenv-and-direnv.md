@@ -360,16 +360,19 @@ Good job!  You installed a pip module.
 Now get back to work!
 ```
 
-### Other tools
-- Tox
-- uv
+## Other tools
+There's a broad range of Python package and dependency management tooling in the ecosystem. These include:
+
+- [Tox](https://tox.wiki/en/4.24.1/) - useful for managing multiple combinatorial states of versions and modules.
+- [uv](https://docs.astral.sh/uv/) - reputedly incredibly fast and efficient dependency management written in Rust.
 
 ## Further reading
 - [python & pipenv & direnv](https://kylerconway.com/2020/11/25/python-pipenv-direnv/) 
 - [Using Python virtual environments with direnv](https://mtudor.xyz/technology/2020/11/1/using-python-virtual-environments-with-direnv)
-- https://kellner.io/direnv.html
-- https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko
-- https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
+- [https://kellner.io/direnv.html](https://kellner.io/direnv.html)
+- [https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko](https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko)
+- [https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/](https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/)
+- [https://christophergs.com/python/2020/04/12/python-tox-why-use-it-and-tutorial/](https://christophergs.com/python/2020/04/12/python-tox-why-use-it-and-tutorial/)
 
 ## Notes
 If you try to use `layout python` or `layout python3` instead of `layout pipenv` this will trigger an exception with direnv =< 2.34. This applies in Fedora 41, Debian 12 & Ubuntu 24.04. Bug in-progress: https://bugzilla.redhat.com/show_bug.cgi?id=2344401
