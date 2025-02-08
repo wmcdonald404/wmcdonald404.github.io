@@ -316,24 +316,50 @@ Once [installed](https://direnv.net/#getting-started), and [hooked into your she
 
 See the `direnv` [quick demo](https://direnv.net/#quick-demo) for a... quick demo.
 
-```
+## How-to
+Now we have an understanding of all the component parts, we can use `direnv` to automatically load/unload a `pipenv` on entry into the directory "containing" the `pipenv`-managed `venv` and installed modules .
+
+First create the pipenv
+```bash
+[vagrant@localhost ~]$ mkdir project-a && cd $_
 [vagrant@localhost project-a]$ pipenv install pip-install-test 
-[vagrant@localhost project-a]$  echo 'layout python3' > .envrc
-
-
 ```
-
-```
+Configure and enable `direnv` to 'layout' the `pipenv` and run `pipenv graph` to enumerate installed Python module(s):
+```bash
+[vagrant@localhost project-a]$ echo 'layout pipenv' > .envrc
 [vagrant@localhost project-a]$ direnv allow
+[vagrant@localhost project-a]$ pipenv graph
+pip-install-test==0.5
+```
+Switch out of the `pipenv` directory, observe that `direnv` unloads.
+```bash
+[vagrant@localhost project-a]$ cd ~
+direnv: unloading
 ```
 
-Bug in-progress: https://bugzilla.redhat.com/show_bug.cgi?id=2344401
+Run a test Python module import from the user `${HOME}`, verify that the module **cannot** be found:
+```bash 
+[vagrant@localhost ~]$ python -c 'import pip_install_test'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pip_install_test
+ModuleNotFoundError: No module named 'pip_install_test'
+```
+
+Switch back into the directory, observe that `direnv` activates the `pipenv`, re-run the test Python module import and verify that the test module is available:
+```bash
+[vagrant@localhost ~]$ cd project-a/
+direnv: loading ~/project-a/.envrc
+direnv: export +PIPENV_ACTIVE +VIRTUAL_ENV ~PATH
+[vagrant@localhost project-a]$ python -c 'import pip_install_test'
+Good job!  You installed a pip module.
+
+Now get back to work!
+```
 
 ### Other tools
-Tox
-uv
-
-## How-to
+- Tox
+- uv
 
 ## Further reading
 - [python & pipenv & direnv](https://kylerconway.com/2020/11/25/python-pipenv-direnv/) 
@@ -341,3 +367,6 @@ uv
 - https://kellner.io/direnv.html
 - https://dev.to/bowmanjd/python-tools-for-managing-virtual-environments-3bko
 - https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
+
+## Notes
+If you try to use `layout python` or `layout python3` instead of `layout pipenv` this will trigger an exception with direnv =< 2.34. This applies in Fedora 41, Debian 12 & Ubuntu 22.04. Bug in-progress: https://bugzilla.redhat.com/show_bug.cgi?id=2344401
