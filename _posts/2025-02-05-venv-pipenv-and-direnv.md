@@ -375,4 +375,4 @@ There's a broad range of Python package and dependency management tooling in the
 - [https://christophergs.com/python/2020/04/12/python-tox-why-use-it-and-tutorial/](https://christophergs.com/python/2020/04/12/python-tox-why-use-it-and-tutorial/)
 
 ## Notes
-If you try to use `layout python` or `layout python3` instead of `layout pipenv` this will trigger an exception with direnv =< 2.34. This applies in Fedora 41, Debian 12 & Ubuntu 24.04. Bug in-progress: https://bugzilla.redhat.com/show_bug.cgi?id=2344401
+If you try to use `layout python` or `layout python3` instead of `layout pipenv` this will trigger an exception with direnv =< 2.34. This applies in Fedora 41, Debian 12 & Ubuntu 24.04. Bug in-progress: [https://bugzilla.redhat.com/show_bug.cgi?id=2344401](https://bugzilla.redhat.com/show_bug.cgi?id=2344401)
