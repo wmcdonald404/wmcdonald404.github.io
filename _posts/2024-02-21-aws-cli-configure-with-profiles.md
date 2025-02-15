@@ -107,7 +107,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 We now have the AWS CLI configured with two profiles and a relatively simple environment variable that can be set to switch between profiles.
 
 ## Further reading
-- https://aws.amazon.com/cli/
-- https://docs.aws.amazon.com/cli/latest/reference/
-- https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html
-- https://dev.to/andreasbergstrom/juggling-multiple-aws-cli-profiles-like-a-pro-2h88
+- [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+- [https://docs.aws.amazon.com/cli/latest/reference/](https://docs.aws.amazon.com/cli/latest/reference/)
+- [https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html)
+- [https://dev.to/andreasbergstrom/juggling-multiple-aws-cli-profiles-like-a-pro-2h88](https://dev.to/andreasbergstrom/juggling-multiple-aws-cli-profiles-like-a-pro-2h88)

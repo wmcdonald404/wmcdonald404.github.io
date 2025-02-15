@@ -12,12 +12,12 @@ tags:
 Extend AWS CLI configuration with multiple profiles (for example work, training or personal accounts) and SSO.
 
 ## Background
-Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.github.io/github-pages/2024/02/21/configure-aws-cli-with-profiles.html), we can extend the AWS CLI configuration to combine multiple profiles with SSO to easily switch between accounts and their resources.
+Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.co.uk/2024/02/21/aws-cli-configure-with-profiles.html), we can extend the AWS CLI configuration to combine multiple profiles with SSO to easily switch between accounts and their resources.
 
 ## How-to
 1. Install the CLI
 
-    See [Configure the AWS CLI with multiple profiles](https://wmcdonald404.github.io/github-pages/2024/02/21/configure-aws-cli-with-profiles.html)
+    See [Configure the AWS CLI with multiple profiles](https://wmcdonald404.co.uk/2024/02/21/aws-cli-configure-with-profiles.html)
 
 2. Configure SSO for the AWS CLI
 
