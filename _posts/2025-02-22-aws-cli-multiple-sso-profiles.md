@@ -69,7 +69,7 @@ You will see how to create additional SSO profiles to accomodate this. Starting 
     ```shell
     [wmcdonald@fedora ~ ]$ cat ~/.aws/config 
     [sso-session homesso]
-    sso_start_url = https://d-9367bcd0dd.awsapps.com/start/
+    sso_start_url = https://homesso.awsapps.com/start/
     sso_region = eu-west-1
     sso_registration_scopes = sso:account:access
 
