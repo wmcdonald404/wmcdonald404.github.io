@@ -20,7 +20,7 @@ Cloudformation templates can be used to provide paramaterised pre-baked infrastr
 
 2. Create a Cloudformation template
 
-    The Cloudformation template from [Creating your first stack|Create a CloudFormation stack with the console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.walkthrough.html#getting-started-create-stack) is replicated in [this Github Gist](https://gist.github.com/wmcdonald404/bddfa345a4adf872bea0f150394403f7). 
+    The Cloudformation template from [Creating your first stack - Create a CloudFormation stack with the console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.walkthrough.html#getting-started-create-stack) is replicated in [this Github Gist](https://gist.github.com/wmcdonald404/bddfa345a4adf872bea0f150394403f7). 
 
     [YAML](https://gist.githubusercontent.com/wmcdonald404/bddfa345a4adf872bea0f150394403f7/raw/dceaeac9c976c5081358aeb25b49ce94031548db/simple-template.yaml) is considered easier to read/understand by many, while [JSON](https://gist.githubusercontent.com/wmcdonald404/bddfa345a4adf872bea0f150394403f7/raw/dceaeac9c976c5081358aeb25b49ce94031548db/simple-template.json) is [less error-prone](https://ruudvanasseldonk.com/2023/01/11/the-yaml-document-from-hell) and easier to machine-parse.
 
@@ -29,7 +29,7 @@ Cloudformation templates can be used to provide paramaterised pre-baked infrastr
     [wmcdonald@fedora cftest ]$ curl -so simple-template.json  https://gist.githubusercontent.com/wmcdonald404/bddfa345a4adf872bea0f150394403f7/raw/dceaeac9c976c5081358aeb25b49ce94031548db/simple-template.json
     ```
 
-    > Note:The next steps use an S3 bucket to stage the Cloudformation template.
+    > Note:The next steps use an S3 bucket to stage the Cloudformation template. You can also use a local template body directly, this will also be demonstrated.
 
 3. Create an S3 bucket
 
@@ -55,8 +55,8 @@ Cloudformation templates can be used to provide paramaterised pre-baked infrastr
     ```
 
     Or:
-    ```shell
 
+    ```shell
     [wmcdonald@fedora cftest ]$ CFTEMPLATE=https://cf-templates-123412341234.s3.eu-west-1.amazonaws.com/simple-template.json
     [wmcdonald@fedora cftest ]$ aws cloudformation create-stack --stack-name urltest --template-url ${CFTEMPLATE}
     ```
@@ -74,11 +74,11 @@ Cloudformation templates can be used to provide paramaterised pre-baked infrastr
     [wmcdonald@fedora cftest ]$ aws cloudformation describe-stacks --stack-name urltest | jq '.Stacks.[] | .StackName, .Outputs'
     "urltest"
     [
-    {
-        "OutputKey": "WebsiteURL",
-        "OutputValue": "http://ec2-34-248-121-119.eu-west-1.compute.amazonaws.com",
-        "Description": "Website URL"
-    }
+        {
+            "OutputKey": "WebsiteURL",
+            "OutputValue": "http://ec2-34-248-121-119.eu-west-1.compute.amazonaws.com",
+            "Description": "Website URL"
+        }
     ]
     ```
 
