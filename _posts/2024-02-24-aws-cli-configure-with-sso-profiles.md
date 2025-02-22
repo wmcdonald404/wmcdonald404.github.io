@@ -1,5 +1,5 @@
 ---
-title: "Configure the AWS CLI with SSO and multiple profiles"
+title: "Configure the AWS CLI with SSO and multiple user profiles"
 tags:
 - amazon
 - aws
@@ -9,10 +9,14 @@ tags:
 ---
 
 ## Overview
-Extend AWS CLI configuration with multiple profiles (for example work, training or personal accounts) and SSO.
+Extend AWS CLI configuration with multiple user profiles and an SSO session.
 
 ## Background
-Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.co.uk/2024/02/21/aws-cli-configure-with-profiles.html), we can extend the AWS CLI configuration to combine multiple profiles with SSO to easily switch between accounts and their resources.
+You may have separate SSO accounts and roles granted  per-application (e.g. service-a or service-b) or per-environment (e.g.  nonprod or prod). You will see how to configure each scenario and conveniently switch between profiles. 
+
+
+Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.co.uk/2024/02/21/aws-cli-configure-with-profiles.html), you can extend the AWS CLI configuration to combine multiple user/account profiles with one defined SSO session to easily switch between accounts and their resources.
+
 
 ## How-to
 1. Install the CLI
@@ -25,8 +29,8 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     ```shell
     wmcdonald@fedora:~$ aws configure sso
-    SSO session name (Recommended): my-org-sso
-    SSO start URL [None]: https://my-org-sso.awsapps.com/start
+    SSO session name (Recommended): worksso
+    SSO start URL [None]: https://worksso.awsapps.com/start
     SSO region [None]: eu-west-1
     SSO registration scopes [sso:account:access]:
     ```
@@ -62,13 +66,13 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
     **Note**: these configuration stanzas have been reordered for clarity
 
     ```ini
-    [sso-session my-org-sso]
-    sso_start_url = https://my-org-sso.awsapps.com/start
+    [sso-session worksso]
+    sso_start_url = https://worksso.awsapps.com/start
     sso_region = eu-west-1
     sso_registration_scopes = sso:account:access
 
-    [profile dev-account.developer]
-    sso_session = my-org-sso
+    [profile worksso.developer]
+    sso_session = worksso
     sso_account_id = 123412341234
     sso_role_name = developer
     region = eu-west-1
@@ -79,7 +83,7 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     ```shell
     wmcdonald@fedora:~$ set | grep AWS
-    AWS_PROFILE=dev-account.developer
+    AWS_PROFILE=worksso.developer
     ```
     
     **Note**: if `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` are set this will override `AWS_PROFILE` leading to unexpected results. If set they can be unset:
@@ -108,20 +112,20 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 7. To extend the configuration to include additional accounts or roles this can be achieved as shown:
 
     ```ini
-    [sso-session my-org-sso]
-    sso_start_url = https://my-org-sso.awsapps.com/start
+    [sso-session worksso]
+    sso_start_url = https://worksso.awsapps.com/start
     sso_region = eu-west-1
     sso_registration_scopes = sso:account:access
 
-    [profile dev-account.developer]
-    sso_session = my-org-sso
+    [profile worksso.developer]
+    sso_session = worksso
     sso_account_id = 123412341234
     sso_role_name = developer
     region = eu-west-1
     output = json
 
-    [profile test-account.tester]
-    sso_session = my-org-sso
+    [profile worksso.tester]
+    sso_session = worksso
     sso_account_id = 43214321
     sso_role_name = tester
     region = eu-west-2
@@ -132,22 +136,28 @@ Building on [Configure the AWS CLI with multiple profiles](https://wmcdonald404.
 
     ```shell
     [wmcdonald@fedora ~ ]$ aws configure list-profiles 
-    dev-account.developer
-    test-account.tester
-    default
+    worksso.developer
+    worksso.tester
     ```
 
+9. Pulling this together, some aliases can be set up to toggle between each profile:
+
+    ```shell
+    [wmcdonald@fedora ~ ]$ alias | grep -i aws 
+    alias worksso.developer='AWS_PROFILE=worksso.developer'
+    alias worksso.tester='AWS_PROFILE=worksso.tester'
+    ```
 
 ## Summary
 We now have the AWS CLI configured with two profiles, a simple environment variable that can be set to switch between profiles and SSO identity to permit access to cloud resources.
 
 ## Further reading
-- https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html
-- https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso
-- https://ben11kehoe.medium.com/you-only-need-to-call-aws-sso-login-once-for-all-your-profiles-41a334e1b37e
-- https://ben11kehoe.medium.com/aws-configuration-files-explained-9a7ea7a5b42e
-- https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli
-
-- https://aws.amazon.com/cli/
-- https://docs.aws.amazon.com/cli/latest/reference/
-- https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html
+- [https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+- [https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
+- [https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso](https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso)
+- [https://ben11kehoe.medium.com/you-only-need-to-call-aws-sso-login-once-for-all-your-profiles-41a334e1b37e](https://ben11kehoe.medium.com/you-only-need-to-call-aws-sso-login-once-for-all-your-profiles-41a334e1b37e)
+- [https://ben11kehoe.medium.com/aws-configuration-files-explained-9a7ea7a5b42e](https://ben11kehoe.medium.com/aws-configuration-files-explained-9a7ea7a5b42e)
+- [https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli](https://stackoverflow.com/questions/49987458/aws-profile-not-working-with-aws-cli)
+- [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+- [https://docs.aws.amazon.com/cli/latest/reference/](https://docs.aws.amazon.com/cli/latest/reference/)
+- [https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html)
