@@ -121,6 +121,7 @@ Cloudformation templates can be used to provide paramaterised pre-baked infrastr
 
     ```shell
     [wmcdonald@fedora cftest ]$ aws cloudformation delete-stack --stack-name urltest
+    ```
 
 11. Check that the Cloudformation Stack has gone
 
