@@ -1,5 +1,5 @@
 ---
-title: "Azure Bicep Quickstarts [WIP]"
+title: "Azure Bicep Quickstarts"
 tags:
 - azure
 - azurecli
