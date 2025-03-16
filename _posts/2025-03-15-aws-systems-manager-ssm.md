@@ -41,7 +41,7 @@ SSM Session Manager is commonly used to permit 'gated' console access to EC2 ins
     i-06900ca90da3b694f,18.201.137.62
     ```
 
-    > **Note:** This instance currently has a public IP and security groups configures so SSH access can be tested too. SSM does NOT need the instance to be in a public subnet, or have a public IP.
+    > **Note:** This instance currently has a public IP and security groups configured so SSH access can be tested too. SSM does NOT need the instance to be in a public subnet, or have a public IP.
 
 4. Test connectivity
 
