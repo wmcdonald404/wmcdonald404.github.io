@@ -7,9 +7,9 @@ permalink: /about
 # Tech Stuff
 I started creating this content earlier in the year, primarily to try and capture some of the portable/reusable pieces of tech knowledge I'd been working on.
 
-Over the years I've learned, documented and forgotten tens, if not hundred, of bits of ***'how to do X'***. Recently, working back in hands-on tech roles I was finding myself rediscovering/relearning things I'd written down years earlier but then left behind firewalls and DLP systems in company Wikis.
+Over the years I've learned, documented and forgotten tens, if not hundreds, of bits of ***'how to do X'***. Recently, working back in hands-on tech roles I was finding myself rediscovering/relearning things I'd written down years earlier but then left behind firewalls and DLP systems in company Wikis.
 
-So this is an effort to sanitise, anonymise, capture and centralise these things as I go.
+So this is an effort to sanitise, anonymise, capture and share these things as I go.
 
 # Cooking Stuff
 I also like to cook. (And eat, and drink.)

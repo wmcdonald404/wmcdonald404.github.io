@@ -8,11 +8,11 @@ tags:
 ---
 
 ## Overview
-
+A quick run through on the basics of Devcontainers on a remote system.
 
 ## Prerequisites
-
-
+- A remote system you can SSH or SSM into
+- VSCode and the Visual Studio Code Remote Development Extension Pack 
 
 ## Connecting
 1. Open VSCode
