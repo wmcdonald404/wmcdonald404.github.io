@@ -1,5 +1,5 @@
 ---
-title: "Customising Oh My Bash"
+title: "Liquid Prompt Setup"
 tags:
 - linux
 - bash
