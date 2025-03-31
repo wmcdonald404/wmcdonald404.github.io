@@ -21,23 +21,23 @@ This describes a simple mechanim to pull individual certificates (for example, r
 ### Windows
 On your Windows system:
 
-0. Indentify the proxy cert
+1. Indentify the proxy cert
 
     ```powershell
     PS C:\Users\Will> Get-ChildItem -Path Cert:\LocalMachine\Root\ | Select-Object FriendlyName, Subject, Thumbprint
     ```
 
-1. Check the path to the root CA certificate in the Windows certificate on your laptop
+2. Check the path to the root CA certificate in the Windows certificate on your laptop
     ```powershell
     PS C:\Users\Will> Get-ChildItem -Path Cert:\LocalMachine\Root\<CERT ID> | Select-Object -Property *
     ```
-2. Verify the Issuer and Subject.
+3. Verify the Issuer and Subject.
 
-3. Set the location of the existing proxy root CA certificate in the Windows certificate store
+4. Set the location of the existing proxy root CA certificate in the Windows certificate store
     ```powershell
     PS C:\Users\Will> $proxycert = Get-ChildItem -Path Cert:\LocalMachine\Root\<CERT ID>
     ```
-4. Export the certificate as [type CERT](https://learn.microsoft.com/en-us/powershell/module/pki/export-certificate?view=windowsserver2022-ps#-type):
+5. Export the certificate as [type CERT](https://learn.microsoft.com/en-us/powershell/module/pki/export-certificate?view=windowsserver2022-ps#-type):
 
     > `CERT`: A `.cer` file format which contains a single DER-encoded certificate. This is the default value for one certificate.
     ```powershell
