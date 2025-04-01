@@ -265,6 +265,30 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
     - [Network Load Balancers (NLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
 - [Service control policies (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
 
+### Amazon Web Services
+    - [Amazon VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+    - [Amazon VPC Transit Gateways (TGW)](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html)
+    - [Application Load Balancer (ALB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+    - [Gateway Load Balancer (GLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html)
+    - [Network Access Control Lists (ACL / NACL)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
+    - [Network Load Balancers (NLB)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
+    - [Security Groups (SG / NSG)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
+- [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/)
+- [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
+- [Amazon Elastic Compute Cloud (EC2)](https://docs.aws.amazon.com/ec2/)
+- [Amazon Relational Database Service (RDS)](https://docs.aws.amazon.com/rds/)
+- [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
+- [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/)
+- [AWS Certificate Manager (ACM)](https://docs.aws.amazon.com/acm/)
+- [AWS CloudFormation](https://docs.aws.amazon.com/cloudformation/)
+- [AWS Command Line Interface (AWS CLI)](https://docs.aws.amazon.com/cli/)
+- [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/iam/)
+- [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directory-service/)
+- [AWS Private CA (PCA)](https://docs.aws.amazon.com/privateca/)
+- [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)
+- [Elastic Load Balancing (ELB)](https://docs.aws.amazon.com/elasticloadbalancing/)
+- [Service control policies (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
+
 ### Microsoft Azure
 - [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview)
 - [Azure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview)
@@ -320,46 +344,48 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - [Trello](https://support.atlassian.com/trello/)
 
 ### Security, Inventory & Management Tooling
-- [RSA SecureID Server](https://community.rsa.com/s/rsa-securid-documentation) 
 - [Qualys](https://www.qualys.com/documentation/)
+- [RSA SecureID Server](https://community.rsa.com/s/rsa-securid-documentation) 
 - [Snow Inventory](https://docs.snowsoftware.io/other-snow-products/snow-inventory-agents-and-oracle-scanners/)
 
 ### COTS Products
+- [Amdocs/Cramer OSS Suite](https://www.amdocs.com/products-services/network-management-services)
+    - Activation Engine
+    - Delivery Engine
+    - Discovery Engine
+    - OSS Installer
+    - Resource Manager
+    - Route Finder
+    - Sync Engine
+    - Task Engine
+- [Guidewire](https://www.guidewire.com/)
+    - [Billing Center](https://www.guidewire.com/products/core-products/insurancesuite/billingcenter-insurance-billing-software)
+    - [Policy Center](https://www.guidewire.com/products/core-products/insurancesuite/policycenter-insurance-policy-administration)
 - [Microsoft HPC Pack 2019](https://learn.microsoft.com/en-us/powershell/high-performance-computing/overview?view=hpc19-ps)
 - [Quantitative Risk Management (QRM)](https://www.qrm.com/)
-- Guidewire
-    - [Policy Center](https://www.guidewire.com/products/core-products/insurancesuite/policycenter-insurance-policy-administration)
-    - [Billing Center](https://www.guidewire.com/products/core-products/insurancesuite/billingcenter-insurance-billing-software)
-- [Amdocs/Cramer OSS Suite](https://www.amdocs.com/products-services/network-management-services)
-    - Resource Manager
-    - Task Engine
-    - Sync Engine
-    - Discovery Engine
-    - Route Finder
-    - Delivery Engine
-    - Activation Engine
-    - OSS Installer
+
 
 ## Storage (Block/File/Object)
-- [Azure Managed Disks (LRS, ZRS)](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-- [Linbit DRBD](https://linbit.com/drbd/)
 - [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
+- [Amazon Elastic File System (EFS)](https://docs.aws.amazon.com/efs/)
+- [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
+- [Azure Managed Disks (LRS, ZRS)](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
 - [Fibre Channel](https://en.wikipedia.org/wiki/Fibre_Channel)
 - [iSCSI](https://en.wikipedia.org/wiki/ISCSI)
+- [Linbit DRBD](https://linbit.com/drbd/)
 - [Linux Logical Volume Manager (LVM)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/index)
 - [Network File System (NFS)](https://linux-nfs.org/wiki/index.php/Main_Page)
+- [Parallel ATA (PATA)/Integrated Drive Electronics (IDE)](https://en.wikipedia.org/wiki/Parallel_ATA)
 - [RAID](https://en.wikipedia.org/wiki/RAID)
 - [Red Hat Ceph](https://docs.redhat.com/en/documentation/red_hat_ceph_storage/7)
 - [Red Hat Gluster](https://docs.redhat.com/en/documentation/red_hat_gluster_storage/3.5)
-- [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
-- [Parallel ATA (PATA)/Integrated Drive Electronics (IDE)](https://en.wikipedia.org/wiki/Parallel_ATA)
-- [Serial Attached SCSI (SAS)](https://en.wikipedia.org/wiki/Serial_Attached_SCSI)
 - [Serial AT Attachment (SATA)](https://en.wikipedia.org/wiki/SATA)
+- [Serial Attached SCSI (SAS)](https://en.wikipedia.org/wiki/Serial_Attached_SCSI)
 - [Small Computer System Interface (SCSI)](https://en.wikipedia.org/wiki/SCSI)
 
 ## Out-of-band Management
-- HP iLO
 - Dell DRAC
+- HP iLO
 - IBM FMC/HMC
 - IMPI
 - Sun LOM/ILOM
@@ -378,6 +404,6 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - Zscaler ZPA
 
 ## Uhhh...
-- [HylaFAX](https://www.hylafax.org/)
 - [Ghostscript](https://www.ghostscript.com/)
+- [HylaFAX](https://www.hylafax.org/)
 - [Random glue scripts](https://www.screwfix.com/c/sealants-adhesives/duct-tape/cat850126)
