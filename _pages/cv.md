@@ -245,6 +245,7 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/)
 - [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/)
 - [Amazon Elastic Compute Cloud (EC2)](https://docs.aws.amazon.com/ec2/)
+- [Amazon Elastic File System (EFS)](https://docs.aws.amazon.com/efs/)
 - [Amazon Relational Database Service (RDS)](https://docs.aws.amazon.com/rds/)
 - [Amazon Simple Storage Service (S3)](https://docs.aws.amazon.com/s3/)
 - [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/)
