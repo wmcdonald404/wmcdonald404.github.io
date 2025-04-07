@@ -1,5 +1,5 @@
 ---
-title: "Configure the AWS CLI with multiple profiles"
+title: "Configure the AWS CLI with an SSO profile"
 tags:
 - amazon
 - aws
@@ -8,7 +8,9 @@ tags:
 ---
 
 ## Overview
-Set up the AWS CLI with multiple profiles (for example work, training or personal accounts)
+This is a simple how-to on setting up the AWS CLI for a simple, single AWS organisation, account and IAM role profile.
+
+I'll cover multiple organisations, SSO profiles, accounts and roles in a subsequent article but this is a solid single starting point.
 
 ## Background
 To quote chaper-and-verse from the AWS documentation:
@@ -58,28 +60,82 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
     aws: error: the following arguments are required: command
     ```
 
-3. Configure a personal 'home' profile in the AWS CLI:
+3. Configure an SSO session:
 
     ```shell
-    wmcdonald@fedora:~$ aws configure --profile home
-    AWS Access Key ID [None]: <<accesskey>>
-    AWS Secret Access Key [None]: <<secretkey>>
-    Default region name [None]: eu-west-1
-    Default output format [None]: 
+    wmcdonald@fedora:~$ aws configure sso-session 
+    SSO session name: awssso.home
+    SSO start URL [None]: https://a-123abc456sdf.awsapps.com/start/
+    SSO region [None]: eu-west-1
+    SSO registration scopes [sso:account:access]:
+
+    Completed configuring SSO session: awssso.home
+    Run the following to login and refresh access token for this session:
+    ```
+    
+    **Note:** it's possible to create the SSO session definition and the AWS account profile in a single pass. We create them one after the other just to make it clear that a single SSO session definition can be used for more than one AWS account profile.
+
+4. Review the SSO session entry created in `~/.aws/config`:
+
+    ```shell
+    wmcdonald@fedora:~$  cat .aws/config 
+    [sso-session awssso.home]
+    sso_start_url = https://a-123abc456sdf.awsapps.com/start/
+    sso_region = eu-west-1
+    sso_registration_scopes = sso:account:access
     ```
 
-4. Verify that the CLI and profile can retreive data from AWS:
+5. Review the SSO session entry created in `~/.aws/config`:
 
     ```shell
-    wmcdonald@fedora:~$ aws ec2 describe-instances --profile home | jq '.[][].Instances[].InstanceId'
-    "i-06170215c6344402c"
+    wmcdonald@fedora:~$  cat .aws/config 
+    [sso-session awssso.home]
+    sso_start_url = https://a-123abc456sdf.awsapps.com/start/
+    sso_region = eu-west-1
+    sso_registration_scopes = sso:account:access
     ```
 
-5. Set the current profile in the `AWS_PROFILE` environment variable and re-verify:
+6. Set a name for the new AWS profile we would like to link to the SSO session:
 
     ```shell
-    wmcdonald@fedora:~$ export AWS_PROFILE=home
-    wmcdonald@fedora:~$ aws ec2 describe-instances
+    wmcdonald@fedora:~$ export AWS_PROFILE=awsprofile.home.poweruser
+    ```
+
+    **Note:** I'm using the `awsprofile.location.role` structure deliberately. It may seem overblown but when we move to multiple locations, organisations, accounts and roles we can set fast-switch profile aliases based on the entry name.
+
+7. Configure the values we want to use for the new profile:
+
+    ```shell
+    wmcdonald@fedora:~$ aws configure set sso_session awssso.home
+    wmcdonald@fedora:~$ aws configure set sso_account_id 123412341234
+    wmcdonald@fedora:~$ aws configure set sso_role_name PowerUserAccess
+    wmcdonald@fedora:~$ aws configure set region eu-west-1
+    ```
+
+8. Validate the contents configured for the new profile:
+
+    ```shell
+    wmcdonald@fedora:~$ 
+    [profile test.home]
+    sso_session = awssso.home
+    sso_account_id = 123412341234
+    sso_role_name = PowerUserAccess
+    region = eu-west-1
+    ```
+
+9. Set the `AWS_PROFILE`, then login and validate the session/profile combination:
+
+    ```shell
+    $ export AWS_PROFILE=awsprofile.home.poweruser
+    $ aws sso login 
+    Attempting to automatically open the SSO authorization page in your default browser.
+    If the browser does not open or you wish to use a different device to authorize this request, open the following URL:
+
+    Successfully logged into Start URL: https://a-123abc456sdf.awsapps.com/start/
+    ```
+
+    ```
+    $ aws ec2 describe-instances
     {
     "Reservations": [
         {
@@ -90,21 +146,11 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
                     "ImageId": "ami-0694d931cee176e7d",
                     "InstanceId": "i-06170215c6344402c",
                     "InstanceType": "t2.medium",
-                    ...
-    ```
-
-6. Rinse and repeat the profile setup for a 'work' profile in the AWS CLI:
-
-    ```shell
-    wmcdonald@fedora:~$ aws configure --profile work
-    AWS Access Key ID [None]: <<workaccesskey>>
-    AWS Secret Access Key [None]: <<worksecretkey>>
-    Default region name [None]: us-east-1
-    Default output format [None]: 
+    ...
     ```
 
 ## Summary
-We now have the AWS CLI configured with two profiles and a relatively simple environment variable that can be set to switch between profiles.
+We now have the AWS CLI configured with a single AWS SSO session and corresponding profile.
 
 ## Further reading
 - [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
