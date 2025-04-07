@@ -115,7 +115,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 8. Validate the contents configured for the new profile:
 
     ```shell
-    wmcdonald@fedora:~$ 
+    wmcdonald@fedora:~$ cat ~/.aws/config
     [profile test.home]
     sso_session = awssso.home
     sso_account_id = 123412341234
