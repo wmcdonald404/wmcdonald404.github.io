@@ -116,7 +116,7 @@ Having the CLI to-hand can streamline an engineer's workflow, reducing context s
 
     ```shell
     wmcdonald@fedora:~$ cat ~/.aws/config
-    [profile test.home]
+    [profile awsprofile.home.poweruser]
     sso_session = awssso.home
     sso_account_id = 123412341234
     sso_role_name = PowerUserAccess
