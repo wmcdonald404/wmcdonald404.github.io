@@ -27,10 +27,11 @@ This is just a quick-and-dirty how-to to spin up a small Nexus instance to test 
     Started Sonatype Nexus COMMUNITY 3.79.1-04
     ```
 
-3. `cat` the admin password file and not the auto-generated admin password:
+3. `cat` the admin password file and note the auto-generated admin password:
 
     ```
     $ NEXUS_PASS=$(podman exec nexus cat /nexus-data/admin.password)
+    $ echo $NEXUS_PASS
     ```
 
 4. We can now log-in via http://localhost:8081/.
@@ -55,6 +56,7 @@ This is just a quick-and-dirty how-to to spin up a small Nexus instance to test 
     ```
     $ curl -u admin:${NEXUS_PASS} "http://localhost:8081/service/rest/v1/status/check"
     ```
+
 
 # References
 - [Download Sonatype Nexus Repository](https://help.sonatype.com/en/download.html)
