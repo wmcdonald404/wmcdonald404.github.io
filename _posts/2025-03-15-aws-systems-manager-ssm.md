@@ -78,12 +78,22 @@ SSM Session Manager is commonly used to permit 'gated' console access to EC2 ins
 
     ```
     Host i-0b4963023b152e1a1
-    IdentityFile ~/.ssh/keys/wmcdonald@gmail.com-aws-ed25519-key-20211205
-    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
-    User admin
+        IdentityFile ~/.ssh/keys/wmcdonald@gmail.com-aws-ed25519-key-20211205
+        ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+        User admin
     ```
 
+    **Notes:** 
+    - You do not need to specify `IdentityFile` if your `ssh-agent` has the appropriate private key loaded.     
+    - You do not need to specify `User` if you are comfortable passing `-l admin` or `admin@<instance-id>` on the connection command line.
 
+6. You can also use SSM to forward ports to access services without exposing them directly to the internet. For example, to forward 8081 on a local system to 8081 on a remote EC2 instance:
+
+    ```
+    $ aws ssm start-session --target $INSTANCE_ID \
+        --document-name AWS-StartPortForwardingSession \
+        --parameters '{"portNumber":["8081"],"localPortNumber":["8081"]}'
+    ```
 
 ## Further reading
 - [https://dev.to/entest/setup-vscode-ssh-remote-to-a-private-ec2-instance-via-ssm-dm7](https://dev.to/entest/setup-vscode-ssh-remote-to-a-private-ec2-instance-via-ssm-dm7)
