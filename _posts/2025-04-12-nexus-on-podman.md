@@ -1,5 +1,5 @@
 ---
-title: "Running Nexus with Podman"
+title: "Running Sonatype Nexus Repository with Podman"
 tags:
 - containers
 - nexus
