@@ -49,4 +49,4 @@ This is VERY quick and dirty, you should automate the post-startup config. Add T
 # References
 - [Configuration as Code](https://plugins.jenkins.io/configuration-as-code/)
 - [Introduction to Jenkins Configuration as Code (JCasC) with a Real Example](https://medium.com/@mbanaee61/introduction-to-jenkins-configuration-as-code-jcasc-with-a-real-example-d955fc1a9777)
-- [](https://8gwifi.org/docs/podman-jenkins.jsp)
+- [https://8gwifi.org/docs/podman-jenkins.jsp](https://8gwifi.org/docs/podman-jenkins.jsp)
