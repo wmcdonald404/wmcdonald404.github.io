@@ -46,6 +46,34 @@ This is just a quick-and-dirty how-to to spin up a small Jenkins instance to tes
 # Next Steps
 This is VERY quick and dirty, you should automate the post-startup config. Add TLS, impose sensible OOTB configuration defaults and all the other day-to-day operational tasks required by any piece of infrastructure.
 
+# API use TL;DR:
+
+```
+$ JT=$(podman exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword | dos2unix)
+
+$ curl -s -u admin:${JT} http://localhost:8082/api/json | jq keys
+[
+  "_class",
+  "assignedLabels",
+  "description",
+  "jobs",
+  "mode",
+  "nodeDescription",
+  "nodeName",
+  "numExecutors",
+  "overallLoad",
+  "primaryView",
+  "quietDownReason",
+  "quietingDown",
+  "slaveAgentPort",
+  "unlabeledLoad",
+  "url",
+  "useCrumbs",
+  "useSecurity",
+  "views"
+]
+```
+
 # References
 - [Configuration as Code](https://plugins.jenkins.io/configuration-as-code/)
 - [Introduction to Jenkins Configuration as Code (JCasC) with a Real Example](https://medium.com/@mbanaee61/introduction-to-jenkins-configuration-as-code-jcasc-with-a-real-example-d955fc1a9777)
