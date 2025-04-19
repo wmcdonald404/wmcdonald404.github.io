@@ -36,6 +36,7 @@ I like to make my toasties like a hipster douchebag in seasoned cast iron, I use
 
 For bonus points, you can also add a nice [cast iron steak weight/press](https://www.nisbets.co.uk/steak-weight/cf237), maybe throw on a Filson flannel shirt and cultivate a beard. 
 
+This [Lime Pickle cheese toastie](https://www.bbcgoodfood.com/recipes/lime-pickle-rarebit) sounds like it would be a GREAT combo, too. [Dan Toombs Lime Pickle recipe](https://greatcurryrecipes.net/2011/04/29/indian-lime-pickle-recipe/) is very solid if you wanted a bash at making your own.
 
 # References
 - ["forty-dollar pot" (aka The Lodge 3.2-Quart Cast Iron Combo Cooker)](https://www.wired.com/story/rave-lodge-3-quart-cast-iron-combo-cooker/)
