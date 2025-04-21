@@ -82,8 +82,7 @@ Now we should be able to connect to the Windows Vagrant box via RDP.
 
 3. You can also use the Gnome Connections app, although this appears to lack a CLI option (wtf?!)
 
-
-## Next steps
+## Bonus steps
 We can automatically provision the Vagrant box with RDP enabled and the firewall open:
 
 ```ruby
@@ -102,6 +101,16 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: $cloudinit
 end
 ```
+
+We can parse the output of `vagrant winrm-config` to set environment variables for the connection. This would be useful, for example, in a CI pipeline where you wouldn't want a username, password or other potentially sensitive information exposed. This could be wrapped in a simple shell function, and/or hooked into `direnv` `.envrc` configuration to trigger variable auto-refresh when switching into the Vagrant box's directory. 
+
+```
+$ eval $(vagrant winrm-config | awk '$1 ~ /^RDP/ { var=toupper($1); gsub(/\r/, "", $2); print var "=\"" $2 "\"" }')
+$ wlfreerdp /u:${RDPUSER} /p:${RDPPASSWORD} /v:${RDPHOSTNAME} /scale-desktop:300 /f
+```
+
+
+
 
 ## Further reading
 - [How to enable Remote Desktop from PowerShell on Windows 10](https://pureinfotech.com/enable-remote-desktop-powershell-windows-10/)
