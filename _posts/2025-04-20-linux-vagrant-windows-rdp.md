@@ -106,7 +106,7 @@ We can parse the output of `vagrant winrm-config` to set environment variables f
 
 This would be useful, for example, in a CI pipeline where you wouldn't want a username, password or other potentially sensitive information exposed. This could be wrapped in a simple shell function, and/or hooked into `direnv` `.envrc` configuration to trigger variable auto-refresh when switching into the Vagrant box's directory. 
 
-```
+```shell
 $ eval $(vagrant winrm-config | awk '$1 ~ /^RDP/ { var=toupper($1); gsub(/\r/, "", $2); print var "=\"" $2 "\"" }')
 $ wlfreerdp /u:${RDPUSER} /p:${RDPPASSWORD} /v:${RDPHOSTNAME} /scale-desktop:300 /f
 ```
