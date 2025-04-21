@@ -85,6 +85,25 @@ Extend the setup to include multiple flavours of Vagrant box, more complex combi
 - Add multiple nodes with provisioner runs.
 
 ## Notes
+Manually adding a box from an upstream, non-Hashicorp source:
+
+```shell
+$ vagrant box add fedora/42-cloud-base https://fedora.mirrorservice.org/fedora/linux/releases/42/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-libvirt-42-1.1.x86_64.vagrant.libvirt.box
+$ mkdir ~/repos/wmcdonald404/vagrantfiles/fedora/fedora42
+$ cd $_
+$ vagrant box list
+$ mkdir fedora/fedora42
+$ cp Vagrantfile Vagrantfile.comments
+$ grep -Ev '^$|^ *#' Vagrantfile > Vagrantfile.stripped
+$ cp Vagrantfile.stripped Vagrantfile
+$ vagrant up
+$ vagrant ssh 
+[vagrant@localhost ~]$ cat /etc/fedora-release 
+Fedora release 42 (Adams)
+[vagrant@localhost ~]$ exit
+$ vagrant destroy -f
+```
+
 If returning to this after a few months or a year or two, if you've been performing in-place upgrades of Fedora you may encounter plugin version mismatches, for example:
 ```shell
 wmcdonald@fedora:~$ vagrant box list
@@ -201,15 +220,15 @@ sudo virsh net-list --all
 https://github.com/hashicorp/vagrant/issues/12605
 
 ## Further reading
-- https://computingforgeeks.com/using-vagrant-with-libvirt-on-linux/
-- https://app.vagrantup.com/fedora/boxes/37-cloud-base
-- https://alt.fedoraproject.org/en/cloud/
-- https://app.vagrantup.com/fedora/
-- https://download.fedoraproject.org/pub/fedora/linux/releases/37/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-37-1.7.x86_64.vagrant-libvirt.box
-- https://github.com/vagrant-libvirt/vagrant-libvirt#installing
-- https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html
-- https://fedoraproject.org/wiki/Changes/LibvirtModularDaemons
-- https://fedoramagazine.org/setting-up-a-vm-on-fedora-server-using-cloud-images-and-virt-install-version-3/
-- https://blog.while-true-do.io/cloud-init-getting-started/
-- https://opensource.com/article/21/10/vagrant-libvirt
-- https://github.com/gusztavvargadr/packer/wiki/Windows-Server
+- [https://computingforgeeks.com/using-vagrant-with-libvirt-on-linux/](https://computingforgeeks.com/using-vagrant-with-libvirt-on-linux/)
+- [https://app.vagrantup.com/fedora/boxes/37-cloud-base](https://app.vagrantup.com/fedora/boxes/37-cloud-base)
+- [https://alt.fedoraproject.org/en/cloud/](https://alt.fedoraproject.org/en/cloud/)
+- [https://app.vagrantup.com/fedora/](https://app.vagrantup.com/fedora/)
+- [https://fedora.mirrorservice.org/fedora/linux/releases/42/Cloud/x86_64/images/ - Fedora-Cloud-Base-Vagrant-37-1.7.x86_64.vagrant-libvirt.box](https://fedora.mirrorservice.org/fedora/linux/releases/42/Cloud/x86_64/images/)
+- [https://github.com/vagrant-libvirt/vagrant-libvirt#installing](https://github.com/vagrant-libvirt/vagrant-libvirt#installing)
+- [https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html](https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html)
+- [https://fedoraproject.org/wiki/Changes/LibvirtModularDaemons](https://fedoraproject.org/wiki/Changes/LibvirtModularDaemons)
+- [https://fedoramagazine.org/setting-up-a-vm-on-fedora-server-using-cloud-images-and-virt-install-version-3/](https://fedoramagazine.org/setting-up-a-vm-on-fedora-server-using-cloud-images-and-virt-install-version-3/)
+- [https://blog.while-true-do.io/cloud-init-getting-started/](https://blog.while-true-do.io/cloud-init-getting-started/)
+- [https://opensource.com/article/21/10/vagrant-libvirt](https://opensource.com/article/21/10/vagrant-libvirt)
+- [https://github.com/gusztavvargadr/packer/wiki/Windows-Server](https://github.com/gusztavvargadr/packer/wiki/Windows-Server)
