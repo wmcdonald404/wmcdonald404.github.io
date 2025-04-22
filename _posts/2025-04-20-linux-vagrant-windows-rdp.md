@@ -40,18 +40,17 @@ Now if we needed to be able to RDP to an instance, for example to visualise conf
 1. Manually enable RDP connections into the Vagrant box and open the firewall.
   
     ```
+    $ vagrant ssh
     Microsoft Windows [Version 10.0.20348.2031]
     (c) Microsoft Corporation. All rights reserved.
-
     vagrant@WIN-K5L3P3IJUBT C:\Users\vagrant>pwsh
     PowerShell 7.3.8
-
     PS C:\Users\vagrant> Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0 
-
     PS C:\Users\vagrant> Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-
     PS C:\Users\vagrant> exit
     ```
+    
+    **Note:** The [Jborean Windows 2022 image](https://portal.cloud.hashicorp.com/vagrant/discover/jborean93/WindowsServer2022) appears to already have the Terminal Services service enabled and the firewall rule(s) enabled.
 
 ### Subsequent Fedora config
 
