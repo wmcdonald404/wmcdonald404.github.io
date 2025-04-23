@@ -21,7 +21,7 @@ Now we can quickly provision a Jenkins instance in a container, next it would be
 # How-to
 1. If Jenkins is already up and running, skip to step #2.
 
-  If starting from scratch, `podman run` the Jenkins LTS release
+    If starting from scratch, `podman run` the Jenkins LTS release
 
     ```
     $ podman run -d --restart on-failure -p 8080:8080 -u $UID -v jenkins_home:/var/jenkins_home --name jenkins docker.io/jenkins/jenkins:lts
