@@ -19,7 +19,7 @@ Following on from [Quick Active Directory Controller](https://wmcdonald404.co.uk
 Cloning the respository and making any tweaks required for your specific Vagrant provider are assumed...
 
 # Steps
-## Provision Virtual Machine / Vagrant Box 
+Provision Virtual Machine / Vagrant Box 
 
 1. Start the Windows 2022 Vagrant Box
     ```shell
