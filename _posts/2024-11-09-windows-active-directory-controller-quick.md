@@ -1,5 +1,5 @@
 ---
-title: "Quick Active Directory Controller"
+title: "Quick Windows Active Directory Controller"
 tags:
 - windows
 - active-directory
@@ -16,7 +16,7 @@ tags:
 
 Years ago I had to build some quick-and-dirty Active Directory (AD) infrastructure in a virtualised lab in order to reproduce some cross-domain trusts and Red Hat Identity Manager integration.
 
-This post will cover the basic steps to provision an Active Direcory Domain Controller. 
+This post will cover the basic steps to provision an AD Domain Controller. 
 
 We'll use [Windows 2022 on Vagrant with the Libvirt Provider](https://wmcdonald404.github.io/github-pages/2024/03/20/linux-vagrant-windows-boxes.html) as our starting point to update the end-to-end process. (Last time I built this was on Windows Server 2016 on VMware.)
 
