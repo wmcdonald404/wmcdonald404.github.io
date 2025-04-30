@@ -1,5 +1,5 @@
 ---
-title: "_Quicker_ Windows Active Directory Controller"
+title: "Quicker Windows Active Directory Controller"
 tags:
 - windows
 - active-directory
