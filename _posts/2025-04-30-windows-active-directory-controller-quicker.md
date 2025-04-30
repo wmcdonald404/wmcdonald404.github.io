@@ -38,10 +38,12 @@ Provision Virtual Machine / Vagrant Box
     WIN-ODH49KSMJL3.WIN.ODH49KSMJL3
     ```
     
-    b. connect via its console:
+    b. Connect via its console:
     
     ```shell
     $ vagrant ssh
+    ```
+    ```powershell
     vagrant@WIN-Q5TRJJGJS2J C:\Users\vagrant>pwsh
     PS C:\Users\vagrant> 
     ```
