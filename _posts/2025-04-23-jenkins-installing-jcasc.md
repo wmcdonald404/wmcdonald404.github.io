@@ -1,5 +1,5 @@
 ---
-title: "Jenkins Configuration as Code"
+title: "Installing Jenkins Configuration as Code"
 tags:
 - containers
 - jenkins
@@ -16,7 +16,7 @@ Now we can quickly provision a Jenkins instance in a container, next it would be
 - Plugin deployment
 - Plugin configuration
 
-[Jenkins Configuration as Code (aka JCasC)](https://www.jenkins.io/projects/jcasc/) can help with these post-deployment steps.
+[Jenkins Configuration as Code (aka JCasC)](https://www.jenkins.io/projects/jcasc/) can help with these post-deployment steps. In order to fiddle with JCasC first we need to install the plugin. This should itself be driven from an IaC pipeline but first we need to understand the basic workflow.
 
 # How-to
 1. If Jenkins is already up and running, skip to step #2.
