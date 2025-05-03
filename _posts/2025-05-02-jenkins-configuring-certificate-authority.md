@@ -1,5 +1,5 @@
 ---
-title: "Installing CA Root Certificate in Jenkins"
+title: "Installing a CA Root Certificate in Jenkins"
 tags:
 - containers
 - jenkins
