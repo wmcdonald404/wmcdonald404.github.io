@@ -151,9 +151,9 @@ Now a more efficient, quicker method.
 
 4. Playback the pod specification to create the pod
 
-  ```
-  $ podman play kube jenkins-spec.yaml
-  ```
+    ```
+    $ podman play kube jenkins-spec.yaml
+    ```
 
 # References
 
