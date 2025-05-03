@@ -1,5 +1,5 @@
 ---
-title: "Jenkins with CA Root certificate"
+title: "Installing CA Root Certificate in Jenkins"
 tags:
 - containers
 - jenkins
@@ -18,10 +18,73 @@ Building on:
 We should be about ready to use the [Jenkins Configuration as Code (aka JCasC)](https://www.jenkins.io/projects/jcasc/) to help with these post-deployment steps.
 
 In some scenarios, you may need to include organisational Certificate Authority certificates in order to permit Jenkins instance(s) to access the update center, if any proxies or zero-trust network infrastructure is involved.
- 
-# How-to 
+
+# How-to - Manually
+
+First, this is the manual process to configure a CA certificate into the Jenkins keystore.
 
 1. Ensure you have a certificate for your proxy or ZTA infrastructure, see [Exporting Windows Certificates into WSL](https://wmcdonald404.co.uk/2024/05/19/windows-certificates-into-wsl.html), in the correct format (DER is required for JKS keystores)
+
+2. Start your Jenkins instance
+
+    ```
+    $ podman run -d -p 8082:8080 -u $UID -v jenkins-data:/var/jenkins_home --name jenkins docker.io/jenkins/jenkins:lts
+    ```
+
+3. Create a directory for the certificates
+
+    ```
+    $ podman exec -it jenkins bash -c "mkdir /var/jenkins_home/cacerts/; chmod 700 /var/jenkins_home"
+    ```
+
+4. Copy the certificate DER into the container
+
+    ```
+    $ podman cp ~/certificate.der jenkins:/var/jenkins_home/cacerts/
+    ```
+
+5. Copy the existing certificate store certificates into your certificate directory
+
+    ```
+    $ podman exec -it jenkins cp /opt/java/openjdk/lib/security/cacerts /var/jenkins_home/cacerts/
+    ```
+
+6. Create a new passphrase for your new certificate store
+
+    ```
+    $ export HISTCONTROL=ignorespace
+    $   TMP_PASS=$(pwgen -C 8 3 | sed 's/ //g')
+    ```
+
+7. Replace the default passphrase on the certificate store
+
+    ```
+    $ podman exec -e TMP_PASS=$TMP_PASS -it jenkins keytool -storepasswd -storepass changeit -new $TMP_PASS -keystore /var/jenkins_home/cacerts/cacerts
+    ```
+
+8. Import the additional CA certificate
+
+    ```
+    $ podman exec -e TMP_PASS=$TMP_PASS -it jenkins keytool -import -trustcacerts -alias 'Cloudflare Root CA' -file /var/jenkins_home/cloudflare.der -keystore /var/jenkins_home/cacerts/cacerts -storepass $TMP_PASS -noprompt
+    ```
+
+9. Stop and start the jenkins container
+
+    ```
+    $ podman stop jenkins && wait && podman start jenkins
+    ```
+
+10. Check the logs.
+
+    ```
+    $ podman logs jenkins
+    ```
+
+# How-to - Using a Kubernetes spec and Podman pods
+
+Now a more efficient, quicker method.
+
+1. Again, ensure you have a certificate for your proxy or ZTA infrastructure, see [Exporting Windows Certificates into WSL](https://wmcdonald404.co.uk/2024/05/19/windows-certificates-into-wsl.html), in the correct format (DER is required for JKS keystores)
 
 2. Set a temporary password
 
