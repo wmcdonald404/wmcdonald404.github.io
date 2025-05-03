@@ -1,10 +1,10 @@
 ---
-title: "Jenkins Configuration as Code"
+title: "Jenkins with CA Root certificate"
 tags:
 - containers
 - jenkins
 - podman
-- 
+- certificate
 ---
 
 * TOC
