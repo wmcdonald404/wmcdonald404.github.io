@@ -11,7 +11,7 @@ tags:
 {:toc}
 
 # Overview
-Building on:
+Building on what we learned with:
 - [Running Jenkins CI with Podman](https://wmcdonald404.co.uk/2025/04/15/jenkins-on-podman.html)
 - [Installing Jenkins Configuration as Code](https://wmcdonald404.co.uk/2025/04/23/jenkins-installing-jcasc.html)
 
