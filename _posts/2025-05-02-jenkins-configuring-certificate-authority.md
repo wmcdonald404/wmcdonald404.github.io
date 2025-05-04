@@ -82,7 +82,9 @@ First, this is the manual process to configure a CA certificate into the Jenkins
 
 # How-to - Using a Kubernetes spec and Podman pods
 
-Now a more efficient, quicker method.
+Now a more efficient, quicker method. Podman pods permit multiple containers to be initialised, akin to Kubernetes pods. Multiple containers can run in a pod in various modes. This includes the initContainer pattern which provides a run-once pattern to carry out initialisation steps prior to entering the normal container lifecycle.
+
+initContainer is an ideal mechanism to bootstrap things like certificates.
 
 1. Again, ensure you have a certificate for your proxy or ZTA infrastructure, see [Exporting Windows Certificates into WSL](https://wmcdonald404.co.uk/2024/05/19/windows-certificates-into-wsl.html), in the correct format (DER is required for JKS keystores)
 
@@ -280,7 +282,7 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
    ```
 
 # References
-
+- [Podman: Managing pods and containers in a local container runtime](https://developers.redhat.com/blog/2019/01/15/podman-managing-containers-pods#podman_pods__what_you_need_to_know)
 - [Init Containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)
 - [Handle initContainer for Pods](https://github.com/containers/podman/issues/6480)
 - [Podman secrets: a better way to pass environment variables to containers](https://martincarstenbach.com/2022/12/19/podman-secrets-a-better-way-to-pass-environment-variables-to-containers/)
