@@ -232,7 +232,7 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
          keytool -storepasswd -storepass changeit -new \$JKS_PASS -keystore /var/jenkins_home/cacerts/cacerts && 
          echo "import CA cert...";
          keytool -import -trustcacerts -alias 'Root CA Certificate' -file /var/jenkins_home/certificate.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$JKS_PASS -noprompt;
-         echo \$JKS_PASS > \$JENKINS_HOME/secrets/initialJKSPassword
+         echo \$JKS_PASS > \$JENKINS_HOME/initialJKSPassword
        volumeMounts:
        - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
