@@ -103,60 +103,55 @@ Now a more efficient, quicker method.
    apiVersion: v1
    kind: Pod
    metadata:
-   labels:
-      app: jenkins
-   name: jenkins
+     labels:
+       app: jenkins
+     name: jenkins
    spec:
-   initContainers:
-   - name: init
-      env:
-      - name: TMP_PASS
+     initContainers:
+     - name: init
+       env:
+       - name: TMP_PASS
          value: foVahqu8eeDu7ohfAequ8ohx
-      image: docker.io/jenkins/jenkins:lts
-      command: ['sh', '-c']
-      args:
-      - sleep 5 && 
-         echo "Setting up CA certificates..." && 
-         echo "mkdir cacerts..."; 
-         mkdir -p /var/jenkins_home/cacerts/ && 
-         echo "copy cacerts..."; 
-         cp /opt/java/openjdk/lib/security/cacerts /var/jenkins_home/cacerts/ && 
-         echo "replace default keystore passphrase..."; 
-         keytool -storepasswd -storepass changeit -new \$JKS_PASS -keystore /var/jenkins_home/cacerts/cacerts && 
-         echo "import CA cert...";
-         keytool -import -trustcacerts -alias 'Root CA Certificate' -file /var/jenkins_home/certificate.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$JKS_PASS -noprompt;
-         echo \$JKS_PASS > \$JENKINS_HOME/initialJKSPassword
-      volumeMounts:
-      - name: jenkins-home-pvc
+       image: docker.io/jenkins/jenkins:lts
+       command: ['sh', '-c']
+       args:
+         - sleep 5 && echo "Setting up CA certificates..." && 
+           echo "mkdir cacerts..."; mkdir -p /var/jenkins_home/cacerts/ &&  
+           echo "copy cacerts..."; cp /opt/java/openjdk/lib/security/cacerts /var/jenkins_home/cacerts/ && 
+           echo "replace default keystore passphrase..."; keytool -storepasswd -storepass changeit -new \$TMP_PASS -keystore /var/jenkins_home/cacerts/cacerts && 
+           echo "import CA cert..."; keytool -import -trustcacerts -alias "Root CA cert" -file /var/jenkins_home/cert.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$TMP_PASS -noprompt &&
+           echo \$TMP_PASS > /var/jenkins_home/initialJKSPassword
+       volumeMounts:
+       - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
-      - name: certificate.der
-         mountPath: /var/jenkins_home/certificate.der
-   containers:
-   - name: controller
-      image: docker.io/jenkins/jenkins:lts
-      ports:
-      - containerPort: 8080
+       - name: cert.der
+         mountPath: /var/jenkins_home/cert.der
+     containers:
+     - name: controller
+       image: docker.io/jenkins/jenkins:lts
+       ports:
+       - containerPort: 8080
          hostPort: 8080
-      securityContext:
+       securityContext:
          runAsGroup: 1000
          runAsUser: 1000
-      volumeMounts:
-      - name: jenkins-home-pvc
+       volumeMounts:
+       - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
-      - name: certificate.der
-         mountPath: /var/jenkins_home/certificate.der
-      env:
-      - name: JAVA_OPTS
+       - name: cert.der
+         mountPath: /var/jenkins_home/cert.der
+       env:
+       - name: JAVA_OPTS
          value: -Djavax.net.ssl.trustStore=/var/jenkins_home/cacerts/cacerts -Djavax.net.ssl.trustStorePassword=foVahqu8eeDu7ohfAequ8ohx
-      - name: TMP_PASS
+       - name: TMP_PASS
          value: foVahqu8eeDu7ohfAequ8ohx
-   volumes:
-   - name: jenkins-home-pvc
-      persistentVolumeClaim:
+     volumes:
+     - name: jenkins-home-pvc
+       persistentVolumeClaim:
          claimName: jenkins-home
-   - name: certificate.der
-      hostPath:
-         path: /home/wmcdonald/certificate.der
+     - name: cert.der
+       hostPath:
+         path: /home/wmcdonald/cert.der
          type: File
    EOF
    ```
@@ -186,12 +181,12 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
    $ cat <<EOF > ~/jenkins-secrets.yaml
    apiVersion: v1
    data:
-      jks-pass: $BASE64_JKS_PASSWORD
-      java-opts: $BASE64_JAVA_OPTS
+     jks-pass: $BASE64_JKS_PASSWORD
+     java-opts: $BASE64_JAVA_OPTS
    kind: Secret
    metadata:
-      creationTimestamp: null
-      name: jenkins-secrets
+     creationTimestamp: null
+     name: jenkins-secrets
    EOF
    ```
 
@@ -212,22 +207,22 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
    apiVersion: v1
    kind: Pod
    metadata:
-   labels:
-      app: jenkins
-   name: jenkins
+     labels:
+       app: jenkins
+     name: jenkins
    spec:
-   initContainers:
-   - name: init
-      env:
-      - name: JKS_PASS
+     initContainers:
+     - name: init
+       env:
+       - name: JKS_PASS
          valueFrom:
-         secretKeyRef:
-            name: jenkins-secrets
-            key: jks-pass
-      image: docker.io/jenkins/jenkins:lts
-      command: ['sh', '-c']
-      args:
-      - sleep 5 && 
+           secretKeyRef:
+             name: jenkins-secrets
+             key: jks-pass
+       image: docker.io/jenkins/jenkins:lts
+       command: ['sh', '-c']
+       args:
+       - sleep 5 && 
          echo "Setting up CA certificates..." && 
          echo "mkdir cacerts..."; 
          mkdir -p /var/jenkins_home/cacerts/ && 
@@ -237,38 +232,36 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
          keytool -storepasswd -storepass changeit -new \$JKS_PASS -keystore /var/jenkins_home/cacerts/cacerts && 
          echo "import CA cert...";
          keytool -import -trustcacerts -alias 'Root CA Certificate' -file /var/jenkins_home/certificate.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$JKS_PASS -noprompt;
-         echo \$JKS_PASS > \$JENKINS_HOME/initialJKSPassword
-      volumeMounts:
-      - name: jenkins-home-pvc
+         echo \$JKS_PASS > \$JENKINS_HOME/secrets/initialJKSPassword
+       volumeMounts:
+       - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
-      - name: certificate.der
+       - name: certificate.der
          mountPath: /var/jenkins_home/certificate.der
-   containers:
-   - name: controller
-      image: docker.io/jenkins/jenkins:lts
-      ports:
-      - containerPort: 8080
+     containers:
+     - name: controller
+       image: docker.io/jenkins/jenkins:lts
+       ports:
+       - containerPort: 8080
          hostPort: 8080
-      securityContext:
+       securityContext:
          runAsGroup: 1000
          runAsUser: 1000
-      volumeMounts:
-      - name: jenkins-home-pvc
+       volumeMounts:
+       - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
-      - name: certificate.der
-         mountPath: /var/jenkins_home/certificate.der
-      env:
-      - name: JAVA_OPTS
+       env:
+       - name: JAVA_OPTS
          valueFrom:
-         secretKeyRef:
-            name: jenkins-secrets
-            key: java-opts
-   volumes:
-   - name: jenkins-home-pvc
-      persistentVolumeClaim:
+           secretKeyRef:
+             name: jenkins-secrets
+             key: java-opts
+     volumes:
+     - name: jenkins-home-pvc
+       persistentVolumeClaim:
          claimName: jenkins-home
-   - name: certificate.der
-      hostPath:
+     - name: certificate.der
+       hostPath:
          path: /home/wmcdonald/certificate.der
          type: File
    EOF
