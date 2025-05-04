@@ -113,7 +113,19 @@ Now a more efficient, quicker method.
       - name: TMP_PASS
          value: foVahqu8eeDu7ohfAequ8ohx
       image: docker.io/jenkins/jenkins:lts
-      command: ['sh', '-c', 'sleep 5 && echo "Setting up CA certificates..." && echo "mkdir cacerts..."; mkdir -p /var/jenkins_home/cacerts/ &&  echo "copy cacerts..."; cp /opt/java/openjdk/lib/security/cacerts /var/jenkins_home/cacerts/ && echo "replace default keystore passphrase..."; keytool -storepasswd -storepass changeit -new \$TMP_PASS -keystore /var/jenkins_home/cacerts/cacerts && echo "import CA cert..."; keytool -import -trustcacerts -alias "Root CA cert" -file /var/jenkins_home/certificate.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$TMP_PASS -noprompt']
+      command: ['sh', '-c']
+      args:
+      - sleep 5 && 
+         echo "Setting up CA certificates..." && 
+         echo "mkdir cacerts..."; 
+         mkdir -p /var/jenkins_home/cacerts/ && 
+         echo "copy cacerts..."; 
+         cp /opt/java/openjdk/lib/security/cacerts /var/jenkins_home/cacerts/ && 
+         echo "replace default keystore passphrase..."; 
+         keytool -storepasswd -storepass changeit -new \$JKS_PASS -keystore /var/jenkins_home/cacerts/cacerts && 
+         echo "import CA cert...";
+         keytool -import -trustcacerts -alias 'Root CA Certificate' -file /var/jenkins_home/certificate.der -keystore /var/jenkins_home/cacerts/cacerts -storepass \$JKS_PASS -noprompt;
+         echo \$JKS_PASS > \$JENKINS_HOME/initialJKSPassword
       volumeMounts:
       - name: jenkins-home-pvc
          mountPath: /var/jenkins_home
