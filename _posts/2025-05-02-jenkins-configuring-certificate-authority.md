@@ -76,9 +76,9 @@ First, this is the manual process to configure a CA certificate into the Jenkins
 
 10. Check the logs.
 
-   ```shell
-   $ podman logs jenkins
-   ```
+    ```shell
+    $ podman logs jenkins
+    ```
 
 # How-to - Using a Kubernetes spec and Podman pods
 
