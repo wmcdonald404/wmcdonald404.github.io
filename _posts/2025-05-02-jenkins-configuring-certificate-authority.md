@@ -186,12 +186,12 @@ We can use Podman secrets mapped to Kubernetes secrets in our specification to i
    $ cat <<EOF > ~/jenkins-secrets.yaml
    apiVersion: v1
    data:
-   jks-pass: $BASE64_JKS_PASSWORD
-   java-opts: $BASE64_JAVA_OPTS
+      jks-pass: $BASE64_JKS_PASSWORD
+      java-opts: $BASE64_JAVA_OPTS
    kind: Secret
    metadata:
-   creationTimestamp: null
-   name: jenkins-secrets
+      creationTimestamp: null
+      name: jenkins-secrets
    EOF
    ```
 
