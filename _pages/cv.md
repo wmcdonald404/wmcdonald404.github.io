@@ -91,6 +91,7 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - [Apache Directory ApacheDS](https://directory.apache.org/apacheds/)
 - [IBM Tivoli Identity Manager](https://www.ibm.com/docs/en/tfim)
 - [Oracle Internet Directory](https://www.oracle.com/middleware/technologies/internet-directory.html)
+- [Samba](https://www.samba.org/)
 - [Weblogic Embedded LDAP](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/secmg/ldap.html)
 
 ## Layered Infrastructure Services
