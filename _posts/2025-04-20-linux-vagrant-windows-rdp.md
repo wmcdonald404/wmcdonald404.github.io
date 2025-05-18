@@ -73,6 +73,8 @@ Now we should be able to connect to the Windows Vagrant box via RDP.
 
 2. Connect to the Vagrant VM using the default credentials.
 
+    **Note:** `wlfreerdp` is deprecated and `sdl-freerdp` is prefered. Its usage is essentially the same as wlfreerdp.
+
     ```shell
     $ wlfreerdp /u:vagrant /p:vagrant /v:192.168.122.14:3389 /scale-desktop:300 /f
     ```
