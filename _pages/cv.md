@@ -169,6 +169,7 @@ Whether that's configuring, deploying, testing, and operating in a hands-on capa
 - [Cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
 - [Cobbler](https://cobbler.github.io/)
 - [Jumpstart](https://www.oracle.com/technical-resources/articles/solaris10/jumpstart-x86-x64-jsp.html)
+- [Kickstart](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-howto)
 - [Preboot Execution Environment (PXE)](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)
 - [Red Hat Satellite](https://www.redhat.com/en/technologies/management/satellite)
 
