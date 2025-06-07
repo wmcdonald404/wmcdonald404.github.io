@@ -49,7 +49,7 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
 ```
 $   BB=<password>
 
-$ $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
+$ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
 {
   "size": 2,
   "limit": 25,
