@@ -24,7 +24,8 @@ This is just a quick-and-dirty how-to to spin up a small Jenkins instance to tes
 2. Check the logs for the startup password
 
     ```
-    $ Jenkins initial setup is required. An admin user has been created and a password generated.
+    $ podman logs jenkins
+    Jenkins initial setup is required. An admin user has been created and a password generated.
     Please use the following password to proceed to installation:
 
     a97fb91133b3013fefb5fd9sdf8sdf987
