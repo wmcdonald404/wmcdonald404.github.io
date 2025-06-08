@@ -47,78 +47,78 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
 1. Create Projects
 2. Make Project default "world" readable
 
-2. Create Users
-3. Create Groups
-4. Assing
-4. Assign Group to Project
+3. Create Users
+4. Create Groups
+5. Assing
+6. Assign Group to Project
 
 
 # API use TL;DR:
 
 1. Set an environment variable with the admin password.
 
-  ```
-  $   BB=<password>
-  ```
+    ```
+    $   BB=<password>
+    ```
 
 2. Create a project, check the return value.
 
-  ```
-  $ curl \
-    -d '{"key":"PDTA","name":"Product Team A","description":"Product Team A. Contact X."}' \
-    -H "Content-Type: application/json" \
-    -s -u admin:${BB} \
-    -X POST http://localhost:7990/rest/api/1.0/projects/
+    ```
+    $ curl \
+      -d '{"key":"PDTA","name":"Product Team A","description":"Product Team A. Contact X."}' \
+      -H "Content-Type: application/json" \
+      -s -u admin:${BB} \
+      -X POST http://localhost:7990/rest/api/1.0/projects/
 
-  $ echo $?
-  0
-  ```
+    $ echo $?
+    0
+    ```
 
 3. Validate existing projects.
 
-  ```
-  $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
-  {
-  "size": 1,
-  "limit": 25,
-  "isLastPage": true,
-  "values": [
+    ```
+    $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
     {
-      "key": "PDTA",
-      "id": 25,
-      "name": "Product Team A",
-      "description": "Product Team A. Contact X.",
-      "public": false,
-      "type": "NORMAL",
-      "links": {
-        "self": [
-          {
-            "href": "http://localhost:7990/projects/PDTA"
-          }
-        ]
+    "size": 1,
+    "limit": 25,
+    "isLastPage": true,
+    "values": [
+      {
+        "key": "PDTA",
+        "id": 25,
+        "name": "Product Team A",
+        "description": "Product Team A. Contact X.",
+        "public": false,
+        "type": "NORMAL",
+        "links": {
+          "self": [
+            {
+              "href": "http://localhost:7990/projects/PDTA"
+            }
+          ]
+        }
       }
+    ],
+    "start": 0
     }
-  ],
-  "start": 0
-  }
-  ```
+    ```
 
 4. Check the project's default permission for 'ALL' (synonymous with default):
 
-  ```
-  $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all
-  {"permitted":false}
-  ```
+    ```
+    $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all
+    {"permitted":false}
+    ```
 
 5. Switch the [default permission](https://docs.atlassian.com/bitbucket-server/rest/5.16.0/bitbucket-rest.html#idm8286985008) to `PROJECT_READ`
 
-  ```
-  $ curl \
-      -d '{"permitted":true}' \
-      -H "Content-Type: application/json" \
-      -s -u admin:${BB} \
-      -X POST http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all?allow=true
-  ```
+    ```
+    $ curl \
+        -d '{"permitted":true}' \
+        -H "Content-Type: application/json" \
+        -s -u admin:${BB} \
+        -X POST http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all?allow=true
+    ```
 
 
 # References
