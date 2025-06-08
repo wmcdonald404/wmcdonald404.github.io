@@ -46,47 +46,51 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
 
 # API use TL;DR:
 
-```
-$   BB=<password>
+1. Set an environment variable with the admin password.
+  ```
+  $   BB=<password>
+  ```
 
-$ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
-{
-  "size": 2,
+2. Create a project, check the return value.
+  ```
+  $ curl \
+    -d '{"key": "PDTA","name": "Product Team A","description": "Product Team A. Contact X."}' \
+    -H "Content-Type: application/json" \
+    -s -u admin:${BB} \
+    -X POST http://localhost:7990/rest/api/1.0/projects/
+
+  $ echo $?
+  0
+  ```
+
+3. Validate existing projects.
+  ```
+  $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
+  {
+  "size": 1,
   "limit": 25,
   "isLastPage": true,
   "values": [
     {
-      "key": "PRJ1",
-      "id": 1,
-      "name": "Project 1",
+      "key": "PDTA",
+      "id": 25,
+      "name": "Product Team A",
+      "description": "Product Team A. Contact X.",
       "public": false,
       "type": "NORMAL",
       "links": {
         "self": [
           {
-            "href": "http://localhost:7990/projects/PRJ1"
-          }
-        ]
-      }
-    },
-    {
-      "key": "PRJ2",
-      "id": 2,
-      "name": "Project 2",
-      "public": false,
-      "type": "NORMAL",
-      "links": {
-        "self": [
-          {
-            "href": "http://localhost:7990/projects/PRJ2"
+            "href": "http://localhost:7990/projects/PDTA"
           }
         ]
       }
     }
   ],
   "start": 0
-}
-```
+  }
+  ```
 
 # References
 - [Atlassian Trial License](https://www.atlassian.com/purchase/my/license-evaluation)
+- [REST Resources Provided By: Bitbucket Server - REST](https://docs.atlassian.com/bitbucket-server/rest/5.16.0/bitbucket-rest.html)
