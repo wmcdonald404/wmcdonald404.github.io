@@ -44,10 +44,12 @@ This is just a quick-and-dirty how-to to spin up a small Bitbucket instance to t
 
 Create some users, groups, projects and repositories. Test API enumeration at http://localhost:7990/rest/api/1.0/projects/
 
-1. Create Users
-2. Create Groups
-3. Create Projects
-4. Make Project world readable
+1. Create Projects
+2. Make Project default "world" readable
+
+2. Create Users
+3. Create Groups
+4. Assing
 4. Assign Group to Project
 
 
@@ -63,7 +65,7 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
 
   ```
   $ curl \
-    -d '{"key": "PDTA","name": "Product Team A","description": "Product Team A. Contact X."}' \
+    -d '{"key":"PDTA","name":"Product Team A","description":"Product Team A. Contact X."}' \
     -H "Content-Type: application/json" \
     -s -u admin:${BB} \
     -X POST http://localhost:7990/rest/api/1.0/projects/
@@ -101,6 +103,25 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
   }
   ```
 
+4. Check the project's default permission for 'ALL' (synonymous with default):
+
+  ```
+  $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all
+  {"permitted":false}
+  ```
+
+5. Switch the [default permission](https://docs.atlassian.com/bitbucket-server/rest/5.16.0/bitbucket-rest.html#idm8286985008) to `PROJECT_READ`
+
+  ```
+  $ curl \
+      -d '{"permitted":true}' \
+      -H "Content-Type: application/json" \
+      -s -u admin:${BB} \
+      -X POST http://localhost:7990/rest/api/1.0/projects/PDTA/permissions/PROJECT_READ/all?allow=true
+  ```
+
+
 # References
 - [Atlassian Trial License](https://www.atlassian.com/purchase/my/license-evaluation)
 - [REST Resources Provided By: Bitbucket Server - REST](https://docs.atlassian.com/bitbucket-server/rest/5.16.0/bitbucket-rest.html)
+- [/rest/api/1.0/projects/{projectKey}/permissions/{permission}/all](https://docs.atlassian.com/bitbucket-server/rest/5.16.0/bitbucket-rest.html#idm8286985008)
