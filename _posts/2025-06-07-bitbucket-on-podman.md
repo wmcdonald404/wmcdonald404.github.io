@@ -44,14 +44,23 @@ This is just a quick-and-dirty how-to to spin up a small Bitbucket instance to t
 
 Create some users, groups, projects and repositories. Test API enumeration at http://localhost:7990/rest/api/1.0/projects/
 
+1. Create Users
+2. Create Groups
+3. Create Projects
+4. Make Project world readable
+4. Assign Group to Project
+
+
 # API use TL;DR:
 
 1. Set an environment variable with the admin password.
+
   ```
   $   BB=<password>
   ```
 
 2. Create a project, check the return value.
+
   ```
   $ curl \
     -d '{"key": "PDTA","name": "Product Team A","description": "Product Team A. Contact X."}' \
@@ -64,6 +73,7 @@ Create some users, groups, projects and repositories. Test API enumeration at ht
   ```
 
 3. Validate existing projects.
+
   ```
   $ curl -s -u admin:${BB} http://localhost:7990/rest/api/1.0/projects/ | jq
   {
