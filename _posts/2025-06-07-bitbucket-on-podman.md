@@ -14,11 +14,11 @@ This is just a quick-and-dirty how-to to spin up a small Bitbucket instance to t
 
 # How-to
 
-1. Start the Jenkins LTS release
+1. Create a storage volume and start the Bitbucket instance
 
     ```
-    $ podman volume create jenkins-data
-    $ podman run -d -p 8082:8080 -u $UID -v jenkins-data:/var/jenkins_home --name jenkins docker.io/jenkins/jenkins:lts
+    $ podman volume create bitbucket-data
+    $ podman run -d --name bitbucket -p 7990:7990 -p 7999:7999 -v bitbucket-data:/var/atlassian/application-data/bitbucket docker.io/atlassian/bitbucket
     ```
 
 2. Check the logs for the startup password
@@ -33,7 +33,7 @@ This is just a quick-and-dirty how-to to spin up a small Bitbucket instance to t
 
 5. Select "I have a Bitbucket license key" and paste in the generated license.
 
-6. Set up the administrator account, and then select "Go to bitbucket:
+6. Set up the administrator account, and then select "Go to bitbucket":
   - Username
   - Full name
   - Email address
