@@ -16,7 +16,7 @@ tags:
 
 Following on from [Quick Active Directory Controller](https://wmcdonald404.co.uk/2024/11/09/quick-active-directory-controller.html), wrapped the bare minimum steps into some Powershell to create a quicker, more automated Vagrant box Active Directory (AD) controller.
 
-Cloning the respository and making any tweaks required for your specific Vagrant provider are assumed...
+[Cloning the respository](https://github.com/wmcdonald404/wmcdonald404-vagrantfiles) and making any tweaks required for your specific Vagrant provider are assumed...
 
 # Steps
 Provision Virtual Machine / Vagrant Box 
