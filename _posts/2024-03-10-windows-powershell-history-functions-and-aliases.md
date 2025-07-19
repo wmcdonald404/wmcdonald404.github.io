@@ -1,8 +1,9 @@
 ---
-title: "Powershell History, Functions and Aliases"
+title: "Powershell History, Profiles, Functions and Aliases"
 tags:
 - microsoft
 - powershell
+- profiles
 - history
 - functions
 - aliases
@@ -60,7 +61,7 @@ AllUsersCurrentHost    NoteProperty string AllUsersCurrentHost=/opt/microsoft/po
 CurrentUserAllHosts    NoteProperty string CurrentUserAllHosts=/home/wmcdonald/.config/powershell/profile.ps1
 CurrentUserCurrentHost NoteProperty string CurrentUserCurrentHost=/home/wmcdonald/.config/powershell/Microsoft.PowerShell_profile.ps1
 ```
-
+## Powershell Functions
 With this information, functions (or aliases) can be dropped into a file at `$PROFILE.CurrentUserCurrentHost` and would be available in the shell at startup:
 
 For example:
@@ -76,6 +77,21 @@ function vpnup {
 function vpndown {
     &"C:\Program Files(x64)\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe" disconnect 
 }
+```
+
+All functions can be enumerated using:
+```powershell
+PS> Get-Item Function:
+```
+
+An Individual function's definition using one of the three following methods:
+```powershell
+
+PS> $function:test
+
+PS> ${function:test-function}
+
+PS> (Get-Command test).Definition
 ```
 
 ## Powershell Aliases
