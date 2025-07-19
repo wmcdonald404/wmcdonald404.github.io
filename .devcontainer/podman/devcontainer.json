@@ -1,13 +1,18 @@
 {
-	"name": "Devcontainer / Jekyll / wmcdonald404.co.uk",
+    "containerUser": "vscode",	
 	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
+	"name": "Devcontainer / Jekyll / wmcdonald404.co.uk",
+	"onCreateCommand": ".devcontainer/bin/onCreateCommand.sh",
+	"remoteEnv": {
+        "PODMAN_USERNS": "keep-id"
+	},
 	"runArgs": [
 		"--security-opt", "label=disable",
-		"--userns=host",
+		// "--userns=host",
+		"--userns=keep-id:uid=1000,gid=1000"
 		"--hostname=devcontainer.wmcdonald404.co.uk"
-	  ],
-	"remoteUser": "root",
-	
-	"onCreateCommand": ".devcontainer/bin/onCreateCommand.sh"
+	],
 	// "updateContentCommand": ".devcontainer/bin/updateContentCommand.sh",
+	"updateRemoteUserUID": true
+    
 }
