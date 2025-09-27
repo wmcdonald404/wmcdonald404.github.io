@@ -47,6 +47,7 @@ On your Windows system:
 ### WSL
 In your WSL2 instance:
 
+#### Debian / Ubuntu distros
 1. Convert the DER-encoded certificate to a PEM and place into the local root CA trust staging directory
     ```shell
     will@ubuntu:~$ sudo openssl x509 -inform der \
@@ -74,6 +75,36 @@ In your WSL2 instance:
     ```shell
     will@ubuntu:~$ ll /etc/ssl/certs/proxy.pem
     lrwxrwxrwx 1 root root 44 May 15 10:46 /etc/ssl/certs/proxy.pem -> /usr/local/share/ca-certificates/proxy.crt
+    ```
+
+#### Fedora / Red Hat distros
+
+1. The Fedora WSL image does not include openssl OOTB. Either:
+    1a. Manually pull openssl and any dependencies and install locally
+    1b. Temporarily disable SSL verification to bootstrap SSL verification
+
+    ```shell
+    $ sudo dnf --setopt=sslverify=false install -y openssl
+    ```
+
+2. Convert the DER-encoded certificate to a PEM and place into the local root CA trust staging directory
+
+    ```shell
+    $ sudo openssl x509 -inform der -in /mnt/c/Users/${USER}/Downloads/proxy.der \
+    -out /etc/pki/ca-trust/source/anchors/proxy.pem
+    ```
+
+3. Update the root Certificate Authorities
+
+    ```shell
+    $ sudo update-ca-trust
+    ```
+
+4. Check that the certificate’s been imported into /etc/pki/ca-trust/extracted/pem/directory-hash
+
+
+    ```shell
+    openssl x509 -in /etc/pki/ca-trust/source/anchors/proxy.pem -text | grep -E -A1 'Issuer|X509v3 Subject Key Identifier'
     ```
 
 ## Further reading
