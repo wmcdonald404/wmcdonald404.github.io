@@ -61,6 +61,7 @@ In your WSL2 instance:
     - The file placed into `/usr/local/share/ca-certificates/` **MUST** have a .crt extension.
     - `sudo` escalation for root user permission is _not required_ for the OpenSSL certificate encoding conversion, but is required in order to output the resultant file to the /usr/local/share/ca-certificates directory.
 
+
 2. Update the root Certificate Authorities
     ```shell
     will@ubuntu:~$ sudo update-ca-certificates
@@ -80,7 +81,9 @@ In your WSL2 instance:
 #### Fedora / Red Hat distros
 
 1. The Fedora WSL image does not include openssl OOTB. Either:
+
     1a. Manually pull openssl and any dependencies and install locally
+
     1b. Temporarily disable SSL verification to bootstrap SSL verification
 
     ```shell
