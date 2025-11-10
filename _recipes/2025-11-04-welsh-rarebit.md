@@ -32,4 +32,4 @@ When it's all of one consistency, remove from the heat, pour out into a shallow 
 Dealer's choice whether "Spread on toast 1cm thick" means the toast is 1cm or the spread. Maybe both? You don't want your toast:spread ratio 1:1 really, that's just overkill.
 
 ## References
-- [Thomasina Miers’ potato and leek soup recipe with 'nduja crumb](https://www.theguardian.com/food/2020/feb/17/thomasina-miers-potato-and-leek-soup-recipe-with-nduja-crumb?CMP=wordofmouth_email)
+- [Greatest Recipes Ever: Fergus Henderson’s Welsh rarebit](https://www.countrylife.co.uk/food-drink/greatest-recipes-ever-fergus-hendersons-welsh-rarebit-16500)
