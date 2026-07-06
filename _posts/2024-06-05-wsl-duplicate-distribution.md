@@ -86,7 +86,7 @@ In your WSL2 instance:
 #### Post-DNF5
 In your WSL2 instance:
 
-1. Now in-place upgrade the distribution from Fedora-38 -> Fedora-40
+1. Now in-place upgrade the distribution from Fedora-42 -> Fedora-44
     ```shell
     [wmcdonald@DESKTOP-9HGJE25 ~]$ sudo su -
     [root@DESKTOP-9HGJE25 ~]# dnf upgrade -y --refresh
