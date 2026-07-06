@@ -66,7 +66,9 @@ On your Windows system:
 
     TODO: Programmatically add the distribution as a new profile in the Windows Terminal.
 
-### WSL
+### WSL In-place Upgrade
+
+#### Pre-DNF5
 In your WSL2 instance:
 
 1. Now in-place upgrade the distribution from Fedora-38 -> Fedora-40
@@ -80,6 +82,21 @@ In your WSL2 instance:
     [root@DESKTOP-9HGJE25 ~]# dnf system-upgrade upgrade
     [root@DESKTOP-9HGJE25 ~]# dnf upgrade --refresh
     ```
+
+#### Post-DNF5
+In your WSL2 instance:
+
+1. Now in-place upgrade the distribution from Fedora-38 -> Fedora-40
+    ```shell
+    [wmcdonald@DESKTOP-9HGJE25 ~]$ sudo su -
+    [root@DESKTOP-9HGJE25 ~]# dnf upgrade -y --refresh
+    [root@DESKTOP-9HGJE25 ~]# dnf -y install dnf-plugin-system-upgrade
+    [root@DESKTOP-9HGJE25 ~]# dnf -y system-upgrade download --releasever=44
+    [root@DESKTOP-9HGJE25 ~]# dnf5 -y offline reboot
+    ```
+
+    Hit ENTER. Wait 5 minutes and hit ENTER again to restart.
+
 
 ## Further reading
 - [Duplicate a Linux distro under WSL2](https://fourco.nl/blogs/duplicate-a-linux-distro-under-wsl2/)
